@@ -1,0 +1,172 @@
+$elab-yellow: #FFCC03;
+$elab-blue: #0965D3;
+$elab-black: #060016;
+$primary-color: #333333;
+$elab-yellow-bg: rgba(255, 204, 3, 0.05);
+
+
+.btn:focus {
+    box-shadow: none;
+}
+input {
+  &:focus{
+    outline-width: 0;
+  }
+}
+.link {
+  background-color: $elab-yellow;
+  border-radius: 5px;
+  border: 3px solid $elab-yellow;
+  color:#333333;
+  &:hover {
+    background-color: transparent;
+    color: #333333;
+    // box-shadow: 0px 15px 50px 0px #3973de4d;
+  }
+}
+.link-two {
+  background-color: #fff;
+  border-radius: 5px;
+  border: 3px solid #fff;
+  color:$elab-blue;
+  &:hover {
+    background-color: transparent;
+    color: #fff;
+    // box-shadow: 0px 15px 50px 0px #3973de4d;
+  }
+}
+
+$md: 768px;
+$lg: 1024px;
+$xl: 1440px;
+$xxl: 1920px;
+
+@mixin rwd($propertyName, $defaultValue, $mediaQueries: ()) {
+  #{$propertyName}: #{$defaultValue} !important;
+
+  @each $breakpoint, $value in $mediaQueries {
+    @media (min-width: #{$breakpoint}) {
+      #{$propertyName}: #{$value} !important;
+    }
+  }
+}
+@mixin transition($x...) {
+  -webkit-transition: $x;
+  -moz-transition: $x;
+  -ms-transition: $x;
+  -o-transition: $x;
+  transition: $x;
+}
+
+h1 {
+  @include rwd(
+    font-size,
+    2.7rem,
+    (
+      $md: 3.2rem,
+      $lg: 3.6rem,
+      $xl: 4rem,
+      $xxl: 4.2rem,
+    )
+  );
+  font-weight: 700;
+  
+
+  &.hero-header-title {
+    color: #fff;
+    
+  }
+}
+
+h2 {
+  @include rwd(
+    font-size,
+    2.1rem,
+    (
+      $md: 2.3rem,
+      $lg: 2.6rem,
+      $xl: 3rem,
+      $xxl: 3.3rem,
+    )
+  );
+  font-weight: 800;
+  &.play-font {
+    font-family: "Great Vibes", cursive;
+  }
+}
+
+h4 {
+  @include rwd(
+    font-size,
+    1.7rem,
+    (
+      $md: 2.1rem,
+      $lg: 2.5rem,
+      $xl: 2.8rem,
+      $xxl: 3rem,
+    )
+  );
+  font-weight: 700;
+  // color: $secondary-color;
+  span.play-font {
+    font-family: "Great Vibes", cursive;
+  }
+  margin: auto;
+  
+}
+
+h6 {
+  @include rwd(
+    font-size,
+    1.1rem,
+    (
+      $md: 1.1rem,
+      $lg: 1.2rem,
+      $xl: 1.3rem,
+      $xxl: 1.4rem,
+    )
+  );
+  font-weight: 600;
+  // color: $secondary-color;
+}
+
+h5 {
+  @include rwd(
+    font-size,
+    1.2rem,
+    (
+      $md: 1.3rem,
+      $lg: 1.4rem,
+      $xl: 1.6rem,
+      $xxl: 1.8rem,
+    )
+  );
+  font-weight: 700;
+  // color: $secondary-color;
+}
+
+p {
+  @include rwd(
+    font-size,
+    1rem,
+    (
+      $md: 1rem,
+      $lg: 1rem,
+      $xl: 1rem,
+      $xxl: 1rem,
+    )
+  );  
+  @include rwd(
+    line-height,
+    23px,
+    (
+      $md: 25px,
+      $lg: 27px,
+      $xl: 29px,
+      $xxl: 30px,
+    )
+  );
+  font-weight: 400;
+  
+  
+}

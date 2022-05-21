@@ -1,0 +1,57 @@
+.vision {
+    background-color: $elab-yellow-bg;
+    &__card {      
+        background-color: transparent;
+        border: 0;
+        &--icon {
+            width: 6rem;
+            margin: auto;
+        }
+    }
+}
+.values{
+    background-color: $elab-black;
+    color: #fff;
+    &__header{
+        @include rwd(
+            width,
+            100%,
+            (
+              $md: 80%,
+              $lg: 70%,
+              $xl: 60%,
+              $xxl: 50%,
+            )
+          );
+          &--title{
+              color: $elab-yellow;
+              font-weight: 700;
+          }
+    }
+    &__card {
+        &--icon {
+            width: 4rem;
+        }
+    }
+}
+.team {
+    background-color: $elab-yellow;
+    color: $elab-black;
+    &__header{
+        @include rwd(
+            width,
+            100%,
+            (
+              $md: 80%,
+              $lg: 70%,
+              $xl: 60%,
+              $xxl: 50%,
+            )
+          );
+          &--title{
+              color: $elab-black;
+              font-weight: 700;
+          }
+    }
+}
+    

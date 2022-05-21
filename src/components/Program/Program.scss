@@ -1,0 +1,158 @@
+// BENEFITS STARTS
+.benefits {
+    background-color: $elab-yellow-bg;
+    color: $elab-black; 
+  
+    &__dialog {
+        @include rwd(
+            max-width,
+            95%,
+            (
+              $md: 80%,
+              $lg: 70%,
+              $xl: 65%,
+              $xxl: 60%,
+            )
+          );
+    }
+    &__form {
+        &--input {
+            border: 1px solid #828282;
+            border-radius: 5px;
+            @include rwd(
+                width,
+                95%,
+                (
+                  $md: 80%,
+                  $lg: 80%,
+                  $xl: 70%,
+                  $xxl: 70%,
+                )
+              );
+        }
+    }
+    &__all {
+        margin: auto;
+        @include rwd(
+            width,
+            95%,
+            (
+              $md: 90%,
+              $lg: 80%,
+              $xl: 80%,
+              $xxl: 80%,
+            )
+          );
+          &--title {
+              font-weight: 700;
+          }
+    }
+}
+// BENEFITS ENDS
+
+
+// TESTIMONIAL STARTS
+// .testimonial {
+//     &__card {
+//             // background-color: red;
+       
+//     }
+// }
+// TESTIMONIAL ENDS
+
+
+// STARTUP STARTS
+.startup {
+    &__card {
+      color: #333;
+        box-shadow: 0px 2px 12px rgba(51, 51, 51, 0.1);
+        border-radius: 5px;
+        @include rwd(
+            width,
+            95%,
+            (
+              $md: 90%,
+              $lg: 90%,
+              $xl: 90%,
+              $xxl: 90%,
+            )
+          );
+        &:hover {
+            box-shadow: 0px 15px 50px 0px #3974de26;
+            margin-top: -3px;
+        }
+    }
+}
+// .pagination {
+//     // margin: auto;
+//     // @include rwd(
+//     //     width,
+//     //     95%,
+//     //     (
+//     //       $md: 90%,
+//     //       $lg: 90%,
+//     //       $xl: 90%,
+//     //       $xxl: 90%,
+//     //     )
+//     //   );
+// }
+// STARTUP ENDS
+
+
+// DETAILS STARTS
+.details{
+  &__body {
+    @include rwd(
+            width,
+            95%,
+            (
+              $md: 80%,
+              $lg: 75%,
+              $xl: 75%,
+              $xxl: 70%,
+            )
+          );
+  }
+}
+// DETAILS ENDS
+
+// ALL PROJECTS STARTS
+.projects {
+  color: #fff;
+  &__button {
+    border-bottom: 3px solid #fff;
+    color: #828282;
+    border-radius: 0;
+  }
+  &__active {
+    border-bottom: 3px solid $elab-yellow;
+    border-radius: 0;
+
+
+  }
+  &__card {
+    &--content {
+      margin-top: 80%;
+      z-index: 9999;
+      bottom: 20px;
+      left: 20px
+    }
+    &::after {
+      // opacity: .7;
+      content: "";
+      // background-image: linear-gradient(270.14deg, #9c7d00 1.85%, #1d1d1d 72.79%);
+      background: linear-gradient(0deg, rgba(6, 0, 22, 0.75) 35.94%, rgba(255, 255, 255, 0) 104.17%);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-blend-mode: multiply;
+      border-radius: 5px;
+      z-index: 1;  
+  } 
+}
+}
+
+
+// ALL PROJECTS ENDS

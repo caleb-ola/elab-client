@@ -1,0 +1,347 @@
+.hero {
+    & .overlay {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 91.5vh;
+        background-color: rgba(6, 0, 22, 0.55);
+    }
+    &__button {
+       & .link {  
+            color:#333333;
+            &:hover {
+              color: #fff;
+            }
+          }
+    }
+    &__text {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        @include rwd(
+                width,
+                95%,
+                (
+                  $md: 90%,
+                  $lg: 80%,
+                  $xl: 70%,
+                  $xxl: 50%,
+                )
+              );
+          &__container {
+            @include rwd(
+                width,
+                95%,
+                (
+                  $md: 90%,
+                  $lg: 80%,
+                  $xl: 70%,
+                  $xxl: 70%,
+                )
+              );
+          
+          }
+    }
+    // & h1, & h1 p {
+    //  width: 100%;
+    // }
+    & p {
+        color: #fff;
+        @include rwd(
+            font-size,
+            1rem,
+            (
+              $md: 1rem,
+              $lg: 1rem,
+              $xl: 1.1rem,
+              $xxl: 1.2rem,
+            )
+          );
+          @include rwd(
+                width,
+                95%,
+                (
+                  $md: 85%,
+                  $lg: 75%,
+                  $xl: 60%,
+                  $xxl: 60%,
+                )
+              );
+          
+    }
+}
+
+// ******************* STORY ********************//
+ .story {
+     & p {
+         line-height: 28px;
+     }
+    & .image__stack {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        max-width: 100%;
+        position: relative;
+        &--top {
+            grid-column: 1/span 8;
+            grid-row: 1;
+            padding-top: 30%;
+            z-index: 3;
+           
+        }
+        &--middle {
+            grid-column: 6 /-2;
+            grid-row: 1;
+            padding-top: -20%;
+            z-index: 2;
+           
+        }
+        &--bottom {
+            grid-column: 6/-1;
+            grid-row: 1;
+            // padding-top: 120%;
+            z-index: 1;
+            @include rwd(
+                padding-top,
+                130%,
+                (
+                  $md: 130%,
+                  $lg: 120%,
+                  $xl: 90%,
+                  $xxl: 90%,
+                )
+              );
+          
+        }
+    }
+ }
+
+// ******************* MEASURE ********************//
+.measure {
+        @include rwd(
+            height,
+            980px,
+            (
+              $md: 100vh,
+              $lg: 100vh,
+              $xl: 100vh,
+              $xxl: 100vh,
+            )
+          );
+      
+    & h2 {
+        color: #fff;
+    }
+    &__header {
+        @include rwd(
+            width,
+            100%,
+            (
+              $md: 90%,
+              $lg: 70%,
+              $xl: 60%,
+              $xxl: 60%,
+            )
+          );
+      
+        &--title {
+            color: $elab-yellow;
+        }
+        &--text {
+            color: #fff;
+            line-height: 30px;
+        }
+    }
+    &__overlay {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(6, 0, 22, 0.65);
+        @include rwd(
+            height,
+            980px,
+            (
+              $md: 100vh,
+              $lg: 100vh,
+              $xl: 100vh,
+              $xxl: 100vh,
+            )
+          );
+    }
+    &__stats {
+      color: rgb(255, 255, 255);
+      &--stat {
+        font-weight: 300;
+      }
+    }
+}
+
+// PARTNERS STARTS
+.partner {
+  &__header {
+    @include rwd(
+      width,
+      100%,
+      (
+        $md: 80%,
+        $lg: 70%,
+        $xl: 60%,
+        $xxl: 50%,
+      )
+    );
+  }
+}
+// PARTNER ENDS 
+
+// MUSINGS STARTS
+.musings {
+   color: #fff;
+  &__card{ 
+    border-radius: 5px;
+    z-index: 1;
+    &::after {
+      // opacity: .7;
+      content: "";
+      background-image: linear-gradient(270.14deg, #9c7d00 1.85%, #1d1d1d 72.79%);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-blend-mode: multiply;
+      border-radius: 5px;
+      z-index: 1;
+      @supports (mix-blend-mode: color) {
+        opacity: 1;
+        mix-blend-mode: color;
+        mix-blend-mode: hard-light;
+        // mix-blend-mode: hue;
+    }
+    }
+    & > * {
+      z-index: 100;
+    }
+    &--header {
+      @include rwd(
+        width,
+        100%,
+        (
+          $md: 80%,
+          $lg: 70%,
+          $xl: 60%,
+          $xxl: 55%,
+        )
+      );
+    }
+    &--form {
+      @include rwd(
+        width,
+        100%,
+        (
+          $md: 80%,
+          $lg: 70%,
+          $xl: 60%,
+          $xxl: 55%,
+        )
+      );
+    }
+    &--input {
+      border-radius: 5px;
+      border: 0;
+      border: 3px solid #fff;
+    }
+    &--submit {
+      background-color: $elab-yellow;
+      border: 3px solid $elab-yellow;
+      font-weight: 600;
+      border-radius: 5px;
+      &:hover {
+        background-color: transparent ;
+        color: #fff;
+      }
+    }
+  }
+ 
+}
+// MUSINGS ENDS
+
+// EVENTS STARTS
+.events {
+  &__card {
+    box-shadow: 0px 4px 8px rgba(0, 24, 8, 0.15);
+  }
+  &__footer {
+    background-color: #fff;
+  }
+
+ &__body {
+  border-radius: 0px;
+    &--label {
+      background-color: $elab-yellow;
+      border-radius: 5px;
+      font-size: 0.8rem;
+    }
+    &--cta {
+      &:hover {
+        color: $elab-yellow;
+      }
+    }
+}
+}
+// EVENTS ENDS
+
+
+// TRAINING STARTS
+.training {
+  background-color: $elab-yellow-bg;
+  &__card {
+    background-color: #fff;
+    box-shadow: 0px 4px 8px rgba(0, 24, 8, 0.15);
+  } 
+}
+// TRAINING ENDS
+
+// FOOTER STARTS
+.footer {
+  background-color: $elab-black;
+  &__upper{
+    &--title{
+      color: #fff;
+    }
+    &--link{
+      text-decoration: none;
+      color: #E0E0E0;
+      opacity: 0.75;
+      &:hover {
+        color: #fff;
+        opacity: 1;
+
+      }
+    }  
+    &--text {
+      text-decoration: none;
+      color: #E0E0E0;
+      opacity: 0.75;
+    }
+  }
+  .footer--line {
+      color: #E0E0E0;
+      opacity: 0.75;
+  }
+  .footer__lower {
+    &--icon {
+      width: 10rem;
+    }
+  }
+  
+ 
+
+}
+
+// FOOTER ENDS
