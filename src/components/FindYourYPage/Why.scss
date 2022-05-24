@@ -1,0 +1,39 @@
+.why {
+    color: #fff;
+   
+}
+.whyvideo {
+    background-color: $elab-black;
+    color: #fff;
+    &__content{
+        @include rwd(
+            width,
+            95%,
+            (
+              $md: 90%,
+              $lg: 85%,
+              $xl: 80%,
+              $xxl: 80%,
+            )
+          );
+    }
+    &--text {
+        @include rwd(
+            width,
+            100%,
+            (
+              $md: 100%,
+              $lg: 90%,
+              $xl: 85%,
+              $xxl: 80%,
+            )
+          );
+    }
+    &__cta{
+        &--btn {
+            &:hover{
+                color: #fff !important;
+            }
+        }
+    }
+}

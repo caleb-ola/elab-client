@@ -15,6 +15,7 @@ function Community() {
         text="The Trybe by eLab community is a resourceful online community for tech-enthusiasts and entrepreneurs"
         button="Join Tyrbe"
         image="url('/images/about/hero1.png')"
+        overlay="overlay"
       />
       <Benefits />
       <Testimonial />

@@ -1,0 +1,25 @@
+.contact {
+    color: #4F4F4F;
+    &__form {
+        &--input {
+            border: 1px solid #828282;
+            border-radius: 5px;
+            @include rwd(
+                width,
+                95%,
+                (
+                  $md: 90%,
+                  $lg: 90%,
+                  $xl: 85%,
+                  $xxl: 85%,
+                )
+              );
+        }
+    }
+    &__details {
+        &--header {
+            color: $elab-black;
+        }
+    }
+
+}

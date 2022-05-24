@@ -16,6 +16,7 @@
           );
     }
     &__form {
+      color: $elab-black; 
         &--input {
             border: 1px solid #828282;
             border-radius: 5px;
@@ -78,7 +79,7 @@
             )
           );
         &:hover {
-            box-shadow: 0px 15px 50px 0px #3974de26;
+            box-shadow: 0px 15px 50px 0px #4d4d4d26;
             margin-top: -3px;
         }
     }

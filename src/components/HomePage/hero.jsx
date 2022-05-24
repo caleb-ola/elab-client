@@ -4,7 +4,7 @@ import Cta from '../ResuableComponents/Cta';
 import CircleBg from '../ResuableComponents/circleBg';
 
 function Hero({
-  image, title, button, text, circleTitle,
+  image, title, button, text, circleTitle, path,
 }) {
   return (
     <section
@@ -34,8 +34,7 @@ function Hero({
               </p>
               )}
               <div className="my-5 hero__button">
-                { button && <Cta text={button} />}
-
+                { button && <Cta text={button} path={path} />}
               </div>
             </div>
 
@@ -52,6 +51,7 @@ Hero.propTypes = {
   button: checkPropTypes.string,
   text: checkPropTypes.string,
   circleTitle: checkPropTypes.string,
+  path: checkPropTypes.string,
 };
 
 Hero.defaultProps = {
@@ -60,6 +60,7 @@ Hero.defaultProps = {
   button: '',
   text: '',
   circleTitle: '',
+  path: '',
 };
 
 export default Hero;

@@ -49,7 +49,7 @@ function Footer() {
             <a href="/" className="footer__upper--link px-2">Terms & Conditions</a>
           </div>
           <div className="col-md-6 col-lg-4 my-2 my-lg-0">
-            <div className="footer__buttons text-lg-end w-100">
+            <div className="custom-b text-lg-end w-100">
               <div className="footer__buttons--circle   my-md-2 w-100">
                 <ul className="p-0 w-100 ml-0  text-lg-end">
                   <span className="fa-stack fa-1x custom ms-3">

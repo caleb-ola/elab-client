@@ -5,7 +5,7 @@ function Partner() {
     <section className="partner py-5">
       <div className="container py-lg-5">
         <div className="partner__header text-center mx-auto">
-          <h4 className="partnet--title ">
+          <h4 className="partner--title ">
             <span
               style={{
                 backgroundImage: "url('/images/Vector.png')",

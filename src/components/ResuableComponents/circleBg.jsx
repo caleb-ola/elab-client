@@ -9,7 +9,7 @@ function CircleBg({ text }) {
         backgroundSize: 'contain',
         backgroundRepeat: 'no-repeat',
       }}
-      className="p-3 ps-5 pb-1 pt-3 pe-0"
+      className="p-3 ps-4 pb-5 pt-2 pe-2"
     >
       {text}
     </span>

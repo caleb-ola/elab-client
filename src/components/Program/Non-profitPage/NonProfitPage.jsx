@@ -15,7 +15,7 @@ function NonProfitPage() {
         title1="Non-Profit"
         text=" We seek to transform our community one project at a time."
         button="Donate"
-
+        overlay="overlay__two"
       />
       <AllNonProfit />
       <Volunteer />

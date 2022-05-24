@@ -1,0 +1,76 @@
+// CONSULTATION STARTS
+.services {
+    &__book {
+        background-color: $elab-yellow-bg;
+    }
+    &__card {
+      box-shadow: 0px 2px 12px rgba(51, 51, 51, 0.2);
+      border-radius: 5px;
+      &--text {
+        color: #4F4F4F; 
+        line-height: 1rem;
+      }
+    }
+}
+
+// CONSULTATION ENDS
+
+// BOOK A SESSION STARTS
+.booksession {
+    color: #828282;
+    &__form{
+        @include rwd(
+            width,
+            95%,
+            (
+              $md: 90%,
+              $lg: 85%,
+              $xl: 80%,
+              $xxl: 75%,
+            )
+          );
+          &--input {
+            border: 1px solid #828282;
+            border-radius: 5px;
+          }
+    }
+   
+}
+
+// BOOK A SESSION ENDS
+
+
+
+// ABOUT TRAINING STARTS
+.about-training {
+  background-color: $elab-yellow-bg;
+  &__header {
+    @include rwd(
+      width,
+      100%,
+      (
+        $md: 80%,
+        $lg: 75%,
+        $xl: 75%,
+        $xxl: 75%,
+      )
+    );
+  }
+  &__instructors {  
+      @include rwd(
+        width,
+        100%,
+        (
+          $md: 80%,
+          $lg: 70%,
+          $xl: 60%,
+          $xxl: 60%,
+        )
+      ); 
+  }
+  &__card {
+    background-color: transparent;
+  }
+}
+
+// ABOUT TRAINING ENDS

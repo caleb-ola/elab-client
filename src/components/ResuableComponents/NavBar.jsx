@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 function NavBar() {
   const [hamburger, setHamburger] = useState(false);
@@ -39,39 +39,38 @@ function NavBar() {
                 About Us
               </NavLink>
             </li>
-
             <li className="nav-item dropdown nav__drop py-0 mx-3">
-              <a href="/" className="nav-link  links px-0 py-1 my-1 my-lg-0 py-lg-4" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+              <a href="/" className="nav-link links px-0 py-1 my-1 my-lg-0 py-lg-4" id="navbarDropdown2" data-bs-toggle="dropdown2" aria-expanded="false">
                 Program
               </a>
-              <ul className="dropdown-menu navi__dropdown" aria-labelledby="navbarDropdown">
+              <ul className="dropdown-menu navi__dropdown" aria-labelledby="navbarDropdown2">
                 <div className="row p-3 ">
                   <div className="col-md-6">
-                    <a href="/program/community" className="p-2 p-lg-3 btn text-start  navi__dropdown--option my-2 text-decoration-none w-100" role="button">
+                    <a href="/program/community" className="p-2 px-3 btn text-start  navi__dropdown--option my-2 text-decoration-none w-100" role="button">
                       <p className="fw-bold m-0 navi__dropdown--subhead">community</p>
                       <p className="navi__dropdown--subtext m-0">A short description stays here</p>
                     </a>
                   </div>
                   <div className="col-md-6">
-                    <a href="/program/projects" className=" p-2 p-lg-3 btn text-start navi__dropdown--option my-2 text-decoration-none w-100" role="button">
+                    <a href="/program/projects" className=" p-2 px-3 btn text-start navi__dropdown--option my-2 text-decoration-none w-100" role="button">
                       <p className="fw-bold m-0 navi__dropdown--subhead">Projects</p>
                       <p className="navi__dropdown--subtext m-0">A short description stays here</p>
                     </a>
                   </div>
                   <div className="col-md-6">
-                    <a href="/" className=" p-2 p-lg-3 btn text-start navi__dropdown--option my-2 text-decoration-none w-100" role="button">
+                    <a href="/" className=" p-2 px-3 btn text-start navi__dropdown--option my-2 text-decoration-none w-100" role="button">
                       <p className="fw-bold m-0 navi__dropdown--subhead">Innovation  Hub</p>
                       <p className="navi__dropdown--subtext m-0">A short description stays here</p>
                     </a>
                   </div>
                   <div className="col-md-6">
-                    <a href="/program/non-profit" className=" p-2 p-lg-3 btn text-start navi__dropdown--option my-2 text-decoration-none w-100" role="button">
+                    <a href="/program/non-profit" className=" p-2 px-3 btn text-start navi__dropdown--option my-2 text-decoration-none w-100" role="button">
                       <p className="fw-bold m-0 navi__dropdown--subhead">Non-profits</p>
                       <p className="navi__dropdown--subtext m-0">A short description stays here</p>
                     </a>
                   </div>
                   <div className="col-md-6">
-                    <a href="/program/foundry" className=" p-2 p-lg-3 btn text-start navi__dropdown--option my-2 text-decoration-none w-100" role="button">
+                    <a href="/program/foundry" className=" p-2 px-3 btn text-start navi__dropdown--option my-2 text-decoration-none w-100" role="button">
                       <p className="fw-bold m-0 navi__dropdown--subhead">Startup Foundry</p>
                       <p className="navi__dropdown--subtext m-0">A short description stays here</p>
                     </a>
@@ -79,18 +78,69 @@ function NavBar() {
                   </div>
                 </div>
                 <div className="row" />
-
               </ul>
             </li>
-            <li className="nav-item py-0 mx-3">
-              <NavLink to="/courses" className="nav-link links  px-0 py-1 my-1 my-lg-0 py-lg-4 ">
+            <li className="nav-item dropdown nav__drop py-0 mx-3">
+              <a href="/" className="nav-link  links px-0 py-1 my-1 my-lg-0 py-lg-4" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                 Services
-              </NavLink>
+              </a>
+              <ul className="dropdown-menu navi__dropdown" aria-labelledby="navbarDropdown">
+                <div className="row p-3 ">
+                  <div className="col-md-6">
+                    <a href="/services/digital-services" className="p-2 px-3 btn text-start  navi__dropdown--option my-2 text-decoration-none w-100" role="button">
+                      <p className="fw-bold m-0 navi__dropdown--subhead">Digital Services</p>
+                      <p className="navi__dropdown--subtext m-0">A short description stays here</p>
+                    </a>
+                  </div>
+                  <div className="col-md-6">
+                    <a href="/services/training" className=" p-2 px-3 btn text-start navi__dropdown--option my-2 text-decoration-none w-100" role="button">
+                      <p className="fw-bold m-0 navi__dropdown--subhead">Training</p>
+                      <p className="navi__dropdown--subtext m-0">A short description stays here</p>
+                    </a>
+                  </div>
+                  <div className="col-md-6">
+                    <a href="/services/consultation" className=" p-2 px-3 btn text-start navi__dropdown--option my-2 text-decoration-none w-100" role="button">
+                      <p className="fw-bold m-0 navi__dropdown--subhead">Consulting</p>
+                      <p className="navi__dropdown--subtext m-0">A short description stays here</p>
+                    </a>
+                  </div>
+                </div>
+                <div className="row" />
+              </ul>
             </li>
-            <li className="nav-item py-0 mx-3">
-              <NavLink to="/courses" className="nav-link links  px-0 py-1 my-1 my-lg-0 py-lg-4 ">
+            <li className="nav-item dropdown nav__drop py-0 mx-3">
+              <a href="/" className="nav-link links px-0 py-1 my-1 my-lg-0 py-lg-4" id="navbarDropdown2" data-bs-toggle="dropdown2" aria-expanded="false">
                 Resources
-              </NavLink>
+              </a>
+              <ul className="dropdown-menu navi__dropdown" aria-labelledby="navbarDropdown2">
+                <div className="row p-3 ">
+                  <div className="col-md-6">
+                    <a href="/resources/blog" className="p-2 px-3 btn text-start  navi__dropdown--option my-2 text-decoration-none w-100" role="button">
+                      <p className="fw-bold m-0 navi__dropdown--subhead">Blog</p>
+                      <p className="navi__dropdown--subtext m-0">A short description stays here</p>
+                    </a>
+                  </div>
+                  <div className="col-md-6">
+                    <a href="/resources/playbook" className=" p-2 px-3 btn text-start navi__dropdown--option my-2 text-decoration-none w-100" role="button">
+                      <p className="fw-bold m-0 navi__dropdown--subhead">Playbook</p>
+                      <p className="navi__dropdown--subtext m-0">A short description stays here</p>
+                    </a>
+                  </div>
+                  <div className="col-md-6">
+                    <a href="/resources/whitepaper" className=" p-2 px-3 btn text-start navi__dropdown--option my-2 text-decoration-none w-100" role="button">
+                      <p className="fw-bold m-0 navi__dropdown--subhead">Whitepaper</p>
+                      <p className="navi__dropdown--subtext m-0">A short description stays here</p>
+                    </a>
+                  </div>
+                  <div className="col-md-6">
+                    <a href="/resources/faq" className=" p-2 px-3 btn text-start navi__dropdown--option my-2 text-decoration-none w-100" role="button">
+                      <p className="fw-bold m-0 navi__dropdown--subhead">FAQ</p>
+                      <p className="navi__dropdown--subtext m-0">A short description stays here</p>
+                    </a>
+                  </div>
+                </div>
+                <div className="row" />
+              </ul>
             </li>
             <li className="nav-item py-0 mx-3">
               <NavLink className="nav-link   links  px-0 py-2 py-lg-4 " to="/contact">
@@ -98,7 +148,7 @@ function NavBar() {
               </NavLink>
             </li>
             <li className="nav-item px-md-4 me-2 me-lg-0 my-2 my-lg-0 navi--button">
-              <button type="button" className="link btn w-100"> Find your Y</button>
+              <Link to="/find-your-y" type="button" className="link btn w-100"> Find your Y</Link>
             </li>
           </ul>
         </div>
