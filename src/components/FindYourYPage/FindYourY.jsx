@@ -9,7 +9,7 @@ function FindYourY() {
     <div>
       <NavBar />
       <Hero
-        image="url('/images/home/hero.png')"
+        image="url('/images/why/whyhero.png')"
         title="Find your Joy"
         text="Digital resources for entrepreneurs and business owners changing the status quo"
       />

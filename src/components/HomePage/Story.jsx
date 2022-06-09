@@ -16,7 +16,7 @@ function Story() {
       >
         <div className="container py-lg-5">
           <div className="row align-items-center">
-            <div className="col-md-6 ">
+            <div className="col-md-6 order-2 order-md-1 ">
               {/* <div className=""> */}
               <h4 className="py-2">Our Story</h4>
               <p className="fw-bold">Building resilient innovation ecosystems in underserved university communities.</p>
@@ -36,7 +36,7 @@ function Story() {
               {/* </div> */}
 
             </div>
-            <div className="col-md-6">
+            <div className="col-md-6 order-1 order-md-2">
               <div className="image__stack">
                 <div className="image__stack--item image__stack--top ">
                   <img src="/images/home/story3.png" alt="" className="img-fluid" />

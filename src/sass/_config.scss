@@ -35,7 +35,15 @@ input,textarea {
     // box-shadow: 0px 15px 50px 0px #3973de4d;
   }
 }
-
+.carousel-slide{
+  height: 100vh !important;
+}
+.slick-dots li {
+  width: auto !important;
+}
+.slick-slider {
+  margin-bottom: -10px;
+}
 $md: 768px;
 $lg: 1024px;
 $xl: 1440px;

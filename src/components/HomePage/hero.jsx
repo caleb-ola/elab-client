@@ -12,7 +12,7 @@ function Hero({
       id="hero"
       style={{
         backgroundImage: image,
-        height: '91.4vh',
+        height: '100vh',
         backgroundSize: 'cover',
       }}
     >

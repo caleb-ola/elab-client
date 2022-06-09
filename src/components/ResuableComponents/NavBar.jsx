@@ -8,7 +8,7 @@ function NavBar() {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light py-0 pb-3 pt-2 pt-lg-0 pb-lg-0 py-xl-0  navi">
+    <nav className="navbar navbar-expand-lg navbar-light py-0 pb-3 pt-2 pt-lg-0 pb-lg-0 py-xl-0 fixed-top  navi">
       <div className="container align-items-center">
         <a className="navbar-brand " href="/">
           <img src="/images/logo.png" alt="" className="img-fluid my-2" />
@@ -40,36 +40,36 @@ function NavBar() {
               </NavLink>
             </li>
             <li className="nav-item dropdown nav__drop py-0 mx-3">
-              <a href="/" className="nav-link links px-0 py-1 my-1 my-lg-0 py-lg-4" id="navbarDropdown2" data-bs-toggle="dropdown2" aria-expanded="false">
+              <button type="button" className={window.location.pathname.includes('/program') ? 'nav-link  links px-0 py-1 my-1 my-lg-0 py-lg-4 active' : 'nav-link  links px-0 py-1 my-1 my-lg-0 py-lg-4'} id="navbarDropdown2" data-bs-toggle="dropdown2" aria-expanded="false">
                 Program
-              </a>
+              </button>
               <ul className="dropdown-menu navi__dropdown" aria-labelledby="navbarDropdown2">
                 <div className="row p-3 ">
-                  <div className="col-md-6">
+                  <div className="col-lg-6">
                     <a href="/program/community" className="p-2 px-3 btn text-start  navi__dropdown--option my-2 text-decoration-none w-100" role="button">
                       <p className="fw-bold m-0 navi__dropdown--subhead">community</p>
                       <p className="navi__dropdown--subtext m-0">A short description stays here</p>
                     </a>
                   </div>
-                  <div className="col-md-6">
+                  <div className="col-lg-6">
                     <a href="/program/projects" className=" p-2 px-3 btn text-start navi__dropdown--option my-2 text-decoration-none w-100" role="button">
                       <p className="fw-bold m-0 navi__dropdown--subhead">Projects</p>
                       <p className="navi__dropdown--subtext m-0">A short description stays here</p>
                     </a>
                   </div>
                   <div className="col-md-6">
-                    <a href="/" className=" p-2 px-3 btn text-start navi__dropdown--option my-2 text-decoration-none w-100" role="button">
+                    <a href="/program/innovation-hub" className=" p-2 px-3 btn text-start navi__dropdown--option my-2 text-decoration-none w-100" role="button">
                       <p className="fw-bold m-0 navi__dropdown--subhead">Innovation  Hub</p>
                       <p className="navi__dropdown--subtext m-0">A short description stays here</p>
                     </a>
                   </div>
-                  <div className="col-md-6">
+                  <div className="col-lg-6">
                     <a href="/program/non-profit" className=" p-2 px-3 btn text-start navi__dropdown--option my-2 text-decoration-none w-100" role="button">
                       <p className="fw-bold m-0 navi__dropdown--subhead">Non-profits</p>
                       <p className="navi__dropdown--subtext m-0">A short description stays here</p>
                     </a>
                   </div>
-                  <div className="col-md-6">
+                  <div className="col-lg-6">
                     <a href="/program/foundry" className=" p-2 px-3 btn text-start navi__dropdown--option my-2 text-decoration-none w-100" role="button">
                       <p className="fw-bold m-0 navi__dropdown--subhead">Startup Foundry</p>
                       <p className="navi__dropdown--subtext m-0">A short description stays here</p>
@@ -81,9 +81,9 @@ function NavBar() {
               </ul>
             </li>
             <li className="nav-item dropdown nav__drop py-0 mx-3">
-              <a href="/" className="nav-link  links px-0 py-1 my-1 my-lg-0 py-lg-4" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+              <button type="button" className={window.location.pathname.includes('/services') ? 'nav-link  links px-0 py-1 my-1 my-lg-0 py-lg-4 active' : 'nav-link  links px-0 py-1 my-1 my-lg-0 py-lg-4'} id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                 Services
-              </a>
+              </button>
               <ul className="dropdown-menu navi__dropdown" aria-labelledby="navbarDropdown">
                 <div className="row p-3 ">
                   <div className="col-md-6">
@@ -109,9 +109,9 @@ function NavBar() {
               </ul>
             </li>
             <li className="nav-item dropdown nav__drop py-0 mx-3">
-              <a href="/" className="nav-link links px-0 py-1 my-1 my-lg-0 py-lg-4" id="navbarDropdown2" data-bs-toggle="dropdown2" aria-expanded="false">
+              <button type="button" href="/" className={window.location.pathname.includes('/resources') ? 'nav-link  links px-0 py-1 my-1 my-lg-0 py-lg-4 active' : 'nav-link  links px-0 py-1 my-1 my-lg-0 py-lg-4'} id="navbarDropdown2" data-bs-toggle="dropdown2" aria-expanded="false">
                 Resources
-              </a>
+              </button>
               <ul className="dropdown-menu navi__dropdown" aria-labelledby="navbarDropdown2">
                 <div className="row p-3 ">
                   <div className="col-md-6">

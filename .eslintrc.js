@@ -29,5 +29,6 @@ module.exports = {
         some: ['nesting', 'id'],
       },
     }],
+    'no-restricted-globals': ['error', 'event', 'fdescribe'],
   },
 };

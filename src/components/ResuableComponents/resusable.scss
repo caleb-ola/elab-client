@@ -13,19 +13,19 @@
   background: $elab-black;
   color: transparent;
 }
-// .custom-c .fa-circle:before {
-//   border-radius: 50%;
-//   // border: 2px solid transparent;
-//   background: transparent;
-//   color: transparent;
-//   cursor: pointer;
-// }
+.custom-c .fa-circle:before {
+  border-radius: 50%;
+  // border: 2px solid transparent;
+  background: #FFCC0526;
+  color: transparent;
+  cursor: pointer;
+}
 // .custom.fa-stack:hover .fa-circle:before {
 //   background: $elab-black !important;
 // }
-// .custom-c.fa-stack:hover .fa-circle:before {
-//   background: $elab-black !important;
-// }
+.custom-c.fa-stack:hover .fa-circle:before {
+  background: $elab-yellow!important;
+}
 // .custom-c .fa-pen-to-square,
 // .custom-c .fa-trash {
 //   color: red;
@@ -33,6 +33,7 @@
 //     color: #fff;
 //   }
 // }
+
 
 .custom .fa-twitter {
   color: $elab-black !important;
@@ -52,8 +53,14 @@
 
 
 
-.custom-b .fa-play {
-  color: $elab-black !important;
+
+.custom-c  {
+  &--icon {
+    color: $elab-yellow !important;
+    &:hover {
+      color: $elab-black !important;
+    }
+  }
 }
 .fa-stack:hover .fa-circle:before {
   background: $elab-yellow !important;
@@ -62,6 +69,11 @@
 .custom.fa-stack:hover .fa-circle:before {
   background: transparent !important;
   color: transparent !important;
+  border: 2px solid $elab-yellow;
+}
+.custom-b .fa-stack:hover .fa-circle:before {
+  background: $elab-yellow !important;
+  color: $elab-yellow !important;
   border: 2px solid $elab-yellow;
 }
 .custom-b .fa-twitter {
@@ -102,7 +114,7 @@
         top: 0;
         left: 0;
         width: 100%;
-        height: 91.5vh;
+        height: 100vh;
         background-color: rgba(6, 0, 22, 0.55);
     }
     & .overlay__two {
@@ -111,9 +123,13 @@
       top: 0;
       left: 0;
       width: 100%;
-      height: 91.5vh;
-      background: linear-gradient(270.14deg, #ffffff00 9.24%, #222222 98.88%);
-      background-blend-mode: multiply; }
+      height: 100vh;
+      // background: linear-gradient(270.14deg, #ffffff00 22.67%, #333333b6 72.79%);
+      // background-blend-mode: multiply;
+      border-radius: 5px;
+      background: linear-gradient(270.14deg, #ffffff00 0.24%, #0c0c0cf1 90.88%);
+      background-blend-mode: multiply; 
+    }
     &__button {
        & .link {     
             color:#333333;
@@ -137,7 +153,7 @@
     &__text {
         margin: 0;
         position: absolute;
-        top: 50%;
+        top: 55%;
         // left: 50%;
         -ms-transform: translate(0%, -50%);
         transform: translate(0%, -50%);
@@ -196,7 +212,6 @@
 // HERO-TWO ENDS
 
 
-
 // PARTNERSHIP STARTS
 .partnership {
   &__left {
@@ -239,18 +254,43 @@
     box-shadow: 0px 15px 50px 0px #4d4d4d26;
     margin-top: -3px;
     color: $elab-black;
+  }
   &__link {
     color: $elab-black;
     box-shadow: 0px 2px 12px rgba(51, 51, 51, 0.1);
     border-radius: 5px;
   }
-  }
   box-shadow: 0px 2px 12px rgba(51, 51, 51, 0.2);
   border-radius: 5px;
 }
-
 // PADDED CARD ENDS
 
 
+// DASHBOARD STARTS
+.dashnav {
+  width: 95%;
+  margin: auto;
+  background-color: #fff;
+  position: relative;
+  &__navi {
+    background-color: #fff;
+    width: 100%;
+    margin:auto;
+  }
+  &__container {
+    width: 95%;
+    margin:auto;
+  }
+  &__logout {
+    &:hover {
+      color: $elab-yellow;
+      cursor: pointer;
+    }
+    &--icon {
+      color: $elab-yellow;
+    }
+  }
+}
+// DASHBOARD ENDS
 
 

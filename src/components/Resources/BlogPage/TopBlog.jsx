@@ -3,7 +3,7 @@ import React from 'react';
 function TopBlog() {
   return (
     <div className="container py-5 my-lg-5">
-      <div className="topblog p-3 p-md-5">
+      <div className="topblog p-3 p-md-5 mt-5">
         <div className="row align-items-center">
           <div className="col-md-5 col-lg-5 px-lg-3 ">
             <img src="/images/Resources/blog-header.png" alt="" className="img-fluid" />

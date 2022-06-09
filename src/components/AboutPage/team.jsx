@@ -1,4 +1,10 @@
 import React from 'react';
+// REACT SLICK CSS
+import Slider from 'react-slick';
+
+// REACT SLCIK CSS
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 function Team() {
   return (
@@ -15,10 +21,57 @@ function Team() {
         </div>
 
       </div>
-      <div className="team__members">
-        <img src="/images/about/team.png" alt="" className="img-fluid w-100" />
-      </div>
+      <Slider
+        {...{
+          arrows: false,
+          dots: true,
+          infinite: true,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          autoplay: true,
+          speed: 4000,
+          autoplaySpeed: 3000,
+          cssEase: 'linear',
+          responsive: [
+
+            {
+              breakpoint: 1440,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                //   infinite: true,
+              },
+            },
+            {
+              breakpoint: 600,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                // initialSlide: 2,
+              },
+            },
+            {
+              breakpoint: 480,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+              },
+            },
+          ],
+        }}
+      >
+        <span className="m-0 ">
+          <img src="/images/about/abouta.png" alt="" className="img-fluid w-100" />
+        </span>
+        <span className="m-0">
+          <img src="/images/about/aboutb.png" alt="" className="img-fluid w-100" />
+        </span>
+        <span className="m-0">
+          <img src="/images/about/aboutc.png" alt="" className="img-fluid w-100" />
+        </span>
+      </Slider>
     </div>
+
   );
 }
 

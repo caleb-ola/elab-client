@@ -45,8 +45,8 @@ function Footer() {
             <img src="/images/logo-white.png" alt="" className="img-fluid footer__lower--icon" />
           </div>
           <div className="col-md-6 col-lg-4 my-2 my-lg-0">
-            <a href="/" className="footer__upper--link px-2">Privacy Policy</a>
-            <a href="/" className="footer__upper--link px-2">Terms & Conditions</a>
+            <span className="footer__upper--link px-2">Privacy Policy</span>
+            <span className="footer__upper--link px-2">Terms & Conditions</span>
           </div>
           <div className="col-md-6 col-lg-4 my-2 my-lg-0">
             <div className="custom-b text-lg-end w-100">

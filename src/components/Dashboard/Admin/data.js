@@ -1,0 +1,305 @@
+const Data = [
+  [
+    {
+      id: 1,
+      figure: '4000+',
+      impact: 'Team Member',
+      CreatedAt: '20 March, 2022',
+    }, {
+      id: 2,
+      figure: '2000+',
+      impact: 'Team Leads',
+      CreatedAt: '20 March, 2022',
+    }, {
+      id: 3,
+      figure: '700+',
+      impact: 'Interns',
+      CreatedAt: '20 March, 2022',
+    },
+  ],
+  [
+    {
+      id: 1,
+      image: '/images/home/logo.png',
+      name: 'Branches Worldwide International',
+      CreatedAt: '20 March, 2022',
+    }, {
+      id: 2,
+      image: '/images/home/logo2.png',
+      name: 'Branches Worldwide International',
+      CreatedAt: '20 March, 2022',
+    }, {
+      id: 3,
+      image: '/images/home/logo.png',
+      name: 'Branches Worldwide International',
+      CreatedAt: '20 March, 2022',
+    }, {
+      id: 4,
+      image: '/images/home/logo2.png',
+      name: 'Branches Worldwide International',
+      CreatedAt: '20 March, 2022',
+    },
+  ],
+  [
+    {
+      id: 1,
+      image: '/images/dashboard/event.png',
+      title: 'Branches Worldwide International',
+      type: 'Meet Up',
+      CreatedAt: '20 March, 2022',
+    }, {
+      id: 2,
+      image: '/images/dashboard/event.png',
+      title: 'Branches Worldwide International',
+      type: 'Meet Up',
+      CreatedAt: '20 March, 2022',
+    }, {
+      id: 3,
+      image: '/images/dashboard/event.png',
+      title: 'Branches Worldwide International',
+      type: 'Meet Up',
+      CreatedAt: '20 March, 2022',
+    }, {
+      id: 4,
+      image: '/images/dashboard/event.png',
+      title: 'Branches Worldwide International',
+      type: 'Meet Up',
+      CreatedAt: '20 March, 2022',
+    },
+    {
+      id: 5,
+      image: '/images/dashboard/event.png',
+      title: 'Branches Worldwide International',
+      type: 'Meet Up',
+      CreatedAt: '20 March, 2022',
+    },
+  ],
+  [
+    {
+      id: 1,
+      image: '/images/home/logo5.png',
+      url: 'http://slack.com/media-kit',
+      CreatedAt: '20 March, 2022',
+    }, {
+      id: 2,
+      image: '/images/home/logo5.png',
+      url: 'http://slack.com/media-kit',
+      CreatedAt: '20 March, 2022',
+    }, {
+      id: 3,
+      image: '/images/home/logo5.png',
+      url: 'http://slack.com/media-kit',
+      CreatedAt: '20 March, 2022',
+    }, {
+      id: 4,
+      image: '/images/home/logo5.png',
+      url: 'http://slack.com/media-kit',
+      CreatedAt: '20 March, 2022',
+    },
+  ],
+  [
+    {
+      id: 1,
+      name: 'Ikeoluwa Juliana',
+      email: 'ike.oluwa@gmail.com',
+      number: '+2348 798 6878',
+      CreatedAt: '20 March, 2022',
+    }, {
+      id: 2,
+      name: 'Ololade Micheal',
+      email: 'ololade@gmail.com',
+      number: '+2348 798 6878',
+      CreatedAt: '20 March, 2022',
+    }, {
+      id: 3,
+      name: 'Isreal Akinwande',
+      email: 'isreal@gmail.com',
+      number: '+2348 798 6878',
+      CreatedAt: '20 March, 2022',
+    }, {
+      id: 4,
+      name: 'Bolaji Balogun',
+      email: 'bola.jilogun@gmail.com',
+      number: '+2348 798 6878',
+      CreatedAt: '20 March, 2022',
+    },
+    {
+      id: 5,
+      name: 'Ololade Micheal',
+      email: 'ololade@gmail.com',
+      number: '+2348 798 6878',
+      CreatedAt: '20 March, 2022',
+    }, {
+      id: 6,
+      name: 'Isreal Akinwande',
+      email: 'isreal@gmail.com',
+      number: '+2348 798 6878',
+      CreatedAt: '20 March, 2022',
+    },
+    {
+      id: 7,
+      name: 'Ikeoluwa Juliana',
+      email: 'ike.oluwa@gmail.com',
+      number: '+2348 798 6878',
+      CreatedAt: '20 March, 2022',
+    }, {
+      id: 8,
+      name: 'Ololade Micheal',
+      email: 'ololade@gmail.com',
+      number: '+2348 798 6878',
+      CreatedAt: '20 March, 2022',
+    },
+  ],
+  [
+    {
+      id: 1,
+      name: 'Ikeoluwa Juliana',
+      email: 'ike.oluwa@gmail.com',
+      status: 'active',
+      CreatedAt: '20 March, 2022',
+    }, {
+      id: 2,
+      name: 'Ololade Micheal',
+      email: 'ololade@gmail.com',
+      status: 'active',
+      CreatedAt: '20 March, 2022',
+    }, {
+      id: 3,
+      name: 'Isreal Akinwande',
+      email: 'isreal@gmail.com',
+      status: 'expired',
+      CreatedAt: '20 March, 2022',
+    }, {
+      id: 4,
+      name: 'Bolaji Balogun',
+      email: 'bola.jilogun@gmail.com',
+      status: 'active',
+      CreatedAt: '20 March, 2022',
+    },
+    {
+      id: 5,
+      name: 'Ololade Micheal',
+      email: 'ololade@gmail.com',
+      status: 'expired',
+      CreatedAt: '20 March, 2022',
+    }, {
+      id: 6,
+      name: 'Isreal Akinwande',
+      email: 'isreal@gmail.com',
+      status: 'expired',
+      CreatedAt: '20 March, 2022',
+    },
+    {
+      id: 7,
+      name: 'Ikeoluwa Juliana',
+      email: 'ike.oluwa@gmail.com',
+      status: 'active',
+      CreatedAt: '20 March, 2022',
+    }, {
+      id: 8,
+      name: 'Ololade Micheal',
+      email: 'ololade@gmail.com',
+      status: 'active',
+      CreatedAt: '20 March, 2022',
+    },
+  ],
+  [
+    {
+      id: 1,
+      title: 'Resource title stays here and take the whole...',
+      category: 'Future',
+      CreatedAt: '20 March, 2022',
+    }, {
+      id: 2,
+      title: 'Resource title stays here and take the whole...',
+      category: 'Past',
+      CreatedAt: '20 March, 2022',
+    }, {
+      id: 3,
+      title: 'Resource title stays here and take the whole...',
+      category: 'Present',
+      CreatedAt: '20 March, 2022',
+    }, {
+      id: 4,
+      title: 'Resource title stays here and take the whole...',
+      category: 'Future',
+      CreatedAt: '20 March, 2022',
+    },
+    {
+      id: 5,
+      title: 'Resource title stays here and take the whole...',
+      category: 'Present',
+      CreatedAt: '20 March, 2022',
+    },
+  ],
+  [
+    {
+      id: 1,
+      title: 'Resource title stays here and take the whole...',
+      category: 'Paid',
+      type: 'playbook',
+      CreatedAt: '20 March, 2022',
+    }, {
+      id: 2,
+      title: 'Resource title stays here and take the whole...',
+      category: 'Paid',
+      type: 'playbook',
+      CreatedAt: '20 March, 2022',
+    }, {
+      id: 3,
+      title: 'Resource title stays here and take the whole...',
+      category: 'Free',
+      type: 'playbook',
+      CreatedAt: '20 March, 2022',
+    }, {
+      id: 4,
+      title: 'Resource title stays here and take the whole...',
+      category: 'Paid',
+      type: 'playbook',
+      CreatedAt: '20 March, 2022',
+    },
+    {
+      id: 5,
+      title: 'Resource title stays here and take the whole...',
+      category: 'Free',
+      type: 'playbook',
+      CreatedAt: '20 March, 2022',
+    },
+  ],
+  [
+    {
+      id: 1,
+      title: 'Resource title stays here and take the whole...',
+      status: 'published',
+      category: 'Innovation',
+      CreatedAt: '20 March, 2022',
+    }, {
+      id: 2,
+      title: 'Resource title stays here and take the whole...',
+      status: 'saved',
+      category: 'Innovation',
+      CreatedAt: '20 March, 2022',
+    }, {
+      id: 3,
+      title: 'Resource title stays here and take the whole...',
+      status: 'published',
+      category: 'Innovation',
+      CreatedAt: '20 March, 2022',
+    }, {
+      id: 4,
+      title: 'Resource title stays here and take the whole...',
+      status: 'saved',
+      category: 'Innovation',
+      CreatedAt: '20 March, 2022',
+    },
+    {
+      id: 5,
+      title: 'Resource title stays here and take the whole...',
+      status: 'published',
+      category: 'Innovation',
+      CreatedAt: '20 March, 2022',
+    },
+  ],
+];
+
+export default Data;

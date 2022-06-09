@@ -12,7 +12,6 @@ function Events() {
             community achieve their dreams.
           </p>
         </div>
-
         <div className="row py-4 g-4">
           <div className="col-md-6 col-lg-4 my-2 p-lg-4">
             <EventCard image="/images/home/event1.png" label="Fireside chat" title="Header text for program title and it can be this long" />

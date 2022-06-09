@@ -7,10 +7,11 @@ function AllTraining() {
       <div className="container py-lg-5">
         <div className="partner__header text-center mx-auto pb-4">
           <h4 className="partner--title ">
-            Services Provided
+            Available Trainings
           </h4>
           <p className="pt-3">
-            We are ready to serve you. Take a deep dive now
+            Our trainings are the best. We host trainings,
+            webinars, and conferences that you’ll actually want to stick around for.
           </p>
         </div>
         <div className="row">

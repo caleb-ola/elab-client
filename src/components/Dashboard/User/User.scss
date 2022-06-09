@@ -1,0 +1,15 @@
+.userhero {
+    background-color: $elab-yellow;
+    &--btn {
+        // background-color: #fff;
+        color: #4F4F4F;
+        border-radius: 10px 10px 0 0;
+        border: 0px solid #fff;
+        &:hover {
+            background-color: #fff;
+        }
+        &.active {
+            background-color: #fff;
+        }
+    }
+}

@@ -12,7 +12,7 @@ function HeroTwo({
       id="heroTwo"
       style={{
         backgroundImage: image,
-        height: '91.4vh',
+        height: '100vh',
         backgroundSize: 'cover',
       }}
     >
@@ -39,11 +39,10 @@ function HeroTwo({
                   </label>
                   <input type="email" className="email p-3 my-2 benefits__form--input " id="email" />
                 </div>
-
                 <div className="py-3 py-lg-5 px-0">
                   <button type="button" className=" link btn fw-bold py-3 px-5 me-0" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     Register
-                    {' '}
+
                   </button>
                 </div>
 
@@ -61,19 +60,15 @@ function HeroTwo({
             <div className="heroTwo__container w-100 text-start">
               <h6>{price}</h6>
               <h1 className="mt-2 mb-0 heroTwo--title">
-                {' '}
-                {circleTitle && <CircleBg text={circleTitle} />}
-                {' '}
                 {title}
+                {/* {circleTitle && <CircleBg text={circleTitle} />} */}
               </h1>
-              <h1 className="mb-2 mt-0 heroTwo-header-title">
-                {' '}
+              <h1 className="mb-2 my-1 heroTwo-header-title">
                 {circleTitle && <CircleBg text={circleTitle} />}
-                {' '}
                 {title1}
               </h1>
               {text && (
-              <p className="my-3 my-lg-4 mb-lg-5 hero__paragragh text-start ">
+              <p className="my-3 my-lg-4 my-lg-5 hero__paragragh text-start ">
                 {text}
               </p>
               )}
@@ -110,6 +105,7 @@ HeroTwo.defaultProps = {
   circleTitle: '',
   overlay: '',
   price: '',
+
 };
 
 export default HeroTwo;

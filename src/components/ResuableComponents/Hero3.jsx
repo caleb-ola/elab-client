@@ -10,6 +10,7 @@ function HeroThree({ title, text, highlight }) {
             {title}
             {' '}
             <br />
+            {highlight && (
             <span
               style={{
                 backgroundImage: "url('/images/Vector.png')",
@@ -20,6 +21,7 @@ function HeroThree({ title, text, highlight }) {
             >
               {highlight}
             </span>
+            ) }
           </h1>
           <p className="py-2 py-lg-3">{text}</p>
         </div>
