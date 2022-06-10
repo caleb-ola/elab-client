@@ -9,8 +9,8 @@ import 'slick-carousel/slick/slick-theme.css';
 function Team() {
   return (
     <div className="team pt-5">
-      <div className="container py-3 py-lg-5">
-        <div className="team__header mx-auto text-center mb-2">
+      <div className="container py-3 pt-lg-5">
+        <div className="team__header mx-auto text-center my-2">
           <h4 className="team__header--title my-lg-2">
             Meet the eLab Team
           </h4>

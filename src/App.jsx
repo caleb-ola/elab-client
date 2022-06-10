@@ -1,5 +1,7 @@
 import React from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import {
+  BrowserRouter, Navigate, Route, Routes,
+} from 'react-router-dom';
 
 // STYLES
 import './sass/app.scss';
@@ -146,6 +148,7 @@ function App() {
           <Route path="/dashboard/user/cowork" element={<UserCowork />} />
           <Route path="/dashboard/user/cowork/:slug" element={<UserCoworkDetails />} />
           <Route path="/dashboard/user/resources" element={<UserResources />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </ScrollToTop>
     </BrowserRouter>

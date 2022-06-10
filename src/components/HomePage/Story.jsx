@@ -52,7 +52,6 @@ function Story() {
           </div>
         </div>
       </div>
-
     </section>
   );
 }

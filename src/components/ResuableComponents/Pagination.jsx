@@ -3,7 +3,7 @@ import React from 'react';
 function Pagination() {
   return (
     <div className="pagination mx-auto">
-      <div className="container">
+      <div className="container my-5">
         <div className="row align-items-center">
           <div className="col-md-6 text-center text-md-start my-2 my-md-0">
             <p className=" m-0">

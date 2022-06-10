@@ -8,7 +8,7 @@ import AllPlaybooks from './AllPlaybooks';
 const playbook = () => (
   <div>
     <NavBar />
-    <HeroLight highlight="Playbook" text="Digital resources for entrepreneurs and business owners changing the status quo" />
+    <HeroLight highlight3="Playbook" text="Digital resources for entrepreneurs and business owners changing the status quo" />
     <AllPlaybooks />
     <Pagination />
     <Footer />

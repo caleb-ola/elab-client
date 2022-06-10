@@ -9,7 +9,7 @@ function WhitePaper() {
     <div>
       <NavBar />
       <HeroLight
-        highlight="WhitePaper"
+        highlight2="WhitePaper"
         text="Startups in our foundry"
       />
       <AllWhitepaper />
