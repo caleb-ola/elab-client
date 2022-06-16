@@ -8,7 +8,7 @@ function EventCard({ title, label, image }) {
       <div className="card events__card border-0 h-100">
         <img src={image} className="card-img-top" alt="..." />
         <div className="card-body p-4 ">
-          <span className="events__body--label py-2 px-3 text-center">{label}</span>
+          <span className="events__body--label fw-bold py-2 px-3 text-center">{label}</span>
           <h5 className="card-title py-2 pt-lg-4 pb-lg-2">{title}</h5>
 
           {' '}
