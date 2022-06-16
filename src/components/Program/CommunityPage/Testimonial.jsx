@@ -11,37 +11,40 @@ function Testimonial() {
   return (
     <div className="testimonial py-3 px-3 py-lg-5  my-lg-5">
       {/* JOIN TRYBE FORM STARTS */}
-      <div className="modal fade benefits__form" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div className="modal fade benefits__form" id="trybeModal" tabIndex="-1" aria-labelledby="trybeModalLabel" aria-hidden="true">
         <div className="modal-dialog modal-dialog-centered benefits__dialog">
           <div className="modal-content p-3">
             <div className="modal-header border-0">
-              <button type="button" className="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close" />
+              {/* <button type="button" className="btn-close shadow-none
+              benefits__close" data-bs-dismiss="modal" aria-label="Close">
+                <i className="fa-solid fa-xmark-large" />
+                {' '}
+
+              </button> */}
+              <i className="fa-solid fa-circle-xmark fa-2x btn-close shadow-none benefits__close" type="button" data-bs-dismiss="modal" aria-label="Close" />
             </div>
-            <div className="modal-body px-md-5">
+            <div className="modal-body px-md-5 benefits__content pt-0 pb-4">
               <h4 className="modal-title" id="exampleModalLabel">Join Trybe by eLab</h4>
               <p>Supply the details below to join the community</p>
 
-              <form action="" className="benefits__form px-2">
+              <form action="" className="benefits__form">
                 <div className="row py-2">
-                  <label className="p-0" htmlFor="name">
+                  <label className="p-0 benefits__form--label" htmlFor="name">
                     Full Name
                   </label>
                   <input type="text" className="name p-3 my-2 benefits__form--input " id="name" />
                 </div>
                 <div className="row py-2">
-                  <label className="p-0" htmlFor="email">
+                  <label className="p-0 benefits__form--label" htmlFor="email">
                     Email Address
                   </label>
                   <input type="email" className="email p-3 my-2 benefits__form--input " id="email" />
                 </div>
-
                 <div className="py-3 py-lg-5 px-0">
-                  <button type="button" className=" link btn fw-bold py-3 px-5 me-0" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Join Tyrbe Community
-                    {' '}
+                  <button type="button" className=" link btn fw-bold py-3 px-5 me-0" data-bs-toggle="modal" data-bs-target="#trybeModal">
+                    Join Trybe Community
                   </button>
                 </div>
-
               </form>
             </div>
           </div>
@@ -250,7 +253,7 @@ function Testimonial() {
 
       </div>
       <div className="benefits__cta py-3 py-lg-5 text-center">
-        <button type="button" className=" link btn fw-bold py-3 px-5 me-0" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <button type="button" className=" link btn fw-bold py-3 px-5 me-0" data-bs-toggle="modal" data-bs-target="#trybeModal">
           Join Tyrbe Community
           {' '}
         </button>

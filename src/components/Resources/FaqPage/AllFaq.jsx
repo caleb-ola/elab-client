@@ -8,11 +8,11 @@ function AllFaq() {
           <div className="accordion" id="accordionExample">
             <div className="accordion-item border-0">
               <h2 className="accordion-header" id="headingOne">
-                <button className="accordion-button shadow-none p-4 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <button className="accordion-button faq--button shadow-none p-4 collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                   What is Ennovate Lab
                 </button>
               </h2>
-              <div id="collapseOne" className="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+              <div id="collapseOne" className="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                 <div className="accordion-body">
                   <strong>This is the first items accordion body.</strong>
                   {' '}
@@ -28,7 +28,7 @@ function AllFaq() {
             </div>
             <div className="accordion-item border-0">
               <h2 className="accordion-header" id="headingTwo">
-                <button className="accordion-button shadow-none p-4 collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                <button className="accordion-button faq--button shadow-none p-4 collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                   Can I partner with Ennovate Lab on a project
                 </button>
               </h2>
@@ -48,7 +48,7 @@ function AllFaq() {
             </div>
             <div className="accordion-item border-0">
               <h2 className="accordion-header" id="headingThree">
-                <button className="accordion-button shadow-none p-4 collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                <button className="accordion-button faq--button shadow-none p-4 collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                   Is a Ennovate Lab a social enterprise
                 </button>
               </h2>

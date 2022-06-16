@@ -9,7 +9,7 @@ function PaddedCard({
     path
       ? (
         <Link to="/" className="text-decoration-none paddedcard__link">
-          <div className="paddedcard p-4 px-lg-5 py-lg-5 h-100">
+          <div className="paddedcard p-4 px-lg-5 py-lg-4 pb-lg-4 pb-2 h-100">
             <h6 className="paddedcard__title fw-bold pb-3">
               {title}
             </h6>
@@ -24,15 +24,24 @@ function PaddedCard({
             )
               : (
                 <div className="row mt-4">
-                  <div className="col-6 text-start">{name}</div>
-                  <div className="col-6 text-end">{date}</div>
+                  <div className="col-6 text-start">
+                    {' '}
+                    <i className="fa-solid fa-user blog--icon pe-2" />
+                    {name}
+                  </div>
+                  <div className="col-6 text-end">
+                    {' '}
+                    <i className="fa-solid fa-calendar blog--icon pe-2" />
+                    {date}
+
+                  </div>
                 </div>
               )}
           </div>
         </Link>
       )
       : (
-        <div className="paddedcard p-4 px-lg-5 py-lg-5 h-100">
+        <div className="paddedcard p-4 px-lg-5 py-lg-5 pb-lg-4 pb-2  h-100">
           <h6 className="paddedcard__title fw-bold pb-3">
             {title}
           </h6>
@@ -41,12 +50,12 @@ function PaddedCard({
 
           {button ? (
             <div className="row my-4">
-              <div className="col-6">
-                <Link to="/" className="link pt-1 px-3 text-decoration-none fw-bold" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              <div className="col-7">
+                <Link to="/" className="link py-1 px-3 text-decoration-none fw-bold" data-bs-toggle="modal" data-bs-target="#exampleModal">
                   {button}
                 </Link>
               </div>
-              <div className="col-6 text-end">
+              <div className="col-5 text-end">
                 {discount ? (
                   <>
                     <span className="fw-bold text-start pe-2">{discount}</span>

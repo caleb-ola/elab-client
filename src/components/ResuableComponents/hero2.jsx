@@ -4,7 +4,7 @@ import Cta from './Cta';
 import CircleBg from './circleBg';
 
 function HeroTwo({
-  image, title, title1, button, text, circleTitle, overlay, price,
+  image, title, title1, button, text, circleTitle, overlay, price, modal,
 }) {
   return (
     <section
@@ -17,7 +17,7 @@ function HeroTwo({
       }}
     >
       {/* REGISTER FORM STARTS */}
-      <div className="modal fade benefits__form" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div className="modal fade benefits__form" id="trainingModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div className="modal-dialog modal-dialog-centered benefits__dialog">
           <div className="modal-content p-3">
             <div className="modal-header border-0">
@@ -40,9 +40,8 @@ function HeroTwo({
                   <input type="email" className="email p-3 my-2 benefits__form--input " id="email" />
                 </div>
                 <div className="py-3 py-lg-5 px-0">
-                  <button type="button" className=" link btn fw-bold py-3 px-5 me-0" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                  <button type="button" className=" link btn fw-bold py-3 px-5 me-0" data-bs-toggle="modal" data-bs-target={modal}>
                     Register
-
                   </button>
                 </div>
 
@@ -63,18 +62,17 @@ function HeroTwo({
                 {title}
                 {/* {circleTitle && <CircleBg text={circleTitle} />} */}
               </h1>
-              <h1 className="mb-2 my-1 heroTwo-header-title">
+              <h1 className="mb-2 mt-0 heroTwo-header-title">
                 {circleTitle && <CircleBg text={circleTitle} />}
                 {title1}
               </h1>
               {text && (
-              <p className="my-3 my-lg-4 my-lg-5 hero__paragragh text-start ">
+              <p className="my-3 hero__paragragh text-start ">
                 {text}
               </p>
               )}
-              <div className="my-5 pt-5 hero__button">
-                { button && <Cta text={button} toggle="modal" target="#exampleModal" />}
-
+              <div className="my-5 hero__button">
+                { button && <Cta text={button} toggle="modal" target={modal} />}
               </div>
             </div>
 
@@ -94,6 +92,7 @@ HeroTwo.propTypes = {
   circleTitle: checkPropTypes.string,
   overlay: checkPropTypes.string,
   price: checkPropTypes.string,
+  modal: checkPropTypes.string,
 };
 
 HeroTwo.defaultProps = {
@@ -105,6 +104,7 @@ HeroTwo.defaultProps = {
   circleTitle: '',
   overlay: '',
   price: '',
+  modal: '',
 
 };
 

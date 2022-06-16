@@ -2,7 +2,7 @@ import React from 'react';
 import { checkPropTypes } from 'prop-types';
 
 function HeroLight({
-  title, text, highlight, highlight2, highlight3,
+  title, text, highlight, highlight2, highlight3, highlight4,
 }) {
   return (
     <div className="hero-light py-5">
@@ -10,7 +10,6 @@ function HeroLight({
         <div className="hero-light__header py-lg-5">
           <h1 className="hero-light__header--title text-center">
             {title}
-            {' '}
             <br />
             {highlight && (
             <span
@@ -48,9 +47,21 @@ function HeroLight({
                 {highlight3}
               </span>
             )}
+            {highlight4 && (
+              <span
+                style={{
+                  backgroundImage: "url('/images/Vector.png')",
+                  backgroundSize: 'contain',
+                  backgroundRepeat: 'no-repeat',
+                }}
+                className="pb-5 pe-5 ps-5"
+              >
+                {highlight4}
+              </span>
+            )}
           </h1>
 
-          <p className="hero-light__header--text text-center pt-3">
+          <p className="hero-light__header--text text-center pt-2">
             {text}
           </p>
         </div>
@@ -65,6 +76,7 @@ HeroLight.propTypes = {
   highlight: checkPropTypes.string,
   highlight2: checkPropTypes.string,
   highlight3: checkPropTypes.string,
+  highlight4: checkPropTypes.string,
 };
 
 HeroLight.defaultProps = {
@@ -73,6 +85,7 @@ HeroLight.defaultProps = {
   highlight: '',
   highlight2: '',
   highlight3: '',
+  highlight4: '',
 };
 
 export default HeroLight;

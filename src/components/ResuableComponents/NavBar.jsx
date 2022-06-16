@@ -35,19 +35,19 @@ function NavBar() {
         >
           <ul className="navbar-nav  my-lg-0 text-start text-lg-center ">
             <li className="nav-item py-0 mx-3">
-              <NavLink className="nav-link   links  px-0 py-1 my-1 my-lg-0 py-lg-4" to="/about">
+              <NavLink className="nav-link   links  px-0 py-1 my-1 my-lg-0 py-lg-4" to="/about-us">
                 About Us
               </NavLink>
             </li>
             <li className="nav-item dropdown nav__drop py-0 mx-3">
               <button type="button" className={window.location.pathname.includes('/program') ? 'nav-link  links px-0 py-1 my-1 my-lg-0 py-lg-4 active' : 'nav-link  links px-0 py-1 my-1 my-lg-0 py-lg-4'} id="navbarDropdown2" data-bs-toggle="dropdown2" aria-expanded="false">
-                Program
+                Programs
               </button>
               <ul className="dropdown-menu navi__dropdown" aria-labelledby="navbarDropdown2">
                 <div className="row p-3 ">
                   <div className="col-lg-6">
                     <a href="/program/community" className="p-2 px-3 btn text-start  navi__dropdown--option my-2 text-decoration-none w-100" role="button">
-                      <p className="fw-bold m-0 navi__dropdown--subhead">community</p>
+                      <p className="fw-bold m-0 navi__dropdown--subhead">Community</p>
                       <p className="navi__dropdown--subtext m-0">A short description stays here</p>
                     </a>
                   </div>
@@ -109,7 +109,7 @@ function NavBar() {
               </ul>
             </li>
             <li className="nav-item dropdown nav__drop py-0 mx-3">
-              <button type="button" href="/" className={window.location.pathname.includes('/resources') ? 'nav-link  links px-0 py-1 my-1 my-lg-0 py-lg-4 active' : 'nav-link  links px-0 py-1 my-1 my-lg-0 py-lg-4'} id="navbarDropdown2" data-bs-toggle="dropdown2" aria-expanded="false">
+              <button type="button" href="/" className={window.location.pathname.includes('/resources') && window.location.pathname.indexOf('user') === -1 ? 'nav-link links px-0 py-1 my-1 my-lg-0 py-lg-4 active' : 'nav-link  links px-0 py-1 my-1 my-lg-0 py-lg-4'} id="navbarDropdown2" data-bs-toggle="dropdown2" aria-expanded="false">
                 Resources
               </button>
               <ul className="dropdown-menu navi__dropdown" aria-labelledby="navbarDropdown2">
@@ -134,7 +134,7 @@ function NavBar() {
                   </div>
                   <div className="col-md-6">
                     <a href="/resources/faq" className=" p-2 px-3 btn text-start navi__dropdown--option my-2 text-decoration-none w-100" role="button">
-                      <p className="fw-bold m-0 navi__dropdown--subhead">FAQ</p>
+                      <p className="fw-bold m-0 navi__dropdown--subhead">FAQs</p>
                       <p className="navi__dropdown--subtext m-0">A short description stays here</p>
                     </a>
                   </div>
@@ -143,12 +143,12 @@ function NavBar() {
               </ul>
             </li>
             <li className="nav-item py-0 mx-3">
-              <NavLink className="nav-link   links  px-0 py-2 py-lg-4 " to="/contact">
+              <NavLink className="nav-link   links  px-0 py-2 py-lg-4 " to="/contact-us">
                 Contact Us
               </NavLink>
             </li>
-            <li className="nav-item px-md-4 me-2 me-lg-0 my-2 my-lg-0 navi--button">
-              <Link to="/find-your-y" type="button" className="link btn w-100"> Find your Y</Link>
+            <li className="nav-item px-md-4 me-2 me-lg-0 my-2 my-lg-0 ">
+              <Link to="/find-your-y" type="button" className="link btn w-100 navi--button"> Find your Y</Link>
             </li>
           </ul>
         </div>

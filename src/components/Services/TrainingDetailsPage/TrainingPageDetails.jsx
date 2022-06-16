@@ -15,6 +15,7 @@ function TrainingPageDetails() {
         text="20TH MAY, 2022 | 9PM (WAT)"
         button="Register"
         overlay="overlay"
+        modal="#trainingModal"
       />
       <AboutTraining />
       <Footer />

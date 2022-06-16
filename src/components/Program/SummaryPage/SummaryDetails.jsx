@@ -3,7 +3,7 @@ import React from 'react';
 function SummaryDetails() {
   return (
     <div className="summary py-5 my-5">
-      <div className="container py-lg-5">
+      <div className="container py-lg-5 mt-5">
         <h4 className="">Package Summary</h4>
         <div className="summary__card my-5 p-5">
           <h5 className="mb-3">Private Team Workspace </h5>

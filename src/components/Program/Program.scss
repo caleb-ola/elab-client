@@ -2,34 +2,54 @@
 .benefits {
     background-color: $elab-yellow-bg;
     color: $elab-black; 
-  
+    &__close {
+      // background-color: #333;
+      
+      border-radius: 50px;
+      background-image: none;  
+      &--icon {
+        margin-top: -20px !important;
+        color: #828282 !important;
+      }
+    }
     &__dialog {
+      margin-top: 4%;
         @include rwd(
             max-width,
             95%,
             (
-              $md: 80%,
-              $lg: 70%,
-              $xl: 65%,
-              $xxl: 60%,
+              $md: 75%,
+              $lg: 60%,
+              $xl: 60%,
+              $xxl: 45%,
             )
           );
     }
+    &__content {
+      // margin: auto;
+      left: 45%;
+      transform: translate(-50%, 0%);
+      @include rwd(
+        width,
+        95%,
+        (
+          $md: 80%,
+          $lg: 80%,
+          $xl: 70%,
+          $xxl: 70%,
+        )
+      );
+    }
     &__form {
       color: $elab-black; 
+      // margin: auto;
+        &--label {
+          margin-left: 10px;
+        }   
         &--input {
             border: 1px solid #828282;
             border-radius: 5px;
-            @include rwd(
-                width,
-                95%,
-                (
-                  $md: 80%,
-                  $lg: 80%,
-                  $xl: 70%,
-                  $xxl: 70%,
-                )
-              );
+            margin-left: 10px;
         }
     }
     &__all {
@@ -121,12 +141,12 @@
 .projects {
   color: #fff;
   &__button {
-    border-bottom: 3px solid #fff;
+    border-bottom: 4px solid #fff;
     color: #828282;
     border-radius: 0;
   }
   &__active {
-    border-bottom: 3px solid $elab-yellow;
+    border-bottom: 4px solid $elab-yellow;
     border-radius: 0;
 
 
@@ -134,9 +154,9 @@
   &__card {
     &--content {
       margin-top: 80%;
-      z-index: 9999;
+      z-index: 9;
       bottom: 20px;
-      left: 20px
+      left: 20px 
     }
     &::after {
       // opacity: .7;
@@ -166,7 +186,7 @@
     border-radius: 5px;      
     &--content {
       margin-top: 80%;
-      z-index: 9999;
+      z-index: 9;
       bottom: 40px;
       left: 40px
     }
@@ -197,10 +217,14 @@
       background-color: $elab-yellow;
       border: 1px solid $elab-yellow;
     } 
+    
     &.active {
       background-color: $elab-yellow;
       border: 1px solid $elab-yellow;
     }   
+   }
+   &--discount {
+     color: #4F4F4F;
    }
    &--price {
      text-decoration:line-through;
@@ -214,6 +238,14 @@
   &__input {
     border: 1px solid #828282;
     border-radius: 5px;
+    &:focus {
+      border: 1px solid $elab-yellow;
+    } 
+    &--option {
+      &:focus {
+        background-color: $elab-yellow !important;
+      }
+    }
   }
 }
 

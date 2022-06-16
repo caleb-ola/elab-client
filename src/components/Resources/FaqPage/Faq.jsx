@@ -9,7 +9,7 @@ function Faq() {
     <div>
       <NavBar />
       <HeroLight
-        title="Frequently Asked Questions Answered"
+        highlight4="FAQs"
         text="You have questions?
         We have answers."
       />

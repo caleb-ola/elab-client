@@ -40,13 +40,13 @@ function Footer() {
           </div>
         </div>
         <hr className="footer--line" />
-        <div className="row pt-lg-3 footer__lower align-items-center justify-content-center text-center">
+        <div className="row pt-lg-3 footer__lower align-items-center justify-content-center text-center text-md-start">
           <div className="col-md-6 col-lg-4 my-2 my-lg-0 text-lg-start">
             <img src="/images/logo-white.png" alt="" className="img-fluid footer__lower--icon" />
           </div>
-          <div className="col-md-6 col-lg-4 my-2 my-lg-0">
-            <span className="footer__upper--link px-2">Privacy Policy</span>
-            <span className="footer__upper--link px-2">Terms & Conditions</span>
+          <div className="col-md-6 col-lg-4 my-2 my-lg-0 ">
+            <a href="/" className="footer__upper--link px-2">Privacy Policy</a>
+            <a href="/" className="footer__upper--link px-2">Terms & Conditions</a>
           </div>
           <div className="col-md-6 col-lg-4 my-2 my-lg-0">
             <div className="custom-b text-lg-end w-100">

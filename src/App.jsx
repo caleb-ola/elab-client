@@ -80,7 +80,7 @@ function App() {
       <ScrollToTop>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/about-us" element={<About />} />
           <Route exact path="/program/community" element={<Community />} />
           <Route exact path="/program/foundry" element={<StartupFoundry />} />
           <Route exact path="/program/foundry/:id" element={<StartupDetails />} />
@@ -100,7 +100,7 @@ function App() {
           <Route path="/resources/playbook" element={<Playbook />} />
           <Route path="/resources/whitepaper" element={<WhitePaper />} />
           <Route path="/resources/faq" element={<Faq />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route path="/contact-us" element={<Contact />} />
           <Route path="/find-your-y" element={<FindYourY />} />
           <Route path="/find-your-y/:id" element={<FindYourYDetails />} />
           <Route path="/auth/signup" element={<Signup />} />

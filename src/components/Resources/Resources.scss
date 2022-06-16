@@ -7,9 +7,17 @@
 // TOP BLOG CARD ENDS
 
 
+// BLOG STARTS
+.blog {
+    &--icon {
+        color: $elab-yellow;
+    }
+}
+// BLOG ENDS
+
+
 // BLOG DETAILS PAGE STARTS
-.blogdetails {
-    
+.blogdetails {   
     &__hero {
         position: relative;
         z-index: 1;
@@ -73,6 +81,19 @@
 
 // FAQ STARTS
 .faq {
+    &--button {
+        &:focus {
+            background-color: $elab-yellow;
+            color: $elab-black;
+        }
+        &:hover {
+            background-color: $elab-yellow-bg;
+            color: $elab-yellow;
+        }
+        &::after {
+            color: $elab-black !important;
+        }
+    }
     &__card {
         box-shadow: 0px 2px 12px rgba(51, 51, 51, 0.2);
         border-radius: 5px;

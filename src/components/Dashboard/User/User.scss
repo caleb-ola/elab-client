@@ -7,6 +7,8 @@
         border: 0px solid #fff;
         &:hover {
             background-color: #fff;
+            border: 0px solid #fff !important;
+            color: $elab-black;
         }
         &.active {
             background-color: #fff;

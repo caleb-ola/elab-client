@@ -4,7 +4,6 @@
 .admin-dashboard {
     .sidebar {
         margin-top: 70px;
-        margin-bottom: 70px;
       &__sidebar-container {
         z-index: 99;
         margin: 0;
@@ -13,7 +12,7 @@
         background: #f1f1f1;        
         position: fixed;
         height: 100%;
-        overflow: auto;
+        overflow-y: auto;
         & .sidebar-container__logo img {
           margin: auto;
           @include rwd(

@@ -9,7 +9,7 @@ function Vision() {
             <div className="card vision__card h-100">
               <img src="/images/about/vision.png" className="card-img-top img-fluid vision__card--icon my-2  my-lg-3 " alt="..." />
               <div className="card-body px-3 px-md-5">
-                <h5 className="card-title">Vision (Our over-aching Focus)</h5>
+                <h5 className="card-title">Vision (Our over-aching focus)</h5>
                 <p className="card-text">To see resilient innovation ecosystems emerge in underserved university communities.</p>
               </div>
             </div>

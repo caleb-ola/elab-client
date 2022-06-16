@@ -17,12 +17,37 @@ input,textarea {
   background-color: $elab-yellow;
   border-radius: 5px;
   border: 3px solid $elab-yellow;
-  color:#333333;
+  color:#251E00;
+  z-index: 1;
+  transition: ease-in-out 300ms;
   &:hover {
-    background-color: transparent;
-    color: #333333;
-    // box-shadow: 0px 15px 50px 0px #3973de4d;
+    background-color: #251E00;
+    color: #fff;
+    border: 3px solid #251E00;
+    // box-shadow: 0px 15px 50px 0px #b6b6b64d;
+    // margin-top: -2px;
   }
+  // .link::before {
+  //   transition: transform 0.15s, 0.15s border-radius 0.15s;
+  //   opacity: 0;
+  //   background: rgba(255, 255, 255, 0.1);
+  //   transform: scale(0.1, 0.1);
+  //   border-radius: 50%;
+  // }
+
+  // .link:hover::before {
+  //   opacity: 1;
+  //   transform: scale(1, 1);
+  //   border-radius: 0;
+  // }
+
+  // .link::after {
+  //   transition: all 0.3s;
+  //   border: 1px solid rgba(255, 255, 255, 0.3);
+  // }
+  // .link:hover::after {
+  //   opacity: 0;
+  // }
 }
 .link-two {
   background-color: #fff;
@@ -43,6 +68,17 @@ input,textarea {
 }
 .slick-slider {
   margin-bottom: -10px;
+}
+.form-check-input:checked {
+  background-color: $elab-yellow;
+  border-color: $elab-yellow !important;
+}
+.accordion-button:not(.collapsed) {
+  color: $elab-black;
+  background-color: $elab-yellow;
+  box-shadow: inset 0 -1px 0 rgb(0 0 0 / 13%);
+  &::after {
+background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23212529'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");  }
 }
 $md: 768px;
 $lg: 1024px;

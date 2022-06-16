@@ -22,14 +22,14 @@ function Hero({
           <div className="hero hero__text text-center mx-auto">
             <div className="hero__container w-100 text-center">
 
-              <h1 className="my-2 hero-header-title">
+              <h1 className="my-1 hero-header-title">
                 {' '}
                 {circleTitle && <CircleBg text={circleTitle} />}
                 {' '}
                 {title}
               </h1>
               {text && (
-              <p className="my-3 my-lg-4 hero__paragragh text-center mx-auto ">
+              <p className="my-2 my-lg-3 hero__paragragh text-center mx-auto ">
                 {text}
               </p>
               )}

@@ -8,8 +8,8 @@ function CoworkCard({
     <div className="card services__card border-0 h-100">
       <img src={image} className="card-img-top" alt="..." />
       <div className="card-body p-4 pb-lg-5">
-        <h6 className="card-title fw-bold">{title}</h6>
-        <p className="services__card--text py-2 ">
+        <h6 className="card-title fw-bold m-0">{title}</h6>
+        <p className="services__card--text pb-2 ">
           {text}
           {' '}
           Team members

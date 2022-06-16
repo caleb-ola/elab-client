@@ -13,8 +13,14 @@ function TopBlog() {
             <span className="events__body--label py-2 px-3  text-center fw-bold">Community Design</span>
             <h4 className="my-3">Blog Title stays here and it can take the entire length if need be. </h4>
             <div className="row pt-2 pt-lg-4">
-              <div className="col-6">‘Dayo Salako</div>
-              <div className="col-6 text-end">25th May, 2022</div>
+              <div className="col-6">
+                <i className="fa-solid fa-user blog--icon pe-2" />
+                ‘Dayo Salako
+              </div>
+              <div className="col-6 text-end">
+                <i className="fa-solid fa-calendar blog--icon pe-2" />
+                25th May, 2022
+              </div>
             </div>
           </div>
         </div>

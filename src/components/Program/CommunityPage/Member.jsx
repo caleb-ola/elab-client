@@ -1,18 +1,19 @@
 import React from 'react';
-import Cta from '../../ResuableComponents/Cta';
 
 function Member() {
   return (
-    <div className="member py-5">
-      <div className="container-fluid pb-lg-5 mb-lg-5">
+    <div className="member pt-5">
+      <div className="container-fluid pt-lg-5">
         <div className="row align-items-center">
           <div className="col-lg-6">
             <div className="container ps-lg-5 ms-lg-5 pe-lg-5">
               <h4>
                 Become a part of an exclusive community for entrepreneurs and tech-enthusiasts.
               </h4>
-              <div className="mt-3 mt-lg-5">
-                <Cta text="Be a Member, Today!" />
+              <div className="py-3 py-lg-5 px-0">
+                <button type="button" className=" link btn fw-bold py-3 px-5 me-0" data-bs-toggle="modal" data-bs-target="#trybeModal">
+                  Be a Member, Today!
+                </button>
               </div>
             </div>
           </div>

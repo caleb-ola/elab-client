@@ -22,7 +22,7 @@ function Partner() {
             doing good in the world and are proud to be associated with them.
           </p>
         </div>
-        <div className="row align-items-center g-4 text-center justify-content-center">
+        <div className="row align-items-center text-center justify-content-center">
           <div className="col-sm-6 col-md-4 col-lg-2 p-4 ">
             <img src="/images/home/logo.png" alt="" className="img-fluid" />
           </div>

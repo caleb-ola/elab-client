@@ -24,15 +24,15 @@ function Musings() {
             <div className="musings__card--form">
               <form className="py-3">
                 <div className="row g-2">
-                  <div className="col-md-6 col-lg-3">
+                  <div className="col-md-6 col-lg-5">
                     <input type="text" placeholder="Your name" className=" p-3 musings__card--input w-100" />
                   </div>
-                  <div className="col-md-6 col-lg-6">
+                  <div className="col-md-6 col-lg-5">
                     <input type="text" placeholder="Your email address" className="p-3 musings__card--input w-100" />
 
                   </div>
-                  <div className="col-md-6 col-lg-3">
-                    <button type="submit" className="musings__card--submit w-100 ms-lg-4 py-3 ">Subscibe</button>
+                  <div className="col-md-6 col-lg-2">
+                    <button type="submit" className="musings__card--submit w-100 ms-lg-3 py-3 ">Subscibe</button>
 
                   </div>
                 </div>

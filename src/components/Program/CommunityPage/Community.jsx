@@ -13,9 +13,10 @@ function Community() {
       <HeroTwo
         title="Trybe by eLab"
         text="The Trybe by eLab community is a resourceful online community for tech-enthusiasts and entrepreneurs"
-        button="Join Tyrbe"
+        button="Join Trybe"
         image="url('/images/about/hero1.png')"
         overlay="overlay"
+        modal="#trybeModal"
       />
       <Benefits />
       <Testimonial />
