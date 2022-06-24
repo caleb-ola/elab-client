@@ -73,6 +73,10 @@ import UserResources from './components/Dashboard/User/UserResources/UserResourc
 import InnovationPage from './components/Program/InnovationPage/Innovation';
 import InnovationDetails from './components/Program/InnovationDetailsPage/InnovationDetails';
 import Summary from './components/Program/SummaryPage/Summary';
+import Login from './components/Authentication/Login';
+import Forgot from './components/Authentication/Forgot';
+import Reset from './components/Authentication/Reset';
+import Error404 from './components/ResuableComponents/Error404';
 
 function App() {
   return (
@@ -80,6 +84,7 @@ function App() {
       <ScrollToTop>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/error" element={<Error404 />} />
           <Route path="/about-us" element={<About />} />
           <Route exact path="/program/community" element={<Community />} />
           <Route exact path="/program/foundry" element={<StartupFoundry />} />
@@ -104,6 +109,9 @@ function App() {
           <Route path="/find-your-y" element={<FindYourY />} />
           <Route path="/find-your-y/:id" element={<FindYourYDetails />} />
           <Route path="/auth/signup" element={<Signup />} />
+          <Route path="/auth/login" element={<Login />} />
+          <Route path="/auth/forgot-password" element={<Forgot />} />
+          <Route path="/auth/reset-password" element={<Reset />} />
           <Route path="/dashboard/user" element={<UserCowork />} />
           <Route path="/dashboard/admin" element={<Impact />} />
           <Route path="/dashboard/admin/impact" element={<Impact />} />
@@ -148,7 +156,7 @@ function App() {
           <Route path="/dashboard/user/cowork" element={<UserCowork />} />
           <Route path="/dashboard/user/cowork/:slug" element={<UserCoworkDetails />} />
           <Route path="/dashboard/user/resources" element={<UserResources />} />
-          <Route path="*" element={<Navigate to="/" replace />} />
+          <Route path="*" element={<Navigate to="/error" replace />} />
         </Routes>
       </ScrollToTop>
     </BrowserRouter>

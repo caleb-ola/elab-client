@@ -189,6 +189,12 @@
     }
 }
 
+// ******************* MEASURE ********************//
+.cowork__home {
+  background-color: $elab-yellow-bg;
+}
+
+
 // PARTNERS STARTS
 .partner {
   &__header {
@@ -268,9 +274,11 @@
       border: 3px solid $elab-yellow;
       font-weight: 600;
       border-radius: 5px;
+      transition: ease-in-out 300ms;
       &:hover {
-        background-color: transparent ;
+        background-color:#BE9800;
         color: #fff;
+        border: 3px solid #BE9800;
       }
     }
   }

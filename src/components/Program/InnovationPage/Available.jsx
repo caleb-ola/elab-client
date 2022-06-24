@@ -3,7 +3,7 @@ import CoworkCard from '../../ResuableComponents/CoworkCard';
 
 function Available() {
   return (
-    <div className="available pb-5">
+    <div id="available" className="available pb-5">
       <div className="container pb-lg-5">
         <div className="partner__header text-center mx-auto my-2">
           <h2 className="event__header--title">Available Packages</h2>

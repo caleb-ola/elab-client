@@ -11,13 +11,20 @@
             (
               $md: 75%,
               $lg: 65%,
-              $xl: 60%,
-              $xxl: 55%,
+              $xl: 55%,
+              $xxl: 40%, 
             )
           );
           &--input {
             border: 1px solid #828282;
             border-radius: 5px;
+            width: 100%;
+          }
+          & a{
+            color: $elab-black;
+            &:hover {
+              color: $elab-yellow;
+            }
           }
     }
 }

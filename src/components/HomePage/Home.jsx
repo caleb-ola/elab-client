@@ -1,8 +1,8 @@
 import React from 'react';
-import Footer from '../ResuableComponents/Footer';
 
 // COMPONENTS
 import NavBar from '../ResuableComponents/NavBar';
+import CoworkHome from './CoworkHome';
 import Events from './Events';
 import Hero from './hero';
 import Measure from './Measure';
@@ -11,6 +11,7 @@ import Musings from './Musings';
 import Partner from './partner';
 import Story from './Story';
 import Training from './Training';
+import Footer from '../ResuableComponents/Footer';
 
 function Home() {
   return (
@@ -22,9 +23,11 @@ function Home() {
         circleTitle="Unlocking "
         image="url('/images/home/hero.png')"
         button="Learn More"
+        path="/about-us"
       />
       <Story />
       <Measure />
+      <CoworkHome />
       <Partner />
       <Musings />
       <Events />

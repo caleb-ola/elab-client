@@ -295,3 +295,36 @@
 // DASHBOARD ENDS
 
 
+// ERROR 404 STARTS
+.error {
+  &__content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    @include rwd(
+      width,
+      95%,
+      (
+        $md: 85%,
+        $lg: 75%,
+        $xl: 70%,
+        $xxl: 70%,
+      )
+    );
+  }
+}
+// ERROR 404 ENDS
+
+
+// EMPTY STATE STARTS
+.empty {
+  &__card {
+    background: #FFFFFF;
+    box-shadow: 0px 5px 15px rgba(122, 122, 122, 0.15);
+    border-radius: 10px;
+  }
+}
+// EMPTY STATE STARTS
+

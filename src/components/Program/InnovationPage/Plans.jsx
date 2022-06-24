@@ -2,7 +2,7 @@ import React from 'react';
 
 function Plans() {
   return (
-    <div className="plans py-5">
+    <div id="plans" className="plans py-5">
       <div className="container py-lg-5">
         <div className="row">
           <div className="col-md-6">

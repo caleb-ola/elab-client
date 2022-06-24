@@ -1,108 +1,128 @@
-import React from 'react';
-
-// REACT SLICK CSS
-import Slider from 'react-slick';
-
-// REACT SLCIK CSS
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import TimelineCard from '../ResuableComponents/TimelineCard';
+import React, { useState } from 'react';
+import HorizontalTimeline from 'react-horizontal-timeline';
+import Fade from 'react-reveal/Fade';
 
 function Timeline() {
-  const appendDots = (dots) => (
-    <div
-      style={{
-        backgroundColor: '#fff',
-        borderRadius: '10px',
-        padding: '10px',
-        // width: '50px',
-      }}
-    >
-      <ul style={{ margin: '0px' }}>
-        {dots}
-      </ul>
-    </div>
-  );
-  const customPaging = (i) => (
-    <div
-    //   className="mx-5"
-      style={{
-        // width: '200px',
-        color: 'blue',
-        border: '0px blue solid',
-        marginRight: '20px',
-      }}
-    >
-      {2022 - (i)}
-    </div>
-  );
+  const [value, setValue] = useState(0);
+  const [previous, setPrevious] = useState(0);
+
+  // Values should be only date
+  const VALUES = ['2022', '2021', '2020', '2019', '2018', '2017'];
+
+  // Description array corresponding to values
+  const description = [
+    <div className="p-lg-5 timeline__content" key={previous}>
+      <div className="timeline__content--details mb-3 mb-lg-4">
+        <img src="/images/about/timeline1.png" alt="" className="img-fluid timeline--logo" />
+        <p>
+          We launched Cademy to provide access to quality education for
+          children in underserved communities as well as those involved in homeschooling.
+        </p>
+      </div>
+
+      <div className="timeline__content--details mb-3 mb-lg-4">
+        <img src="/images/about/timeline2.png" alt="" className="img-fluid timeline--logo" />
+        <p>
+          We launched the MVP for Trifold
+        </p>
+      </div>
+
+      <div className="timeline__content--details mb-3 mb-lg-4">
+        <img src="/images/about/timeline1.png" alt="" className="img-fluid timeline--logo" />
+        <p>
+          We launched Cademy to provide access to quality education for
+          children in underserved communities as well as those involved in homeschooling.
+        </p>
+      </div>
+
+      <div className="timeline__content--details mb-3 mb-lg-4">
+        <img src="/images/about/timeline2.png" alt="" className="img-fluid timeline--logo" />
+        <p>
+          We launched the MVP for Trifold
+        </p>
+      </div>
+    </div>,
+    <div className="p-lg-5 timeline__content" key={previous}>
+      <div className="timeline__content--details mb-3 mb-lg-4">
+        <img src="/images/about/timeline2.png" alt="" className="img-fluid timeline--logo" />
+        <p>
+          We launched the MVP for Trifold
+        </p>
+      </div>
+    </div>,
+    <div className="p-lg-5 timeline__content" key={previous}>
+      <div className="timeline__content--details mb-3 mb-lg-4">
+        <img src="/images/about/timeline2.png" alt="" className="img-fluid timeline--logo" />
+        <p>
+          We launched the MVP for Trifold
+        </p>
+      </div>
+    </div>,
+    <div className="p-lg-5 timeline__content" key={previous}>
+      <div className="timeline__content--details mb-3 mb-lg-4">
+        <img src="/images/about/timeline1.png" alt="" className="img-fluid timeline--logo" />
+        <p>
+          We launched Cademy to provide access to quality education for
+          children in underserved communities as well as those involved in homeschooling.
+        </p>
+      </div>
+    </div>,
+    <div className="p-lg-5 timeline__content" key={previous}>
+      <div className="timeline__content--details mb-3 mb-lg-4">
+        <img src="/images/about/timeline2.png" alt="" className="img-fluid timeline--logo" />
+        <p>
+          We launched the MVP for Trifold
+        </p>
+      </div>
+    </div>,
+    <div className="p-lg-5 timeline__content" key={previous}>
+      <div className="timeline__content--details mb-3 mb-lg-4">
+        <img src="/images/about/timeline1.png" alt="" className="img-fluid timeline--logo" />
+        <p>
+          We launched Cademy to provide access to quality education for
+          children in underserved communities as well as those involved in homeschooling.
+        </p>
+      </div>
+    </div>,
+  ];
   return (
     <div className="timeline py-5">
       <div className="container py-lg-5">
         <div className="partner__header text-center mx-auto">
-          <h2 className="event__header--title">Our Story</h2>
-          <p className="events__header--text">
+          <h4 className="partnet--title ">
+            Our Story
+          </h4>
+          <p className="pt-3">
             We are building resilient innovation ecosystems in underserved university communities.
           </p>
         </div>
-      </div>
-      <div className="">
-        <Slider
-          {...{
-            height: 100,
-            arrows: false,
-            dots: true,
-            infinite: true,
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            autoplay: true,
-            speed: 100,
-            autoplaySpeed: 10000,
-            cssEase: 'linear',
-            // responsive: [
-
-            //   {
-            //     breakpoint: 1440,
-            //     settings: {
-            //       slidesToShow: 1,
-            //       slidesToScroll: 1,
-            //       //   infinite: true,
-            //     },
-            //   },
-            //   {
-            //     breakpoint: 600,
-            //     settings: {
-            //       slidesToShow: 1,
-            //       slidesToScroll: 1,
-            //       // initialSlide: 2,
-            //     },
-            //   },
-            //   {
-            //     breakpoint: 480,
-            //     settings: {
-            //       slidesToShow: 1,
-            //       slidesToScroll: 1,
-            //     },
-            //   },
-            // ],
-            customPaging,
-            appendDots,
-            variableWidth: true,
+        <div className="root-div py-3 py-lg-4">
+          <div style={{
+            width: '100%',
+            height: '100px',
+            margin: '0 auto',
+            // padding: '30px 0',
           }}
-        >
-          <div className=" ">
-            <TimelineCard />
-            <hr />
+          >
+            <HorizontalTimeline
+              slidingMotion={{ stiffness: 0, damping: 0 }}
+              styles={{ outline: '#828282', foreground: '#FFCC03' }}
+              index={value}
+              indexClick={(index) => {
+                setValue(index);
+                setPrevious(value);
+              }}
+              values={VALUES}
+            />
           </div>
-          <div className="">
-            ABCD
-            <hr />
+          <div className="text-start">
+            <Fade right>
+              <div className="timeline__card p-3 p-md-5">
+                {description[value]}
+              </div>
+            </Fade>
           </div>
-          <div className="">
-            ABCD
-            <hr />
-          </div>
-        </Slider>
+        </div>
       </div>
     </div>
   );

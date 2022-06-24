@@ -7,25 +7,24 @@ function Footer() {
         <div className="row footer__upper pb-lg-2">
           <div className="col-md-6 col-lg-3 my-2 my-lg-0">
             <h5 className="fw-bold footer__upper--title pb-2">Quick Links</h5>
-            <a className="footer__upper--link" href="/">
-              {' '}
+            <a className="footer__upper--link" href="/program/foundry">
               <p> Founder&apos;s Community</p>
             </a>
-            <a className="footer__upper--link" href="/"><p>Trybe by eLab</p></a>
-            <a className="footer__upper--link" href="/"><p>Find your Y</p></a>
+            <a className="footer__upper--link" href="/program/community"><p>Trybe by eLab</p></a>
+            <a className="footer__upper--link" href="/find-your-y"><p>Find your Y</p></a>
           </div>
           <div className="col-md-6 col-lg-3 my-2 my-lg-0">
             <h5 className="fw-bold footer__upper--title pb-2">Resources</h5>
-            <a className="footer__upper--link" href="/"><p>ebook</p></a>
-            <a className="footer__upper--link" href="/"><p>Whitepaper</p></a>
-            <a className="footer__upper--link" href="/"><p>Blog</p></a>
-            <a className="footer__upper--link" href="/"><p>FAQ</p></a>
+            <a className="footer__upper--link" href="/resources/playbook"><p>ebook</p></a>
+            <a className="footer__upper--link" href="/resources/whitepaper"><p>Whitepaper</p></a>
+            <a className="footer__upper--link" href="/resources/blog"><p>Blog</p></a>
+            <a className="footer__upper--link" href="/resources/faq"><p>FAQ</p></a>
             {' '}
 
           </div>
           <div className="col-md-6 col-lg-3 my-2 my-lg-0">
             <h5 className="fw-bold footer__upper--title pb-2">Company</h5>
-            <a className="footer__upper--link" href="/">About us</a>
+            <a className="footer__upper--link" href="/about-us">About us</a>
           </div>
           <div className="col-md-6 col-lg-3 my-2 my-lg-0">
             <h5 className="fw-bold footer__upper--title pb-2">Contact us</h5>

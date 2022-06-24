@@ -1,5 +1,4 @@
 import React from 'react';
-import Cta from '../ResuableComponents/Cta';
 
 function Story() {
   return (
@@ -31,10 +30,10 @@ function Story() {
                 advisory services, mentorship, funding, tech support and networking.
               </p>
               <div className="my-5">
-                <Cta text="Learn More" />
+                <a href="/about-us" className="link fw-bold py-3 px-5 text-decoration-none">
+                  Learn More
+                </a>
               </div>
-              {/* </div> */}
-
             </div>
             <div className="col-md-6 order-1 order-md-2">
               <div className="image__stack">

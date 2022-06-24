@@ -1,6 +1,5 @@
 import React from 'react';
 import { checkPropTypes } from 'prop-types';
-import Cta from '../ResuableComponents/Cta';
 import CircleBg from '../ResuableComponents/circleBg';
 
 function Hero({
@@ -34,7 +33,11 @@ function Hero({
               </p>
               )}
               <div className="my-5 hero__button">
-                { button && <Cta text={button} path={path} />}
+                { button && (
+                <a href={path} className="link fw-bold py-3 px-5 text-decoration-none">
+                  {button}
+                </a>
+                )}
               </div>
             </div>
 
