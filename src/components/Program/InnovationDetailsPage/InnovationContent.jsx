@@ -1,12 +1,64 @@
-import React, { useState } from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import Skeleton from 'react-loading-skeleton';
+import { useParams } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
 
 function InnovationContent() {
+  const [res, setRes] = useState();
+  const [loading, setLoading] = useState(true);
+  const [skeleton, setSkeleton] = useState(
+    <p>
+      <Skeleton count={4} height={20} />
+      <Skeleton count={1} height={20} width="60%" />
+    </p>,
+  );
+  // const [planSlug, setplanSlug] = useState();
+  const params = useParams();
   const [category, setCategory] = useState({
     hourly: true,
     daily: false,
     weekly: false,
     monthly: false,
   });
+  useEffect(() => {
+    axios.get(`https://elab-api.herokuapp.com/api/v1/workspaces/${params.slug}`).then(
+      (response) => {
+        // console.log(response);
+        setLoading(false);
+        setSkeleton();
+        setRes(response.data.data);
+        // setplanSlug(response.data.data.slug);
+      },
+      (error) => {
+        // console.log(error);
+        if (error.response) {
+          error.response.data.errors.map((err) => toast.error(`${err.message}`, {
+            position: 'top-right',
+            autoClose: 15000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          }));
+        } else {
+          toast.error('Ops, something went wrong, please try again', {
+            position: 'top-right',
+            autoClose: 8000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+        }
+      },
+    );
+  }, []);
+  const createMarkup = () => ({ __html: res && res.description });
+  // eslint-disable-next-line
+
   const [body, setBody] = useState(
     <form>
       <div className="row">
@@ -17,7 +69,7 @@ function InnovationContent() {
             <option className="innovation__input--option" value="2">2 Hours</option>
             <option className="innovation__input--option" value="3">3 Hours</option>
             <option className="innovation__input--option" value="4">4 Hours</option>
-            <option className="innovation__input--option" value="1">5 Hour</option>
+            <option className="innovation__input--option" value="1">5 Hours</option>
             <option className="innovation__input--option" value="2">6 Hours</option>
             <option className="innovation__input--option" value="3">7 Hours</option>
             <option className="innovation__input--option" value="4">8 Hours</option>
@@ -317,22 +369,29 @@ function InnovationContent() {
 
   return (
     <div className="innovation__content py-5">
+      <ToastContainer />
       <div className="container py-lg-5">
         <div className="row py-5 align-items-center ">
           <div className="col-lg-6 my-3">
-            <img src="/images/cowork/cowork1.png" alt="" className="img-fluid rounded-3" />
+            <img src={res?.image} alt="" className="img-fluid rounded-3 innovation__content--image w-100" />
           </div>
           <div className="col-lg-6 my-3 px-lg-5">
-            <h5 className="py-0">
-              Private Team Workspace
-            </h5>
+            <h4 className="py-2">
+              {res?.title}
+            </h4>
             <div className="py-0">
               <h6 className="">
                 <span className="innovation__content--discount pe-3">
-                  NGN 45,000
+                  NGN
+                  {' '}
+                  {res && (res.pricePerHour - Math.ceil(res.pricePerHour * (res.discount / 100)))
+                    .toString()
+                    .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
                 </span>
                 <span className="innovation__content--price">
-                  NGN 55,000
+                  NGN
+                  {res?.pricePerHour.toString()
+                    .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
                 </span>
               </h6>
             </div>
@@ -352,16 +411,13 @@ function InnovationContent() {
         <div className="row">
           <div className="col-lg-6">
             <h5 className="">Description of the space</h5>
-            <p className="">
-              Et eu ipsum, leo fringilla nunc. Congue lectus mauris eu enim.
-              Ut diam, nec nec quam id suspendisse dapibus eget porta. Ut sed
-              porta interdum vitae sit arcu scelerisque. Mauris, amet, elit enim
-              fermentum, augue amet. Erat imperdiet pulvinar augue volutpat,
-              tincidunt donec. Vel sit nibh tristique et, donec. Tellus pharetra
-              eget dui egestas pellentesque faucibus. Ligula dolor, pretium tortor
-              elementum non. Lorem sit vel lorem pulvinar at facilisi tortor.
-              Ipsum non tincidunt ornare tortor porta pulvinar morbi fermentum arcu.
-            </p>
+            {loading ? skeleton : res
+              && (
+              <>
+                {/* eslint-disable-next-line react/no-danger */}
+                <div className="markup" dangerouslySetInnerHTML={createMarkup()} />
+              </>
+              )}
           </div>
           <div className="col-md-6" />
         </div>

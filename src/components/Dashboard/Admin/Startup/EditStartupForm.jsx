@@ -1,34 +1,141 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 // WYSIWYG
 import { Editor } from 'react-draft-wysiwyg';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
-import { EditorState, convertToRaw } from 'draft-js';
+import {
+  EditorState, convertToRaw, convertFromHTML, ContentState,
+} from 'draft-js';
+import draftToHtml from 'draftjs-to-html';
+import { useNavigate, useParams } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
+import axios from 'axios';
 
 function EditStartupForm() {
-  const [about, setAbout] = useState(EditorState.createEmpty());
+  const [name, setName] = useState('');
+  // const [desc, setDesc] = useState('');
+  const [image, setImage] = useState('');
+  const [year, setYear] = useState('');
+  const [brochure, setBrochure] = useState('');
+  const [loading, setLoading] = useState(false);
 
+  const navigate = useNavigate();
+  const params = useParams();
+
+  const [desc, setDesc] = useState(EditorState.createEmpty());
   // WYSIWYG CONVERSION
-  const aboutState = convertToRaw(about.getCurrentContent());
+  const descState = draftToHtml(convertToRaw(desc.getCurrentContent()));
   const onAboutStateChange = (editorState) => {
-    setAbout(editorState);
+    setDesc(editorState);
   };
 
-  let aboutConvert;
+  let descConvert;
+  useEffect(() => {
+    axios.get(`https://elab-api.herokuapp.com/api/v1/startups/${params.slug}`).then((response) => {
+      // console.log(response);
+      const { data } = response.data;
+      setName(data.name);
+      setYear(data.yearFounded);
+      setDesc(
+        EditorState.createWithContent(
+          ContentState.createFromBlockArray(
+            convertFromHTML(`<p>${data.description}</p>`),
+          ),
+        ),
+      );
+    }, (error) => {
+      // console.log(error);
+      if (error.response) {
+        error.response.data.errors.map((err) => toast.error(`${err.message}`, {
+          position: 'top-right',
+          autoClose: 15000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        }));
+      } else {
+        toast.error('Ops, something went wrong, please try again', {
+          position: 'top-right',
+          autoClose: 8000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      }
+    });
+  }, []);
+
   const Submit = (e) => {
     e.preventDefault();
-    aboutState.blocks.map((item) => {
-      aboutConvert = item.text;
-      return aboutConvert;
-    });
+    setLoading(true);
+    descConvert = descState;
     // console.log({ questionConvert, answerConvert });
+
+    const formData = new FormData();
+    formData.append('name', name);
+    if (image) {
+      formData.append('image', image, image.name);
+    }
+    formData.append('description', descConvert);
+    formData.append('yearFounded', year);
+    if (brochure) {
+      formData.append('brochure', brochure, brochure.name);
+    }
+
+    axios({
+      method: 'patch',
+      url: `https://elab-api.herokuapp.com/api/v1/startups/${params.slug}`,
+      data: formData,
+      headers: {
+        'Content-Type': 'multipart/form-data',
+        Authorization: `Bearer ${localStorage.getItem('elAdmT')}`,
+      },
+    }).then(
+      (response) => {
+        // console.log(response);
+        setLoading(false);
+        if (response) {
+          navigate('/dashboard/admin/startup');
+        }
+      },
+      (error) => {
+        // console.log(error);
+        setLoading(false);
+        if (error.response) {
+          error.response.data.errors.map((err) => toast.error(`${err.message}`, {
+            position: 'top-right',
+            autoClose: 15000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          }));
+        } else {
+          toast.error('Ops, something went wrong, please try again', {
+            position: 'top-right',
+            autoClose: 8000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+        }
+      },
+    );
   };
 
   return (
     <div className="content px-4">
+      <ToastContainer />
       <div className="row content__header align-items-center mb-5">
         <div className="col-md-6 p-0 text-center text-md-start">
-          <h4 className="m-0">Edit a Training</h4>
+          <h4 className="m-0">Edit a Startup</h4>
         </div>
         <div className="col-md-6 p-0 text-center text-md-end">
           <span
@@ -49,19 +156,13 @@ function EditStartupForm() {
             <label className="p-0 fw-bold" htmlFor="name">
               Name of Startup
             </label>
-            <input type="text" className="name p-3 my-2 content__form--input " id="name" required />
+            <input type="text" className="name p-3 my-2 content__form--input " id="name" value={name} onChange={(e) => setName(e.target.value)} required />
           </div>
           <div className="row py-2">
-            <label className="p-0 fw-bold" htmlFor="email">
+            <label className="p-0 fw-bold" htmlFor="logo">
               Upload Startup logo
             </label>
-            <input type="file" className="name p-3 my-2 content__form--input " id="name" required />
-          </div>
-          <div className="row py-2">
-            <label className="p-0 fw-bold" htmlFor="email">
-              Startup website link
-            </label>
-            <input type="text" className="name p-3 my-2 content__form--input " id="name" required />
+            <input type="file" className="name p-3 my-2 content__form--input" id="logo" onChange={(e) => setImage(e.target.files[0])} />
           </div>
           <div className="row py-3">
             <label htmlFor="question" className="fw-bold mb-2 p-0">
@@ -69,7 +170,7 @@ function EditStartupForm() {
             </label>
             <div className="editor-container">
               <Editor
-                editorState={about}
+                editorState={desc}
                 toolbarClassName="toolbarClassName"
                 wrapperClassName="content__form--wysiwyg"
                 editorClassName="content__form--editor"
@@ -81,7 +182,7 @@ function EditStartupForm() {
                   link: { inDropdown: true },
                   history: { inDropdown: true },
                   image: {
-                  // uploadCallback: uploadImageCallBack,
+                    // uploadCallback: uploadImageCallBack,
                     alt: { present: true, mandatory: false },
                     defaultSize: {
                       height: '300px',
@@ -93,16 +194,33 @@ function EditStartupForm() {
             </div>
           </div>
           <div className="row py-2">
-            <label className="p-0 fw-bold" htmlFor="email">
-              Upload Startup Brochure
+            <label className="p-0 fw-bold" htmlFor="link">
+              Year founded
             </label>
-            <input type="file" className="name p-3 my-2 content__form--input " id="name" required />
+            <input type="text" className="name p-3 my-2 content__form--input " id="link" value={year} onChange={(e) => setYear(e.target.value)} required />
           </div>
-
+          <div className="row py-2">
+            <label className="p-0 fw-bold" htmlFor="logo">
+              Brochure
+            </label>
+            <input type="file" className="name p-3 my-2 content__form--input" id="logo" onChange={(e) => setBrochure(e.target.files[0])} />
+          </div>
           <div className="py-3 py-lg-4 px-0 mx-0 ">
-            <button type="button" className=" link btn fw-bold py-3 px-5 me-0" data-bs-toggle="modal" data-bs-target="#exampleModal">
-              Save Startup
-            </button>
+            {
+              loading
+                ? (
+                  <button type="button" className="link btn fw-bold py-3 px-5 me-0 content__form--button" disabled>
+                    <div className="spinner-border spinner-border-sm" role="status">
+                      <span className="visually-hidden">Loading...</span>
+                    </div>
+                  </button>
+                )
+                : (
+                  <button type="submit" className=" link btn fw-bold py-3 px-5 me-0 content__form--button">
+                    Save Startup
+                  </button>
+                )
+          }
           </div>
         </form>
       </div>

@@ -8,7 +8,8 @@
       border-radius: 5px;
       &--text {
         color: #4F4F4F; 
-        line-height: 1rem;
+        line-height: 1.4rem !important;
+        font-size: 0.8rem;
       }
     }
 }
@@ -24,14 +25,17 @@
             95%,
             (
               $md: 90%,
-              $lg: 85%,
-              $xl: 80%,
-              $xxl: 75%,
+              $lg: 80%,
+              $xl: 75%,
+              $xxl: 70%,
             )
           );
           &--input {
             border: 1px solid #828282;
-            border-radius: 5px;
+            border-radius: 5px !important;
+            &:focus {
+              border: 1px solid $elab-yellow;
+            }
           }
     }
    

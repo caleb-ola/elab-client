@@ -252,7 +252,7 @@ function Testimonial() {
         {' '}
 
       </div>
-      <div className="benefits__cta py-3 py-lg-5 text-center">
+      <div className="benefits__cta py-3 py-lg-4 text-center">
         <button type="button" className=" link btn fw-bold py-3 px-5 me-0" data-bs-toggle="modal" data-bs-target="#trybeModal">
           Join Tyrbe Community
           {' '}

@@ -1,8 +1,99 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
 
 function EditMediaForm() {
+  const [title, setTitle] = useState('');
+  const [link, setLink] = useState('');
+  const [date, setDate] = useState('');
+  const [image, setImage] = useState();
+  const [loading, setLoading] = useState(false);
+
+  const params = useParams();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    axios.get(`https://elab-api.herokuapp.com/api/v1/mentions/${params.id}`).then((response) => {
+      // console.log(response);
+      const { data } = response.data;
+      setTitle(data.title);
+      setLink(data.link);
+      setDate(data.date);
+    }, (error) => {
+      // console.log(error);
+      if (error.response) {
+        error.response.data.errors.map((err) => toast.error(`${err.message}`, {
+          position: 'top-right',
+          autoClose: 15000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        }));
+      } else {
+        toast.error('Ops, something went wrong, please try again', {
+          position: 'top-right',
+          autoClose: 8000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      }
+    });
+  }, []);
+
+  const Submit = (e) => {
+    e.preventDefault();
+    setLoading(true);
+    axios.patch(`https://elab-api.herokuapp.com/api/v1/mentions/${params.id}`, {
+      title, link, date, image,
+    }, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+        Authorization: `Bearer ${localStorage.getItem('elAdmT')}`,
+      },
+    }).then(
+      (response) => {
+        // console.log(response);
+        if (response) {
+          setLoading(false);
+          navigate('/dashboard/admin/media');
+        }
+      },
+      (error) => {
+        setLoading(false);
+        if (error.response) {
+          error.response.data.errors.map((err) => toast.error(`${err.message}`, {
+            position: 'top-right',
+            autoClose: 15000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          }));
+        } else {
+          toast.error('Ops, something went wrong, please try again', {
+            position: 'top-right',
+            autoClose: 8000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+        }
+      },
+    );
+  };
+
   return (
     <div className="content px-4">
+      <ToastContainer />
       <div className="row content__header align-items-center mb-5">
         <div className="col-md-6 p-0 text-center text-md-start">
           <h4 className="m-0">Edit a Media Mention</h4>
@@ -21,23 +112,47 @@ function EditMediaForm() {
         </div>
       </div>
       <div className="content__card w-100 p-5">
-        <form className="content__form mx-5">
-          <div className="row py-2">
-            <label className="p-0 fw-bold" htmlFor="name">
-              Media url
+        <form className="content__form mx-5" onSubmit={Submit}>
+          <div className="py-2">
+            <label className="p-0 fw-bold" htmlFor="title">
+              Title
             </label>
-            <input type="text" className="name p-3 my-2 content__form--input " id="name" required />
+            <input type="text" className="name p-3 my-2 content__form--input " value={title} onChange={(e) => setTitle(e.target.value)} id="title" required />
           </div>
-          <div className="row py-2">
-            <label className="p-0 fw-bold" htmlFor="email">
-              Media logo
+          <div className="py-2">
+            <label className="p-0 fw-bold" htmlFor="link">
+              Link
             </label>
-            <input type="file" className="name p-3 my-2 content__form--input " id="name" required />
+            <input type="text" className="name p-3 my-2 content__form--input " id="link" value={link} onChange={(e) => setLink(e.target.value)} required />
           </div>
-          <div className="py-3 py-lg-4 px-0 mx-0 ">
-            <button type="button" className=" link btn fw-bold py-3 px-5 me-0" data-bs-toggle="modal" data-bs-target="#exampleModal">
-              Save Media Mention
-            </button>
+          <div className="py-2">
+            <label className="p-0 fw-bold" htmlFor="date">
+              Date
+            </label>
+            <input type="date" className="name p-3 my-2 content__form--input " id="date" value={date} onChange={(e) => setDate(e.target.value)} required />
+          </div>
+          <div className="py-2">
+            <label className="p-0 fw-bold" htmlFor="image">
+              Image
+            </label>
+            <input type="file" className="name p-3 my-2 content__form--input " id="image" onChange={(e) => setImage(e.target.files[0])} />
+          </div>
+          <div className="py-3 py-lg-4 ">
+            {
+              loading
+                ? (
+                  <button type="button" className="link btn fw-bold py-3 px-5 me-0 content__form--button" disabled>
+                    <div className="spinner-border spinner-border-sm" role="status">
+                      <span className="visually-hidden">Loading...</span>
+                    </div>
+                  </button>
+                )
+                : (
+                  <button type="submit" className=" link btn fw-bold py-3 px-5 me-0 content__form--button">
+                    Save Media Mention
+                  </button>
+                )
+          }
           </div>
         </form>
       </div>

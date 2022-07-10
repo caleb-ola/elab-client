@@ -30,5 +30,6 @@ module.exports = {
       },
     }],
     'no-restricted-globals': ['error', 'event', 'fdescribe'],
+
   },
 };

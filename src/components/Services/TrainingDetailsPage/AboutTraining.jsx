@@ -1,7 +1,9 @@
+import { PropTypes } from 'prop-types';
 import React from 'react';
-import Cta from '../../ResuableComponents/Cta';
 
-function AboutTraining() {
+function AboutTraining({
+  link, linkText, description, download, downloadText,
+}) {
   return (
     <div className="about-training py-5">
 
@@ -49,21 +51,18 @@ function AboutTraining() {
             About the Training
           </h4>
           <p className="pt-3 ">
-            Pulvinar proin enim cursus mauris ullamcorper interdum arcu.
-            Egestas pretium nullam urna, orci vitae. Tristique sit nulla et, placerat.
-            Lorem aliquet vitae id at. Bibendum nunc purus ipsum etiam diam enim sapien nulla.
-            Aliquam, auctor enim massa, donec porttitor sed. Proin nisl dictum dapibus condimentum
-            volutpat ut donec aliquet. Proin.
+            {description}
           </p>
         </div>
-        <h4 className="partner--title text-center ">
+        {/* <h4 className="partner--title text-center ">
           Instructors
           {' '}
         </h4>
         <div className="row py-3 py-lg-4 about-training__instructors mx-auto">
           <div className="col-md-6">
             <div className="card text-center border-0 about-training__card">
-              <img src="/images/services/instructor1.png " className="card-img-top img-fluid w-25 mx-auto" alt="..." />
+              <img src="/images/services/instructor1.png " className="card-
+              img-top img-fluid w-25 mx-auto" alt="..." />
               <div className="card-body">
                 <h6 className="card-title m-0">Name of Instructor</h6>
                 <p className="card-text">Designation</p>
@@ -72,20 +71,52 @@ function AboutTraining() {
           </div>
           <div className="col-md-6">
             <div className="card text-center border-0 about-training__card">
-              <img src="/images/services/instructor2.png" className="card-img-top img-fluid w-25 mx-auto" alt="..." />
+              <img src="/images/services/instructor2.png" className="card-img-top
+              img-fluid w-25 mx-auto" alt="..." />
               <div className="card-body">
                 <h6 className="card-title m-0">Name of Instructor</h6>
                 <p className="card-text">Designation</p>
               </div>
             </div>
           </div>
-        </div>
-        <div className="text-center my-3">
+        </div> */}
+        {/* <div className="text-center my-3">
           <Cta text="Register" toggle="modal" target="#exampleModal" />
+        </div> */}
+        <div className="my-3 hero__button text-center">
+          { link && (
+            <>
+              <span className=" m-2">
+                <a href={link} className="link fw-bold py-3 px-5 my-2 text-decoration-none" type="button" target="_blank" rel="noreferrer">
+                  {linkText}
+                </a>
+              </span>
+              <span className=" m-2">
+                <a href={download} className="link fw-bold py-3 px-5 my-2 text-decoration-none" type="button" download>
+                  {downloadText}
+                </a>
+              </span>
+            </>
+          )}
         </div>
       </div>
     </div>
   );
 }
+AboutTraining.propTypes = {
+  description: PropTypes.string,
+  link: PropTypes.string,
+  linkText: PropTypes.string,
+  download: PropTypes.string,
+  downloadText: PropTypes.string,
+};
+
+AboutTraining.defaultProps = {
+  description: PropTypes.string,
+  link: '',
+  linkText: '',
+  download: '',
+  downloadText: '',
+};
 
 export default AboutTraining;

@@ -1,8 +1,108 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
+
+// WYSIWYG
+import { Editor } from 'react-draft-wysiwyg';
+import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+import { EditorState, convertToRaw } from 'draft-js';
+import draftToHtml from 'draftjs-to-html';
+// import TagsInput from '../../../ResuableComponents/TagsInput';
 
 function AddEventForm() {
+  const [title, setTitle] = useState('');
+  const [desc, setDesc] = useState(EditorState.createEmpty());
+  const [link, setLink] = useState('');
+  const [image, setImage] = useState('');
+  const [price, setPrice] = useState('');
+  const [date, setDate] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [tag, setTag] = useState([]);
+
+  const navigate = useNavigate();
+  // const selectedTags = (tags) => setTag(tags);
+
+  // WYSIWYG CONVERSION
+  const descState = draftToHtml(convertToRaw(desc.getCurrentContent()));
+  const onPostStateChange = (editorState) => {
+    setDesc(editorState);
+  };
+  const uploadImageCallBack = (file) => new Promise((resolve, reject) => {
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        resolve({ data: { link: e.target.result } });
+      };
+      reader.readAsDataURL(file);
+    } else {
+      reject();
+    }
+  });
+
+  const Submit = (e) => {
+    e.preventDefault();
+    setLoading(true);
+    const formData = new FormData();
+    formData.append('title', title);
+    formData.append('image', image, image.name);
+    formData.append('description', descState);
+    formData.append('link', link);
+    formData.append('price', price);
+    formData.append('date', date);
+    formData.append('tag', tag);
+
+    // tag.map((item) => formData.append('tag', item));
+
+    axios({
+      method: 'post',
+      url: 'https://elab-api.herokuapp.com/api/v1/programs',
+      data: formData,
+      headers: {
+        'Content-Type': 'multipart/form-data',
+        Authorization: `Bearer ${localStorage.getItem('elAdmT')}`,
+      },
+    }).then(
+      (response) => {
+        // console.log(response);
+        setLoading(false);
+        if (response) {
+          setLoading(false);
+
+          navigate('/dashboard/admin/events');
+        }
+      },
+      (error) => {
+        // console.log(error);
+        setLoading(false);
+        if (error.response) {
+          error.response.data.errors.map((err) => toast.error(`${err.message}`, {
+            position: 'top-right',
+            autoClose: 15000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          }));
+        } else {
+          toast.error('Ops, something went wrong, please try again', {
+            position: 'top-right',
+            autoClose: 8000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+        }
+      },
+    );
+  };
+
   return (
     <div className="content px-4">
+      <ToastContainer />
       <div className="row content__header align-items-center mb-5">
         <div className="col-md-6 p-0 text-center text-md-start">
           <h4 className="m-0">Add an Event</h4>
@@ -22,33 +122,92 @@ function AddEventForm() {
       </div>
       <div className="content__card w-100 p-5">
         <form className="content__form mx-5">
-          <div className="row py-2">
-            <label className="p-0 fw-bold" htmlFor="name">
-              Event title
+          <div className="py-2">
+            <label className="p-0 fw-bold" htmlFor="title">
+              Event Title
             </label>
-            <input type="text" className="name p-3 my-2 content__form--input " id="name" required />
+            <input type="text" className="name p-3 my-2 content__form--input " id="title" value={title} onChange={(e) => setTitle(e.target.value)} required />
           </div>
-          <div className="row py-2">
-            <label className="p-0 fw-bold" htmlFor="email">
-              Event&apos;s Type
+          <div className="py-2">
+            <label className="p-0 fw-bold" htmlFor="desc">
+              Event Description
             </label>
-            <select id="volunteer__project" name="volunteer__project" className="p-3 my-2 content__form--input">
-              <option value="">CTCTW</option>
-              <option value="">Cogneasy</option>
-              <option value="">Trifold</option>
-              <option value="">Gradeplus</option>
-            </select>
+            <div className="editor-container">
+              <Editor
+                editorState={desc}
+                toolbarClassName="content__wysiwyg--toolbar"
+                wrapperClassName="content__wysiwyg--wrapper my-2"
+                editorClassName="content__wysiwyg--editor p-3"
+                onEditorStateChange={onPostStateChange}
+                toolbar={{
+                  inline: { inDropdown: true },
+                  list: { inDropdown: true },
+                  textAlign: { inDropdown: true },
+                  link: { inDropdown: true },
+                  history: { inDropdown: true },
+                  image: {
+                    uploadCallback: uploadImageCallBack,
+                    alt: { present: true, mandatory: false },
+                    defaultSize: {
+                      height: '300px',
+                      width: '100%',
+                    },
+                  },
+                }}
+              />
+            </div>
           </div>
-          <div className="row py-2">
-            <label className="p-0 fw-bold" htmlFor="email">
+          <div className="py-2">
+            <label className="p-0 fw-bold" htmlFor="link">
+              Event Link
+            </label>
+            <input type="text" className=" p-3 my-2 content__form--input" id="link" value={link} onChange={(e) => setLink(e.target.value)} required />
+          </div>
+          <div className="py-2">
+            <label className="p-0 fw-bold" htmlFor="image">
               Event Image
             </label>
-            <input type="file" className="name p-3 my-2 content__form--input " id="name" required />
+            <input type="file" className=" p-3 my-2 content__form--input " id="image" onChange={(e) => setImage(e.target.files[0])} required />
           </div>
-          <div className="py-3 py-lg-4 px-0 mx-0 ">
-            <button type="button" className=" link btn fw-bold py-3 px-5 me-0" data-bs-toggle="modal" data-bs-target="#exampleModal">
-              Save Event
-            </button>
+          <div className="row py-2 content__form--row">
+            <div className="col-lg-6">
+              <label className="p-0 fw-bold" htmlFor="date">
+                Commencement Date
+              </label>
+              <input type="date" className=" p-3 my-2 content__form--inputr w-100" id="date" value={date} onChange={(e) => setDate(e.target.value)} required />
+            </div>
+            <div className="col-lg-6">
+              <label className="p-0 fw-bold" htmlFor="price">
+                Event Price(&#x20A6;)
+              </label>
+              <input type="number" className=" p-3 my-2 content__form--inputr w-100" id="price" value={price} onChange={(e) => setPrice(e.target.value)} required />
+            </div>
+          </div>
+          <div className="py-2">
+            <label className="p-0 fw-bold" htmlFor="email">
+              Tags
+            </label>
+            <br />
+            <input type="text" className=" p-3 my-2 content__form--input" id="tag" value={tag} onChange={(e) => setTag(e.target.value)} required />
+            {/* <TagsInput selectedTags={selectedTags} /> */}
+          </div>
+          <div className="py-3 py-lg-4 ">
+            {
+              loading
+                ? (
+                  <button type="button" className="link btn fw-bold py-3 px-5 me-0 content__form--button" disabled>
+                    <div className="spinner-border spinner-border-sm" role="status">
+                      <span className="visually-hidden">Loading...</span>
+                    </div>
+                  </button>
+                )
+                : (
+                  <button type="button" onClick={Submit} className=" link btn fw-bold py-3 px-5 me-0 content__form--button ">
+                    Save Event
+                  </button>
+
+                )
+          }
           </div>
         </form>
       </div>

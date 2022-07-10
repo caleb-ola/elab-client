@@ -26,6 +26,25 @@
               color: $elab-yellow;
             }
           }
+          & label {
+            color: $elab-black;
+          }
+          &--error {
+            color: red;
+            text-align: center;
+          }
+          &--button {
+            @include rwd(
+            width,
+            100%,
+            (
+              $md: 100%,
+              $lg: 65%,
+              $xl: 55%,
+              $xxl: 50%, 
+            )
+          )
+          }
     }
 }
 

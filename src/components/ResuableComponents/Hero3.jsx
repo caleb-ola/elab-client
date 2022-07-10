@@ -1,5 +1,5 @@
 import React from 'react';
-import { checkPropTypes } from 'prop-types';
+import { PropTypes } from 'prop-types';
 
 function HeroThree({ title, text, highlight }) {
   return (
@@ -8,7 +8,6 @@ function HeroThree({ title, text, highlight }) {
         <div className="herothree__header text-center">
           <h1 className="herothree__header--title pt-5 mt-5">
             {title}
-            {' '}
             <br />
             {highlight && (
             <span
@@ -31,9 +30,9 @@ function HeroThree({ title, text, highlight }) {
 }
 
 HeroThree.propTypes = {
-  title: checkPropTypes.string,
-  text: checkPropTypes.string,
-  highlight: checkPropTypes.string,
+  title: PropTypes.string,
+  text: PropTypes.string,
+  highlight: PropTypes.string,
 };
 
 HeroThree.defaultProps = {

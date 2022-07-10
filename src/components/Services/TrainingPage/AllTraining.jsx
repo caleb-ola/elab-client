@@ -1,7 +1,51 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import Empty from '../../ResuableComponents/Empty';
+import SkeletonTrainingCard from '../../ResuableComponents/SkeletonLoaders/SkeletonTrainingCard';
 import TrainingCard from '../../ResuableComponents/TrainingCard';
 
 function AllTraining() {
+  const [body, setBody] = useState('');
+  const [loading, setLoading] = useState(true);
+  const [skeleton, setSkeleton] = useState(
+    <div className="row pt-lg-2">
+      <div className="col-md-6 p-3">
+        <SkeletonTrainingCard />
+      </div>
+      <div className="col-md-6 p-3">
+        <SkeletonTrainingCard />
+      </div>
+    </div>,
+  );
+  useEffect(() => {
+    axios.get('https://elab-api.herokuapp.com/api/v1/trainings').then((response) => {
+      setLoading(false);
+      setSkeleton();
+      if (response.data.data.length === 0) {
+        setBody(
+          <Empty header="No Available Trainings" />,
+        );
+      } else {
+        setBody(
+          <div className="row pt-lg-5">
+            {
+            response.data.data.map((item) => (
+              <div className="col-lg-6 my-3 px-3 my-lg-4 px-lg-4" key={item.id}>
+                <TrainingCard
+                  image={item.image}
+                  title={item.title}
+                  text={item.description}
+                  path={`/services/training/${item.id}`}
+                />
+              </div>
+            ))
+           }
+          </div>,
+        );
+      }
+    });
+  }, []);
+
   return (
     <div className="trainings py-5">
       <div className="container py-lg-5">
@@ -15,52 +59,7 @@ function AllTraining() {
           </p>
         </div>
         <div className="row">
-          <div className="col-lg-6 my-3 px-3 my-lg-4 px-lg-4">
-            <TrainingCard
-              image="/images/home/training.png"
-              title="Header text for training title stays here"
-              text="Urna volutpat, ullamcorper egestas et. Amet risus ut. Urna volutpat, ullamcorper."
-            />
-          </div>
-          <div className="col-lg-6 my-3 px-3 my-lg-4 px-lg-4">
-            {' '}
-            <TrainingCard
-              image="/images/home/training.png"
-              title="Header text for training title stays here"
-              text="Urna volutpat, ullamcorper egestas et. Amet risus ut. Urna volutpat, ullamcorper."
-            />
-          </div>
-          {' '}
-          <div className="col-lg-6 my-3 px-3 my-lg-4 px-lg-4">
-            <TrainingCard
-              image="/images/home/training.png"
-              title="Header text for training title stays here"
-              text="Urna volutpat, ullamcorper egestas et. Amet risus ut. Urna volutpat, ullamcorper."
-            />
-          </div>
-          <div className="col-lg-6 my-3 px-3 my-lg-4 px-lg-4">
-            {' '}
-            <TrainingCard
-              image="/images/home/training.png"
-              title="Header text for training title stays here"
-              text="Urna volutpat, ullamcorper egestas et. Amet risus ut. Urna volutpat, ullamcorper."
-            />
-          </div>
-          <div className="col-lg-6 my-3 px-3 my-lg-4 px-lg-4">
-            <TrainingCard
-              image="/images/home/training.png"
-              title="Header text for training title stays here"
-              text="Urna volutpat, ullamcorper egestas et. Amet risus ut. Urna volutpat, ullamcorper."
-            />
-          </div>
-          <div className="col-lg-6 my-3 px-3 my-lg-4 px-lg-4">
-            {' '}
-            <TrainingCard
-              image="/images/home/training.png"
-              title="Header text for training title stays here"
-              text="Urna volutpat, ullamcorper egestas et. Amet risus ut. Urna volutpat, ullamcorper."
-            />
-          </div>
+          {loading ? skeleton : body}
         </div>
       </div>
     </div>

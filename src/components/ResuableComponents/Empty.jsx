@@ -6,12 +6,12 @@ function Empty({
   header, subtext, button, path,
 }) {
   return (
-    <div className="empty__card p-3 p-lg-5 text-center">
-      <div className="empty__header">
-        <h4>{header}</h4>
+    <div className="empty__card p-3 p-lg-5 text-center mx-auto">
+      <div className="empty__header mx-auto">
+        <h4 className="py-2">{header}</h4>
         <p>{subtext}</p>
       </div>
-      <img src="/images/reusable/empty.jpg" alt="" className="img-fluid" />
+      <img src="/images/reusable/empty.png" alt="" className="img-fluid w-75" />
       <div className="py-lg-2">
         {button
       && (

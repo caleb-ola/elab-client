@@ -209,6 +209,13 @@
       )
     );
   }
+  &--image {
+    filter: grayscale(100%);
+    transition: ease-in-out 0.5s;
+    &:hover{
+      filter: none;
+    }
+  }
 }
 // PARTNER ENDS 
 
@@ -331,7 +338,31 @@
   &__card {
     background-color: #fff;
     box-shadow: 0px 2px 12px rgba(51, 51, 51, 0.1);
-    border-radius: 5px;  } 
+    border-radius: 5px;  
+  &--image {
+    @include rwd(
+      width,
+      120px,
+      (
+        $md: 75px,
+        $lg: 100px,
+        $xl: 150px,
+        $xxl: 150px,
+      )
+    );
+    @include rwd(
+      height,
+      120px,
+      (
+        $md: 75px,
+        $lg: 100px,
+        $xl: 150px,
+        $xxl: 150px,
+      )
+    );
+    border-radius: 50%;
+  }
+  } 
 }
 // TRAINING ENDS
 

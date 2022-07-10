@@ -14,7 +14,8 @@ function NonProfitPage() {
         title="eLab"
         title1="Non-Profit"
         text=" We seek to transform our community one project at a time."
-        button="Donate"
+        button="Volunteer"
+        modal="#volunteerModal"
         overlay="overlay__two"
       />
       <AllNonProfit />

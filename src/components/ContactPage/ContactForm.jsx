@@ -1,37 +1,108 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useState } from 'react';
+import { toast, ToastContainer } from 'react-toastify';
 
 function ContactForm() {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+  const [loading, setLoading] = useState(false);
+
+  const Submit = (e) => {
+    e.preventDefault();
+    setLoading(true);
+    axios.post('https://elab-api.herokuapp.com/api/v1/users/send-us-a-message', {
+      name, email, message,
+    }).then(
+      (response) => {
+        // console.log(response);
+        setLoading(false);
+        toast.success(
+          response.data.data,
+          {
+            position: 'top-right',
+            autoClose: 15000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          },
+        );
+        setName('');
+        setEmail('');
+        setMessage('');
+      },
+      (error) => {
+        // console.log(error);
+        setLoading(false);
+        if (error.response) {
+          error.response.data.errors.map((err) => toast.error(`${err.message}`, {
+            position: 'top-right',
+            autoClose: 15000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          }));
+        } else {
+          toast.error('Ops, something went wrong, please try again', {
+            position: 'top-right',
+            autoClose: 8000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+        }
+      },
+    );
+  };
   return (
-    <div className="contact py-5">
+    <div className="contact pb-5">
+      <ToastContainer />
       <div className="container">
         <div className="row">
           <div className="col-lg-6 my-2">
-            <form action="" className="benefits__form px-2">
-              <div className="row py-2">
-                <label className="p-0" htmlFor="name">
+            <form action="" className="benefits__form px-2" onSubmit={Submit}>
+              <div className="py-2">
+                <label className="p-0 w-100" htmlFor="name">
                   Full Name
                 </label>
-                <input type="text" className="name p-3 my-2 contact__form--input " id="name" />
+                <input type="text" className="name p-3 my-2 contact__form--input " id="name" value={name} onChange={(e) => setName(e.target.value)} required />
               </div>
-              <div className="row py-2">
-                <label className="p-0" htmlFor="email">
+              <div className="py-2">
+                <label className="p-0 w-100" htmlFor="email">
                   Email Address
                 </label>
-                <input type="email" className="email p-3 my-2 contact__form--input " id="email" />
+                <input type="email" className="email p-3 my-2 contact__form--input " id="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
               </div>
-              <div className="row py-2">
-                <label className="p-0" htmlFor="email">
+              <div className="py-2">
+                <label className="p-0 w-100" htmlFor="message">
                   Message
                 </label>
-                <textarea name="" className="contact__form--input my-2 p-3" id="" cols="30" rows="10" />
-                {' '}
-                {' '}
+                <textarea name="" className="contact__form--input my-2 p-3" id="message" cols="30" rows="10" value={message} onChange={(e) => setMessage(e.target.value)} required />
+
               </div>
-              <div className="py-3 py-lg-5 px-0 ">
-                <button type="button" className=" link btn fw-bold py-3 px-5 me-0" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                  Send Message
-                  {' '}
-                </button>
+              <div className="py-3 py-lg-4 ">
+                {
+              loading
+                ? (
+                  <button type="button" className="link btn fw-bold py-3 px-5 me-0 contact__form--button" disabled>
+                    <div className="spinner-border spinner-border-sm" role="status">
+                      <span className="visually-hidden">Loading...</span>
+                    </div>
+                  </button>
+                )
+                : (
+                  <button type="submit" className=" link btn fw-bold py-3 px-5 me-0 contact__form--button ">
+                    Send Message
+                  </button>
+
+                )
+          }
               </div>
             </form>
           </div>

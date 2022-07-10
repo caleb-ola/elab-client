@@ -2,8 +2,8 @@ import React from 'react';
 
 function Member() {
   return (
-    <div className="member pt-5">
-      <div className="container-fluid pt-lg-5">
+    <div className="member ">
+      <div className="container-fluid">
         <div className="row align-items-center">
           <div className="col-lg-6">
             <div className="container ps-lg-5 ms-lg-5 pe-lg-5">

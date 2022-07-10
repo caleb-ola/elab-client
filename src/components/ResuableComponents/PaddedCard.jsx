@@ -1,19 +1,29 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { checkPropTypes } from 'prop-types';
+import { PropTypes } from 'prop-types';
+import Moment from 'react-moment';
 
 function PaddedCard({
-  title, image, button, name, date, path, discount, price,
+  title, image, button, name, date, path, price, brochure,
 }) {
   return (
     path
       ? (
-        <Link to="/" className="text-decoration-none paddedcard__link">
+        <a href={path} className="text-decoration-none paddedcard__link">
           <div className="paddedcard p-4 px-lg-5 py-lg-4 pb-lg-4 pb-2 h-100">
             <h6 className="paddedcard__title fw-bold pb-3">
               {title}
             </h6>
-            <img src={image} alt="" className="img-fluid" />
+            <div
+              className="div"
+              style={{
+                background: `url(${image})`,
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: 'cover',
+                height: '320px',
+                borderRadius: '10px',
+              }}
+            />
             {button ? (
               <div className="mt-4">
                 <Link to="/" className="link py-1 px-2 text-decoration-none fw-bold">
@@ -24,21 +34,22 @@ function PaddedCard({
             )
               : (
                 <div className="row mt-4">
-                  <div className="col-6 text-start">
+                  <div className="col-md-6 text-center text-md-start">
                     {' '}
                     <i className="fa-solid fa-user blog--icon pe-2" />
                     {name}
                   </div>
-                  <div className="col-6 text-end">
+                  <div className="col-md-6 text-center text-md-end">
                     {' '}
                     <i className="fa-solid fa-calendar blog--icon pe-2" />
-                    {date}
-
+                    <Moment format="Do MMMM, YYYY">
+                      {date}
+                    </Moment>
                   </div>
                 </div>
               )}
           </div>
-        </Link>
+        </a>
       )
       : (
         <div className="paddedcard p-4 px-lg-5 py-lg-5 pb-lg-4 pb-2  h-100">
@@ -46,26 +57,36 @@ function PaddedCard({
             {title}
           </h6>
 
-          <img src={image} alt="" className="img-fluid" />
-
+          <div
+            className="div"
+            style={{
+              background: `url(${image})`,
+              backgroundRepeat: 'no-repeat',
+              backgroundSize: 'cover',
+              height: '320px',
+              borderRadius: '10px',
+            }}
+          />
           {button ? (
-            <div className="row my-4">
+            <div className="row my-4 align-items-center">
               <div className="col-7">
-                <Link to="/" className="link py-1 px-3 text-decoration-none fw-bold" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <a type="button" href={brochure} className="link py-1 px-3 text-decoration-none fw-bold" download>
                   {button}
-                </Link>
+                </a>
               </div>
               <div className="col-5 text-end">
-                {discount ? (
+                {price !== 0 && price ? (
                   <>
-                    <span className="fw-bold text-start pe-2">{discount}</span>
-                    <span className="text-end ps-2 m-0">{price}</span>
+                    {/* <span className="fw-bold text-start pe-2">{discount}</span> */}
+                    <span className="text-end ps-2 m-0 fw-bold">
+                      &#x20A6;
+                      {price}
+                    </span>
                   </>
                 )
                   : <span className="fw-bold text-start pe-2">Free</span>}
               </div>
             </div>
-
           )
             : (
               <div className="row mt-4">
@@ -79,14 +100,15 @@ function PaddedCard({
 }
 
 PaddedCard.propTypes = {
-  title: checkPropTypes.string,
-  image: checkPropTypes.string,
-  button: checkPropTypes.string,
-  name: checkPropTypes.string,
-  date: checkPropTypes.string,
-  path: checkPropTypes.string,
-  discount: checkPropTypes.string,
-  price: checkPropTypes.string,
+  title: PropTypes.string,
+  image: PropTypes.string,
+  button: PropTypes.string,
+  name: PropTypes.string,
+  date: PropTypes.string,
+  path: PropTypes.string,
+  // discount: PropTypes.string,
+  price: PropTypes.number,
+  brochure: PropTypes.string,
 };
 
 PaddedCard.defaultProps = {
@@ -96,7 +118,8 @@ PaddedCard.defaultProps = {
   name: '',
   date: '',
   path: '',
-  discount: '',
+  // discount: '',
   price: '',
+  brochure: '',
 };
 export default PaddedCard;

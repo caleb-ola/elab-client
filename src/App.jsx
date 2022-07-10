@@ -31,11 +31,6 @@ import Faq from './components/Resources/FaqPage/Faq';
 import Contact from './components/ContactPage/Contact';
 import FindYourY from './components/FindYourYPage/FindYourY';
 import FindYourYDetails from './components/FindYourYPage/FindYourYDetails';
-import Impact from './components/Dashboard/Admin/Impact/Impact';
-import AddImpact from './components/Dashboard/Admin/Impact/AddImpact';
-import EditImpact from './components/Dashboard/Admin/Impact/EditImpact';
-import Partners from './components/Dashboard/Admin/Partners/Partners';
-import AddPartners from './components/Dashboard/Admin/Partners/AddPartners';
 import Event from './components/Dashboard/Admin/Event/Event';
 import AddEvent from './components/Dashboard/Admin/Event/AddEvent';
 import Media from './components/Dashboard/Admin/MediaMention/Media';
@@ -60,9 +55,6 @@ import EditNonProfit from './components/Dashboard/Admin/NonProfit/EditNonProfit'
 import Startup from './components/Dashboard/Admin/Startup/Startup';
 import AddStartup from './components/Dashboard/Admin/Startup/AddStartup';
 import EditStartup from './components/Dashboard/Admin/Startup/EditStartup';
-import Faqs from './components/Dashboard/Admin/FAQ/Faqs';
-import AddFaqs from './components/Dashboard/Admin/FAQ/AddFaqs';
-import EditFaqs from './components/Dashboard/Admin/FAQ/EditFaqs';
 import Blogs from './components/Dashboard/Admin/Blogs/Blogs';
 import AddBlogs from './components/Dashboard/Admin/Blogs/AddBlogs';
 import EditBlogs from './components/Dashboard/Admin/Blogs/EditBlogs';
@@ -77,6 +69,21 @@ import Login from './components/Authentication/Login';
 import Forgot from './components/Authentication/Forgot';
 import Reset from './components/Authentication/Reset';
 import Error404 from './components/ResuableComponents/Error404';
+import UserRouteGuard from './route-guards/UserRouteGuard';
+import AdminRouteGuard from './route-guards/AdminRouteGuard';
+import ServicesAdmin from './components/Dashboard/Admin/Services/Services';
+import AddServices from './components/Dashboard/Admin/Services/AddServices';
+import EditServices from './components/Dashboard/Admin/Services/EditServices';
+import AddVolunteer from './components/Dashboard/Admin/volunteers/AddVolunteers';
+import Volunteers from './components/Dashboard/Admin/volunteers/Volunteers';
+import EditEvent from './components/Dashboard/Admin/Event/EditEvent';
+import Plans from './components/Dashboard/Admin/Plans/Plans';
+import AddPlans from './components/Dashboard/Admin/Plans/AddPlans';
+import EditPlans from './components/Dashboard/Admin/Plans/EditPlans';
+import Bookings from './components/Dashboard/Admin/Bookings/Bookings';
+import BookingsDetails from './components/Dashboard/Admin/Bookings/BookingsDetails';
+import Payments from './components/Dashboard/Admin/Payments/Payments';
+import PaymentsDetails from './components/Dashboard/Admin/Payments/PaymentsDetails';
 
 function App() {
   return (
@@ -88,9 +95,9 @@ function App() {
           <Route path="/about-us" element={<About />} />
           <Route exact path="/program/community" element={<Community />} />
           <Route exact path="/program/foundry" element={<StartupFoundry />} />
-          <Route exact path="/program/foundry/:id" element={<StartupDetails />} />
+          <Route exact path="/program/foundry/:slug" element={<StartupDetails />} />
           <Route path="/program/projects" element={<Projects />} />
-          <Route path="/program/projects/:id" element={<ProjectsDetails />} />
+          <Route path="/program/projects/:slug" element={<ProjectsDetails />} />
           <Route path="/program/non-profit" element={<NonProfitPage />} />
           <Route path="/program/innovation-hub" element={<InnovationPage />} />
           <Route path="/program/innovation-hub/:slug" element={<InnovationDetails />} />
@@ -101,7 +108,7 @@ function App() {
           <Route path="/services/training" element={<Training />} />
           <Route path="/services/training/:id" element={<TrainingPageDetails />} />
           <Route path="/resources/blog" element={<Blog />} />
-          <Route path="/resources/blog/:id" element={<BlogDetails />} />
+          <Route path="/resources/blog/:slug" element={<BlogDetails />} />
           <Route path="/resources/playbook" element={<Playbook />} />
           <Route path="/resources/whitepaper" element={<WhitePaper />} />
           <Route path="/resources/faq" element={<Faq />} />
@@ -112,51 +119,56 @@ function App() {
           <Route path="/auth/login" element={<Login />} />
           <Route path="/auth/forgot-password" element={<Forgot />} />
           <Route path="/auth/reset-password" element={<Reset />} />
-          <Route path="/dashboard/user" element={<UserCowork />} />
-          <Route path="/dashboard/admin" element={<Impact />} />
-          <Route path="/dashboard/admin/impact" element={<Impact />} />
-          <Route path="/dashboard/admin/add-impact" element={<AddImpact />} />
-          <Route path="/dashboard/admin/edit-impact/:slug" element={<EditImpact />} />
-          <Route path="/dashboard/admin/partners" element={<Partners />} />
-          <Route path="/dashboard/admin/add-partners" element={<AddPartners />} />
-          <Route path="/dashboard/admin/edit-partners/:slug" element={<AddPartners />} />
-          <Route path="/dashboard/admin/event" element={<Event />} />
-          <Route path="/dashboard/admin/add-event" element={<AddEvent />} />
-          <Route path="/dashboard/admin/edit-event/:slug" element={<Event />} />
-          <Route path="/dashboard/admin/media" element={<Media />} />
-          <Route path="/dashboard/admin/add-media" element={<AddMedia />} />
-          <Route path="/dashboard/admin/edit-media/:slug" element={<EditMedia />} />
-          <Route path="/dashboard/admin/consultation" element={<Consult />} />
-          <Route path="/dashboard/admin/consultation/:slug" element={<ConsultDetails />} />
-          <Route path="/dashboard/admin/cowork" element={<Cowork />} />
-          <Route path="/dashboard/admin/cowork/:slug" element={<CoworkDetails />} />
-          <Route path="/dashboard/admin/training" element={<Trainings />} />
-          <Route path="/dashboard/admin/add-training" element={<AddTrainings />} />
-          <Route path="/dashboard/admin/edit-training/:slug" element={<EditTrainings />} />
-          <Route path="/dashboard/admin/resources" element={<Resources />} />
-          <Route path="/dashboard/admin/add-resources" element={<AddResources />} />
-          <Route path="/dashboard/admin/edit-resources/:slug" element={<EditResources />} />
-          <Route path="/dashboard/admin/projects" element={<Project />} />
-          <Route path="/dashboard/admin/add-projects" element={<AddProjects />} />
-          <Route path="/dashboard/admin/add-projects/:slug" element={<AddProjects />} />
-          <Route path="/dashboard/admin/edit-projects/:slug" element={<EditProjects />} />
-          <Route path="/dashboard/admin/non-profit" element={<NonProfit />} />
-          <Route path="/dashboard/admin/add-non-profit" element={<AddNonProfit />} />
-          <Route path="/dashboard/admin/edit-non-profit/:slug" element={<EditNonProfit />} />
-          <Route path="/dashboard/admin/startup" element={<Startup />} />
-          <Route path="/dashboard/admin/add-startup" element={<AddStartup />} />
-          <Route path="/dashboard/admin/edit-startup/:slug" element={<EditStartup />} />
-          <Route path="/dashboard/admin/faq" element={<Faqs />} />
-          <Route path="/dashboard/admin/add-faq" element={<AddFaqs />} />
-          <Route path="/dashboard/admin/edit-faq/:slug" element={<EditFaqs />} />
-          <Route path="/dashboard/admin/blog" element={<Blogs />} />
-          <Route path="/dashboard/admin/add-blog" element={<AddBlogs />} />
-          <Route path="/dashboard/admin/edit-blog/:slug" element={<EditBlogs />} />
-          <Route path="/dashboard/user" element={<UserCowork />} />
-          <Route path="/dashboard/user/cowork" element={<UserCowork />} />
-          <Route path="/dashboard/user/cowork/:slug" element={<UserCoworkDetails />} />
-          <Route path="/dashboard/user/resources" element={<UserResources />} />
-          <Route path="*" element={<Navigate to="/error" replace />} />
+          <Route element={<AdminRouteGuard />}>
+            <Route path="/dashboard/admin" element={<Blogs />} />
+            <Route path="/dashboard/admin/services" element={<ServicesAdmin />} />
+            <Route path="/dashboard/admin/add-services" element={<AddServices />} />
+            <Route path="/dashboard/admin/edit-services/:slug" element={<EditServices />} />
+            <Route path="/dashboard/admin/volunteers" element={<Volunteers />} />
+            <Route path="/dashboard/admin/add-volunteers" element={<AddVolunteer />} />
+            <Route path="/dashboard/admin/events" element={<Event />} />
+            <Route path="/dashboard/admin/add-events" element={<AddEvent />} />
+            <Route path="/dashboard/admin/edit-events/:id" element={<EditEvent />} />
+            <Route path="/dashboard/admin/media" element={<Media />} />
+            <Route path="/dashboard/admin/add-media" element={<AddMedia />} />
+            <Route path="/dashboard/admin/edit-media/:id" element={<EditMedia />} />
+            <Route path="/dashboard/admin/consultation" element={<Consult />} />
+            <Route path="/dashboard/admin/consultation/:slug" element={<ConsultDetails />} />
+            <Route path="/dashboard/admin/cowork" element={<Cowork />} />
+            <Route path="/dashboard/admin/cowork/:slug" element={<CoworkDetails />} />
+            <Route path="/dashboard/admin/workspace-bookings" element={<Bookings />} />
+            <Route path="/dashboard/admin/workspace-bookings/:id" element={<BookingsDetails />} />
+            <Route path="/dashboard/admin/payments" element={<Payments />} />
+            <Route path="/dashboard/admin/payments/:id" element={<PaymentsDetails />} />
+            <Route path="/dashboard/admin/training" element={<Trainings />} />
+            <Route path="/dashboard/admin/add-training" element={<AddTrainings />} />
+            <Route path="/dashboard/admin/edit-training/:slug" element={<EditTrainings />} />
+            <Route path="/dashboard/admin/resources" element={<Resources />} />
+            <Route path="/dashboard/admin/add-resources" element={<AddResources />} />
+            <Route path="/dashboard/admin/edit-resources/:slug" element={<EditResources />} />
+            <Route path="/dashboard/admin/projects" element={<Project />} />
+            <Route path="/dashboard/admin/add-projects" element={<AddProjects />} />
+            <Route path="/dashboard/admin/edit-projects/:slug" element={<EditProjects />} />
+            <Route path="/dashboard/admin/non-profit" element={<NonProfit />} />
+            <Route path="/dashboard/admin/add-non-profit" element={<AddNonProfit />} />
+            <Route path="/dashboard/admin/edit-non-profit/:id" element={<EditNonProfit />} />
+            <Route path="/dashboard/admin/startup" element={<Startup />} />
+            <Route path="/dashboard/admin/add-startup" element={<AddStartup />} />
+            <Route path="/dashboard/admin/edit-startup/:slug" element={<EditStartup />} />
+            <Route path="/dashboard/admin/workspace-plans" element={<Plans />} />
+            <Route path="/dashboard/admin/add-workspace-plans" element={<AddPlans />} />
+            <Route path="/dashboard/admin/edit-workspace-plans/:slug" element={<EditPlans />} />
+            <Route path="/dashboard/admin/blog" element={<Blogs />} />
+            <Route path="/dashboard/admin/add-blog" element={<AddBlogs />} />
+            <Route path="/dashboard/admin/edit-blog/:slug" element={<EditBlogs />} />
+          </Route>
+          <Route elemet={<UserRouteGuard />}>
+            <Route path="/dashboard/user" element={<UserCowork />} />
+            <Route path="/dashboard/user/cowork" element={<UserCowork />} />
+            <Route path="/dashboard/user/cowork/:slug" element={<UserCoworkDetails />} />
+            <Route path="/dashboard/user/resources" element={<UserResources />} />
+            <Route path="*" element={<Navigate to="/error" replace />} />
+          </Route>
         </Routes>
       </ScrollToTop>
     </BrowserRouter>

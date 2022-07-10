@@ -14,9 +14,7 @@ function About() {
       <Hero
         title="Appropriate Content is needed
         for this section"
-        // circleTitle="Unlocking "
         image="url('/images/about/hero1.png')"
-        // button="Learn More"
       />
       <Timeline />
       <Vision />

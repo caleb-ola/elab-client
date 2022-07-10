@@ -1,10 +1,11 @@
 import React from 'react';
-import { checkPropTypes } from 'prop-types';
+import { PropTypes } from 'prop-types';
+import Moment from 'react-moment';
 import Cta from './Cta';
 import CircleBg from './circleBg';
 
 function HeroTwo({
-  image, title, title1, button, text, circleTitle, overlay, price, modal,
+  image, title, title1, button, text, circleTitle, overlay, price, modal, date, link, linkText,
 }) {
   return (
     <section
@@ -52,12 +53,19 @@ function HeroTwo({
       </div>
 
       {/* REGISTER FORM ENDS */}
-
       <div className={overlay}>
         <div className="container">
           <div className=" heroTwo__text text-start  ">
             <div className="heroTwo__container w-100 text-start">
-              <h6>{price}</h6>
+              {price && (
+              <h6>
+                &#x20A6;
+                {' '}
+                {' '}
+                {price.toString()
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+              </h6>
+              ) }
               <h1 className="mt-2 mb-0 heroTwo--title">
                 {title}
                 {/* {circleTitle && <CircleBg text={circleTitle} />} */}
@@ -71,11 +79,24 @@ function HeroTwo({
                 {text}
               </p>
               )}
+              {date && (
+              <p className="my-3 hero__paragragh text-start ">
+                <Moment format="Do MMMM, YYYY">
+                  {date}
+                </Moment>
+              </p>
+              )}
               <div className="my-5 hero__button">
                 { button && <Cta text={button} toggle="modal" target={modal} />}
               </div>
+              <div className="my-5 hero__button">
+                { link && (
+                <a href={link} className="link fw-bold py-3 px-5 text-decoration-none" type="button" target="_blank" rel="noreferrer">
+                  {linkText}
+                </a>
+                )}
+              </div>
             </div>
-
           </div>
         </div>
       </div>
@@ -84,15 +105,18 @@ function HeroTwo({
 }
 
 HeroTwo.propTypes = {
-  image: checkPropTypes.string,
-  title: checkPropTypes.string,
-  title1: checkPropTypes.string,
-  button: checkPropTypes.string,
-  text: checkPropTypes.string,
-  circleTitle: checkPropTypes.string,
-  overlay: checkPropTypes.string,
-  price: checkPropTypes.string,
-  modal: checkPropTypes.string,
+  image: PropTypes.string,
+  title: PropTypes.string,
+  title1: PropTypes.string,
+  button: PropTypes.string,
+  text: PropTypes.string,
+  circleTitle: PropTypes.string,
+  overlay: PropTypes.string,
+  price: PropTypes.string,
+  modal: PropTypes.string,
+  date: PropTypes.string,
+  link: PropTypes.string,
+  linkText: PropTypes.string,
 };
 
 HeroTwo.defaultProps = {
@@ -105,7 +129,9 @@ HeroTwo.defaultProps = {
   overlay: '',
   price: '',
   modal: '',
-
+  date: '',
+  link: '',
+  linkText: '',
 };
 
 export default HeroTwo;

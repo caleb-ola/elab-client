@@ -1,5 +1,5 @@
 import React from 'react';
-import { checkPropTypes } from 'prop-types';
+import { PropTypes } from 'prop-types';
 
 function HeroLight({
   title, text, highlight, highlight2, highlight3, highlight4,
@@ -8,7 +8,7 @@ function HeroLight({
     <div className="hero-light py-5">
       <div className="container py-5">
         <div className="hero-light__header py-lg-5">
-          <h1 className="hero-light__header--title text-center">
+          <h1 className="hero-light__header--title text-center pt-5">
             {title}
             <br />
             {highlight && (
@@ -71,12 +71,12 @@ function HeroLight({
 }
 
 HeroLight.propTypes = {
-  title: checkPropTypes.string,
-  text: checkPropTypes.string,
-  highlight: checkPropTypes.string,
-  highlight2: checkPropTypes.string,
-  highlight3: checkPropTypes.string,
-  highlight4: checkPropTypes.string,
+  title: PropTypes.string,
+  text: PropTypes.string,
+  highlight: PropTypes.string,
+  highlight2: PropTypes.string,
+  highlight3: PropTypes.string,
+  highlight4: PropTypes.string,
 };
 
 HeroLight.defaultProps = {

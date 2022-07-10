@@ -1,9 +1,9 @@
 import React from 'react';
-import { checkPropTypes } from 'prop-types';
+import { PropTypes } from 'prop-types';
 import CircleBg from '../ResuableComponents/circleBg';
 
 function Hero({
-  image, title, button, text, circleTitle, path,
+  image, title, button, text, circleTitle, path, download,
 }) {
   return (
     <section
@@ -38,6 +38,11 @@ function Hero({
                   {button}
                 </a>
                 )}
+                {download && (
+                  <a href={download} className="link fw-bold py-3 px-5 text-decoration-none text-start" type="button" download>
+                    Download brochure
+                  </a>
+                )}
               </div>
             </div>
 
@@ -49,12 +54,13 @@ function Hero({
 }
 
 Hero.propTypes = {
-  image: checkPropTypes.string,
-  title: checkPropTypes.string,
-  button: checkPropTypes.string,
-  text: checkPropTypes.string,
-  circleTitle: checkPropTypes.string,
-  path: checkPropTypes.string,
+  image: PropTypes.string,
+  title: PropTypes.string,
+  button: PropTypes.string,
+  text: PropTypes.string,
+  circleTitle: PropTypes.string,
+  path: PropTypes.string,
+  download: PropTypes.string,
 };
 
 Hero.defaultProps = {
@@ -64,6 +70,7 @@ Hero.defaultProps = {
   text: '',
   circleTitle: '',
   path: '',
+  download: '',
 };
 
 export default Hero;

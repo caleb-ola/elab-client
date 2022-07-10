@@ -24,26 +24,21 @@ function Partner() {
         </div>
         <div className="row align-items-center text-center justify-content-center">
           <div className="col-sm-6 col-md-4 col-lg-2 p-4 ">
-            <img src="/images/home/logo.png" alt="" className="img-fluid" />
+            <img src="/images/home/eridan.png" alt="" className="img-fluid partner--image" />
           </div>
           <div className="col-sm-6 col-md-4 col-lg-2 p-4 ">
-            <img src="/images/home/logo2.png" alt="" className="img-fluid" />
+            <img src="/images/home/global.png" alt="" className="img-fluid partner--image" />
 
           </div>
           <div className="col-sm-6 col-md-4 col-lg-2 p-4 ">
-            <img src="/images/home/logo3.png" alt="" className="img-fluid" />
+            <img src="/images/home/hult.png" alt="" className="img-fluid partner--image" />
 
           </div>
           <div className="col-sm-6 col-md-4 col-lg-2 p-4 ">
-            <img src="/images/home/logo4.png" alt="" className="img-fluid" />
-
-          </div>
-          <div className="col-sm-6 col-md-4 col-lg-2 p-4 ">
-            <img src="/images/home/logo5.png" alt="" className="img-fluid" />
+            <img src="/images/home/threefold.png" alt="" className="img-fluid partner--image" />
 
           </div>
         </div>
-
       </div>
     </section>
   );

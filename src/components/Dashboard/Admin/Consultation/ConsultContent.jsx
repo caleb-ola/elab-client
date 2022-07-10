@@ -1,202 +1,271 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import Skeleton from 'react-loading-skeleton';
-import 'react-loading-skeleton/dist/skeleton.css';
-import { Link, useNavigate } from 'react-router-dom';
+import Moment from 'react-moment';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import Pagination from '../../../ResuableComponents/Pagination';
-import Data from '../data';
+import DashboardEmpty from '../DashboardReusable/DashboardEmpty';
+import SkeletonTable from '../DashboardReusable/SkeletonTable';
+// import Data from '../data';
 
 function ConsultContent() {
   const navigate = useNavigate();
-  const [deleteState, setDeleteState] = useState();
-  const [body, setBody] = useState();
-  const [loading, setLoading] = useState(true);
-  const [skeleton, setSkeleton] = useState(
-    <div className="row justify-content-center">
-      <div className="">
-        <Skeleton height={50} className="table__skeleton" />
-        <div className="row align-items-center mt-3">
-          <div className="col-10 ">
-            <Skeleton height={30} className="table__skeleton" />
-          </div>
-          <div className="col-1 text-end">
-            <Skeleton
-              height={30}
-              width={30}
-              circle
-              className="table__skeleton"
+  const [deleteState, setDeleteState] = useState(
+    <div
+      className="modal fade "
+      id="staticBackdrop"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabIndex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div className="modal-dialog modal-dialog-centered">
+        <div className="modal-content">
+          <div className="modal-header  border-0">
+            <h5
+              className="modal-title"
+              id="staticBackdropLabel"
+            >
+              Confirm Delete
+            </h5>
+            <button
+              type="button"
+              className="btn-close shadow-none"
+              data-bs-dismiss="modal"
+              aria-label="Close"
             />
           </div>
-          <div className="col-1">
-            <Skeleton
-              height={30}
-              width={30}
-              circle
-              className="table__skeleton"
-            />
+          <div className="modal-body">
+            You are about to delete an entry, are
+            you sure you want to do this?
           </div>
-        </div>
-        <div className="row align-items-center">
-          <div className="col-8 ">
-            <Skeleton height={25} className="table__skeleton" />
-          </div>
-          <div className="col-2">
-            {' '}
-            <Skeleton height={35} className="table__skeleton" />
-          </div>
-          <div className="col-1 text-end">
-            <Skeleton
-              height={30}
-              width={30}
-              circle
-              className="table__skeleton"
-            />
-          </div>
-          <div className="col-1">
-            <Skeleton
-              height={30}
-              width={30}
-              circle
-              className="table__skeleton"
-            />
-          </div>
-        </div>
-        <div className="row align-items-center">
-          <div className="col-8 ">
-            <Skeleton height={25} className="table__skeleton" />
-          </div>
-          <div className="col-2 text-end">
-            {' '}
-            <Skeleton height={35} className="table__skeleton" />
-          </div>
-          <div className="col-1 text-end">
-            <Skeleton
-              height={30}
-              width={30}
-              circle
-              className="table__skeleton"
-            />
-          </div>
-          <div className="col-1 text-start">
-            <Skeleton
-              height={30}
-              width={30}
-              circle
-              className="table__skeleton"
-            />
+          <div className="modal-footer  border-0">
+            <button
+              type="button"
+              className="btn btn-secondary shadow-none"
+              data-bs-dismiss="modal"
+            >
+              Cancel
+            </button>
+            <button
+              type="button"
+              className="btn btn-danger shadow-none"
+                    // onClick={() => deleteCourse(item.id)}
+              data-bs-dismiss="modal"
+            >
+              Confirm Delete
+            </button>
           </div>
         </div>
       </div>
     </div>,
   );
+  const [body, setBody] = useState();
+  const [loading, setLoading] = useState(true);
+  const [skeleton, setSkeleton] = useState(
+    <SkeletonTable />,
+  );
   useEffect(() => {
-    setLoading(false);
-    setSkeleton();
-    setBody(
-      <table
-        className="w-100 "
+    // eslint-disable-next-line no-use-before-define
+    RenderData();
+  }, []);
 
-      >
-        <thead>
-          <tr className="fw-bold">
-            <th className="ps-0 px-3 py-3 text-center">S/N</th>
-            <th className="pe-4">Name</th>
-            <th>Email Address</th>
-            <th>Phone Number</th>
-            <th>Created On</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          {
-                  Data[4].map((item, index) => (
-                    <tr key={item.id} className="content__card--row" onClick={() => navigate('/dashboard/admin/consultation/:slug')}>
-                      <td className="py-3 text-center">{index + 1}</td>
-                      <td>{item.name}</td>
-                      <td>{item.email}</td>
-                      <td>{item.number}</td>
-                      <td>{item.CreatedAt}</td>
-                      <td className="text-end">
-                        <Link to="/dashboard/admin/edit-impact/:slug">
-                          <span
-                            className="fa-stack fa-1x custom-c mx-2"
-                          >
-                            <i className="fas fa-circle fa-stack-2x" />
-                            <i className="fa-solid fa-pen-to-square fa-stack-1x custom-c--icon" />
-                          </span>
-                        </Link>
-                      </td>
-                      <td className="text-start">
-                        <span
-                          className="fa-stack fa-1x custom-c mx-2"
-                          role="button"
-                          aria-hidden="true"
-                          data-bs-toggle="modal"
-                          data-bs-target="#staticBackdrop"
-                          onClick={
-                            setDeleteState(
-                              <div
-                                className="modal fade "
-                                id="staticBackdrop"
-                                data-bs-backdrop="static"
-                                data-bs-keyboard="false"
-                                tabIndex="-1"
-                                aria-labelledby="staticBackdropLabel"
-                                aria-hidden="true"
+  const RenderData = () => {
+    axios.get('https://elab-api.herokuapp.com/api/v1/consultations').then((response) => {
+      // console.log(response);
+      setLoading(false);
+      setSkeleton();
+      if (response.data.data.length === 0) {
+        setBody(
+          <DashboardEmpty header="No Consultation" subtext="Consultations are yet to be submitted by any user." />,
+        );
+      } else {
+        setBody(
+          <>
+            <table
+              className="w-100 "
+            >
+              <thead>
+                <tr className="fw-bold">
+                  <th className="ps-0 px-3 py-3 text-center">S/N</th>
+                  <th className="pe-4">Name</th>
+                  <th>Email Address</th>
+                  <th>Phone Number</th>
+                  <th>Created On</th>
+                </tr>
+              </thead>
+              <tbody>
+                {
+                      response.data.data.map((item, index) => (
+                        <tr key={item.id} className="content__card--row" onClick={() => navigate(`/dashboard/admin/consultation/${item.slug}`)}>
+                          <td className="py-3 text-center">{index + 1}</td>
+                          <td>{item.name}</td>
+                          <td>{item.email}</td>
+                          <td>{item.number}</td>
+                          <td>
+                            <Moment format="Do MMMM, YYYY">
+                              {item.createddAt}
+                            </Moment>
+                          </td>
+                          {/* <td className="text-end">
+                            <Link to="/dashboard/admin/edit-impact/:slug">
+                              <span
+                                className="fa-stack fa-1x custom-c mx-2"
                               >
-                                <div className="modal-dialog modal-dialog-centered">
-                                  <div className="modal-content">
-                                    <div className="modal-header  border-0">
-                                      <h5
-                                        className="modal-title"
-                                        id="staticBackdropLabel"
-                                      >
-                                        Confirm Delete
-                                      </h5>
-                                      <button
-                                        type="button"
-                                        className="btn-close shadow-none"
-                                        data-bs-dismiss="modal"
-                                        aria-label="Close"
-                                      />
-                                    </div>
-                                    <div className="modal-body">
-                                      You are about to delete an entry, are
-                                      you sure you want to do this?
-                                    </div>
-                                    <div className="modal-footer  border-0">
-                                      <button
-                                        type="button"
-                                        className="btn btn-secondary shadow-none"
-                                        data-bs-dismiss="modal"
-                                      >
-                                        Cancel
-                                      </button>
-                                      <button
-                                        type="button"
-                                        className="btn btn-danger shadow-none"
-                                              // onClick={() => deleteCourse(item.id)}
-                                        data-bs-dismiss="modal"
-                                      >
-                                        Confirm Delete
-                                      </button>
+                                <i className="fas fa-circle fa-stack-2x" />
+                                <i className="fa-solid fa-pen-to-square
+                                fa-stack-1x custom-c--icon" />
+                              </span>
+                            </Link>
+                          </td> */}
+                          <td className="text-start">
+                            <span
+                              className="fa-stack fa-1x custom-c mx-2"
+                              role="button"
+                              aria-hidden="true"
+                              data-bs-toggle="modal"
+                              data-bs-target="#staticBackdrop"
+                              onClick={() => setDeleteState(
+                                <div
+                                  className="modal fade "
+                                  id="staticBackdrop"
+                                  data-bs-backdrop="static"
+                                  data-bs-keyboard="false"
+                                  tabIndex="-1"
+                                  aria-labelledby="staticBackdropLabel"
+                                  aria-hidden="true"
+                                >
+                                  <div className="modal-dialog modal-dialog-centered">
+                                    <div className="modal-content">
+                                      <div className="modal-header  border-0">
+                                        <h5
+                                          className="modal-title"
+                                          id="staticBackdropLabel"
+                                        >
+                                          Confirm Delete
+                                        </h5>
+                                        <button
+                                          type="button"
+                                          className="btn-close shadow-none"
+                                          data-bs-dismiss="modal"
+                                          aria-label="Close"
+                                        />
+                                      </div>
+                                      <div className="modal-body">
+                                        You are about to delete an entry, are
+                                        you sure you want to do this?
+                                      </div>
+                                      <div className="modal-footer  border-0">
+                                        <button
+                                          type="button"
+                                          className="btn btn-secondary shadow-none"
+                                          data-bs-dismiss="modal"
+                                        >
+                                          Cancel
+                                        </button>
+                                        <button
+                                          type="button"
+                                          className="btn btn-danger shadow-none"
+                                          // eslint-disable-next-line no-use-before-define
+                                          onClick={() => DeleteConsult(item.id)}
+                                          data-bs-dismiss="modal"
+                                        >
+                                          Confirm Delete
+                                        </button>
+                                      </div>
                                     </div>
                                   </div>
-                                </div>
-                              </div>,
-                            )
-                          }
-                        >
-                          <i className="fas fa-circle fa-stack-2x" />
-                          <i className="fa-solid fa-trash fa-stack-1x custom-c--icon" />
-                        </span>
-                      </td>
-                    </tr>
-                  ))
-            }
-        </tbody>
-      </table>,
-    );
-  }, []);
+                                </div>,
+                              )}
+                            >
+                              <i className="fas fa-circle fa-stack-2x" />
+                              <i className="fa-solid fa-trash fa-stack-1x custom-c--icon" />
+                            </span>
+                          </td>
+                        </tr>
+                      ))
+                }
+              </tbody>
+            </table>
+            ,
+            <div className="pt-4 px-5">
+              <Pagination />
+            </div>
+          </>,
+        );
+      }
+    }, (error) => {
+      // console.log(error);
+      if (error.response) {
+        error.response.data.errors.map((err) => toast.error(`${err.message}`, {
+          position: 'top-right',
+          autoClose: 15000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        }));
+      } else {
+        toast.error('Ops, something went wrong, please try again', {
+          position: 'top-right',
+          autoClose: 8000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      }
+    });
+  };
+
+  const DeleteConsult = (slug) => {
+    axios.delete(`https://elab-api.herokuapp.com/api/v1/consultations/${slug}`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('elAdmT')}`,
+      },
+    }).then((response) => {
+      // console.log(response);
+      toast.success(
+        response?.data?.message || 'You successfully deleted a consultation.',
+        {
+          position: 'top-right',
+          autoClose: 15000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        },
+      );
+      // eslint-disable-next-line no-undef
+      RenderData();
+    }, (error) => {
+      if (error.response) {
+        error.response.data.errors.map((err) => toast.error(`${err.message}`, {
+          position: 'top-right',
+          autoClose: 15000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        }));
+      } else {
+        toast.error('Ops, something went wrong, please try again', {
+          position: 'top-right',
+          autoClose: 8000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      }
+    });
+  };
   return (
     <div className="content px-4">
       {deleteState}
@@ -218,9 +287,6 @@ function ConsultContent() {
         <hr />
         <div className="px-5">
           {loading ? skeleton : body}
-        </div>
-        <div className="pt-4 px-5">
-          <Pagination />
         </div>
       </div>
     </div>

@@ -98,6 +98,7 @@
               $xxl: 90%,
             )
           );
+          transition: ease-in-out 0.4s;
         &:hover {
             box-shadow: 0px 15px 50px 0px #4d4d4d26;
             margin-top: -3px;
@@ -177,7 +178,6 @@
 // ALL PROJECTS ENDS
 
 
-
 // INNOVATION HUB (COWORK STARTS)
 .plans {
   &__card {
@@ -230,6 +230,9 @@
      text-decoration:line-through;
      font-weight: 400;
      color: #BDBDBD;
+   }
+   &--image {
+     height: 500px;
    }
   }
   &__nav {

@@ -1,4 +1,4 @@
-import { checkPropTypes } from 'prop-types';
+import { PropTypes } from 'prop-types';
 import React from 'react';
 
 function CoworkCard({
@@ -9,7 +9,7 @@ function CoworkCard({
       <img src={image} className="card-img-top" alt="..." />
       <div className="card-body p-4 pb-lg-5">
         <h6 className="card-title fw-bold m-0">{title}</h6>
-        <p className="services__card--text pb-2 ">
+        <p className="services__card--text pt-1 pb-2 ">
           {text}
           {' '}
           Team members
@@ -21,11 +21,11 @@ function CoworkCard({
 }
 
 CoworkCard.propTypes = {
-  image: checkPropTypes.string,
-  title: checkPropTypes.string,
-  text: checkPropTypes.string,
-  button: checkPropTypes.string,
-  path: checkPropTypes.string,
+  image: PropTypes.string,
+  title: PropTypes.string,
+  text: PropTypes.string,
+  button: PropTypes.string,
+  path: PropTypes.string,
 };
 
 CoworkCard.defaultProps = {

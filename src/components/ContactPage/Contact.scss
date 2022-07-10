@@ -15,6 +15,17 @@
                 )
               );
         }
+        &--button{
+            @include rwd(
+                width,
+                95%,
+                (
+                  $md: 90%,
+                  $lg: 60%,
+                  $xl: 40%,
+                  $xxl: 40%,
+                )
+              );        }
     }
     &__details {
         &--header {

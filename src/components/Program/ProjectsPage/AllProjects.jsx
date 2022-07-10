@@ -1,5 +1,9 @@
-import React, { useState } from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
+import Empty from '../../ResuableComponents/Empty';
+import SkeletonEventRow from '../../ResuableComponents/SkeletonLoaders/SkeletonEventsRow';
 // import Cta from '../../ResuableComponents/Cta';
 
 function AllProjects() {
@@ -8,128 +12,64 @@ function AllProjects() {
     CurrentProject: false,
     FutureProject: false,
   });
-  const [proj, setProj] = useState(
-    <>
-      <div className="col-md-6 col-lg-4 my-3 my-lg-4 px-3 px-lg-4">
-        <div
-          className="projects__card position-relative"
-          style={{
-            backgroundImage: "url('/images/program/project1.png')",
-            backgroundSize: 'cover',
-            backgroundRepeat: 'no-repeat',
-            height: '384px',
-          }}
-        >
-          <div className="projects__card--content position-absolute ">
-            <h5 className="">Project title goes here</h5>
-            <div className="my-4 hero__button">
-              <Link to="/program/projects/details" className="link text-decoration-none px-3 py-2 fw-bold">Learn more</Link>
-
-            </div>
-          </div>
-        </div>
-      </div>
-      {' '}
-      <div className="col-md-6 col-lg-4 my-3 my-lg-4 px-3 px-lg-4">
-        <div
-          className="projects__card position-relative"
-          style={{
-            backgroundImage: "url('/images/program/project2.png')",
-            backgroundSize: 'cover',
-            backgroundRepeat: 'no-repeat',
-            height: '384px',
-          }}
-        >
-          <div className="projects__card--content position-absolute ">
-            <h5 className="">Project title goes here</h5>
-            <div className="my-4 hero__button">
-              <Link to="/program/projects/details" className="link text-decoration-none px-3 py-2 fw-bold">Learn more</Link>
-
-            </div>
-          </div>
-        </div>
-      </div>
-      {' '}
-      <div className="col-md-6 col-lg-4 my-3 my-lg-4 px-3 px-lg-4">
-        <div
-          className="projects__card position-relative"
-          style={{
-            backgroundImage: "url('/images/program/project3.png')",
-            backgroundSize: 'cover',
-            backgroundRepeat: 'no-repeat',
-            height: '384px',
-          }}
-        >
-          <div className="projects__card--content position-absolute ">
-            <h5 className="">Project title goes here</h5>
-            <div className="my-4 hero__button">
-              <Link to="/program/projects/details" className="link text-decoration-none px-3 py-2 fw-bold">Learn more</Link>
-
-            </div>
-          </div>
-        </div>
-      </div>
-      {' '}
-      <div className="col-md-6 col-lg-4 my-3 my-lg-4 px-3 px-lg-4">
-        <div
-          className="projects__card position-relative"
-          style={{
-            backgroundImage: "url('/images/program/project1.png')",
-            backgroundSize: 'cover',
-            backgroundRepeat: 'no-repeat',
-            height: '384px',
-          }}
-        >
-          <div className="projects__card--content position-absolute ">
-            <h5 className="">Project title goes here</h5>
-            <div className="my-4 hero__button">
-              <Link to="/program/projects/details" className="link text-decoration-none px-3 py-2 fw-bold">Learn more</Link>
-
-            </div>
-          </div>
-        </div>
-      </div>
-      {' '}
-      <div className="col-md-6 col-lg-4 my-3 my-lg-4 px-3 px-lg-4">
-        <div
-          className="projects__card position-relative"
-          style={{
-            backgroundImage: "url('/images/program/project1.png')",
-            backgroundSize: 'cover',
-            backgroundRepeat: 'no-repeat',
-            height: '384px',
-          }}
-        >
-          <div className="projects__card--content position-absolute ">
-            <h5 className="">Project title goes here</h5>
-            <div className="my-4 hero__button">
-              <Link to="/program/projects/details" className="link text-decoration-none px-3 py-2 fw-bold">Learn more</Link>
-
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="col-md-6 col-lg-4 my-3 my-lg-4 px-3 px-lg-4">
-        <div
-          className="projects__card position-relative"
-          style={{
-            backgroundImage: "url('/images/program/project1.png')",
-            backgroundSize: 'cover',
-            backgroundRepeat: 'no-repeat',
-            height: '384px',
-          }}
-        >
-          <div className="projects__card--content position-absolute ">
-            <h5 className="">Project title goes here</h5>
-            <div className="my-4 hero__button">
-              <Link to="/program/projects/details" className="link text-decoration-none px-3 py-2 fw-bold">Learn more</Link>
-
-            </div>
-          </div>
-        </div>
-      </div>
-    </>,
+  const [proj, setProj] = useState();
+  const [loading, setLoading] = useState(true);
+  const [skeleton, setSkeleton] = useState(
+    <SkeletonEventRow />,
   );
+
+  useEffect(() => {
+    axios.get('https://elab-api.herokuapp.com/api/v1/projects/past-projects').then((response) => {
+      // console.log(response);
+      setLoading(false);
+      setSkeleton();
+      setProj(
+        response.data.data.map((item) => (
+          <div className="col-md-6 col-lg-4 my-3 my-lg-4 px-3 px-lg-4" key={item.id}>
+            <div
+              className="projects__card position-relative"
+              style={{
+                backgroundImage: `url(${item.image})`,
+                backgroundSize: 'cover',
+                backgroundRepeat: 'no-repeat',
+                height: '384px',
+              }}
+            >
+              <div className="projects__card--content position-absolute ">
+                <h5 className="">{item.title}</h5>
+                <div className="my-4 hero__button">
+                  <Link to={`/program/projects/${item.slug}`} className="link text-decoration-none px-3 py-2 fw-bold">Learn more</Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        )),
+
+      );
+    }, (error) => {
+      if (error.response) {
+        error.response.data.errors.map((err) => toast.error(`${err.message}`, {
+          position: 'top-right',
+          autoClose: 15000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        }));
+      } else {
+        toast.error('Ops, something went wrong, please try again', {
+          position: 'top-right',
+          autoClose: 8000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      }
+    });
+  }, []);
 
   const PastProject = () => {
     setActive({
@@ -137,129 +77,66 @@ function AllProjects() {
       CurrentProject: false,
       FutureProject: false,
     });
-    setProj(
-      <>
-        <div className="col-md-6 col-lg-4 my-3 my-lg-4 px-3 px-lg-4">
-          <div
-            className="projects__card position-relative"
-            style={{
-              backgroundImage: "url('/images/program/project1.png')",
-              backgroundSize: 'cover',
-              backgroundRepeat: 'no-repeat',
-              height: '384px',
-            }}
-          >
-            <div className="projects__card--content position-absolute ">
-              <h5 className="">Project title goes here</h5>
-              <div className="my-4 hero__button">
-                <Link to="/program/projects/details" className="link text-decoration-none px-3 py-2 fw-bold">Learn more</Link>
-
+    setLoading(true);
+    setSkeleton(<SkeletonEventRow />);
+    axios.get('https://elab-api.herokuapp.com/api/v1/projects/past-projects').then((response) => {
+      // console.log(response);
+      setLoading(false);
+      setSkeleton();
+      if (response.data.data.length === 0) {
+        setProj(
+          <Empty
+            header="No projects"
+            subtext="There are no projects here for now, but surely cooked something."
+          />,
+        );
+      } else {
+        setProj(
+          response.data.data.map((item) => (
+            <div className="col-md-6 col-lg-4 my-3 my-lg-4 px-3 px-lg-4" key={item.id}>
+              <div
+                className="projects__card position-relative"
+                style={{
+                  backgroundImage: `url(${item.image})`,
+                  backgroundSize: 'cover',
+                  backgroundRepeat: 'no-repeat',
+                  height: '384px',
+                }}
+              >
+                <div className="projects__card--content position-absolute ">
+                  <h5 className="">{item.title}</h5>
+                  <div className="my-4 hero__button">
+                    <Link to={`/program/projects/${item.slug}`} className="link text-decoration-none px-3 py-2 fw-bold">Learn more</Link>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-        {' '}
-        <div className="col-md-6 col-lg-4 my-3 my-lg-4 px-3 px-lg-4">
-          <div
-            className="projects__card position-relative"
-            style={{
-              backgroundImage: "url('/images/program/project2.png')",
-              backgroundSize: 'cover',
-              backgroundRepeat: 'no-repeat',
-              height: '384px',
-            }}
-          >
-            <div className="projects__card--content position-absolute ">
-              <h5 className="">Project title goes here</h5>
-              <div className="my-4 hero__button">
-                <Link to="/program/projects/details" className="link text-decoration-none px-3 py-2 fw-bold">Learn more</Link>
-
-              </div>
-            </div>
-          </div>
-        </div>
-        {' '}
-        <div className="col-md-6 col-lg-4 my-3 my-lg-4 px-3 px-lg-4">
-          <div
-            className="projects__card position-relative"
-            style={{
-              backgroundImage: "url('/images/program/project3.png')",
-              backgroundSize: 'cover',
-              backgroundRepeat: 'no-repeat',
-              height: '384px',
-            }}
-          >
-            <div className="projects__card--content position-absolute ">
-              <h5 className="">Project title goes here</h5>
-              <div className="my-4 hero__button">
-                <Link to="/program/projects/details" className="link text-decoration-none px-3 py-2 fw-bold">Learn more</Link>
-
-              </div>
-            </div>
-          </div>
-        </div>
-        {' '}
-        <div className="col-md-6 col-lg-4 my-3 my-lg-4 px-3 px-lg-4">
-          <div
-            className="projects__card position-relative"
-            style={{
-              backgroundImage: "url('/images/program/project1.png')",
-              backgroundSize: 'cover',
-              backgroundRepeat: 'no-repeat',
-              height: '384px',
-            }}
-          >
-            <div className="projects__card--content position-absolute ">
-              <h5 className="">Project title goes here</h5>
-              <div className="my-4 hero__button">
-                <Link to="/program/projects/details" className="link text-decoration-none px-3 py-2 fw-bold">Learn more</Link>
-
-              </div>
-            </div>
-          </div>
-        </div>
-        {' '}
-        <div className="col-md-6 col-lg-4 my-3 my-lg-4 px-3 px-lg-4">
-          <div
-            className="projects__card position-relative"
-            style={{
-              backgroundImage: "url('/images/program/project1.png')",
-              backgroundSize: 'cover',
-              backgroundRepeat: 'no-repeat',
-              height: '384px',
-            }}
-          >
-            <div className="projects__card--content position-absolute ">
-              <h5 className="">Project title goes here</h5>
-              <div className="my-4 hero__button">
-                <Link to="/program/projects/details" className="link text-decoration-none px-3 py-2 fw-bold">Learn more</Link>
-
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="col-md-6 col-lg-4 my-3 my-lg-4 px-3 px-lg-4">
-          <div
-            className="projects__card position-relative"
-            style={{
-              backgroundImage: "url('/images/program/project1.png')",
-              backgroundSize: 'cover',
-              backgroundRepeat: 'no-repeat',
-              height: '384px',
-            }}
-          >
-            <div className="projects__card--content position-absolute ">
-              <h5 className="">Project title goes here</h5>
-              <div className="my-4 hero__button">
-                <Link to="/program/projects/details" className="link text-decoration-none px-3 py-2 fw-bold">Learn more</Link>
-
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </>,
-    );
+          )),
+        );
+      }
+    }, (error) => {
+      if (error.response) {
+        error.response.data.errors.map((err) => toast.error(`${err.message}`, {
+          position: 'top-right',
+          autoClose: 15000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        }));
+      } else {
+        toast.error('Ops, something went wrong, please try again', {
+          position: 'top-right',
+          autoClose: 8000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      }
+    });
   };
 
   const CurrentProject = () => {
@@ -268,71 +145,66 @@ function AllProjects() {
       CurrentProject: true,
       FutureProject: false,
     });
-    setProj(
-      <>
-        <div className="col-md-6 col-lg-4 my-3 my-lg-4 px-3 px-lg-4">
-          <div
-            className="projects__card position-relative"
-            style={{
-              backgroundImage: "url('/images/program/project1.png')",
-              backgroundSize: 'cover',
-              backgroundRepeat: 'no-repeat',
-              height: '384px',
-            }}
-          >
-            <div className="projects__card--content position-absolute ">
-              <h5 className="">Project title goes here</h5>
-              <div className="my-4 hero__button">
-                <Link to="/program/projects/details" className="link text-decoration-none px-3 py-2 fw-bold">Learn more</Link>
-
+    setLoading(true);
+    setSkeleton(<SkeletonEventRow />);
+    axios.get('https://elab-api.herokuapp.com/api/v1/projects/current-projects').then((response) => {
+      // console.log(response);
+      setLoading(false);
+      setSkeleton();
+      if (response.data.data.length === 0) {
+        setProj(
+          <Empty
+            header="No projects"
+            subtext="There are no projects here for now, but surely something is cooking."
+          />,
+        );
+      } else {
+        setProj(
+          response.data.data.map((item) => (
+            <div className="col-md-6 col-lg-4 my-3 my-lg-4 px-3 px-lg-4" key={item.id}>
+              <div
+                className="projects__card position-relative"
+                style={{
+                  backgroundImage: `url(${item.image})`,
+                  backgroundSize: 'cover',
+                  backgroundRepeat: 'no-repeat',
+                  height: '384px',
+                }}
+              >
+                <div className="projects__card--content position-absolute ">
+                  <h5 className="">{item.title}</h5>
+                  <div className="my-4 hero__button">
+                    <Link to={`/program/projects/${item.slug}`} className="link text-decoration-none px-3 py-2 fw-bold">Learn more</Link>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-        {' '}
-        <div className="col-md-6 col-lg-4 my-3 my-lg-4 px-3 px-lg-4">
-          <div
-            className="projects__card position-relative"
-            style={{
-              backgroundImage: "url('/images/program/project2.png')",
-              backgroundSize: 'cover',
-              backgroundRepeat: 'no-repeat',
-              height: '384px',
-            }}
-          >
-            <div className="projects__card--content position-absolute ">
-              <h5 className="">Project title goes here</h5>
-              <div className="my-4 hero__button">
-                <Link to="/program/projects/details" className="link text-decoration-none px-3 py-2 fw-bold">Learn more</Link>
-
-              </div>
-            </div>
-          </div>
-        </div>
-        {' '}
-        <div className="col-md-6 col-lg-4 my-3 my-lg-4 px-3 px-lg-4">
-          <div
-            className="projects__card position-relative"
-            style={{
-              backgroundImage: "url('/images/program/project3.png')",
-              backgroundSize: 'cover',
-              backgroundRepeat: 'no-repeat',
-              height: '384px',
-            }}
-          >
-            <div className="projects__card--content position-absolute ">
-              <h5 className="">Project title goes here</h5>
-              <div className="my-4 hero__button">
-                <Link to="/program/projects/details" className="link text-decoration-none px-3 py-2 fw-bold">Learn more</Link>
-
-              </div>
-            </div>
-          </div>
-        </div>
-        {' '}
-
-      </>,
-    );
+          )),
+        );
+      }
+    }, (error) => {
+      if (error.response) {
+        error.response.data.errors.map((err) => toast.error(`${err.message}`, {
+          position: 'top-right',
+          autoClose: 15000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        }));
+      } else {
+        toast.error('Ops, something went wrong, please try again', {
+          position: 'top-right',
+          autoClose: 8000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      }
+    });
   };
 
   const FutureProject = () => {
@@ -341,54 +213,70 @@ function AllProjects() {
       CurrentProject: false,
       FutureProject: true,
     });
-    setProj(
-      <>
-        <div className="col-md-6 col-lg-4 my-3 my-lg-4 px-3 px-lg-4">
-          <div
-            className="projects__card position-relative"
-            style={{
-              backgroundImage: "url('/images/program/project2.png')",
-              backgroundSize: 'cover',
-              backgroundRepeat: 'no-repeat',
-              height: '384px',
-            }}
-          >
-            <div className="projects__card--content position-absolute ">
-              <h5 className="">Project title goes here</h5>
-              <div className="my-4 hero__button">
-                <Link to="/program/projects/details" className="link text-decoration-none px-3 py-2 fw-bold">Learn more</Link>
-
+    setLoading(true);
+    setSkeleton(<SkeletonEventRow />);
+    axios.get('https://elab-api.herokuapp.com/api/v1/projects/future-projects').then((response) => {
+      // console.log(response);
+      setLoading(false);
+      setSkeleton();
+      if (response.data.data.length === 0) {
+        setProj(
+          <Empty
+            header="No projects"
+            subtext="There are no projects here for now, but surely something is cooking."
+          />,
+        );
+      } else {
+        setProj(
+          response.data.data.map((item) => (
+            <div className="col-md-6 col-lg-4 my-3 my-lg-4 px-3 px-lg-4" key={item.id}>
+              <div
+                className="projects__card position-relative"
+                style={{
+                  backgroundImage: `url(${item.image})`,
+                  backgroundSize: 'cover',
+                  backgroundRepeat: 'no-repeat',
+                  height: '384px',
+                }}
+              >
+                <div className="projects__card--content position-absolute ">
+                  <h5 className="">{item.title}</h5>
+                  <div className="my-4 hero__button">
+                    <Link to={`/program/projects/${item.slug}`} className="link text-decoration-none px-3 py-2 fw-bold">Learn more</Link>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-        {' '}
-        <div className="col-md-6 col-lg-4 my-3 my-lg-4 px-3 px-lg-4">
-          <div
-            className="projects__card position-relative"
-            style={{
-              backgroundImage: "url('/images/program/project3.png')",
-              backgroundSize: 'cover',
-              backgroundRepeat: 'no-repeat',
-              height: '384px',
-            }}
-          >
-            <div className="projects__card--content position-absolute ">
-              <h5 className="">Project title goes here</h5>
-              <div className="my-4 hero__button">
-                <Link to="/program/projects/details" className="link text-decoration-none px-3 py-2 fw-bold">Learn more</Link>
-
-              </div>
-            </div>
-          </div>
-        </div>
-        {' '}
-
-      </>,
-    );
+          )),
+        );
+      }
+    }, (error) => {
+      if (error.response) {
+        error.response.data.errors.map((err) => toast.error(`${err.message}`, {
+          position: 'top-right',
+          autoClose: 15000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        }));
+      } else {
+        toast.error('Ops, something went wrong, please try again', {
+          position: 'top-right',
+          autoClose: 8000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      }
+    });
   };
   return (
     <div className="projects py-5 ">
+      <ToastContainer />
       <div className="container py-lg-2 pb-lg-5">
         <div className="d-flex flex-row  justify-content-center py-3 py-lg-5">
           <span role="button" tabIndex={0} className={active.PastProject ? 'btn button px-0 mx-2 mx-lg-3 projects__active' : 'btn button px-0 mx-2 mx-lg-3'} onClick={PastProject} aria-hidden="true">Past Projects</span>
@@ -396,7 +284,7 @@ function AllProjects() {
           <span type="button" className={active.FutureProject ? 'btn button px-0 mx-2 mx-lg-3 projects__active' : 'btn button px-0 mx-2 mx-lg-3'} onClick={FutureProject} aria-hidden="true">Future Projects</span>
         </div>
         <div className="row">
-          {proj}
+          {loading ? skeleton : proj}
         </div>
       </div>
     </div>

@@ -147,13 +147,13 @@ function NavBar() {
                 Contact Us
               </NavLink>
             </li>
-            <li className="nav-item py-0 mx-3">
+            <li className="nav-item py-0 mx-3 mx-lg-2 mx-xl-3">
               <NavLink className="nav-link   links  px-0 py-2 py-lg-4 " to="/find-your-y">
                 Find your Y
               </NavLink>
             </li>
-            <li className="nav-item navi--button mx-2 me-2 me-lg-0 my-2 my-lg-0">
-              <Link to="/auth/login" type="button" className="link btn navi--button px-4">Login</Link>
+            <li className="navi--button mx-2 pe-3 me-lg-0 my-2 my-lg-0">
+              <Link to="/auth/login" type="button" className="link btn navi--button px-4 ">Login</Link>
             </li>
           </ul>
         </div>

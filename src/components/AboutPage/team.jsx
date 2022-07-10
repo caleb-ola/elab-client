@@ -25,11 +25,12 @@ function Team() {
         {...{
           arrows: false,
           dots: true,
-          infinite: true,
+          // fade: true,
+          infinite: false,
           slidesToShow: 1,
           slidesToScroll: 1,
           autoplay: true,
-          speed: 4000,
+          speed: 3000,
           autoplaySpeed: 3000,
           cssEase: 'linear',
           responsive: [

@@ -1,10 +1,11 @@
 import React from 'react';
-import { checkPropTypes } from 'prop-types';
-import { Link } from 'react-router-dom';
+import { PropTypes } from 'prop-types';
 
-function EventCard({ title, label, image }) {
+function EventCard({
+  title, label, image, link,
+}) {
   return (
-    <Link to="/" className="text-decoration-none events__link">
+    <a href={link} target="_blank" rel="noreferrer" className="text-decoration-none events__link">
       <div className="card events__card border-0 h-100">
         <img src={image} className="card-img-top" alt="..." />
         <div className="card-body p-4 ">
@@ -15,14 +16,15 @@ function EventCard({ title, label, image }) {
         </div>
       </div>
 
-    </Link>
+    </a>
   );
 }
 
 EventCard.propTypes = {
-  title: checkPropTypes.string,
-  label: checkPropTypes.string,
-  image: checkPropTypes.string,
+  title: PropTypes.string,
+  label: PropTypes.string,
+  image: PropTypes.string,
+  link: PropTypes.string,
 
 };
 
@@ -30,6 +32,7 @@ EventCard.defaultProps = {
   title: '',
   label: '',
   image: '',
+  link: '',
 };
 
 export default EventCard;

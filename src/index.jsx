@@ -7,8 +7,6 @@ import App from './App';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <HttpsRedirect>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
+    <App />
   </HttpsRedirect>,
 );

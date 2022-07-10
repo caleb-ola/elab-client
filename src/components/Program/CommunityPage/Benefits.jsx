@@ -1,7 +1,61 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useState } from 'react';
+import { toast, ToastContainer } from 'react-toastify';
 // import Cta from '../../ResuableComponents/Cta';
 
 function Benefits() {
+  const [email, setEmail] = useState();
+  const [name, setName] = useState();
+  const [loading, setLoading] = useState(false);
+
+  const Submit = (e) => {
+    e.preventDefault();
+    setLoading(true);
+    axios.post('https://elab-api.herokuapp.com/api/v1/subscribers/subscribe-to-trybe-community', {
+      name, email,
+    }).then((response) => {
+      // console.log(response);
+      setLoading(false);
+      setEmail('');
+      setName('');
+      if (response) {
+        toast.success('You have successfully subscribed to the community.', {
+          position: 'top-right',
+          autoClose: 8000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      }
+    }, (error) => {
+      // console.log(error);
+      setLoading(false);
+      if (error.response) {
+        error.response.data.errors.map((err) => toast.error(`${err.message}`, {
+          position: 'top-right',
+          autoClose: 15000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        }));
+      } else {
+        toast.error('Ops, something went wrong, please try again', {
+          position: 'top-right',
+          autoClose: 8000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      }
+    });
+  };
+
   return (
     <div className="benefits py-5">
       {/* JOIN TRYBE FORM STARTS */}
@@ -14,25 +68,37 @@ function Benefits() {
             <div className="modal-body px-md-5 benefits__content pt-0 pb-4">
               <h4 className="modal-title" id="exampleModalLabel">Join Trybe by eLab</h4>
               <p>Supply the details below to join the community</p>
-
-              <form action="" className="benefits__form">
+              <form action="" className="benefits__form" onSubmit={Submit}>
                 <div className="row py-2">
                   <label className="p-0 benefits__form--label" htmlFor="name">
                     Full Name
                   </label>
-                  <input type="text" className="name p-3 my-2 benefits__form--input " id="name" />
+                  <input type="text" className="name p-3 my-2 benefits__form--input " id="name" value={name} onChange={(e) => setName(e.target.value)} />
                 </div>
                 <div className="row py-2">
                   <label className="p-0 benefits__form--label" htmlFor="email">
                     Email Address
                   </label>
-                  <input type="email" className="email p-3 my-2 benefits__form--input " id="email" />
+                  <input type="email" className="email p-3 my-2 benefits__form--input " id="email" value={email} onChange={(e) => setEmail(e.target.value)} />
                 </div>
-                <div className="py-3 py-lg-5 px-0">
-                  <button type="button" className=" link btn fw-bold py-3 px-5 me-0" data-bs-toggle="modal" data-bs-target="#trybeModal">
+                <div className="py-3 py-lg-4 ">
+                  {
+              loading
+                ? (
+                  <button type="button" className="link btn fw-bold py-3 px-5 me-0 content__form--button" disabled>
+                    <div className="spinner-border spinner-border-sm" role="status">
+                      <span className="visually-hidden">Loading...</span>
+                    </div>
+                  </button>
+                )
+                : (
+                  <button type="submit" className=" link btn fw-bold py-3 px-5 me-0 content__form--button">
                     Join Trybe Community
                   </button>
+                )
+                }
                 </div>
+
               </form>
             </div>
           </div>
@@ -41,6 +107,7 @@ function Benefits() {
       {/* JOIN TRYBE FORM ENDS */}
 
       <div className="container py-lg-5">
+        <ToastContainer />
         <div className="benefits__header text-center mx-auto">
           <h4 className="benefits__header--title py-3">Benefits of Joining the Community</h4>
           <p className="benefits__header--text">

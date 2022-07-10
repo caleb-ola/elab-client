@@ -191,17 +191,17 @@ function ImpactContent() {
     );
   }, []);
   return (
-    <div className="content px-4">
+    <div className="content px-0 px-md-4">
       {deleteState}
       <div className="row content__header align-items-center mb-5">
-        <div className="col-md-6 p-0 text-center text-md-start">
+        <div className="col-md-6 p-0 text-center text-md-start content__header--left">
           <h4 className="m-0">Impact</h4>
         </div>
-        <div className="col-md-6 p-0 text-center text-md-end">
+        <div className="col-md-6 p-0 text-center text-md-end content__header--right">
           <Link to="/dashboard/admin/add-impact" className="link px-4 py-2 text-decoration-none fw-bold">Add an Impact</Link>
         </div>
       </div>
-      <div className="content__card w-100 p-5">
+      <div className="content__card w-100 p-2 p-md-5">
         {loading ? skeleton : body}
       </div>
     </div>

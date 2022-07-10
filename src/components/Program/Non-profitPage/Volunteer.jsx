@@ -1,6 +1,100 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
+import TagsInput from '../../ResuableComponents/TagsInput';
 
 function Volunteer() {
+  const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
+  const [tag, setTag] = useState();
+  const [options, setOptions] = useState();
+  const [project, setProject] = useState('');
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    axios.get('https://elab-api.herokuapp.com/api/v1/projects/future-projects').then(
+      (response) => {
+        // console.log(response);
+        setOptions(response.data.data);
+      },
+      (error) => {
+        // console.log(error);
+        setLoading(false);
+        if (error.response) {
+          error.response.data.errors.map((err) => toast.error(`${err.message}`, {
+            position: 'top-right',
+            autoClose: 15000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          }));
+        } else {
+          toast.error('Ops, something went wrong, please try again', {
+            position: 'top-right',
+            autoClose: 8000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+        }
+      },
+    );
+  }, []);
+  // console.log(options);
+  const selectedTags = (tags) => setTag(tags);
+  // console.log(tag);
+
+  const Submit = (e) => {
+    e.preventDefault();
+    setLoading(true);
+    axios.post('https://elab-api.herokuapp.com/api/v1/volunteers', {
+      name, email, project, skills: tag,
+    }).then((response) => {
+      // console.log(response);
+      setLoading(false);
+      setEmail('');
+      setName('');
+      if (response) {
+        toast.success('You have successfully joined our volunteering team.', {
+          position: 'top-right',
+          autoClose: 8000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      }
+    }, (error) => {
+      // console.log(error);
+      setLoading(false);
+      if (error.response) {
+        error.response.data.errors.map((err) => toast.error(`${err.message}`, {
+          position: 'top-right',
+          autoClose: 15000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        }));
+      } else {
+        toast.error('Ops, something went wrong, please try again', {
+          position: 'top-right',
+          autoClose: 8000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      }
+    });
+  };
   return (
     <>
       {/* JOIN TRYBE FORM STARTS */}
@@ -18,64 +112,58 @@ function Volunteer() {
               </h4>
               <p>Supply the details below to join the team</p>
 
-              <form action="" className="benefits__form ">
+              <form action="" className="benefits__form">
                 <div className="row py-2">
                   <label className="" htmlFor="name">
                     Full Name
                   </label>
-                  <input type="text" className="name p-3 my-2 benefits__form--input " id="name" />
+                  <input type="text" className="name p-3 my-2 benefits__form--input " id="name" value={name} onChange={(e) => setName(e.target.value)} required />
                 </div>
                 <div className="row py-2">
                   <label className="" htmlFor="email">
                     Email Address
                   </label>
-                  <input type="email" className="email p-3 my-2 benefits__form--input " id="email" />
+                  <input type="email" className="email p-3 my-2 benefits__form--input " id="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
                 </div>
                 <div className="row py-2">
                   <label className="" htmlFor="volunteer__project">
                     Select Name of project
                   </label>
-                  <select id="volunteer__project" name="volunteer__project" className="p-3 my-2 form-select benefits__form--input shadow-none">
-                    <option value="">CTCTW</option>
-                    <option value="">Cogneasy</option>
-                    <option value="">Trifold</option>
-                    <option value="">Gradeplus</option>
+                  <select id="volunteer__project" name="volunteer__project" className="p-3 my-2 form-select benefits__form--input shadow-none" onChange={(e) => setProject(e.target.value)} required>
+                    {options
+                      && options.map((item) => (
+                        <option value={item.title} key={item.id}>
+                          {item.title}
+                        </option>
+                      ))}
                   </select>
                 </div>
-                <div className="row py-2 ps-3">
-                  <div className="form-check py-1">
-                    <input className="form-check-input shadow-none" type="checkbox" value="" id="flexCheckDefault" />
-                    <label className="form-check-label" htmlFor="flexCheckDefault">
-                      Design
-                    </label>
-                  </div>
-                  <div className="form-check py-1">
-                    <input className="form-check-input shadow-none" type="checkbox" value="" id="flexCheckChecked" checked />
-                    <label className="form-check-label" htmlFor="flexCheckChecked">
-                      Software Development
-                    </label>
-                  </div>
-                  <div className="form-check py-1">
-                    <input className="form-check-input shadow-none" type="checkbox" value="" id="flexCheckDefault" />
-                    <label className="form-check-label" htmlFor="flexCheckDefault">
-                      Content Writing
-                    </label>
-                  </div>
-                  <div className="form-check py-1">
-                    <input className="form-check-input shadow-none" type="checkbox" value="" id="flexCheckChecked" checked />
-                    <label className="form-check-label" htmlFor="flexCheckChecked">
-                      Project Management
-                    </label>
-                  </div>
+
+                <div className="py-4">
+                  <label className="p-0 fw-bold" htmlFor="email">
+                    Tags
+                  </label>
+                  <br />
+                  <TagsInput selectedTags={selectedTags} />
                 </div>
 
-                <div className="py-3 px-0">
-                  <button type="button" className=" link btn fw-bold py-2 px-5 me-0" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Submit
-                    {' '}
+                <div className="py-3 py-lg-4 ">
+                  {
+              loading
+                ? (
+                  <button type="button" className="link btn fw-bold py-3 px-5 me-0 content__form--button" disabled>
+                    <div className="spinner-border spinner-border-sm" role="status">
+                      <span className="visually-hidden">Loading...</span>
+                    </div>
                   </button>
+                )
+                : (
+                  <button type="button" onClick={Submit} className=" link btn fw-bold py-3 px-5 me-0 ">
+                    Submit
+                  </button>
+                )
+                }
                 </div>
-
               </form>
             </div>
           </div>

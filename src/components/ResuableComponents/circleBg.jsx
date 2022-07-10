@@ -1,4 +1,4 @@
-import { checkPropTypes } from 'prop-types';
+import { PropTypes } from 'prop-types';
 import React from 'react';
 
 function CircleBg({ text }) {
@@ -17,7 +17,7 @@ function CircleBg({ text }) {
 }
 
 CircleBg.propTypes = {
-  text: checkPropTypes.string,
+  text: PropTypes.string,
 };
 CircleBg.defaultProps = {
   text: '',
