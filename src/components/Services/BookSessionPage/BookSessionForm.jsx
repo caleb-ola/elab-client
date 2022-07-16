@@ -24,22 +24,45 @@ function BookSessionForm() {
     e.preventDefault();
     setLoading(true);
     axios.post('https://elab-api.herokuapp.com/api/v1/consultations', {
-      name, email, number, company, date, time, location, type, details,
+      name,
+      email,
+      phone: number,
+      company,
+      availableDate: date,
+      availableTime: time,
+      location,
+      type,
+      details,
+    }, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('elUsrT')}`,
+      },
     }).then((response) => {
       // console.log(response);
-      setLoading(false);
-      toast.error(`${response.data.message}`, {
-        position: 'top-right',
-        autoClose: 15000,
-        hideProgressBar: true,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
+      if (response) {
+        setLoading(false);
+        toast.success('You successfully booked a consultation session, a notification has been sent to your mail box.', {
+          position: 'top-right',
+          autoClose: 20000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+        });
+        setName('');
+        setEmail('');
+        setNumber('');
+        setCompany('');
+        setDate('');
+        setTime('');
+        setLocation('');
+        setType('');
+        setDetails('');
+      }
     }, (error) => {
       // console.log(error);
       if (error.response) {
+        setLoading(false);
         error.response.data.errors.map((err) => toast.error(`${err.message}`, {
           position: 'top-right',
           autoClose: 15000,
@@ -47,17 +70,15 @@ function BookSessionForm() {
           closeOnClick: true,
           pauseOnHover: true,
           draggable: true,
-          progress: undefined,
         }));
       } else {
         toast.error('Ops, something went wrong, please try again', {
           position: 'top-right',
-          autoClose: 8000,
+          autoClose: 15000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
           draggable: true,
-          progress: undefined,
         });
       }
     });
@@ -141,7 +162,7 @@ function BookSessionForm() {
               Consultation Needs
             </label>
             <br />
-            <textarea name="" className="booksession__form--input my-2" id="" cols="30" rows="10" value={details} onChange={(e) => setDetails(e.target.value)} />
+            <textarea name="" className="booksession__form--input my-2 p-3" id="" cols="30" rows="10" value={details} onChange={(e) => setDetails(e.target.value)} />
           </div>
 
           {/* <div className="py-3 py-lg-5 px-0">

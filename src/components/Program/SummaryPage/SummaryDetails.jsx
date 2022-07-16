@@ -1,6 +1,20 @@
-import React from 'react';
+// import axios from 'axios';
+import React, { useEffect } from 'react';
+// import { useParams } from 'react-router-dom';
 
 function SummaryDetails() {
+  // const params = useParams();
+
+  useEffect(() => {
+    // axios.get(`${process.env.REACT_APP_BASE_URL}/api/v1/bookings/${params.id}`, {
+    //   headers: {
+    //     Authorization: `Bearer ${localStorage.
+    // getItem('elUsrT') && localStorage.getItem('elUsrT')}`,
+    //   },
+    // }).then((response) => console.log(response), (error) => console.log(error));
+
+  }, []);
+
   return (
     <div className="summary py-5 my-5">
       <div className="container py-lg-5 mt-5">

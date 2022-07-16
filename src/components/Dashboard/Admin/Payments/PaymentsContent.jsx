@@ -11,9 +11,27 @@ function PaymentsContent() {
   const navigate = useNavigate();
   const [body, setBody] = useState();
   const [loading, setLoading] = useState(true);
+  const [paginate, setPaginate] = useState({
+    start: 0,
+    end: 10,
+    // all: 0,
+  });
   const [skeleton, setSkeleton] = useState(
     <SkeletonTable />,
   );
+
+  const onNext = () => {
+    setPaginate((prev) => ({
+      start: prev.start + 10,
+      end: prev.end + 10,
+    }));
+  };
+  const onPrev = () => {
+    setPaginate((prev) => ({
+      start: prev.start - 10,
+      end: prev.end - 10,
+    }));
+  };
   useEffect(() => {
     axios.get('https://elab-api.herokuapp.com/api/v1/payments').then(
       (response) => {
@@ -36,39 +54,51 @@ function PaymentsContent() {
                     {/* <th className="pe-4">Name</th> */}
                     <th>Email Address</th>
                     <th>Amount(&#x20A6;)</th>
-                    <th>Status</th>
+                    {/* <th>Status</th> */}
                     <th>Created On</th>
                   </tr>
                 </thead>
 
                 <tbody>
                   {
-                        response.data.data.map((item, index) => (
-                          <tr key={item.id} className="content__card--row" onClick={() => navigate(`/dashboard/admin/payments/${item.slug}`)}>
-                            <td className="py-3 text-center">{index + 1}</td>
-                            <td>{item.email}</td>
-                            <td>
-                              {item.amount.toString()
-                                .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-                            </td>
-                            <td>
+                        response.data.data.slice(paginate.start, paginate.end).map(
+                          (item, index) => (
+                            <tr key={item.id} className="content__card--row" onClick={() => navigate(`/dashboard/admin/payments/${item.id}`)}>
+                              <td className="py-3 text-center">{index + 1}</td>
+                              <td>{item.email}</td>
+                              <td>
+                                {item.amount.toString()
+                                  .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                              </td>
+                              {/* <td>
                               {item.status === 'active'
                                 ? <span className="content__card--active px-4 py-1">active</span>
                                 : <span className="content__card--expired px-3 py-1">expired</span>}
-                            </td>
-                            <td>
-                              <Moment format="Do MMMM, YYYY">
-                                {item.CreatedAt}
-                              </Moment>
-                            </td>
-                          </tr>
-                        ))
+                            </td> */}
+                              <td>
+                                <Moment format="Do MMMM, YYYY">
+                                  {item.CreatedAt}
+                                </Moment>
+                              </td>
+                            </tr>
+                          ),
+                        )
                 }
                 </tbody>
               </table>
-              <div className="pt-4 px-5">
-                <Pagination />
-              </div>
+              {
+                response.data.data.length > 10 && (
+                <div className="pt-4 px-5">
+                  <Pagination
+                    start={paginate.start}
+                    end={paginate.end}
+                    length={response.data.data.length}
+                    onPrev={onPrev}
+                    onNext={onNext}
+                  />
+                </div>
+                )
+              }
             </>,
           );
         }
@@ -98,7 +128,8 @@ function PaymentsContent() {
         }
       },
     );
-  }, []);
+  }, [paginate]);
+
   return (
     <div className="content px-4">
       <ToastContainer />

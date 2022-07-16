@@ -12,6 +12,11 @@ import SkeletonTable from '../DashboardReusable/SkeletonTable';
 function BlogsContent() {
   const [body, setBody] = useState();
   const [loading, setLoading] = useState(true);
+  const [paginate, setPaginate] = useState({
+    start: 0,
+    end: 10,
+    // all: 0,
+  });
   const [skeleton, setSkeleton] = useState(
     <SkeletonTable />,
   );
@@ -65,8 +70,19 @@ function BlogsContent() {
   useEffect(() => {
     // eslint-disable-next-line no-use-before-define
     RenderData();
-  }, []);
-
+  }, [paginate]);
+  const onNext = () => {
+    setPaginate((prev) => ({
+      start: prev.start + 10,
+      end: prev.end + 10,
+    }));
+  };
+  const onPrev = () => {
+    setPaginate((prev) => ({
+      start: prev.start - 10,
+      end: prev.end - 10,
+    }));
+  };
   const RenderData = () => {
     setLoading(true);
     axios.get('https://elab-api.herokuapp.com/api/v1/posts').then((response) => {
@@ -93,7 +109,7 @@ function BlogsContent() {
               </thead>
               <tbody>
                 {
-                    response.data.data.map((item, index) => (
+                    response.data.data.slice(paginate.start, paginate.end).map((item, index) => (
                       <tr key={item.id}>
                         <td className="py-3">{index + 1}</td>
                         <td className="col-1">
@@ -191,9 +207,19 @@ function BlogsContent() {
               }
               </tbody>
             </table>
-            <div className="pt-4 px-5">
-              <Pagination />
-            </div>
+            {
+                response.data.data.length > 10 && (
+                <div className="pt-4 px-5">
+                  <Pagination
+                    start={paginate.start}
+                    end={paginate.end}
+                    length={response.data.data.length}
+                    onPrev={onPrev}
+                    onNext={onNext}
+                  />
+                </div>
+                )
+              }
           </>,
         );
       }

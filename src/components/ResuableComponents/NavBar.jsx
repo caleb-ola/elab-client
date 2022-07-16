@@ -1,11 +1,68 @@
-import React, { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 function NavBar() {
   const [hamburger, setHamburger] = useState(false);
   const ToggleHamburger = () => {
     setHamburger(!hamburger);
   };
+  const [authBtn, setAuthBtn] = useState();
+  const navigate = useNavigate();
+
+  const Logout = () => {
+    axios.post(`${process.env.REACT_APP_BASE_URL}/api/v1/auth/logout`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('elUsrT')}`,
+      },
+    }).then((response) => {
+      if (response) {
+        localStorage.removeItem('elUsrT');
+        navigate('/auth/login');
+      }
+    }, (error) => {
+      if (error.response) {
+        error.response.data.errors.map((err) => toast.error(`${err.message}`, {
+          position: 'top-right',
+          autoClose: 8000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        }));
+      } else {
+        toast.error('Ops, something went wrong, please try again', {
+          position: 'top-right',
+          autoClose: 8000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      }
+    });
+  };
+
+  useEffect(() => {
+    if (localStorage.getItem('elUsrT')) {
+      if (window.location.pathname.includes('/dashboard/user')) {
+        setAuthBtn(
+          <button type="button" className="link btn navi--button px-4 " onClick={Logout}>Logout</button>,
+        );
+      } else {
+        setAuthBtn(
+          <Link to="/dashboard/user" type="button" className="link btn navi--button px-4 ">Dashboard</Link>,
+        );
+      }
+    } else {
+      setAuthBtn(
+        <Link to="/auth/login" type="button" className="link btn navi--button px-4 ">Login</Link>,
+      );
+    }
+  }, []);
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light py-0 pb-3 pt-2 pt-lg-0 pb-lg-0 py-xl-0 fixed-top  navi">
@@ -153,7 +210,7 @@ function NavBar() {
               </NavLink>
             </li>
             <li className="navi--button mx-2 pe-3 me-lg-0 my-2 my-lg-0">
-              <Link to="/auth/login" type="button" className="link btn navi--button px-4 ">Login</Link>
+              {authBtn}
             </li>
           </ul>
         </div>

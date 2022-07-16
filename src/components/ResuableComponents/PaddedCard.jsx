@@ -1,11 +1,125 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
 import Moment from 'react-moment';
+import { toast, ToastContainer } from 'react-toastify';
+import axios from 'axios';
+import { usePaystackPayment } from 'react-paystack';
 
 function PaddedCard({
-  title, image, button, name, date, path, price, brochure,
+  title, image, button, name, date, path, price, brochure, user, id,
 }) {
+  // console.log(new Date().getTime().toString());
+  // alert("ready to pay for course");
+  // console.log({ user, id });
+  const navigate = useNavigate();
+  const config = {
+    reference: new Date().getTime().toString(),
+    email: user,
+    amount: price * +100,
+    publicKey: 'pk_test_90b0b4f27e85d2ddca3e39f86e14bee4cbe36694',
+  };
+  // you can call this function anything
+  const onSuccess = (reference) => {
+    // Implementation for whatever you want to do with reference and after success call.
+    // console.log(reference);
+    axios
+      .post('https://elab-api.herokuapp.com/api/v1/payments/verify-resource-payment', {
+        email: user,
+        reference: reference.reference,
+        amount: price * +100,
+        resourceID: id,
+      }, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('elUsrT')}`,
+        },
+      })
+      .then(
+        (response) => {
+          // console.log(response);
+          if (response) {
+            toast.success(
+              'You successfully purchased this resource, this resource has been forwarded to your mail box.',
+              {
+                position: 'top-right',
+                autoClose: 15000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                // progress: undefined,
+              },
+            );
+            toast.info(
+              'You can check your dashboard, to access this resource anytime.',
+              {
+                position: 'top-right',
+                autoClose: 30000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                // progress: undefined,
+              },
+            );
+          }
+        },
+        (error) => {
+          // console.log(error);
+
+          if (error.response) {
+            error.response.data.errors.map((err) => toast.error(`${err.message}`, {
+              position: 'top-right',
+              autoClose: 8000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+            }));
+          } else {
+            toast.error('Ops, something went wrong, please try again', {
+              position: 'top-right',
+              autoClose: 8000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+            });
+          }
+        },
+      );
+  };
+
+  // you can call this function anything
+  const onClose = () => {
+    // implementation for  whatever you want to do when the Paystack dialog closed.
+    // console.log("closed");
+  };
+
+  // eslint-disable-next-line react/no-unstable-nested-components
+  function UserPay() {
+    const initializePayment = usePaystackPayment(config);
+    return (
+      <div>
+        <div>
+          <button
+            type="button"
+            className="link py-1 px-3 text-decoration-none fw-bold"
+            to="/coursedetails"
+            onClick={localStorage.getItem('idtoken') ? () => {
+              initializePayment(onSuccess, onClose);
+            }
+              : () => navigate('/auth/login', { state: { from: location.pathname } })}
+          >
+            {button}
+          </button>
+        </div>
+      </div>
+    );
+  }
+
   return (
     path
       ? (
@@ -53,6 +167,7 @@ function PaddedCard({
       )
       : (
         <div className="paddedcard p-4 px-lg-5 py-lg-5 pb-lg-4 pb-2  h-100">
+          <ToastContainer />
           <h6 className="paddedcard__title fw-bold pb-3">
             {title}
           </h6>
@@ -70,9 +185,15 @@ function PaddedCard({
           {button ? (
             <div className="row my-4 align-items-center">
               <div className="col-7">
-                <a type="button" href={brochure} className="link py-1 px-3 text-decoration-none fw-bold" download>
-                  {button}
-                </a>
+                {button !== 'Make payment'
+                  ? (
+                    <a type="button" href={brochure} className="link py-1 px-3 text-decoration-none fw-bold" download>
+                      {button}
+                    </a>
+                  )
+                  : (
+                    <UserPay />
+                  )}
               </div>
               <div className="col-5 text-end">
                 {price !== 0 && price ? (
@@ -80,7 +201,8 @@ function PaddedCard({
                     {/* <span className="fw-bold text-start pe-2">{discount}</span> */}
                     <span className="text-end ps-2 m-0 fw-bold">
                       &#x20A6;
-                      {price}
+                      {price.toString()
+                        .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
                     </span>
                   </>
                 )
@@ -109,6 +231,8 @@ PaddedCard.propTypes = {
   // discount: PropTypes.string,
   price: PropTypes.number,
   brochure: PropTypes.string,
+  user: PropTypes.string,
+  id: PropTypes.string,
 };
 
 PaddedCard.defaultProps = {
@@ -119,7 +243,9 @@ PaddedCard.defaultProps = {
   date: '',
   path: '',
   // discount: '',
-  price: '',
+  price: 0,
   brochure: '',
+  user: '',
+  id: '',
 };
 export default PaddedCard;

@@ -250,24 +250,37 @@
       }
     }
   }
+  &--button {
+    @include rwd(
+      width,
+      100%,
+      (
+        $md: 50%,
+        $lg: 50%,
+        $xl: 50%,
+        $xxl: 50%,
+      )
+    );
+  }
 }
 
 .summary {
 
   &__card {
     background: #FFFFFF;
-    box-shadow: 0px 2px 12px rgba(51, 51, 51, 0.1);
-    border-radius: 5px;
-    @include rwd(
-      width,
-      95%,
-      (
-        $md: 70%,
-        $lg: 65%,
-        $xl: 55%,
-        $xxl: 45%,
-      )
-    );
+    color: #474747;
+    // box-shadow: 0px 2px 12px rgba(51, 51, 51, 0.1);
+    // border-radius: 5px;
+    // @include rwd(
+    //   width,
+    //   95%,
+    //   (
+    //     $md: 70%,
+    //     $lg: 65%,
+    //     $xl: 55%,
+    //     $xxl: 45%,
+    //   )
+    // );
   }
 }
 // INNOVATION HUB (COWORK ENDS)

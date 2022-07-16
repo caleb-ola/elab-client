@@ -1,5 +1,5 @@
 import React from 'react';
-import { checkPropTypes } from 'prop-types';
+import { PropTypes } from 'prop-types';
 import { NavLink } from 'react-router-dom';
 
 function UserHero({ title, text, icon }) {
@@ -28,9 +28,9 @@ function UserHero({ title, text, icon }) {
   );
 }
 UserHero.propTypes = {
-  title: checkPropTypes.string,
-  text: checkPropTypes.number,
-  icon: checkPropTypes.string,
+  title: PropTypes.string,
+  text: PropTypes.string,
+  icon: PropTypes.string,
 };
 
 UserHero.defaultProps = {

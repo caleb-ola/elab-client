@@ -10,7 +10,7 @@ function LoginCard() {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
-
+  // console.log(location);
   const Submit = (e) => {
     e.preventDefault();
     setLoading(true);

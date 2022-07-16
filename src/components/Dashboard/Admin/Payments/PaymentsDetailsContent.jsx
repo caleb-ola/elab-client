@@ -95,7 +95,7 @@ function PaymentsDetailsContent() {
     axios.get(`https://elab-api.herokuapp.com/api/v1/payments/${params.id}`).then(
       (response) => {
         const { data } = response.data;
-
+        // console.log(data);
         setBody(
           <div className="row content__details">
             <div className="col-md-6 col-lg-4 my-3">
@@ -103,7 +103,7 @@ function PaymentsDetailsContent() {
                 Payment for
               </p>
               <p className="content--subtext">
-                ejkrbljik
+                {data.purpose}
               </p>
             </div>
             <div className="col-md-6 col-lg-4 my-3">
@@ -112,6 +112,15 @@ function PaymentsDetailsContent() {
               </p>
               <p className="content--subtext">
                 {data.email}
+              </p>
+            </div>
+            <div className="col-md-6 col-lg-4 my-3">
+              <p className="content--headtext">
+                Amount Paid(&#x20A6;)
+              </p>
+              <p className="content--subtext">
+                {data.amount.toString()
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
               </p>
             </div>
             <div className="col-md-6 col-lg-4 my-3">
@@ -130,46 +139,6 @@ function PaymentsDetailsContent() {
               </p>
               <p className="content--subtext">
                 {data.reference}
-              </p>
-            </div>
-            <div className="col-md-6 col-lg-4 my-3">
-              <p className="content--headtext">
-                Number of Days
-              </p>
-              <p className="content--subtext">
-                3
-              </p>
-            </div>
-            <div className="col-md-6 col-lg-4 my-3">
-              <p className="content--headtext">
-                Number of Person
-              </p>
-              <p className="content--subtext">
-                2
-              </p>
-            </div>
-            <div className="col-md-6 col-lg-4 my-3">
-              <p className="content--headtext">
-                Internet Usage
-              </p>
-              <p className="content--subtext">
-                No
-              </p>
-            </div>
-            <div className="col-md-6 col-lg-4 my-3">
-              <p className="content--headtext">
-                Office Address Usage
-              </p>
-              <p className="content--subtext">
-                No
-              </p>
-            </div>
-            <div className="col-md-6 col-lg-4 my-3">
-              <p className="content--headtext">
-                Status
-              </p>
-              <p className="content--subtext">
-                Active
               </p>
             </div>
           </div>,

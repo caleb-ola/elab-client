@@ -43,8 +43,19 @@
               $xl: 55%,
               $xxl: 50%, 
             )
-          )
+            );
+            &:hover{
+              color: #fff !important;
+            }
           }
+    }
+    &__verify{
+      &--failed {
+        color: rgb(218, 3, 3);
+      }
+      &--success {
+        color: rgb(4, 207, 95);
+      }
     }
 }
 

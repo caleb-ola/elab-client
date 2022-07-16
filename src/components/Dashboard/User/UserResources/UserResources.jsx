@@ -8,7 +8,7 @@ function UserResources() {
   return (
     <div>
       <NavBar />
-      <UserHero title="Resources" text="A single place to have access to your booked workspace" icon="fa-solid fa-book pe-4" />
+      <UserHero title="Resources" text="A single place to have access to your resourses." icon="fa-solid fa-book pe-4" />
       <UserResourcesContent />
       <Footer />
     </div>

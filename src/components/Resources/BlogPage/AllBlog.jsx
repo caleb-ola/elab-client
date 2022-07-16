@@ -11,6 +11,23 @@ function AllBlogs() {
   const [skeleton, setSkeleton] = useState(
     <SkeletonPaddedRow />,
   );
+  const [paginate, setPaginate] = useState({
+    start: 1,
+    end: 10,
+    // all: 0,
+  });
+  const onNext = () => {
+    setPaginate((prev) => ({
+      start: prev.start + 9,
+      end: prev.end + 9,
+    }));
+  };
+  const onPrev = () => {
+    setPaginate((prev) => ({
+      start: prev.start - 9,
+      end: prev.end - 9,
+    }));
+  };
   useEffect(() => {
     axios.get('https://elab-api.herokuapp.com/api/v1/posts?limit').then((response) => {
       setLoading(false);
@@ -18,7 +35,7 @@ function AllBlogs() {
       setBlog(
         <>
           {
-        response.data.data.map((item) => (
+        response.data.data.slice(paginate.start, paginate.end).map((item) => (
           <div className="col-md-6 col-lg-4 my-3 my-lg-4 px-3 px-lg-4" key={item.id}>
             <PaddedCard
               title={item.title}
@@ -31,9 +48,20 @@ function AllBlogs() {
           </div>
         ))
       }
-          <div className="row">
-            <Pagination />
-          </div>
+          {
+        response.data.data.length > 9
+        && (
+        <div className="pt-4 px-5">
+          <Pagination
+            start={paginate.start - 1}
+            end={paginate.end - 1}
+            length={response.data.data.length - 1}
+            onPrev={onPrev}
+            onNext={onNext}
+          />
+        </div>
+        )
+      }
         </>,
       );
     }, (error) => {
@@ -59,7 +87,7 @@ function AllBlogs() {
         });
       }
     });
-  }, []);
+  }, [paginate]);
 
   // const [active, setActive] = useState({
   //   All: true,

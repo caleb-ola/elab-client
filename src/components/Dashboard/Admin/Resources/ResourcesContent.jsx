@@ -3,12 +3,18 @@ import React, { useEffect, useState } from 'react';
 import Moment from 'react-moment';
 import { Link } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
+import Pagination from '../../../ResuableComponents/Pagination';
 import DashboardEmpty from '../DashboardReusable/DashboardEmpty';
 import SkeletonTable from '../DashboardReusable/SkeletonTable';
 
 function ResourcesContent() {
   const [body, setBody] = useState();
   const [loading, setLoading] = useState(true);
+  const [paginate, setPaginate] = useState({
+    start: 0,
+    end: 10,
+    // all: 0,
+  });
   const [skeleton, setSkeleton] = useState(
     <SkeletonTable />,
   );
@@ -66,8 +72,20 @@ function ResourcesContent() {
   useEffect(() => {
     // eslint-disable-next-line no-use-before-define
     RenderData();
-  }, []);
+  }, [paginate]);
 
+  const onNext = () => {
+    setPaginate((prev) => ({
+      start: prev.start + 10,
+      end: prev.end + 10,
+    }));
+  };
+  const onPrev = () => {
+    setPaginate((prev) => ({
+      start: prev.start - 10,
+      end: prev.end - 10,
+    }));
+  };
   const RenderData = () => {
     axios.get('https://elab-api.herokuapp.com/api/v1/resources').then((response) => {
       // console.log(response);
@@ -79,20 +97,21 @@ function ResourcesContent() {
         );
       } else {
         setBody(
-          <table className="w-100 text-start px-5 mx-2 mx-lg-5">
-            <thead>
-              <tr className="fw-bold">
-                <th className="px-3 ps-0 py-3">S/N</th>
-                <th>Project title</th>
-                <th>Category</th>
-                <th>Price(&#x20A6;)</th>
-                <th>Created On</th>
-              </tr>
-            </thead>
+          <>
+            <table className="w-100 text-start px-5 mx-2 mx-lg-5">
+              <thead>
+                <tr className="fw-bold">
+                  <th className="px-3 ps-0 py-3">S/N</th>
+                  <th>Project title</th>
+                  <th>Category</th>
+                  <th>Price(&#x20A6;)</th>
+                  <th>Created On</th>
+                </tr>
+              </thead>
 
-            <tbody>
-              {
-                    response.data.data.map((item, index) => (
+              <tbody>
+                {
+                    response.data.data.slice(paginate.start, paginate.end).map((item, index) => (
                       <tr key={item.id}>
                         <td className="py-3">{index + 1}</td>
                         <td>{item.title}</td>
@@ -183,8 +202,23 @@ function ResourcesContent() {
                       </tr>
                     ))
               }
-            </tbody>
-          </table>,
+              </tbody>
+            </table>
+            ,
+            {
+            response.data.data.length > 10 && (
+            <div className="pt-4 px-5">
+              <Pagination
+                start={paginate.start}
+                end={paginate.end}
+                length={response.data.data.length}
+                onPrev={onPrev}
+                onNext={onNext}
+              />
+            </div>
+            )
+          }
+          </>,
         );
       }
     }, (error) => {

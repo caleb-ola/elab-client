@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Footer from '../../ResuableComponents/Footer';
 import NavBar from '../../ResuableComponents/NavBar';
 import CoworkContent from './CoworkContent';
 import UserHero from './UserHero';
 
 function UserCowork() {
+  useEffect(() => {
+    // Register();
+  }, []);
+
   return (
     <div>
       <NavBar />

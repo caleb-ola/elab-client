@@ -6,6 +6,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import DashboardEmpty from '../DashboardReusable/DashboardEmpty';
 import SkeletonTable from '../DashboardReusable/SkeletonTable';
+import Pagination from '../../../ResuableComponents/Pagination';
 
 function TrainingsContent() {
   const [body, setBody] = useState();
@@ -13,6 +14,11 @@ function TrainingsContent() {
   const [skeleton, setSkeleton] = useState(
     <SkeletonTable />,
   );
+  const [paginate, setPaginate] = useState({
+    start: 0,
+    end: 10,
+    // all: 0,
+  });
   const [deleteState, setDeleteState] = useState(
     <div
       className="modal fade"
@@ -65,7 +71,20 @@ function TrainingsContent() {
   useEffect(() => {
     // eslint-disable-next-line no-use-before-define
     RenderData();
-  }, []);
+  }, [paginate]);
+
+  const onNext = () => {
+    setPaginate((prev) => ({
+      start: prev.start + 10,
+      end: prev.end + 10,
+    }));
+  };
+  const onPrev = () => {
+    setPaginate((prev) => ({
+      start: prev.start - 10,
+      end: prev.end - 10,
+    }));
+  };
 
   const RenderData = async () => {
     setLoading(true);
@@ -82,22 +101,23 @@ function TrainingsContent() {
           );
         } else {
           setBody(
-            <table className="w-100 text-start px-5 mx-2 mx-lg-5">
-              <thead>
-                <tr className="fw-bold">
-                  <th className="px-3 ps-0 py-3">S/N</th>
-                  <th>Image</th>
-                  <th>Title</th>
-                  <th>Price(&#x20A6;)</th>
-                  <th>Commencment date</th>
-                  <th>Created on</th>
+            <>
+              <table className="w-100 text-start px-5 mx-2 mx-lg-5">
+                <thead>
+                  <tr className="fw-bold">
+                    <th className="px-3 ps-0 py-3">S/N</th>
+                    <th>Image</th>
+                    <th>Title</th>
+                    <th>Price(&#x20A6;)</th>
+                    <th>Commencment date</th>
+                    <th>Created on</th>
 
-                </tr>
-              </thead>
+                  </tr>
+                </thead>
 
-              <tbody>
-                {
-                      response.data.data.map((item, index) => (
+                <tbody>
+                  {
+                      response.data.data.slice(paginate.start, paginate.end).map((item, index) => (
                         <tr key={item.id}>
                           <td className="py-3">{index + 1}</td>
                           <td className="col-1">
@@ -196,8 +216,23 @@ function TrainingsContent() {
                         </tr>
                       ))
                 }
-              </tbody>
-            </table>,
+                </tbody>
+              </table>
+              ,
+              {
+              response.data.data.length > 10 && (
+              <div className="pt-4 px-5">
+                <Pagination
+                  start={paginate.start}
+                  end={paginate.end}
+                  length={response.data.data.length}
+                  onPrev={onPrev}
+                  onNext={onNext}
+                />
+              </div>
+              )
+            }
+            </>,
           );
         }
       },

@@ -54,15 +54,15 @@ function Sidebar() {
           </NavLink>
         </div>
         <div className="sidebar__link my-1">
-          <NavLink to="/dashboard/admin/startup" className={(window.location.pathname.includes('startup')) && 'active'}>
-            <i className="fa-solid sidebar__link--icon fa-rocket fa-fw" />
-            Startup Foundry
-          </NavLink>
-        </div>
-        <div className="sidebar__link my-1">
           <NavLink to="/dashboard/admin/services" className={(window.location.pathname.includes('services')) && 'active'}>
             <i className="fa-solid sidebar__link--icon fa-clipboard-list fa-fw" />
             Services
+          </NavLink>
+        </div>
+        <div className="sidebar__link my-1">
+          <NavLink to="/dashboard/admin/startup" className={(window.location.pathname.includes('startup')) && 'active'}>
+            <i className="fa-solid sidebar__link--icon fa-rocket fa-fw" />
+            Startup Foundry
           </NavLink>
         </div>
         <div className="sidebar__link my-1">

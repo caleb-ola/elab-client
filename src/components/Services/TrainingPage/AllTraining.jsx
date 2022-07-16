@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Empty from '../../ResuableComponents/Empty';
+import Pagination from '../../ResuableComponents/Pagination';
 import SkeletonTrainingCard from '../../ResuableComponents/SkeletonLoaders/SkeletonTrainingCard';
 import TrainingCard from '../../ResuableComponents/TrainingCard';
 
@@ -17,6 +18,23 @@ function AllTraining() {
       </div>
     </div>,
   );
+  const [paginate, setPaginate] = useState({
+    start: 0,
+    end: 6,
+    // all: 0,
+  });
+  const onNext = () => {
+    setPaginate((prev) => ({
+      start: prev.start + 6,
+      end: prev.end + 6,
+    }));
+  };
+  const onPrev = () => {
+    setPaginate((prev) => ({
+      start: prev.start - 6,
+      end: prev.end - 6,
+    }));
+  };
   useEffect(() => {
     axios.get('https://elab-api.herokuapp.com/api/v1/trainings').then((response) => {
       setLoading(false);
@@ -29,7 +47,7 @@ function AllTraining() {
         setBody(
           <div className="row pt-lg-5">
             {
-            response.data.data.map((item) => (
+            response.data.data.slice(paginate.start, paginate.end).map((item) => (
               <div className="col-lg-6 my-3 px-3 my-lg-4 px-lg-4" key={item.id}>
                 <TrainingCard
                   image={item.image}
@@ -40,11 +58,25 @@ function AllTraining() {
               </div>
             ))
            }
+            {
+              response.data.data.length > 6
+              && (
+              <div className="pt-4 px-5">
+                <Pagination
+                  start={paginate.start}
+                  end={paginate.end}
+                  length={response.data.data.length}
+                  onPrev={onPrev}
+                  onNext={onNext}
+                />
+              </div>
+              )
+            }
           </div>,
         );
       }
     });
-  }, []);
+  }, [paginate]);
 
   return (
     <div className="trainings py-5">

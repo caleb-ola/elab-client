@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Moment from 'react-moment';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Pagination from '../../../ResuableComponents/Pagination';
 import DashboardEmpty from '../DashboardReusable/DashboardEmpty';
@@ -9,7 +9,12 @@ import SkeletonTable from '../DashboardReusable/SkeletonTable';
 // import Data from '../data';
 
 function ConsultContent() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
+  const [paginate, setPaginate] = useState({
+    start: 0,
+    end: 10,
+    // all: 0,
+  });
   const [deleteState, setDeleteState] = useState(
     <div
       className="modal fade "
@@ -69,7 +74,20 @@ function ConsultContent() {
   useEffect(() => {
     // eslint-disable-next-line no-use-before-define
     RenderData();
-  }, []);
+  }, [paginate]);
+
+  const onNext = () => {
+    setPaginate((prev) => ({
+      start: prev.start + 10,
+      end: prev.end + 10,
+    }));
+  };
+  const onPrev = () => {
+    setPaginate((prev) => ({
+      start: prev.start - 10,
+      end: prev.end - 10,
+    }));
+  };
 
   const RenderData = () => {
     axios.get('https://elab-api.herokuapp.com/api/v1/consultations').then((response) => {
@@ -97,16 +115,21 @@ function ConsultContent() {
               </thead>
               <tbody>
                 {
-                      response.data.data.map((item, index) => (
-                        <tr key={item.id} className="content__card--row" onClick={() => navigate(`/dashboard/admin/consultation/${item.slug}`)}>
+                      response.data.data.slice(paginate.start, paginate.end).map((item, index) => (
+                        <tr key={item.id} className="content__card--row">
                           <td className="py-3 text-center">{index + 1}</td>
                           <td>{item.name}</td>
                           <td>{item.email}</td>
-                          <td>{item.number}</td>
+                          <td>{item.phone}</td>
                           <td>
                             <Moment format="Do MMMM, YYYY">
                               {item.createddAt}
                             </Moment>
+                          </td>
+                          <td>
+                            <Link to={`/dashboard/admin/consultation/${item.id}`} className="link text-decoration-none px-3 py-1 fw-bold">
+                              See more...
+                            </Link>
                           </td>
                           {/* <td className="text-end">
                             <Link to="/dashboard/admin/edit-impact/:slug">
@@ -189,9 +212,19 @@ function ConsultContent() {
               </tbody>
             </table>
             ,
-            <div className="pt-4 px-5">
-              <Pagination />
-            </div>
+            {
+                response.data.data.length > 10 && (
+                <div className="pt-4 px-5">
+                  <Pagination
+                    start={paginate.start}
+                    end={paginate.end}
+                    length={response.data.data.length}
+                    onPrev={onPrev}
+                    onNext={onNext}
+                  />
+                </div>
+                )
+              }
           </>,
         );
       }
@@ -221,8 +254,8 @@ function ConsultContent() {
     });
   };
 
-  const DeleteConsult = (slug) => {
-    axios.delete(`https://elab-api.herokuapp.com/api/v1/consultations/${slug}`, {
+  const DeleteConsult = (id) => {
+    axios.delete(`https://elab-api.herokuapp.com/api/v1/consultations/${id}`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('elAdmT')}`,
       },

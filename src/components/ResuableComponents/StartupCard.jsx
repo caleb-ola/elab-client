@@ -26,10 +26,10 @@ function StartupCard({
           </div>
           <div className="col-md-9 my-2 pe-lg-5">
             <h6>{title}</h6>
-            <p className="m-0">
-              {/*  eslint-disable-next-line */}
+            {/* <p className="m-0"> */}
+            {/*  eslint-disable-next-line */}
               <div className="markup py-2" dangerouslySetInnerHTML={createMarkup()} />
-            </p>
+            {/* </p> */}
           </div>
         </div>
       </div>

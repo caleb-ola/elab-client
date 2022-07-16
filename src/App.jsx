@@ -69,7 +69,7 @@ import Login from './components/Authentication/Login';
 import Forgot from './components/Authentication/Forgot';
 import Reset from './components/Authentication/Reset';
 import Error404 from './components/ResuableComponents/Error404';
-import UserRouteGuard from './route-guards/UserRouteGuard';
+// import UserRouteGuard from './route-guards/UserRouteGuard';
 import AdminRouteGuard from './route-guards/AdminRouteGuard';
 import ServicesAdmin from './components/Dashboard/Admin/Services/Services';
 import AddServices from './components/Dashboard/Admin/Services/AddServices';
@@ -84,6 +84,9 @@ import Bookings from './components/Dashboard/Admin/Bookings/Bookings';
 import BookingsDetails from './components/Dashboard/Admin/Bookings/BookingsDetails';
 import Payments from './components/Dashboard/Admin/Payments/Payments';
 import PaymentsDetails from './components/Dashboard/Admin/Payments/PaymentsDetails';
+import UserRouteGuard from './route-guards/UserRouteGuard';
+import Verify from './components/Authentication/Verify';
+import ResendVerify from './components/Authentication/ResendVerify';
 
 function App() {
   return (
@@ -101,7 +104,7 @@ function App() {
           <Route path="/program/non-profit" element={<NonProfitPage />} />
           <Route path="/program/innovation-hub" element={<InnovationPage />} />
           <Route path="/program/innovation-hub/:slug" element={<InnovationDetails />} />
-          <Route path="/program/innovation-hub/:slug/summary" element={<Summary />} />
+          <Route path="/program/innovation-hub/:id/summary" element={<Summary />} />
           <Route path="/services/digital-services" element={<Services />} />
           <Route path="/services/consultation" element={<Consultation />} />
           <Route path="/services/consultation/book-a-session" element={<BookSession />} />
@@ -118,7 +121,12 @@ function App() {
           <Route path="/auth/signup" element={<Signup />} />
           <Route path="/auth/login" element={<Login />} />
           <Route path="/auth/forgot-password" element={<Forgot />} />
-          <Route path="/auth/reset-password" element={<Reset />} />
+          <Route path="/auth/reset-password:token" element={<Reset />} />
+          <Route path="/auth/verification-email/:token" element={<Verify />} />
+          <Route
+            path="/auth/resend-verification-email"
+            element={<ResendVerify />}
+          />
           <Route element={<AdminRouteGuard />}>
             <Route path="/dashboard/admin" element={<Blogs />} />
             <Route path="/dashboard/admin/services" element={<ServicesAdmin />} />
@@ -133,7 +141,7 @@ function App() {
             <Route path="/dashboard/admin/add-media" element={<AddMedia />} />
             <Route path="/dashboard/admin/edit-media/:id" element={<EditMedia />} />
             <Route path="/dashboard/admin/consultation" element={<Consult />} />
-            <Route path="/dashboard/admin/consultation/:slug" element={<ConsultDetails />} />
+            <Route path="/dashboard/admin/consultation/:id" element={<ConsultDetails />} />
             <Route path="/dashboard/admin/cowork" element={<Cowork />} />
             <Route path="/dashboard/admin/cowork/:slug" element={<CoworkDetails />} />
             <Route path="/dashboard/admin/workspace-bookings" element={<Bookings />} />

@@ -34,7 +34,6 @@ function TrainingPageDetails() {
             downloadText="Download Brochure"
           />
         </div>,
-
       );
     });
   }, []);

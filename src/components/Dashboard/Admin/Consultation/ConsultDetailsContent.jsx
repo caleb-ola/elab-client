@@ -92,7 +92,7 @@ function ConsultDetailsContent() {
   const params = useParams();
   useEffect(() => {
     setLoading(false);
-    axios.get(`https://elab-api.herokuapp.com/api/v1/consultations${params.slug}`).then((response) => {
+    axios.get(`https://elab-api.herokuapp.com/api/v1/consultations/${params.id}`).then((response) => {
       // console.log(response);
       const { data } = response.data;
       setSkeleton();
@@ -119,7 +119,7 @@ function ConsultDetailsContent() {
               Phone Number
             </p>
             <p className="content--subtext">
-              {data.number}
+              {data.phone}
             </p>
           </div>
           <div className="col-md-6 col-lg-4 my-3">
@@ -145,7 +145,7 @@ function ConsultDetailsContent() {
               Available Time
             </p>
             <p className="content--subtext">
-              {data.time}
+              {data.availableTime}
             </p>
           </div>
           <div className="col-md-6 col-lg-4 my-3">

@@ -4,12 +4,18 @@ import Moment from 'react-moment';
 import { Link } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import Pagination from '../../../ResuableComponents/Pagination';
+// import Pagination from '../../../ResuableComponents/Pagination';
 import DashboardEmpty from '../DashboardReusable/DashboardEmpty';
 import SkeletonTable from '../DashboardReusable/SkeletonTable';
 
 function BookingsContent() {
   const [body, setBody] = useState();
   const [loading, setLoading] = useState(true);
+  const [paginate, setPaginate] = useState({
+    start: 0,
+    end: 10,
+    // all: 0,
+  });
   const [skeleton, setSkeleton] = useState(
     <SkeletonTable />,
   );
@@ -63,8 +69,21 @@ function BookingsContent() {
   useEffect(() => {
     // eslint-disable-next-line no-use-before-define
     RenderData();
-  }, []);
+  }, [paginate]);
 
+  const onNext = () => {
+    setPaginate((prev) => ({
+      start: prev.start + 10,
+      end: prev.end + 10,
+    }));
+  };
+  const onPrev = () => {
+    setPaginate((prev) => ({
+      start: prev.start - 10,
+      end: prev.end - 10,
+    }));
+  };
+  // console.log(paginate);
   const RenderData = () => {
     axios.get('https://elab-api.herokuapp.com/api/v1/bookings', {
       headers: {
@@ -75,6 +94,8 @@ function BookingsContent() {
         // console.log(response);
         setLoading(false);
         setSkeleton();
+        // setPaginate(start: )
+        // setBody(response)
         if (response.data.data.length === 0) {
           setBody(
             <DashboardEmpty header="No Bookings" subtext="There are currently no bookings for available workspaces." />,
@@ -98,9 +119,9 @@ function BookingsContent() {
                 </thead>
                 <tbody>
                   {
-                      response.data.data.map((item, index) => (
+                      response.data.data.slice(paginate.start, paginate.end).map((item, index) => (
                         <tr key={item.id} className="">
-                          <td className="py-3 text-center">{index + 1}</td>
+                          <td className="py-3 text-center">{(index + paginate.start) + 1}</td>
                           <td>{item.plan}</td>
                           <td>{item.email}</td>
                           <td>
@@ -193,9 +214,19 @@ function BookingsContent() {
                 </tbody>
               </table>
               ,
-              <div className="pt-4 px-5">
-                <Pagination />
-              </div>
+              {
+                response.data.data.length > 10 && (
+                <div className="pt-4 px-5">
+                  <Pagination
+                    start={paginate.start}
+                    end={paginate.end}
+                    length={response.data.data.length}
+                    onPrev={onPrev}
+                    onNext={onNext}
+                  />
+                </div>
+                )
+              }
             </>,
           );
         }

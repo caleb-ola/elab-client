@@ -19,7 +19,7 @@ function Benefits() {
       setEmail('');
       setName('');
       if (response) {
-        toast.success('You have successfully subscribed to the community.', {
+        toast.success('You have successfully applied to join our community, We will be in touch.', {
           position: 'top-right',
           autoClose: 8000,
           hideProgressBar: false,
@@ -73,32 +73,31 @@ function Benefits() {
                   <label className="p-0 benefits__form--label" htmlFor="name">
                     Full Name
                   </label>
-                  <input type="text" className="name p-3 my-2 benefits__form--input " id="name" value={name} onChange={(e) => setName(e.target.value)} />
+                  <input type="text" className="name p-3 my-2 benefits__form--input " id="name" value={name} onChange={(e) => setName(e.target.value)} required />
                 </div>
                 <div className="row py-2">
                   <label className="p-0 benefits__form--label" htmlFor="email">
                     Email Address
                   </label>
-                  <input type="email" className="email p-3 my-2 benefits__form--input " id="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                  <input type="email" className="email p-3 my-2 benefits__form--input " id="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
                 </div>
                 <div className="py-3 py-lg-4 ">
                   {
               loading
                 ? (
-                  <button type="button" className="link btn fw-bold py-3 px-5 me-0 content__form--button" disabled>
+                  <button type="button" className="link btn fw-bold py-3 px-5 me-0 contact__form--button" disabled>
                     <div className="spinner-border spinner-border-sm" role="status">
                       <span className="visually-hidden">Loading...</span>
                     </div>
                   </button>
                 )
                 : (
-                  <button type="submit" className=" link btn fw-bold py-3 px-5 me-0 content__form--button">
+                  <button type="submit" className=" link btn fw-bold py-3 px-5 me-0 contact__form--button">
                     Join Trybe Community
                   </button>
                 )
                 }
                 </div>
-
               </form>
             </div>
           </div>
