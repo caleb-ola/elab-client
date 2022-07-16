@@ -22,7 +22,7 @@ function Available() {
       } else {
         setBody(response.data.data.map((item) => (
           <div className="col-md-6 col-lg-4 my-3 px-3" key={item.id}>
-            <CoworkCard title={item.title} text={item.availability.count > 1 ? `${item.availability.count} spaces` : `${item.availability.count} space`} button="See Details" image={item.image} path={`/program/innovation-hub/${item.slug}`} />
+            <CoworkCard title={item.title} space={item.availability.count > 1 ? `${item.availability.count} spaces` : `${item.availability.count} space`} button="See Details" image={item.image} path={`/program/innovation-hub/${item.slug}`} />
           </div>
         )));
       }

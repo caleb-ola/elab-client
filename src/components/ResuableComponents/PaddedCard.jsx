@@ -108,7 +108,7 @@ function PaddedCard({
             type="button"
             className="link py-1 px-3 text-decoration-none fw-bold"
             to="/coursedetails"
-            onClick={localStorage.getItem('idtoken') ? () => {
+            onClick={localStorage.getItem('elUsrT') ? () => {
               initializePayment(onSuccess, onClose);
             }
               : () => navigate('/auth/login', { state: { from: location.pathname } })}

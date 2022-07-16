@@ -159,7 +159,7 @@
         transform: translate(0%, -50%);
         @include rwd(
                 width,
-                95%,
+                90%,
                 (
                   $md: 90%,
                   $lg: 80%,
@@ -170,7 +170,7 @@
           &__container {
             @include rwd(
                 width,
-                95%,
+                90%,
                 (
                   $md: 90%,
                   $lg: 80%,

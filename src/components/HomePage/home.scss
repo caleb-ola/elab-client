@@ -136,24 +136,48 @@
         color: #fff;
     }
     &__content {
-      // margin: 0;
-      // position: absolute;
-      // top: 55%;
-      // left: 50%;
-      // -ms-transform: translate(-50%, -50%);
-      // transform: translate(-50%, -50%);
+      margin: 0;
+        position: absolute;
+        top: 50%;
+        // left: 50%;
+        -ms-transform: translate(0%, -50%);
+        transform: translate(0%, -50%);
+        @include rwd(
+                width,
+                95%,
+                (
+                  $md: 90%,
+                  $lg: 80%,
+                  $xl: 70%,
+                  $xxl: 50%,
+                )
+              );
+          &__container {
+            @include rwd(
+                width,
+                95%,
+                (
+                  $md: 90%,
+                  $lg: 80%,
+                  $xl: 70%,
+                  $xxl: 70%,
+                )
+              );
+          
+          }
     }
     &__header {
-        @include rwd(
-            width,
-            100%,
-            (
-              $md: 90%,
-              $lg: 70%,
-              $xl: 60%,
-              $xxl: 60%,
-            )
-          );
+        width: 100%;
+        // @include rwd(
+        //     width,
+        //     100%,
+        //     (
+        //       $md: 90%,
+        //       $lg: 70%,
+        //       $xl: 60%,
+        //       $xxl: 60%,
+        //     )
+        //   );
       
         &--title {
             color: $elab-yellow;
@@ -183,6 +207,16 @@
     }
     &__stats {
       color: rgb(255, 255, 255);
+      @include rwd(
+                width,
+                95%,
+                (
+                  $md: 100%,
+                  $lg: 100%,
+                  $xl: 100%,
+                  $xxl: 100%,
+                )
+              );
       &--stat {
         font-weight: 300;
       }

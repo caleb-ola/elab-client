@@ -3,7 +3,7 @@ import React from 'react';
 import Moment from 'react-moment';
 
 function CoworkCard({
-  title, text, button, image, path, people, startDate, expDate, amount, payment,
+  title, text, button, image, path, people, startDate, expDate, amount, payment, space,
 }) {
   return (
     <div className="card services__card border-0 h-100">
@@ -13,6 +13,12 @@ function CoworkCard({
         )}
       <div className="card-body p-4">
         <h6 className="card-title fw-bold my-2">{title}</h6>
+        {space
+        && (
+        <p className="services__card--text pt-1 pb-2 ">
+          {space}
+        </p>
+        )}
         {text
         && (
         <p className="services__card--text pt-1 pb-2 ">
@@ -80,6 +86,7 @@ CoworkCard.propTypes = {
   expDate: PropTypes.string,
   amount: PropTypes.number,
   payment: PropTypes.bool,
+  space: PropTypes.string,
 };
 
 CoworkCard.defaultProps = {
@@ -93,6 +100,7 @@ CoworkCard.defaultProps = {
   expDate: '',
   amount: '',
   payment: '',
+  space: '',
 };
 
 export default CoworkCard;
