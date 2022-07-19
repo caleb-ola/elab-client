@@ -75,7 +75,7 @@ function CoworkContent() {
               {
               res.data.data.bookings.length > 9
               && (
-              <div className="pt-4 px-5">
+              <div className="pt-4">
                 <Pagination
                   start={paginate.start}
                   end={paginate.end}

@@ -64,7 +64,7 @@ function ContactForm() {
     <div className="contact pb-5">
       <ToastContainer />
       <div className="container">
-        <div className="row">
+        <div className="row ">
           <div className="col-lg-6 my-2">
             <form action="" className="benefits__form px-2" onSubmit={Submit}>
               <div className="py-2">
@@ -106,33 +106,41 @@ function ContactForm() {
               </div>
             </form>
           </div>
-          <div className="col-lg-6 contact__details my-2">
+          <div className="col-lg-6 contact__details my-2 pt-2">
             <p className="fw-bold m-0 contact__details--header">Address</p>
             <p>50, Ogbomoso-Ilorin Rd, General Area, Ogbomoso, Oyo-State, Nigeria.</p>
             <p className="fw-bold m-0 contact__details--header">Email Address</p>
             <p>hello@ennovatelab.com</p>
             <p className="fw-bold m-0 contact__details--header">Phone Number</p>
             <p>+234 905 642 2768</p>
-            <ul className="p-0 w-100 ml-0  text-center text-lg-start my-2 my-lg-3">
-              <span className="fa-stack fa-1x custom">
-                <i className="fas fa-circle fa-stack-2x" />
-                <i className="fab fa-twitter fa-stack-1x fa-inverse" />
-              </span>
+            <ul className="p-0 w-100 ml-0  text-start text-lg-start my-2 my-lg-3">
+              <a href="https://web.facebook.com/Ennovatelab" target="_blank" rel="noreferrer">
+                <span className="fa-stack fa-1x custom ">
+                  <i className="fas fa-circle fa-stack-2x" />
+                  <i className="fab fa-facebook-f fa-stack-1x fa-inverse" />
+                </span>
+              </a>
               {' '}
-              <span className="fa-stack fa-1x custom ms-3">
-                <i className="fas fa-circle fa-stack-2x" />
-                <i className="fab fa-facebook-f fa-stack-1x fa-inverse" />
-              </span>
+              <a href="https://www.instagram.com/official_ennovatelab/" target="_blank" rel="noreferrer">
+                <span className="fa-stack fa-1x custom ms-3">
+                  <i className="fas fa-circle fa-stack-2x" />
+                  <i className="fab fa-instagram fa-stack-1x fa-inverse" />
+                </span>
+              </a>
               {' '}
-              <span className="fa-stack fa-1x custom ms-3">
-                <i className="fas fa-circle fa-stack-2x" />
-                <i className="fab fa-linkedin-in fa-stack-1x fa-inverse" />
-              </span>
+              <a href="https://www.linkedin.com/in/ennovatelabteam/" target="_blank" rel="noreferrer">
+                <span className="fa-stack fa-1x custom ms-3">
+                  <i className="fas fa-circle fa-stack-2x" />
+                  <i className="fab fa-linkedin-in fa-stack-1x fa-inverse" />
+                </span>
+              </a>
               {' '}
-              <span className="fa-stack fa-1x custom ms-3">
-                <i className="fas fa-circle fa-stack-2x" />
-                <i className="fab fa-instagram fa-stack-1x fa-inverse" />
-              </span>
+              <a href="https://twitter.com/ennovatelab" target="_blank" rel="noreferrer">
+                <span className="fa-stack fa-1x custom ms-3">
+                  <i className="fas fa-circle fa-stack-2x" />
+                  <i className="fab fa-twitter fa-stack-1x fa-inverse" />
+                </span>
+              </a>
               {' '}
             </ul>
           </div>

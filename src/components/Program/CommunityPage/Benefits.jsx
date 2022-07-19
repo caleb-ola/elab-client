@@ -85,14 +85,14 @@ function Benefits() {
                   {
               loading
                 ? (
-                  <button type="button" className="link btn fw-bold py-3 px-5 me-0 contact__form--button" disabled>
+                  <button type="button" className="link btn fw-bold py-3 px-5 me-0 benefits__form--button" disabled>
                     <div className="spinner-border spinner-border-sm" role="status">
                       <span className="visually-hidden">Loading...</span>
                     </div>
                   </button>
                 )
                 : (
-                  <button type="submit" className=" link btn fw-bold py-3 px-5 me-0 contact__form--button">
+                  <button type="submit" className=" link btn fw-bold py-3 px-5 me-0 benefits__form--button">
                     Join Trybe Community
                   </button>
                 )

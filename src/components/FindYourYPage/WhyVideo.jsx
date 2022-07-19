@@ -34,7 +34,6 @@ function WhyVideo() {
                 <div className="py-3 py-lg-5 px-0">
                   <button type="button" className=" link btn fw-bold py-3 px-5 me-0" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     Sign up
-                    {' '}
                   </button>
                 </div>
 
@@ -44,12 +43,12 @@ function WhyVideo() {
         </div>
       </div>
       {/* COMMUNITY SIGN UP FORM ENDS */}
-      <div className="container py-lg-5">
-        <div className="whyvideo__content mx-auto">
+      <div className="container py-lg-5 mt-5">
+        <div className="whyvideo__content mx-auto pt-5">
           <h4 className="whyvideo--header text-center pb-3 pb-lg-4">
             Founders’ Community
           </h4>
-          <video width="100%" height="600" controls className="py-3">
+          <video width="100%" height="550" controls className="py-3">
             <track kind="captions" />
             <source src="movie.mp4" type="video/mp4" />
             <source src="movie.ogg" type="video/ogg" />
@@ -63,7 +62,7 @@ function WhyVideo() {
             diam non elit. Sed luctus fringilla in mattis quis risus aliquam
             enim tristique. Molestie vestibulum malesuada.
           </p>
-          <div className="whyvideo__cta--btn py-4 text-center">
+          <div className="whyvideo__cta--btn pt-4 text-center">
             <button type="button" className="whyvideo__cta--btn link btn fw-bold py-3 px-5" data-bs-toggle="modal" data-bs-target="#exampleModal">
               Sign Up
             </button>

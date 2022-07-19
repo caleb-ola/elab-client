@@ -51,7 +51,7 @@
         z-index: 1;
         &::after {
             content: "";
-            background-color: rgba(6, 0, 22, 0.45);
+            background-color: rgba(6, 0, 22, 0);
             position: absolute;
             top: 0;
             left: 0;
@@ -103,6 +103,17 @@
 // PLAYBOOK STARTS
 .playbook {
     color: $elab-black;
+    &__nav {
+        &--menu{
+            color: #858585;
+            border-bottom: 4px solid #fff;
+        }
+    }
+    &__active {
+        color: $elab-black;
+        border-bottom: 4px solid $elab-yellow;
+        border-radius: 0;
+    }
 }
 
 // PLAYBOOK ENDS

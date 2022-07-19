@@ -26,7 +26,7 @@ import TrainingPageDetails from './components/Services/TrainingDetailsPage/Train
 import Blog from './components/Resources/BlogPage/Blog';
 import BlogDetails from './components/Resources/BlogDetailsPage/BlogDetails';
 import Playbook from './components/Resources/PlayBookPage/Playbook';
-import WhitePaper from './components/Resources/WhitePaperPage/WhitePaper';
+// import WhitePaper from './components/Resources/WhitePaperPage/Playbook';
 import Faq from './components/Resources/FaqPage/Faq';
 import Contact from './components/ContactPage/Contact';
 import FindYourY from './components/FindYourYPage/FindYourY';
@@ -113,7 +113,7 @@ function App() {
           <Route path="/resources/blog" element={<Blog />} />
           <Route path="/resources/blog/:slug" element={<BlogDetails />} />
           <Route path="/resources/playbook" element={<Playbook />} />
-          <Route path="/resources/whitepaper" element={<WhitePaper />} />
+          {/* <Route path="/resources/whitepaper" element={<WhitePaper />} /> */}
           <Route path="/resources/faq" element={<Faq />} />
           <Route path="/contact-us" element={<Contact />} />
           <Route path="/find-your-y" element={<FindYourY />} />

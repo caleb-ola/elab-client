@@ -22,7 +22,7 @@ function TrainingCard({
         </div>
         <div className="col-md-8 my-2  ">
           <h6 className="training__card--title">
-            {title}
+            {title.replace(/(^\w|\s\w)/g, (m) => m.toUpperCase())}
           </h6>
           <p className="training__card--text mb-4">{text}</p>
           <div className=" text-start text-md-end me-3 ">

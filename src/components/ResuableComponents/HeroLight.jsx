@@ -30,7 +30,7 @@ function HeroLight({
                 backgroundSize: 'contain',
                 backgroundRepeat: 'no-repeat',
               }}
-              className="ps-4 pt-4 pb-2 pe-5"
+              className="ps-4 pt-2 pb-3 pe-3"
             >
               {highlight2}
             </span>

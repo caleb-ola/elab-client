@@ -6,8 +6,8 @@ function Pagination({
 }) {
   return (
     (
-      <div className="pagination mx-auto">
-        <div className="container mt-3 mb-5">
+      <div className="pagination mx-auto w-100">
+        <div className="container mt-3 mb-5 p-2">
           <div className="row align-items-center">
             <div className="col-md-6 text-center text-md-start my-2 my-md-0">
               {/* Showing 1 to 10 of 100 */}
@@ -29,13 +29,13 @@ function Pagination({
               {
                          start <= 0
                            ? (
-                             <button type="button" className=" link btn fw-bold py-2 px-5 me-2" disabled>
+                             <button type="button" className=" link btn fw-bold py-2 px-5 me-0 me-lg-2" disabled>
                                Prev
                                {' '}
                              </button>
                            )
                            : (
-                             <button type="button" className=" link btn fw-bold py-2 px-5 me-2" onClick={onPrev}>
+                             <button type="button" className=" link btn fw-bold py-2 px-5 me-0 me-lg-2" onClick={onPrev}>
                                Prev
                                {' '}
                              </button>
@@ -44,13 +44,13 @@ function Pagination({
               {
                          end >= length
                            ? (
-                             <button type="button" className=" link btn fw-bold py-2 px-5 ms-2 me-0" disabled>
+                             <button type="button" className=" link btn fw-bold py-2 px-5 ms-0 ms-lg-2 me-0 my-2 " disabled>
                                Next
                                {' '}
                              </button>
                            )
                            : (
-                             <button type="button" className=" link btn fw-bold py-2 px-5 ms-2 me-0" onClick={onNext}>
+                             <button type="button" className=" link btn fw-bold py-2 px-5 ms-0 ms-lg-2 me-0 my-2 " onClick={onNext}>
                                Next
                                {' '}
                              </button>

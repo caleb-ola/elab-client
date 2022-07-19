@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Footer() {
   return (
@@ -41,7 +42,9 @@ function Footer() {
         <hr className="footer--line" />
         <div className="row pt-lg-3 footer__lower align-items-center justify-content-center text-center text-md-start">
           <div className="col-md-6 col-lg-4 my-2 my-lg-0 text-lg-start">
-            <img src="/images/logo-white.png" alt="" className="img-fluid footer__lower--icon" />
+            <Link to="/">
+              <img src="/images/logo-white.png" alt="" className="img-fluid footer__lower--icon" />
+            </Link>
           </div>
           <div className="col-md-6 col-lg-4 my-2 my-lg-0 ">
             <a href="/" className="footer__upper--link px-2">Privacy Policy</a>
@@ -51,20 +54,26 @@ function Footer() {
             <div className="custom-b text-lg-end w-100">
               <div className="footer__buttons--circle   my-md-2 w-100">
                 <ul className="p-0 w-100 ml-0  text-lg-end">
-                  <span className="fa-stack fa-1x custom ms-3">
-                    <i className="fas fa-circle fa-stack-2x" />
-                    <i className="fab fa-twitter fa-stack-1x fa-inverse" />
-                  </span>
+                  <a href="https://web.facebook.com/Ennovatelab" target="_blank" rel="noreferrer">
+                    <span className="fa-stack fa-1x custom ms-3" role="button">
+                      <i className="fas fa-circle fa-stack-2x" />
+                      <i className="fab fa-facebook-f fa-stack-1x fa-inverse" />
+                    </span>
+                  </a>
                   {' '}
-                  <span className="fa-stack fa-1x custom ms-3">
-                    <i className="fas fa-circle fa-stack-2x" />
-                    <i className="fab fa-facebook-f fa-stack-1x fa-inverse" />
-                  </span>
+                  <a href="https://www.instagram.com/official_ennovatelab/" target="_blank" rel="noreferrer">
+                    <span className="fa-stack fa-1x custom ms-3" role="button">
+                      <i className="fas fa-circle fa-stack-2x" />
+                      <i className="fab fa-instagram fa-stack-1x fa-inverse" />
+                    </span>
+                  </a>
                   {' '}
-                  <span className="fa-stack fa-1x custom ms-3">
-                    <i className="fas fa-circle fa-stack-2x" />
-                    <i className="fab fa-linkedin-in fa-stack-1x fa-inverse" />
-                  </span>
+                  <a href="https://www.linkedin.com/in/ennovatelabteam/" target="_blank" rel="noreferrer">
+                    <span className="fa-stack fa-1x custom ms-3" role="button">
+                      <i className="fas fa-circle fa-stack-2x" />
+                      <i className="fab fa-linkedin-in fa-stack-1x fa-inverse" />
+                    </span>
+                  </a>
                   {' '}
                 </ul>
               </div>

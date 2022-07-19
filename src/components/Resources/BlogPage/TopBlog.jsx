@@ -30,7 +30,7 @@ function TopBlog({
             <div className="col-md-6 col-lg-6 p-3 p-md-0 order-1 order-md-3 d-flex flex-column">
               {label && <span className="events__body--label py-2 px-3  text-center fw-bold">{label}</span>}
               <div className="align-text-top">
-                <div className="row">
+                <div className="d-inline-flex">
                   {tags && tags.map((item, index) => (
                   // eslint-disable-next-line
                   <span className="col topblog--tags mx-2 events__body--label fw-bold py-2 px-3 my-2 text-center" key={index}>

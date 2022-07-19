@@ -6,7 +6,7 @@ function Empty({
   header, subtext, button, path,
 }) {
   return (
-    <div className="empty__card p-3 p-lg-5 text-center mx-auto">
+    <div className="empty__card p-3 p-lg-5 text-center mx-auto my-3">
       <div className="empty__header mx-auto">
         <h4 className="py-2">{header}</h4>
         <p>{subtext}</p>

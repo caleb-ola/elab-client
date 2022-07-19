@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function CoworkHome() {
   return (
@@ -14,9 +15,9 @@ function CoworkHome() {
               customized for your business needs.
             </p>
             <div className="my-4 my-lg-5">
-              <a href="/program/innovation-hub/#available" className="link fw-bold py-3 px-5 text-decoration-none" type="button">
+              <Link to="/program/innovation-hub" className="link fw-bold py-3 px-5 text-decoration-none" type="button">
                 See available options
-              </a>
+              </Link>
             </div>
           </div>
           <div className="col-md-1 order-md-1" />

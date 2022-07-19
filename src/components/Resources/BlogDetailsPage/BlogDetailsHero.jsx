@@ -47,6 +47,18 @@ function BlogDetailsHero() {
         <div className="col-md-10 col-lg-10 p-3 p-md-0">
           {/* <span className="events__body--label py-2 px-3
         text-center fw-bold">Community Design</span> */}
+          <div className="align-text-top">
+            <div className="d-inline-flex">
+              {data.tags && data.tags.map((item, index) => (
+                item && (
+                // eslint-disable-next-line
+                  <span className="col topblog--tags mx-2 events__body--label fw-bold py-2 px-3 my-2 text-center" key={index}>
+                    {item}
+                  </span>
+                )
+              ))}
+            </div>
+          </div>
           <h4 className="my-3">
             {data.title}
           </h4>
@@ -98,9 +110,10 @@ function BlogDetailsHero() {
       <div
         className="blogdetails__hero position-relative"
         style={{
+          backgroundColor: '#fff',
           // backgroundImage: "url('/images/Resources/blog-details-header.png')",
           backgroundSize: 'cover',
-          height: '40vh',
+          height: '30vh',
         }}
       />
       <div className="container position-relative ">
@@ -118,23 +131,28 @@ function BlogDetailsHero() {
                   </span>
                 </a>
               </p>
-
             </div>
             {loading ? skeleton : topCard}
           </div>
         </div>
-        <div className="blogdetails__content mx-auto py-5">
+        <div className="blogdetails__content mx-auto pb-5">
           <div className="row">
             <div className="col-md-2 col-lg-2 px-lg-3 text-start ">
-              <span className="fa-stack fa-1x custom ms-3 my-2 blogdetails__content--icon">
-                <i className="fas fa-circle fa-stack-2x" />
-                <i className="fab fa-facebook-f fa-stack-1x fa-inverse" />
-              </span>
-              <br />
-              <span className="fa-stack fa-1x custom ms-3 my-2 blogdetails__content--icon">
-                <i className="fas fa-circle fa-stack-2x" />
-                <i className="fab fa-linkedin-in fa-stack-1x fa-inverse" />
-              </span>
+              <div className="row">
+                <div className="col-6 col-md-12">
+                  <span className="fa-stack fa-1x custom ms-3 my-2 blogdetails__content--icon">
+                    <i className="fas fa-circle fa-stack-2x" />
+                    <i className="fab fa-facebook-f fa-stack-1x fa-inverse" />
+                  </span>
+                </div>
+                <div className="col-6 col-md-12">
+                  <span className="fa-stack fa-1x custom ms-3 my-2 blogdetails__content--icon">
+                    <i className="fas fa-circle fa-stack-2x" />
+                    <i className="fab fa-linkedin-in fa-stack-1x fa-inverse" />
+                  </span>
+                </div>
+              </div>
+
             </div>
             <div className="col-md-10 col-lg-10 p-3 p-md-0">
               {loading ? skeletonBody : body}

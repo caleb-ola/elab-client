@@ -106,7 +106,7 @@ function PaddedCard({
         <div>
           <button
             type="button"
-            className="link py-1 px-3 text-decoration-none fw-bold"
+            className="link py-2 px-3 text-decoration-none fw-bold"
             to="/coursedetails"
             onClick={localStorage.getItem('elUsrT') ? () => {
               initializePayment(onSuccess, onClose);
@@ -126,7 +126,7 @@ function PaddedCard({
         <a href={path} className="text-decoration-none paddedcard__link">
           <div className="paddedcard p-4 px-lg-5 py-lg-4 pb-lg-4 pb-2 h-100">
             <h6 className="paddedcard__title fw-bold pb-3">
-              {title}
+              {title.replace(/(^\w|\s\w)/g, (m) => m.toUpperCase())}
             </h6>
             <div
               className="div"
@@ -140,7 +140,7 @@ function PaddedCard({
             />
             {button ? (
               <div className="mt-4">
-                <Link to="/" className="link py-1 px-2 text-decoration-none fw-bold">
+                <Link to="/" className="link py-2 px-3 text-decoration-none fw-bold">
                   {button}
                 </Link>
               </div>
@@ -169,9 +169,8 @@ function PaddedCard({
         <div className="paddedcard p-4 px-lg-5 py-lg-5 pb-lg-4 pb-2  h-100">
           <ToastContainer />
           <h6 className="paddedcard__title fw-bold pb-3">
-            {title}
+            {title.replace(/(^\w|\s\w)/g, (m) => m.toUpperCase())}
           </h6>
-
           <div
             className="div"
             style={{
@@ -187,7 +186,7 @@ function PaddedCard({
               <div className="col-7">
                 {button !== 'Make payment'
                   ? (
-                    <a type="button" href={brochure} className="link py-1 px-3 text-decoration-none fw-bold" download>
+                    <a type="button" href={brochure} className="link py-2 px-3 text-decoration-none fw-bold" download>
                       {button}
                     </a>
                   )
@@ -212,8 +211,8 @@ function PaddedCard({
           )
             : (
               <div className="row mt-4">
-                <div className="col-6 text-start">{name}</div>
-                <div className="col-6 text-end">{date}</div>
+                <div className="col-6 col-md-12 text-center text-start">{name}</div>
+                <div className="col-6 col-md-12 text-center text-end">{date}</div>
               </div>
             )}
         </div>

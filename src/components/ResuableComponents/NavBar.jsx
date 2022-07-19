@@ -184,12 +184,6 @@ function NavBar() {
                     </a>
                   </div>
                   <div className="col-md-6">
-                    <a href="/resources/whitepaper" className=" p-2 px-3 btn text-start navi__dropdown--option my-2 text-decoration-none w-100" role="button">
-                      <p className="fw-bold m-0 navi__dropdown--subhead">Whitepaper</p>
-                      <p className="navi__dropdown--subtext m-0">A short description stays here</p>
-                    </a>
-                  </div>
-                  <div className="col-md-6">
                     <a href="/resources/faq" className=" p-2 px-3 btn text-start navi__dropdown--option my-2 text-decoration-none w-100" role="button">
                       <p className="fw-bold m-0 navi__dropdown--subhead">FAQs</p>
                       <p className="navi__dropdown--subtext m-0">A short description stays here</p>
