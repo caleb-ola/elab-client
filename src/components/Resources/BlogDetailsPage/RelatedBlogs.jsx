@@ -14,7 +14,7 @@ function RelatedBlogs() {
   );
 
   useEffect(() => {
-    axios.get('https://elab-api.herokuapp.com/api/v1/posts?limit=4').then((response) => {
+    axios.get('https://elab-api.herokuapp.com/api/v1/posts?limit=3').then((response) => {
       // console.log(response);
       setLoading(false);
       setSkeleton();
@@ -34,9 +34,6 @@ function RelatedBlogs() {
           )
         )),
       );
-      const createMarkup = () => ({ __html: response.data.data?.content });
-      // eslint-disable-next-line
-      setBody(<div className="markup" dangerouslySetInnerHTML={createMarkup()} />);
     }, (error) => {
       if (error.response) {
         error.response.data.errors.map((err) => toast.error(`${err.message}`, {

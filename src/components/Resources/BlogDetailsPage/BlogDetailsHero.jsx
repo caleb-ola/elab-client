@@ -48,7 +48,7 @@ function BlogDetailsHero() {
           {/* <span className="events__body--label py-2 px-3
         text-center fw-bold">Community Design</span> */}
           <div className="align-text-top">
-            <div className="d-inline-flex">
+            <div className="d-inline-flex flex-wrap">
               {data.tags && data.tags.map((item, index) => (
                 item && (
                 // eslint-disable-next-line

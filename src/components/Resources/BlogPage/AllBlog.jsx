@@ -29,7 +29,7 @@ function AllBlogs() {
     }));
   };
   useEffect(() => {
-    axios.get('https://elab-api.herokuapp.com/api/v1/posts?limit').then((response) => {
+    axios.get('https://elab-api.herokuapp.com/api/v1/posts').then((response) => {
       setLoading(false);
       setSkeleton();
       setBlog(

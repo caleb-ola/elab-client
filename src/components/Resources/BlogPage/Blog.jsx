@@ -40,23 +40,25 @@ function Blog() {
   );
 
   useEffect(() => {
-    axios.get('https://elab-api.herokuapp.com/api/v1/posts?limit=1').then((response) => {
-      // console.log(response);
+    axios.get('https://elab-api.herokuapp.com/api/v1/posts').then((response) => {
+      // console.log(response.data.data[0]);
+      const data = response.data.data[0];
       setLoading(false);
       setSkeleton();
       setTopBody(
-        response.data.data.map((item) => (
-          <div key={item.id}>
-            <TopBlog
-              image={item.image}
-              title={item.title}
-              date={item.createdAt}
-              author={item.author}
-              tags={item.tags}
-              path={`/resources/blog/${item.slug}`}
-            />
-          </div>
-        )),
+        // response.data.data.map((item) => (
+        <div key={data.id}>
+          <TopBlog
+            image={data.image}
+            title={data.title}
+            date={data.createdAt}
+            author={data.author}
+            tags={data.tags}
+            path={`/resources/blog/${data.slug}`}
+          />
+          {/* {console.log(item)} */}
+        </div>,
+        // )),
       );
     }, (error) => {
       if (error.response) {
