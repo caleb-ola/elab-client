@@ -15,7 +15,7 @@ function UserResourcesContent() {
   //   end: 9,
   //   // all: 0,
   // });
-  const [userResources, setUserResources] = useState('');
+  const [userResources, setUserResources] = useState([]);
   const [allResources, setAllResources] = useState('');
   const [skeleton, setSkeleton] = useState(
     <SkeletonPaddedRow />,
