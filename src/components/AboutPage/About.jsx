@@ -1,7 +1,7 @@
 import React from 'react';
-// import Hero from '../HomePage/hero';
+import Hero from '../HomePage/hero';
 import Footer from '../ResuableComponents/Footer';
-import Hero4 from '../ResuableComponents/Hero4';
+// import Hero4 from '../ResuableComponents/Hero4';
 import NavBar from '../ResuableComponents/NavBar';
 import Team from './team';
 import Timeline from './Timeline';
@@ -12,7 +12,7 @@ function About() {
   return (
     <div>
       <NavBar />
-      <Hero4
+      <Hero
         title="Appropriate Content is needed
         for this section"
         image="url('/images/about/hero1.png')"
