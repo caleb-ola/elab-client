@@ -18,7 +18,7 @@ module.exports = {
   plugins: ['react'],
   rules: {
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
-    // 'linebreak-style': ['error', 'windows'],
+    'linebreak-style': ['off', 'windows', 'unix'],
     'jsx-a11y/label-has-associated-control': ['error', {
       required: {
         some: ['nesting', 'id'],
