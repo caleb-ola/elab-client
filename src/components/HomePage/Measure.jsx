@@ -102,7 +102,7 @@ function Measure() {
       className="heroTwo position-relative"
       id="heroTwo"
       style={{
-        backgroundImage: "url('/images/home/measure.png')",
+        backgroundImage: "url('/images/home/measure.jpg')",
         height: '100vh',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',

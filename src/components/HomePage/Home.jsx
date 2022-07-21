@@ -21,7 +21,7 @@ function Home() {
         text="We plug Individuals, Startups, SMEs and Higher Education Institutions into the global digital economy."
         title="Prosperity in Africa’s Underserved University Communities"
         circleTitle="Unlocking "
-        image="url('/images/home/hero.png')"
+        image="url('/images/home/hero.jpg')"
         button="Learn More"
         path="/about-us"
       />
