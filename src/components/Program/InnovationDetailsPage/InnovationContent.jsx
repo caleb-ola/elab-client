@@ -248,29 +248,6 @@ function InnovationContent() {
     }).then((response) => {
       // console.log(response);
       setCurrentUserEmail(response.data.data.email);
-    }, (error) => {
-      // console.log(error);
-      if (error.response) {
-        error.response.data.errors.map((err) => toast.error(`${err.message}`, {
-          position: 'top-right',
-          autoClose: 15000,
-          hideProgressBar: true,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        }));
-      } else {
-        toast.error('Ops, something went wrong, please try again', {
-          position: 'top-right',
-          autoClose: 8000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
-      }
     });
     axios.get(`https://elab-api.herokuapp.com/api/v1/workspaces/${params.slug}`).then(
       (response) => {
