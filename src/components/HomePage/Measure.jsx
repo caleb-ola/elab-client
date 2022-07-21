@@ -114,7 +114,7 @@ function Measure() {
       <div className="measure__overlay position-relative">
         <div className="container">
           <div className=" measure__content text-start  ">
-            <div className="measure__container w-100 text-start">
+            <div className="measure__container text-start">
               <div className="measure__header">
                 <h4 className="measure__header--title my-2">How We Measure Impact</h4>
                 <p className="measure__header--text my-2 my-lg-3">

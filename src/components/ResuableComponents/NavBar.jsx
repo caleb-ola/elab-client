@@ -50,16 +50,16 @@ function NavBar() {
     if (localStorage.getItem('elUsrT')) {
       if (window.location.pathname.includes('/dashboard/user')) {
         setAuthBtn(
-          <button type="button" className="link btn navi--button px-4 " onClick={Logout}>Logout</button>,
+          <button type="button" className="link btn navi--button px-2 px-md-4 " onClick={Logout}>Logout</button>,
         );
       } else {
         setAuthBtn(
-          <Link to="/dashboard/user" type="button" className="link btn navi--button px-4 ">Dashboard</Link>,
+          <Link to="/dashboard/user" type="button" className="link btn navi--button px-2 px-md-4 ">Dashboard</Link>,
         );
       }
     } else {
       setAuthBtn(
-        <Link to="/auth/login" type="button" className="link btn navi--button px-4 ">Login</Link>,
+        <Link to="/auth/login" type="button" className="link btn navi--button px-2 px-md-4 ">Login</Link>,
       );
     }
   }, []);
@@ -91,12 +91,12 @@ function NavBar() {
           id="navbarNav"
         >
           <ul className="navbar-nav  my-lg-0 text-start text-lg-center ">
-            <li className="nav-item py-0 mx-3">
+            <li className="nav-item py-0  mx-3 mx-lg-2 mx-xl-3">
               <NavLink className="nav-link   links  px-0 py-1 my-1 my-lg-0 py-lg-4" to="/about-us">
                 About Us
               </NavLink>
             </li>
-            <li className="nav-item dropdown nav__drop py-0 mx-3">
+            <li className="nav-item dropdown nav__drop py-0  mx-3 mx-lg-2 mx-xl-3">
               <button type="button" className={window.location.pathname.includes('/program') ? 'nav-link  links px-0 py-1 my-1 my-lg-0 py-lg-4 active' : 'nav-link  links px-0 py-1 my-1 my-lg-0 py-lg-4'} id="navbarDropdown2" data-bs-toggle="dropdown2" aria-expanded="false">
                 Programs
               </button>
@@ -137,7 +137,7 @@ function NavBar() {
                 <div className="row" />
               </ul>
             </li>
-            <li className="nav-item dropdown nav__drop py-0 mx-3">
+            <li className="nav-item dropdown nav__drop py-0 mx-3 mx-lg-2 mx-xl-3">
               <button type="button" className={window.location.pathname.includes('/services') ? 'nav-link  links px-0 py-1 my-1 my-lg-0 py-lg-4 active' : 'nav-link  links px-0 py-1 my-1 my-lg-0 py-lg-4'} id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                 Services
               </button>
@@ -165,7 +165,7 @@ function NavBar() {
                 <div className="row" />
               </ul>
             </li>
-            <li className="nav-item dropdown nav__drop py-0 mx-3">
+            <li className="nav-item dropdown nav__drop py-0 mx-3 mx-lg-2 mx-xl-3">
               <button type="button" href="/" className={window.location.pathname.includes('/resources') && window.location.pathname.indexOf('user') === -1 ? 'nav-link links px-0 py-1 my-1 my-lg-0 py-lg-4 active' : 'nav-link  links px-0 py-1 my-1 my-lg-0 py-lg-4'} id="navbarDropdown2" data-bs-toggle="dropdown2" aria-expanded="false">
                 Resources
               </button>
@@ -203,7 +203,7 @@ function NavBar() {
                 Find your Y
               </NavLink>
             </li>
-            <li className="navi--button mx-2 pe-3 me-lg-0 my-2 my-lg-0">
+            <li className="navi--button mx-2 pe-3 pe-lg-0 me-lg-0 my-2 my-lg-0">
               {authBtn}
             </li>
           </ul>

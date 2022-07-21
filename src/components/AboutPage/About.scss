@@ -58,6 +58,16 @@
     &__tab{
         overflow-x: scroll;
         scrollbar-color: transparent transparent;
+        @include rwd(
+            justify-content,
+            left,
+            (
+              $md: center,
+              $lg: center,
+              $xl: center,
+              $xxl: center,
+            )
+          );
         // width: 100%;
         // @include rwd(
         //     width,
