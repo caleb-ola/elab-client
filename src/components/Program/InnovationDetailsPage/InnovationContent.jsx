@@ -96,7 +96,7 @@ function MyVerticallyCenteredModal({ onHide, show, modal }) {
             type="button"
             className="link px-5 py-3 text-decoration-none fw-bold"
             to="/coursedetails"
-            onClick={localStorage.getItem('idtoken') ? () => {
+            onClick={localStorage.getItem('elUsrT') ? () => {
               initializePayment(onSuccess, onClose);
             }
               : () => navigate('/auth/login', { state: { from: location.pathname } })}
@@ -300,7 +300,7 @@ function InnovationContent() {
       startDate,
     }, {
       headers: {
-        Authorization: `Bearer ${localStorage.getItem('elUsrT') && localStorage.getItem('elUsrT')}`,
+        Authorization: `Bearer ${localStorage.getItem('elUsrT')}`,
       },
     }).then((response) => {
       // console.log(response);

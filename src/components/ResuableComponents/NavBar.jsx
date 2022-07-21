@@ -102,13 +102,13 @@ function NavBar() {
               </button>
               <ul className="dropdown-menu navi__dropdown" aria-labelledby="navbarDropdown2">
                 <div className="row p-3 ">
-                  <div className="col-lg-6">
+                  <div className="col-md-6">
                     <a href="/program/community" className="p-2 px-3 btn text-start  navi__dropdown--option my-2 text-decoration-none w-100" role="button">
                       <p className="fw-bold m-0 navi__dropdown--subhead">Community</p>
                       <p className="navi__dropdown--subtext m-0">A short description stays here</p>
                     </a>
                   </div>
-                  <div className="col-lg-6">
+                  <div className="col-md-6">
                     <a href="/program/projects" className=" p-2 px-3 btn text-start navi__dropdown--option my-2 text-decoration-none w-100" role="button">
                       <p className="fw-bold m-0 navi__dropdown--subhead">Projects</p>
                       <p className="navi__dropdown--subtext m-0">A short description stays here</p>
@@ -120,13 +120,13 @@ function NavBar() {
                       <p className="navi__dropdown--subtext m-0">A short description stays here</p>
                     </a>
                   </div>
-                  <div className="col-lg-6">
+                  <div className="col-md-6">
                     <a href="/program/non-profit" className=" p-2 px-3 btn text-start navi__dropdown--option my-2 text-decoration-none w-100" role="button">
                       <p className="fw-bold m-0 navi__dropdown--subhead">Non-profits</p>
                       <p className="navi__dropdown--subtext m-0">A short description stays here</p>
                     </a>
                   </div>
-                  <div className="col-lg-6">
+                  <div className="col-md-6">
                     <a href="/program/foundry" className=" p-2 px-3 btn text-start navi__dropdown--option my-2 text-decoration-none w-100" role="button">
                       <p className="fw-bold m-0 navi__dropdown--subhead">Startup Foundry</p>
                       <p className="navi__dropdown--subtext m-0">A short description stays here</p>
