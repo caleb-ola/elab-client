@@ -12,10 +12,10 @@ function CoworkCard({
           <img src={image} className="card-img-top" alt="..." />
         )}
       <div className="card-body p-4">
-        <h6 className="card-title fw-bold my-2">{title.replace(/(^\w|\s\w)/g, (m) => m.toUpperCase())}</h6>
+        <h6 className="card-title fw-bold mb-0">{title.replace(/(^\w|\s\w)/g, (m) => m.toUpperCase())}</h6>
         {space
         && (
-        <p className="services__card--text pt-1 pb-2 ">
+        <p className="services__card--text pt-0 pb-2 ">
           {space}
         </p>
         )}
@@ -69,10 +69,13 @@ function CoworkCard({
           {payment ? 'Paid' : 'Unpaid'}
         </p>
         )}
-        {
+        <div className="my-2">
+          {
           button
         && <a href={path} className=" link text-decoration-none px-3 py-2 fw-bold">{button}</a>
         }
+
+        </div>
       </div>
     </div>
   );

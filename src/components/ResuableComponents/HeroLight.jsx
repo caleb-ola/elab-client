@@ -5,7 +5,7 @@ function HeroLight({
   title, text, highlight, highlight2, highlight3, highlight4,
 }) {
   return (
-    <div className="hero-light py-5">
+    <div className="hero-light pt-5">
       <div className="container py-5">
         <div className="hero-light__header py-lg-5">
           <h1 className="hero-light__header--title text-center pt-5">

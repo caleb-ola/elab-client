@@ -5,7 +5,7 @@ function Cta({
   text, target, toggle, path,
 }) {
   return (
-    <button href={path} className="link fw-bold py-3 px-5 text-decoration-none" type="button" data-bs-target={target} data-bs-toggle={toggle}>
+    <button href={path} className="link fw-bold py-3 px-5 text-decoration-none " type="button" data-bs-target={target} data-bs-toggle={toggle}>
       {text}
     </button>
   );

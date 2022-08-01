@@ -117,7 +117,7 @@ function Benefits() {
           <div className="row text-center my-2 my-lg-4">
             <div className="col-md-6 col-lg-4 h-100 my-lg-3">
               <div className="card vision__card h-100">
-                <img src="/images/about/vision.png" className="card-img-top img-fluid vision__card--icon my-2  my-lg-3 " alt="..." />
+                <img src="/images/program/benefit1.png" className="card-img-top img-fluid vision__card--icon my-2  my-lg-3 " alt="..." />
                 <div className="card-body px-3 px-md-5">
                   <h6 className="card-title benefits__all--title">
                     Free online
@@ -128,7 +128,7 @@ function Benefits() {
             </div>
             <div className="col-md-6 col-lg-4 h-100 my-lg-3">
               <div className="card vision__card h-100">
-                <img src="/images/about/vision.png" className="card-img-top img-fluid vision__card--icon my-2  my-lg-3 " alt="..." />
+                <img src="/images/program/benefit2.png" className="card-img-top img-fluid vision__card--icon my-2  my-lg-3 " alt="..." />
                 <div className="card-body px-3 px-md-5">
                   <h6 className="card-title benefits__all--title">Career sensitization summits</h6>
                 </div>
@@ -136,7 +136,7 @@ function Benefits() {
             </div>
             <div className="col-md-6 col-lg-4 h-100 my-lg-3">
               <div className="card vision__card h-100">
-                <img src="/images/about/vision.png" className="card-img-top img-fluid vision__card--icon my-2  my-lg-3 " alt="..." />
+                <img src="/images/program/benefit3.png" className="card-img-top img-fluid vision__card--icon my-2  my-lg-3 " alt="..." />
                 <div className="card-body px-3 px-md-5">
                   <h6 className="card-title benefits__all--title">Mentorship opportunities</h6>
 

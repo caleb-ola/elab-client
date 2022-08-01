@@ -1,6 +1,7 @@
 // import axios from 'axios';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet';
 import Skeleton from 'react-loading-skeleton';
 import Moment from 'react-moment';
 import { useParams } from 'react-router-dom';
@@ -45,6 +46,17 @@ function BlogDetailsHero() {
       const { data } = response.data;
       setTopCard(
         <div className="col-md-10 col-lg-10 p-3 p-md-0">
+          <Helmet>
+            <title>
+              {data.title}
+              {' '}
+              - Ennovate Lab
+            </title>
+            {/* <meta
+            name="description"
+            content="Building a clear path to help our clients deliver organizational success."
+          /> */}
+          </Helmet>
           {/* <span className="events__body--label py-2 px-3
         text-center fw-bold">Community Design</span> */}
           <div className="align-text-top">

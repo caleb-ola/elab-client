@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { toast, ToastContainer } from 'react-toastify';
@@ -86,6 +87,15 @@ function Blog() {
   }, []);
   return (
     <div>
+      <Helmet>
+        <title>
+          Blog - Ennovate Lab
+        </title>
+        {/* <meta
+            name="description"
+            content="Building a clear path to help our clients deliver organizational success."
+          /> */}
+      </Helmet>
       <ToastContainer />
       <NavBar />
       {loading ? skeleton : topBody}

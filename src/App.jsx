@@ -87,6 +87,8 @@ import PaymentsDetails from './components/Dashboard/Admin/Payments/PaymentsDetai
 import UserRouteGuard from './route-guards/UserRouteGuard';
 import Verify from './components/Authentication/Verify';
 import ResendVerify from './components/Authentication/ResendVerify';
+import Privacy from './components/LegalDocuments/PrivacyPolicyPage/Privacy';
+import Terms from './components/LegalDocuments/TermsConditionsPage/Terms';
 
 function App() {
   return (
@@ -127,6 +129,8 @@ function App() {
             path="/auth/resend-verification-email"
             element={<ResendVerify />}
           />
+          <Route path="/privacy-policy" element={<Privacy />} />
+          <Route path="/terms-and-conditions" element={<Terms />} />
           <Route element={<AdminRouteGuard />}>
             <Route path="/dashboard/admin" element={<Blogs />} />
             <Route path="/dashboard/admin/services" element={<ServicesAdmin />} />

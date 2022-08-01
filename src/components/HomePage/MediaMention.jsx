@@ -45,7 +45,7 @@ function MediaMention() {
           <h4 className="partner--title ">
             Media Mentions
           </h4>
-          <p className="pt-4">
+          <p className="pt-2">
             Some media houses have decided to shout about what we do from the
             housetops and that’s great because we also aren’t hiding our light in any way.
           </p>

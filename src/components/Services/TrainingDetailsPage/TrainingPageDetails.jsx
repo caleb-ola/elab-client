@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { useParams } from 'react-router-dom';
 import Footer from '../../ResuableComponents/Footer';
 import HeroTwo from '../../ResuableComponents/hero2';
@@ -14,10 +15,22 @@ function TrainingPageDetails() {
     axios.get(`https://elab-api.herokuapp.com/api/v1/trainings/${params.id}`).then((response) => {
       // console.log(response);
       const item = response.data.data;
+
       setBody(
         <div key={item.id}>
+          <Helmet>
+            <title>
+              {item.title}
+              {' '}
+              - Ennovate Lab
+            </title>
+            {/* <meta
+            name="description"
+            content="Building a clear path to help our clients deliver organizational success."
+          /> */}
+          </Helmet>
           <HeroTwo
-            image={"url('/images/services/training-hero.png')"}
+            image={"url('/images/services/training-hero.jpg')"}
             price={item.price}
             title={item.title}
             date={item.date}

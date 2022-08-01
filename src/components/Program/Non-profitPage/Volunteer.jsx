@@ -1,21 +1,54 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
-import TagsInput from '../../ResuableComponents/TagsInput';
+// import TagsInput from '../../ResuableComponents/TagsInput';
 
 function Volunteer() {
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
-  const [tag, setTag] = useState();
-  const [options, setOptions] = useState();
+  const [skills, setSkills] = useState();
+  const [options, setOptions] = useState([]);
   const [project, setProject] = useState('');
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    axios.get('https://elab-api.herokuapp.com/api/v1/projects/current-projects').then(
+      (response) => {
+        // console.log(response);
+        const { data } = response.data;
+        setOptions([...options, data]);
+      },
+      (error) => {
+        // console.log(error);
+        setLoading(false);
+        if (error.response) {
+          error.response.data.errors.map((err) => toast.error(`${err.message}`, {
+            position: 'top-right',
+            autoClose: 15000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          }));
+        } else {
+          toast.error('Ops, something went wrong, please try again', {
+            position: 'top-right',
+            autoClose: 8000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+        }
+      },
+    );
     axios.get('https://elab-api.herokuapp.com/api/v1/projects/future-projects').then(
       (response) => {
         // console.log(response);
-        setOptions(response.data.data);
+        const { data } = response.data;
+        setOptions([...options, data]);
       },
       (error) => {
         // console.log(error);
@@ -44,15 +77,12 @@ function Volunteer() {
       },
     );
   }, []);
-  // console.log(options);
-  const selectedTags = (tags) => setTag(tags);
-  // console.log(tag);
 
   const Submit = (e) => {
     e.preventDefault();
     setLoading(true);
     axios.post('https://elab-api.herokuapp.com/api/v1/volunteers', {
-      name, email, project, skills: tag,
+      name, email, project, skills,
     }).then((response) => {
       // console.log(response);
       setLoading(false);
@@ -95,6 +125,7 @@ function Volunteer() {
       }
     });
   };
+  // console.log(skills);
   return (
     <>
       {/* JOIN TRYBE FORM STARTS */}
@@ -131,20 +162,26 @@ function Volunteer() {
                   </label>
                   <select id="volunteer__project" name="volunteer__project" className="p-3 my-2 form-select benefits__form--input shadow-none" onChange={(e) => setProject(e.target.value)} required>
                     {options
-                      && options.map((item) => (
-                        <option value={item.title} key={item.id}>
+                      && options?.map((item) => (
+                        <option className="benefits__form--option" value={item.title} key={item.id}>
                           {item.title}
                         </option>
                       ))}
                   </select>
                 </div>
-
-                <div className="py-4">
-                  <label className="p-0 fw-bold" htmlFor="email">
-                    Tags
+                <div className="row py-2">
+                  <label className="" htmlFor="volunteer__skills">
+                    Skills
                   </label>
                   <br />
-                  <TagsInput selectedTags={selectedTags} />
+                  <select id="volunteer__skills" name="volunteer__project" className="p-3 my-2 form-select benefits__form--input shadow-none" onChange={(e) => setSkills([e.target.value])} required>
+                    <option className="benefits__form--option" value="Design">Design</option>
+                    <option className="benefits__form--option" value="Software Development">Software Development</option>
+                    <option className="benefits__form--option" value="Marketing">Marketing</option>
+                    <option className="benefits__form--option" value="Publicity">Publicity</option>
+                    <option className="benefits__form--option" value="Marketing">Marketing</option>
+                    <option className="benefits__form--option" value="Support staff">Support staff</option>
+                  </select>
                 </div>
 
                 <div className="py-3 py-lg-4 ">
@@ -170,7 +207,7 @@ function Volunteer() {
         </div>
       </div>
       {/* JOIN TRYBE FORM ENDS */}
-      <div className="volunteer text-center pb-5 pb-lg-5 mb-lg-5">
+      <div className="volunteer__hero--btn text-center pb-5 pb-lg-5 mb-lg-5">
         <button type="button" className=" link btn fw-bold py-3 px-5 me-0" data-bs-toggle="modal" data-bs-target="#volunteerModal">
           Volunteer
           {' '}

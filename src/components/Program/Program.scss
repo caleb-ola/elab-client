@@ -50,7 +50,15 @@
             border: 1px solid #828282;
             border-radius: 5px;
             margin-left: 10px;
+            &:focus {
+              border: 1px solid $elab-yellow;
+            }
         }
+        // &--option {
+        //   &:hover {
+        //     background-color: $elab-yellow !important;
+        //   }
+        // }
         &--button {
           @include rwd(
             width,
@@ -70,7 +78,7 @@
             width,
             95%,
             (
-              $md: 90%,
+              $md: 100%,
               $lg: 80%,
               $xl: 80%,
               $xxl: 80%,
@@ -296,3 +304,23 @@
   }
 }
 // INNOVATION HUB (COWORK ENDS)
+
+
+// NON-PROFITS (VOLUNTEER) STARTS
+.volunteer {
+  &__hero{
+    &--btn{
+      @include rwd(
+        width,
+        100%,
+        (
+          $md: 100%,
+          $lg: 100%,
+          $xl: 100%,
+          $xxl: 100%,
+        )
+      );
+    }
+  }
+}
+// NON-PROFITS (VOLUNTEER) STARTS

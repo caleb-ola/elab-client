@@ -1,6 +1,7 @@
 import React from 'react';
 
 function Story() {
+  // const [gridImages, setGridImages] = useState();
   return (
     <section
       className="story my-5"
@@ -19,6 +20,17 @@ function Story() {
               {/* <div className=""> */}
               <h4 className="py-2">Our Story</h4>
               <p className="fw-bold">Building resilient innovation ecosystems in underserved university communities.</p>
+              <div className="image__stack d-md-none  px-1 py-4">
+                <div className="image__stack--item image__stack--top ">
+                  <img src="/images/home/story3.png" alt="" className="img-fluid" />
+                </div>
+                <div className="image__stack--item image__stack--middle">
+                  <img src="/images/home/story2.png" alt="" className="img-fluid" />
+                </div>
+                <div className="image__stack--item image__stack--bottom">
+                  <img src="/images/home/story1.png" alt="" className="img-fluid" />
+                </div>
+              </div>
               <p className="">
                 Ennovate Lab is an innovation hub that seeks to promote innovation and enterprise
                 thinking and success in underserved university communities beginning from
@@ -36,7 +48,7 @@ function Story() {
               </div>
             </div>
             <div className="col-md-6 order-1 order-md-2">
-              <div className="image__stack">
+              <div className="image__stack d-none d-md-grid">
                 <div className="image__stack--item image__stack--top ">
                   <img src="/images/home/story3.png" alt="" className="img-fluid" />
                 </div>

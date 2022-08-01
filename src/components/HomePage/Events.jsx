@@ -56,12 +56,12 @@ function Events() {
       <div className="container pt-lg-5">
         <div className="partner__header text-center mx-auto">
           <h4 className="event__header--title">Events Just For You!</h4>
-          <p className="events__header--text">
+          <p className="events__header--text pb-2">
             We are consistently curating the best events that help our
             community achieve their dreams.
           </p>
         </div>
-        <div className="row g-4">
+        <div className="row pt-3 g-4">
           {loading ? skeleton : body }
         </div>
       </div>

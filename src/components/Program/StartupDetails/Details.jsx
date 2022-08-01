@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
+import { Helmet } from 'react-helmet';
 
 function Details() {
   const [body, setBody] = useState();
@@ -38,6 +39,14 @@ function Details() {
       // eslint-disable-next-line
       setBody(
         <>
+          <Helmet>
+            <title>
+              {data.name}
+              {' '}
+              -
+              Ennovate Lab
+            </title>
+          </Helmet>
           {/* HEADER CARD STARTS */}
           <div className="row align-items-center mb-3 mb-lg-5 mt-5 ">
             <div className="col-md-2 my-2 text-start ps-lg-0">

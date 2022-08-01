@@ -3,8 +3,8 @@ import { PropTypes } from 'prop-types';
 
 function HeroThree({ title, text, highlight }) {
   return (
-    <div className="herothree py-5">
-      <div className="container py-5">
+    <div className="herothree pt-5">
+      <div className="container pt-5 pb-3">
         <div className="herothree__header text-center">
           <h1 className="herothree__header--title pt-5 mt-5">
             {title}

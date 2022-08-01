@@ -8,7 +8,7 @@ function Footer() {
         <div className="row footer__upper pb-lg-2">
           <div className="col-md-6 col-lg-3 my-2 my-lg-0">
             <h5 className="fw-bold footer__upper--title pb-2">Quick Links</h5>
-            <a className="footer__upper--link" href="/program/foundry">
+            <a className="footer__upper--link" href="/find-your-y/community">
               <p> Founder&apos;s Community</p>
             </a>
             <a className="footer__upper--link" href="/program/community"><p>Trybe by eLab</p></a>
@@ -16,16 +16,17 @@ function Footer() {
           </div>
           <div className="col-md-6 col-lg-3 my-2 my-lg-0">
             <h5 className="fw-bold footer__upper--title pb-2">Resources</h5>
-            <a className="footer__upper--link" href="/resources/playbook"><p>ebook</p></a>
-            <a className="footer__upper--link" href="/resources/whitepaper"><p>Whitepaper</p></a>
-            <a className="footer__upper--link" href="/resources/blog"><p>Blog</p></a>
-            <a className="footer__upper--link" href="/resources/faq"><p>FAQ</p></a>
+            <a className="footer__upper--link" href="/resources/blog"><p>Blogs</p></a>
+            <a className="footer__upper--link" href="/resources/playbook"><p>Playbook</p></a>
+            <a className="footer__upper--link" href="/resources/faq"><p>FAQs</p></a>
             {' '}
 
           </div>
           <div className="col-md-6 col-lg-3 my-2 my-lg-0">
             <h5 className="fw-bold footer__upper--title pb-2">Company</h5>
-            <a className="footer__upper--link" href="/about-us">About us</a>
+            <a className="footer__upper--link" href="/about-us"><p>About us</p></a>
+            <a className="footer__upper--link" href="/program/community"><p>Programs</p></a>
+            <a className="footer__upper--link" href="/services/digital-services"><p>Services</p></a>
           </div>
           <div className="col-md-6 col-lg-3 my-2 my-lg-0">
             <h5 className="fw-bold footer__upper--title pb-2">Contact us</h5>
@@ -47,8 +48,8 @@ function Footer() {
             </Link>
           </div>
           <div className="col-md-6 col-lg-4 my-2 my-lg-0 ">
-            <a href="/" className="footer__upper--link px-2">Privacy Policy</a>
-            <a href="/" className="footer__upper--link px-2">Terms & Conditions</a>
+            <a href="/privacy-policy" className="footer__upper--link px-2">Privacy Policy</a>
+            <a href="/terms-and-conditions" className="footer__upper--link px-2">Terms & Conditions</a>
           </div>
           <div className="col-md-6 col-lg-4 my-2 my-lg-0">
             <div className="custom-b text-lg-end w-100">

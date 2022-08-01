@@ -14,6 +14,7 @@ function Hero4({
         backgroundImage: image,
         height: '100vh',
         backgroundSize: 'cover',
+        backgroundPosition: 'right center',
       }}
     >
 

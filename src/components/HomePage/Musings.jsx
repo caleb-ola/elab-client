@@ -64,7 +64,7 @@ function Musings() {
   return (
     <div className="musings">
       <ToastContainer />
-      <div className="container py-5">
+      <div className="container pb-3">
         <div
           className="musings__card position-relative p-4 p-lg-5"
           style={{
