@@ -3,8 +3,63 @@ import React from 'react';
 function Plans() {
   return (
     <div id="plans" className="plans py-5">
-      <div className="container py-lg-5">
+      <div className="container pb-lg-2">
         <div className="row">
+          <div className="col-6 col-md-4 col-lg-3 px-2 px-lg-5">
+            <div className="card vision__card h-100">
+              <img src="/images/cowork/plana.png" className="card-img-top img-fluid  my-2  my-lg-3 " alt="..." />
+              <div className="card-body px-1 px-lg-2 pt-0  text-center">
+                <h5 className="card-title">
+                  Conducive
+                  {' '}
+                  <br />
+                  {' '}
+                  Workspace
+                </h5>
+              </div>
+            </div>
+          </div>
+          <div className="col-6 col-md-4 col-lg-3 px-2 px-lg-5">
+            <div className="card vision__card h-100">
+              <img src="/images/cowork/planb.png" className="card-img-top img-fluid  my-2  my-lg-3 " alt="..." />
+              <div className="card-body px-1 px-lg-2 pt-0 text-center">
+                <h5 className="card-title">
+                  Regular
+                  {' '}
+                  <br />
+                  {' '}
+                  Power Supply
+                </h5>
+              </div>
+            </div>
+          </div>
+          <div className="col-6 col-md-4 col-lg-3 px-2 px-lg-5">
+            <div className="card vision__card h-100">
+              <img src="/images/cowork/planc.png" className="card-img-top img-fluid  my-2  my-lg-3 " alt="..." />
+              <div className="card-body px-1 px-lg-2 pt-0 text-center">
+                <h5 className="card-title">
+                  Office Address
+                  Usage
+                </h5>
+              </div>
+            </div>
+          </div>
+          <div className="col-6 col-md-4 col-lg-3 px-2 px-lg-5">
+            <div className="card vision__card h-100">
+              <img src="/images/cowork/pland.png" className="card-img-top img-fluid  my-2  my-lg-3 " alt="..." />
+              <div className="card-body px-1 px-lg-2 pt-0  text-center">
+                <h5 className="card-title">
+                  Internet
+                  {' '}
+                  <br />
+                  {' '}
+                  Access
+                </h5>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* <div className="row">
           <div className="col-md-6">
             <div className="d-flex flex-column mx-3">
               <div
@@ -82,7 +137,7 @@ function Plans() {
 
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

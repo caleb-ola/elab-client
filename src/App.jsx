@@ -179,8 +179,8 @@ function App() {
             <Route path="/dashboard/user/cowork" element={<UserCowork />} />
             <Route path="/dashboard/user/cowork/:slug" element={<UserCoworkDetails />} />
             <Route path="/dashboard/user/resources" element={<UserResources />} />
-            <Route path="*" element={<Navigate to="/error" replace />} />
           </Route>
+          <Route path="*" element={<Navigate to="/error" replace />} />
         </Routes>
       </ScrollToTop>
     </BrowserRouter>
