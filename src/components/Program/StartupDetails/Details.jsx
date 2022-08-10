@@ -51,7 +51,7 @@ function Details() {
           <div className="row align-items-center mb-3 mb-lg-5 mt-5 ">
             <div className="col-md-2 my-2 text-start ps-lg-0">
               <div
-                className="training__card--image mx-auto"
+                className="training__card--image mx-auto w-25"
                 style={{
                   background: `url(${data.image})`,
                   backgroundRepeat: 'noRepeat',
@@ -63,7 +63,10 @@ function Details() {
               className="img-fluid w-75" /> */}
             </div>
             <div className="col-md-9 my-2 pe-lg-5">
-              <h6>{data.name}</h6>
+              <h4 className="mx-3">
+                {' '}
+                {data.name}
+              </h4>
               {/* <p className="m-0">An edtech product</p> */}
               {/* <a href="/" className="text-decoration-none">
                 <i className="fa-solid fa-link" />

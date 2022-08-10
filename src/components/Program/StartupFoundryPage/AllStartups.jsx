@@ -46,7 +46,7 @@ function AllStartups() {
         response.data.data.slice(paginate.start, paginate.end).map((item) => (
           <div key={item.id}>
             <StartupCard
-              image={item.logo}
+              image={item.image}
               title={item.name}
               text={item.description}
               path={`/program/foundry/${item.slug}`}

@@ -113,7 +113,7 @@ function StartupContent() {
                             <tr key={item.id}>
                               <td className="py-3">{index + 1}</td>
                               <td className="col-1">
-                                <img src={item.logo} alt="" className="img-fluid w-75" />
+                                <img src={item.image} alt="" className="img-fluid w-50" />
                               </td>
                               <td>{item.name}</td>
                               <td>
