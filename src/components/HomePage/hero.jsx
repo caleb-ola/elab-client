@@ -42,7 +42,7 @@ function Hero({
                 eraseDelay={1000}
                 typingDelay={0}
                 // eslint-disable-next-line react/no-unstable-nested-components
-                cursorRenderer={(cursor) => <h1>{cursor}</h1>}
+                // cursorRenderer={(cursor) => <h1>{cursor}</h1>}
                 // eslint-disable-next-line react/no-unstable-nested-components
                 displayTextRenderer={(txt) => (
                   <h1 className="my-1 hero-header-title">

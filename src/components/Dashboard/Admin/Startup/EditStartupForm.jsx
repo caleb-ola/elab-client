@@ -16,6 +16,7 @@ function EditStartupForm() {
   // const [desc, setDesc] = useState('');
   const [image, setImage] = useState('');
   const [year, setYear] = useState('');
+  const [link, setLink] = useState('');
   const [brochure, setBrochure] = useState('');
   const [loading, setLoading] = useState(false);
 
@@ -43,6 +44,7 @@ function EditStartupForm() {
           ),
         ),
       );
+      setLink(data?.link);
     }, (error) => {
       // console.log(error);
       if (error.response) {
@@ -82,6 +84,7 @@ function EditStartupForm() {
     }
     formData.append('description', descConvert);
     formData.append('yearFounded', year);
+    formData.append('link', link);
     if (brochure) {
       formData.append('brochure', brochure, brochure.name);
     }
@@ -198,6 +201,12 @@ function EditStartupForm() {
               Year founded
             </label>
             <input type="text" className="name p-3 my-2 content__form--input " id="link" value={year} onChange={(e) => setYear(e.target.value)} required />
+          </div>
+          <div className="row py-2">
+            <label className="p-0 fw-bold" htmlFor="link">
+              Website link
+            </label>
+            <input type="text" className="name p-3 my-2 content__form--input " id="link" value={link} onChange={(e) => setLink(e.target.value)} required />
           </div>
           <div className="row py-2">
             <label className="p-0 fw-bold" htmlFor="logo">

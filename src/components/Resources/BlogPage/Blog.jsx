@@ -55,6 +55,7 @@ function Blog() {
             date={data.createdAt}
             author={data.author}
             tags={data.tags}
+            content={data.content}
             path={`/resources/blog/${data.slug}`}
           />
           {/* {console.log(item)} */}

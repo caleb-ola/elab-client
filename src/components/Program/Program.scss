@@ -143,6 +143,17 @@
 
 // DETAILS STARTS
 .details{
+  &__header{
+    &--text{
+      color: #828282;
+      & a {
+        color: #828282;
+        &:hover {
+          color: $elab-blue;
+        }
+      }
+    }
+  }
   &__body {
     @include rwd(
             width,

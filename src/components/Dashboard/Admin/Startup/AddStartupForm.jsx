@@ -14,6 +14,7 @@ function AddStartupForm() {
   // const [desc, setDesc] = useState('');
   const [image, setImage] = useState('');
   const [year, setYear] = useState('');
+  const [link, setLink] = useState('');
   const [brochure, setBrochure] = useState('');
   const [loading, setLoading] = useState(false);
 
@@ -38,6 +39,7 @@ function AddStartupForm() {
     formData.append('image', image, image.name);
     formData.append('description', descConvert);
     formData.append('yearFounded', year);
+    formData.append('link', link);
     formData.append('brochure', brochure, brochure.name);
 
     axios({
@@ -152,6 +154,12 @@ function AddStartupForm() {
               Year founded
             </label>
             <input type="text" className="name p-3 my-2 content__form--input " id="link" value={year} onChange={(e) => setYear(e.target.value)} required />
+          </div>
+          <div className="row py-2">
+            <label className="p-0 fw-bold" htmlFor="link">
+              Website link
+            </label>
+            <input type="text" className="name p-3 my-2 content__form--input " id="link" value={link} onChange={(e) => setLink(e.target.value)} required />
           </div>
           <div className="row py-2">
             <label className="p-0 fw-bold" htmlFor="logo">

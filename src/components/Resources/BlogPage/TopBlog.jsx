@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-key */
+/* eslint-disable react/no-array-index-key */
 import React from 'react';
 import PropTypes from 'prop-types';
 import Moment from 'react-moment';
@@ -30,16 +32,18 @@ function TopBlog({
             <div className="col-md-6 col-lg-6 p-3 p-md-0 order-1 order-md-3 d-flex flex-column">
               {label && <span className="events__body--label py-2 px-3  text-center fw-bold">{label}</span>}
               <div className="align-text-top">
-                <div className="d-inline-flex flex-wrap">
+                <div className="d-flex flex-wrap">
                   {tags && tags.map((item, index) => (
-                  // eslint-disable-next-line
-                  <span className="col topblog--tags mx-2 events__body--label fw-bold py-2 px-3 my-2 text-center" key={index}>
-                    {item}
-                  </span>
+                    <div className="my-2" key={index}>
+                      <span className="col topblog--tags mx-2 events__body--label fw-bold py-2 px-3 my-2 text-center">
+                        {item}
+                      </span>
+                    </div>
                   ))}
                 </div>
               </div>
-              <h4 className="my-3 topblog--header align-middle my-auto text-center">{title}</h4>
+              <h4 className="my-3 topblog--header my-auto text-start ms-0">{title}</h4>
+              {/* <p className="topblog--description">{content}</p> */}
               <div className="row pt-2 pt-lg-4 topblog__authorrow align-text-bottom mt-auto ">
                 <div className="col-md-6 text-center text-md-start topblog--text">
                   <i className="fa-solid fa-user blog--icon pe-2" />
@@ -67,6 +71,7 @@ TopBlog.propTypes = {
   label: PropTypes.string,
   path: PropTypes.string,
   tags: PropTypes.arrayOf(PropTypes.string),
+  // content: PropTypes.string,
 };
 TopBlog.defaultProps = {
   title: '',
@@ -76,6 +81,7 @@ TopBlog.defaultProps = {
   label: '',
   path: '',
   tags: [],
+  // content: '',
 };
 
 export default TopBlog;

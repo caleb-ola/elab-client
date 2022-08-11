@@ -1,16 +1,22 @@
+/* eslint-disable react/no-danger */
 // import axios from 'axios';
 import axios from 'axios';
+import Disqus from 'disqus-react';
 import React, { useEffect, useState } from 'react';
-import { Helmet } from 'react-helmet';
 import Skeleton from 'react-loading-skeleton';
 import Moment from 'react-moment';
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
+import { FacebookShareButton, LinkedinShareButton, TwitterShareButton } from 'react-share';
 import { toast, ToastContainer } from 'react-toastify';
+import HelmetData from '../../ResuableComponents/HelmetData';
 
 function BlogDetailsHero() {
   const params = useParams();
+  const location = useLocation();
   const [body, setBody] = useState();
   const [topCard, setTopCard] = useState();
+  const [Socials, setSocials] = useState();
+  // const [SocialsTags, setSocialsTags] = useState();
   const [loading, setLoading] = useState(true);
   const [skeleton, setSkeleton] = useState(
     <div className="col-md-10 col-lg-10 p-3 p-md-0">
@@ -37,6 +43,12 @@ function BlogDetailsHero() {
     </div>,
   );
   // console.log(params);
+  // const disqusShortname = 'https-elab-client-herokuapp-com';
+  // const disqusConfig = {
+  //   url: 'https://elab-client.herokuapp.com/',
+  //   identifier: 'disqus_wnlF5mInwQ',
+  //   title: 'data?.title',
+  // };
   useEffect(() => {
     axios.get(`https://elab-api.herokuapp.com/api/v1/posts/${params.slug}`).then((response) => {
       // console.log(response);
@@ -44,9 +56,16 @@ function BlogDetailsHero() {
       setSkeleton();
       setSkeletonBody();
       const { data } = response.data;
+      const disqusShortname = 'ennovatelab';
+      const disqusConfig = {
+        url: window.location.href,
+        identifier: data.id,
+        title: data?.title,
+      };
       setTopCard(
         <div className="col-md-10 col-lg-10 p-3 p-md-0">
-          <Helmet>
+          <HelmetData title={`${data?.title} - Ennovate Lab`} description={data?.content} image={data?.image} />
+          {/* <Helmet>
             <title>
               {data.title}
               {' '}
@@ -56,7 +75,7 @@ function BlogDetailsHero() {
             name="description"
             content="Building a clear path to help our clients deliver organizational success."
           /> */}
-          </Helmet>
+          {/* </Helmet> */}
           {/* <span className="events__body--label py-2 px-3
         text-center fw-bold">Community Design</span> */}
           <div className="align-text-top">
@@ -64,9 +83,11 @@ function BlogDetailsHero() {
               {data.tags && data.tags.map((item, index) => (
                 item && (
                 // eslint-disable-next-line
-                  <span className="col topblog--tags mx-2 events__body--label fw-bold py-2 px-3 my-2 text-center" key={index}>
+                <div key={index}>
+                  <span className="col topblog--tags mx-2 events__body--label fw-bold py-2 px-3 my-2 text-center">
                     {item}
                   </span>
+                </div>
                 )
               ))}
             </div>
@@ -88,9 +109,64 @@ function BlogDetailsHero() {
           </div>
         </div>,
       );
+      // setSocialsTags(
+      //   data.tags && data.tags.map((tag) => `#${tag}`),
+      // );
+      setSocials(
+        <>
+          <div className="col-6 col-md-12">
+            <FacebookShareButton
+              url={`http://www.ennovatelab.com/${location.pathname}`}
+              quote="Ennovate Lab - Building Resilient Innovation Ecosystems in Under-served University communities"
+              hashtag={`#${data.tags.join('#')}`}
+              className="border-rounded-circle"
+            >
+              <span className="fa-stack fa-1x custom ms-3 my-2 blogdetails__content--icon">
+                <i className="fas fa-circle fa-stack-2x" />
+                <i className="fab fa-facebook-f fa-stack-1x fa-inverse" />
+              </span>
+              {/* <FacebookIcon size={36} round /> */}
+            </FacebookShareButton>
+          </div>
+          <div className="col-6 col-md-12">
+            <LinkedinShareButton
+              url={`http://www.ennovatelab.com/${location.pathname}`}
+              quote="Ennovate Lab - Building Resilient Innovation Ecosystems in Under-served University communities"
+              hashtag={`#${data.tags.join('#')}`}
+              className="border-rounded-circle"
+            >
+              <span className="fa-stack fa-1x custom ms-3 my-2 blogdetails__content--icon">
+                <i className="fas fa-circle fa-stack-2x" />
+                <i className="fab fa-linkedin-in fa-stack-1x fa-inverse" />
+              </span>
+            </LinkedinShareButton>
+          </div>
+          <div className="col-6 col-md-12">
+            <TwitterShareButton
+              url={`http://www.ennovatelab.com/${location.pathname}`}
+              quote="Ennovate Lab - Building Resilient Innovation Ecosystems in Under-served University communities"
+              hashtag={`#${data.tags.join('#')}`}
+              className="border-rounded-circle"
+            >
+              <span className="fa-stack fa-1x custom ms-3 my-2 blogdetails__content--icon">
+                <i className="fas fa-circle fa-stack-2x" />
+                <i className="fab fa-twitter fa-stack-1x fa-inverse" />
+              </span>
+            </TwitterShareButton>
+          </div>
+        </>,
+      );
       const createMarkup = () => ({ __html: response.data.data?.content });
       // eslint-disable-next-line
-      setBody(<div className="markup" dangerouslySetInnerHTML={createMarkup()} />);
+      setBody(
+        <>
+          <div className="markup" dangerouslySetInnerHTML={createMarkup()} />
+          <Disqus.DiscussionEmbed
+            shortname={disqusShortname}
+            config={disqusConfig}
+          />
+        </>,
+      );
     }, (error) => {
       if (error.response) {
         error.response.data.errors.map((err) => toast.error(`${err.message}`, {
@@ -151,20 +227,9 @@ function BlogDetailsHero() {
           <div className="row">
             <div className="col-md-2 col-lg-2 px-lg-3 text-start ">
               <div className="row">
-                <div className="col-6 col-md-12">
-                  <span className="fa-stack fa-1x custom ms-3 my-2 blogdetails__content--icon">
-                    <i className="fas fa-circle fa-stack-2x" />
-                    <i className="fab fa-facebook-f fa-stack-1x fa-inverse" />
-                  </span>
-                </div>
-                <div className="col-6 col-md-12">
-                  <span className="fa-stack fa-1x custom ms-3 my-2 blogdetails__content--icon">
-                    <i className="fas fa-circle fa-stack-2x" />
-                    <i className="fab fa-linkedin-in fa-stack-1x fa-inverse" />
-                  </span>
-                </div>
+                {/* <h2><i className="fa-solid fa-share-nodes" /></h2> */}
+                {Socials}
               </div>
-
             </div>
             <div className="col-md-10 col-lg-10 p-3 p-md-0">
               {loading ? skeletonBody : body}
@@ -214,6 +279,10 @@ function BlogDetailsHero() {
                 enim neque congue sem nibh volutpat ultrices. Dolor at interdum amet ac magna
                 ultrices aenean.
               </p> */}
+              {/* <Disqus.DiscussionEmbed
+                shortname={disqusShortname}
+                config={disqusConfig}
+              /> */}
             </div>
           </div>
         </div>

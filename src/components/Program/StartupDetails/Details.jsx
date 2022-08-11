@@ -49,9 +49,9 @@ function Details() {
           </Helmet>
           {/* HEADER CARD STARTS */}
           <div className="row align-items-center mb-3 mb-lg-5 mt-5 ">
-            <div className="col-md-2 my-2 text-start ps-lg-0">
+            <div className="col-md-2 my-2 text-start ps-lg-0 p-5">
               <div
-                className="training__card--image mx-auto w-25"
+                className="training__card--image mx-auto"
                 style={{
                   background: `url(${data.image})`,
                   backgroundRepeat: 'noRepeat',
@@ -59,25 +59,38 @@ function Details() {
                   backgroundPositionX: 'center',
                 }}
               />
-              {/* <img src="/images/program/gradeplus.png" alt="..."
-              className="img-fluid w-75" /> */}
             </div>
             <div className="col-md-9 my-2 pe-lg-5">
-              <h4 className="mx-3">
+              <h4 className="mx-0 mx-md-3 mb-0">
                 {' '}
                 {data.name}
               </h4>
-              {/* <p className="m-0">An edtech product</p> */}
-              {/* <a href="/" className="text-decoration-none">
-                <i className="fa-solid fa-link" />
-                {' '}
-                {' '}
-                gradeplusafrica.com
-              </a> */}
+              <div className="details__header--text">
+                <p className="m-0 mx-0 mx-md-3">
+                  Founded in year
+                  <span className="fw-bold py-2">
+                    {' '}
+                    {data.yearFounded}
+                    .
+                  </span>
+                </p>
+                {
+                  data?.link
+                  && (
+                  <p className="m-0 mx-0 mx-md-3">
+                    <i className="fa-solid fa-link" />
+                    {' '}
+                    {' '}
+                    <a href={data?.link} className="text-decoration-none" role="button" target="_blank" rel="noreferrer">{data?.link}</a>
+                  </p>
+                  )
+                }
+
+              </div>
+
             </div>
           </div>
           {/* HEADER CARD ENDS */}
-
           <h6 className="">About the Startup</h6>
 
           {/* eslint-disable-next-line */}
