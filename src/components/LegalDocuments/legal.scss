@@ -13,5 +13,14 @@
             $xxl: 80%,
             )
         );
+        &--subhead {
+            font-weight: 800;
+        }
+        & a {
+                color: $elab-black;
+                &:hover {
+                  color: $elab-yellow;
+                }
+        }
     }
 }

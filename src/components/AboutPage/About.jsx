@@ -28,8 +28,7 @@ function About() {
       </Helmet>
       <NavBar />
       <Hero
-        title="Appropriate Content is needed
-        for this section"
+        title="Innovation and enterprise thinking is richly engrained in who we are and in our history."
         image="url('/images/about/hero1.jpg')"
       />
       <Timeline />
