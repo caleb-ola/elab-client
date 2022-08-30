@@ -3,12 +3,12 @@ import React from 'react';
 function Plans() {
   return (
     <div id="plans" className="plans py-5">
-      <div className="container pb-lg-2">
+      <div className="container py-lg-2">
         <div className="row">
-          <div className="col-6 col-md-4 col-lg-3 px-2 px-lg-5">
+          <div className="col-6 col-md-4 col-lg-3 px-2 px-xl-5">
             <div className="card vision__card h-100">
-              <img src="/images/cowork/plana.png" className="card-img-top img-fluid  my-2  my-lg-3 " alt="..." />
-              <div className="card-body px-1 px-lg-2 pt-0  text-center">
+              <img src="/images/cowork/plana.png" className="card-img-top img-fluid w-75 mx-auto  my-2 mb-0  my-lg-3 " alt="..." />
+              <div className="card-body px-1 px-lg-2 p-0  text-center">
                 <h5 className="card-title">
                   Conducive
                   {' '}
@@ -19,10 +19,10 @@ function Plans() {
               </div>
             </div>
           </div>
-          <div className="col-6 col-md-4 col-lg-3 px-2 px-lg-5">
+          <div className="col-6 col-md-4 col-lg-3 px-2 px-xl-5">
             <div className="card vision__card h-100">
-              <img src="/images/cowork/planb.png" className="card-img-top img-fluid  my-2  my-lg-3 " alt="..." />
-              <div className="card-body px-1 px-lg-2 pt-0 text-center">
+              <img src="/images/cowork/planb.png" className="card-img-top img-fluid w-75 mx-auto  my-2 mb-0  my-lg-3 " alt="..." />
+              <div className="card-body px-1 px-lg-2 p-0 text-center">
                 <h5 className="card-title">
                   Regular
                   {' '}
@@ -33,10 +33,10 @@ function Plans() {
               </div>
             </div>
           </div>
-          <div className="col-6 col-md-4 col-lg-3 px-2 px-lg-5">
+          <div className="col-6 col-md-4 col-lg-3 px-2 px-xl-5">
             <div className="card vision__card h-100">
-              <img src="/images/cowork/planc.png" className="card-img-top img-fluid  my-2  my-lg-3 " alt="..." />
-              <div className="card-body px-1 px-lg-2 pt-0 text-center">
+              <img src="/images/cowork/planc.png" className="card-img-top img-fluid w-75 mx-auto  my-2 mb-0  my-lg-3 " alt="..." />
+              <div className="card-body px-1 px-lg-2 p-0 text-center">
                 <h5 className="card-title">
                   Office Address
                   Usage
@@ -44,10 +44,10 @@ function Plans() {
               </div>
             </div>
           </div>
-          <div className="col-6 col-md-4 col-lg-3 px-2 px-lg-5">
+          <div className="col-6 col-md-4 col-lg-3 px-2 px-xl-5">
             <div className="card vision__card h-100">
-              <img src="/images/cowork/pland.png" className="card-img-top img-fluid  my-2  my-lg-3 " alt="..." />
-              <div className="card-body px-1 px-lg-2 pt-0  text-center">
+              <img src="/images/cowork/pland.png" className="card-img-top img-fluid w-75 mx-auto  my-2 mb-0  my-lg-3 " alt="..." />
+              <div className="card-body px-1 px-lg-2 p-0  text-center">
                 <h5 className="card-title">
                   Internet
                   {' '}
