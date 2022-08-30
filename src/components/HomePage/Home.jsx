@@ -31,7 +31,7 @@ function Home() {
           underserved university communities) as the most fulfilling way to express all
           our superpowers."
         />
-        <meta name="keywords" content="innovation creativity empathy community building" />
+        <meta name="keywords" content="ennovatelab technology underserved university communitites startup foundry innovation creativity empathy community building" />
       </Helmet>
       <NavBar />
       <Hero4

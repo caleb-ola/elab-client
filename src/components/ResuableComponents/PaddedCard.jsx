@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
-import Moment from 'react-moment';
+// import Moment from 'react-moment';
 import { toast, ToastContainer } from 'react-toastify';
 import axios from 'axios';
 import { usePaystackPayment } from 'react-paystack';
@@ -148,18 +148,18 @@ function PaddedCard({
             )
               : (
                 <div className="row mt-4">
-                  <div className="col-md-6 text-center text-md-start">
+                  <div className=" text-center text-md-start">
                     {' '}
                     <i className="fa-solid fa-user blog--icon pe-2" />
                     {name}
                   </div>
-                  <div className="col-md-6 text-center text-md-end">
+                  {/* <div className="col-md-6 text-center text-md-end">
                     {' '}
                     <i className="fa-solid fa-calendar blog--icon pe-2" />
                     <Moment format="Do MMMM, YYYY">
                       {date}
                     </Moment>
-                  </div>
+                  </div> */}
                 </div>
               )}
           </div>
