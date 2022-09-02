@@ -23,7 +23,7 @@ function BookSessionForm() {
   const Submit = (e) => {
     e.preventDefault();
     setLoading(true);
-    axios.post('https://elab-api.herokuapp.com/api/v1/consultations', {
+    axios.post(`${process.env.REACT_APP_BASE_URL}/api/v1/consultations`, {
       name,
       email,
       phone: number,

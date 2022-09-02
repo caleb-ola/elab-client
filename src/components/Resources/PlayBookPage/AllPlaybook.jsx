@@ -44,7 +44,7 @@ function AllPlaybook() {
   const getCurrentUser = async () => {
     await axios
       .get(
-        'https://elab-api.herokuapp.com/api/v1/users/current-user',
+        `${process.env.REACT_APP_BASE_URL}/api/v1/users/current-user`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('elUsrT')}`,
@@ -65,7 +65,7 @@ function AllPlaybook() {
   }, [paginate]);
 
   const all = () => (
-    axios.get('https://elab-api.herokuapp.com/api/v1/resources').then((response) => {
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/v1/resources`).then((response) => {
       setLoading(false);
       setActive('All');
       setSkeleton(
@@ -137,7 +137,7 @@ function AllPlaybook() {
   const resourceTypes = ['Whitepaper', 'Digital', 'Industry Insights', 'Open source-data'];
 
   const categories = (type) => (
-    axios.get('https://elab-api.herokuapp.com/api/v1/resources').then((response) => {
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/v1/resources`).then((response) => {
       setLoading(false);
       setSkeleton(
         <SkeletonPaddedRow />,

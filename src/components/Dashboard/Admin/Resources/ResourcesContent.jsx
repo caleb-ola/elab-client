@@ -87,7 +87,7 @@ function ResourcesContent() {
     }));
   };
   const RenderData = () => {
-    axios.get('https://elab-api.herokuapp.com/api/v1/resources').then((response) => {
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/v1/resources`).then((response) => {
       // console.log(response);
       setLoading(false);
       setSkeleton();
@@ -248,7 +248,7 @@ function ResourcesContent() {
   };
 
   const DeleteResource = (slug) => {
-    axios.delete(`https://elab-api.herokuapp.com/api/v1/resources/${slug}`, {
+    axios.delete(`${process.env.REACT_APP_BASE_URL}/api/v1/resources/${slug}`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('elAdmT')}`,
       },

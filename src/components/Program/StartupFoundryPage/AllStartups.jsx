@@ -36,7 +36,7 @@ function AllStartups() {
     }));
   };
   useEffect(() => {
-    axios.get('https://elab-api.herokuapp.com/api/v1/startups').then((response) => {
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/v1/startups`).then((response) => {
       // console.log(response.data.data.slice(paginate.start, paginate.end));
       setLoading(false);
       setSkeleton();

@@ -12,7 +12,7 @@ function Volunteer() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    axios.get('https://elab-api.herokuapp.com/api/v1/projects/current-projects').then(
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/v1/projects/current-projects`).then(
       (response) => {
         // console.log(response);
         const { data } = response.data;
@@ -44,7 +44,7 @@ function Volunteer() {
         }
       },
     );
-    axios.get('https://elab-api.herokuapp.com/api/v1/projects/future-projects').then(
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/v1/projects/future-projects`).then(
       (response) => {
         // console.log(response);
         const { data } = response.data;
@@ -81,7 +81,7 @@ function Volunteer() {
   const Submit = (e) => {
     e.preventDefault();
     setLoading(true);
-    axios.post('https://elab-api.herokuapp.com/api/v1/volunteers', {
+    axios.post(`${process.env.REACT_APP_BASE_URL}/api/v1/volunteers`, {
       name, email, project, skills,
     }).then((response) => {
       // console.log(response);

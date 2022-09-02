@@ -59,7 +59,7 @@ function AddResourcesForm() {
 
     axios({
       method: 'post',
-      url: 'https://elab-api.herokuapp.com/api/v1/resources',
+      url: `${process.env.REACT_APP_BASE_URL}/api/v1/resources`,
       data: formData,
       headers: {
         'Content-Type': 'multipart/form-data',

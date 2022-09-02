@@ -19,7 +19,7 @@ function AllProjects() {
   );
 
   useEffect(() => {
-    axios.get('https://elab-api.herokuapp.com/api/v1/projects/past-projects').then((response) => {
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/v1/projects/past-projects`).then((response) => {
       // console.log(response);
       setLoading(false);
       setSkeleton();
@@ -79,7 +79,7 @@ function AllProjects() {
     });
     setLoading(true);
     setSkeleton(<SkeletonEventRow />);
-    axios.get('https://elab-api.herokuapp.com/api/v1/projects/past-projects').then((response) => {
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/v1/projects/past-projects`).then((response) => {
       // console.log(response);
       setLoading(false);
       setSkeleton();
@@ -147,7 +147,7 @@ function AllProjects() {
     });
     setLoading(true);
     setSkeleton(<SkeletonEventRow />);
-    axios.get('https://elab-api.herokuapp.com/api/v1/projects/current-projects').then((response) => {
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/v1/projects/current-projects`).then((response) => {
       // console.log(response);
       setLoading(false);
       setSkeleton();
@@ -215,7 +215,7 @@ function AllProjects() {
     });
     setLoading(true);
     setSkeleton(<SkeletonEventRow />);
-    axios.get('https://elab-api.herokuapp.com/api/v1/projects/future-projects').then((response) => {
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/v1/projects/future-projects`).then((response) => {
       // console.log(response);
       setLoading(false);
       setSkeleton();

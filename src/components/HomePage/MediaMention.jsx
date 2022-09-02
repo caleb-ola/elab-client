@@ -24,7 +24,7 @@ function MediaMention() {
   );
 
   useEffect(() => {
-    axios.get('https://elab-api.herokuapp.com/api/v1/mentions').then((response) => {
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/v1/mentions`).then((response) => {
       // console.log(response);
       setLoading(false);
       setSkeleton();

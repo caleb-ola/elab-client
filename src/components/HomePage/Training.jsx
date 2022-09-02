@@ -19,7 +19,7 @@ function Training() {
   );
 
   useEffect(() => {
-    axios.get('https://elab-api.herokuapp.com/api/v1/trainings?limit=2').then((response) => {
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/v1/trainings?limit=2`).then((response) => {
       setLoading(false);
       setSkeleton();
       setBody(

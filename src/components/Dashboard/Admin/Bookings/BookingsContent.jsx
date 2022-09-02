@@ -85,7 +85,7 @@ function BookingsContent() {
   };
   // console.log(paginate);
   const RenderData = () => {
-    axios.get('https://elab-api.herokuapp.com/api/v1/bookings', {
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/v1/bookings`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('elAdmT')}`,
       },
@@ -258,7 +258,7 @@ function BookingsContent() {
   };
 
   const DeleteBooking = (id) => {
-    axios.delete(`https://elab-api.herokuapp.com/api/v1/bookings/${id}`, {
+    axios.delete(`${process.env.REACT_APP_BASE_URL}/api/v1/bookings/${id}`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('elAdmT')}`,
       },

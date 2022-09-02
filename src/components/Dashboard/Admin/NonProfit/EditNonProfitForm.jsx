@@ -48,7 +48,7 @@ function EditNonProfitForm() {
     }
   });
   useEffect(() => {
-    axios.get(`https://elab-api.herokuapp.com/api/v1/non-profits/${params.id}`).then((response) => {
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/v1/non-profits/${params.id}`).then((response) => {
       // console.log(response);
       const { data } = response.data;
       setTitle(data.title);
@@ -102,7 +102,7 @@ function EditNonProfitForm() {
 
     axios({
       method: 'patch',
-      url: `https://elab-api.herokuapp.com/api/v1/non-profits/${params.id}`,
+      url: `${process.env.REACT_APP_BASE_URL}/api/v1/non-profits/${params.id}`,
       data: formData,
       headers: {
         'Content-Type': 'multipart/form-data',

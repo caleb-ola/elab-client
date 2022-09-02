@@ -14,7 +14,7 @@ function AddMediaForm() {
   const Submit = (e) => {
     e.preventDefault();
     setLoading(true);
-    axios.post('https://elab-api.herokuapp.com/api/v1/mentions', {
+    axios.post(`${process.env.REACT_APP_BASE_URL}/api/v1/mentions`, {
       title, link, date, image,
     }, {
       headers: {

@@ -92,7 +92,7 @@ function PaymentsDetailsContent() {
   useEffect(() => {
     setLoading(false);
     setSkeleton();
-    axios.get(`https://elab-api.herokuapp.com/api/v1/payments/${params.id}`).then(
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/v1/payments/${params.id}`).then(
       (response) => {
         const { data } = response.data;
         // console.log(data);

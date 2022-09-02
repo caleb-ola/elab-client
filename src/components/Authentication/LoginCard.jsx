@@ -15,7 +15,7 @@ function LoginCard() {
     e.preventDefault();
     setLoading(true);
     axios.post(
-      'https://elab-api.herokuapp.com/api/v1/auth/login',
+      `${process.env.REACT_APP_BASE_URL}/api/v1/auth/login`,
       { email, password },
     ).then((response) => {
       // console.log(response);

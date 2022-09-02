@@ -44,7 +44,7 @@ function EditEventForm() {
   });
 
   useEffect(() => {
-    axios.get(`https://elab-api.herokuapp.com/api/v1/programs/${params.id}`).then((response) => {
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/v1/programs/${params.id}`).then((response) => {
       // console.log(response);
       const { data } = response.data;
       setTitle(data.title);
@@ -102,7 +102,7 @@ function EditEventForm() {
 
     axios({
       method: 'patch',
-      url: `https://elab-api.herokuapp.com/api/v1/programs/${params.id}`,
+      url: `${process.env.REACT_APP_BASE_URL}/api/v1/programs/${params.id}`,
       data: formData,
       headers: {
         'Content-Type': 'multipart/form-data',

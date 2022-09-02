@@ -11,7 +11,7 @@ function ContactForm() {
   const Submit = (e) => {
     e.preventDefault();
     setLoading(true);
-    axios.post('https://elab-api.herokuapp.com/api/v1/users/send-us-a-message', {
+    axios.post(`${process.env.REACT_APP_BASE_URL}/api/v1/users/send-us-a-message`, {
       name, email, message,
     }).then(
       (response) => {

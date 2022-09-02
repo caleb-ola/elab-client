@@ -1,6 +1,56 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+// import { PropTypes } from 'prop-types';
+import { useParams } from 'react-router-dom';
 
 function WhyVideo() {
+  const { id } = useParams();
+  const [title, setTitle] = useState();
+  const [videolink, setVideolink] = useState();
+  const [description, setDescription] = useState();
+
+  useEffect(() => {
+    if (id === 'founders-community') {
+      setTitle(<span>Founder’s Community</span>);
+      setVideolink();
+      setDescription(
+        <p className="whyvideo--text text-center py-3 mx-auto">
+          Consequat eget nisl tellus, sed turpis.
+          Nulla et lectus vel mauris. Cursus nulla viverra interdum et
+          interdum egestas ornare neque. Vulputate sapien, sed cursus
+          tortor ante purus ultrices. At viverra gravida integer malesuada
+          diam non elit. Sed luctus fringilla in mattis quis risus aliquam
+          enim tristique. Molestie vestibulum malesuada.
+        </p>,
+      );
+    } else if (id === 'technical-cofounder') {
+      setTitle(<span>Technical Co-founder</span>);
+      setVideolink();
+      setDescription(
+        <p className="whyvideo--text text-center py-3 mx-auto">
+          Consequat eget nisl tellus, sed turpis.
+          Nulla et lectus vel mauris. Cursus nulla viverra interdum et
+          interdum egestas ornare neque. Vulputate sapien, sed cursus
+          tortor ante purus ultrices. At viverra gravida integer malesuada
+          diam non elit. Sed luctus fringilla in mattis quis risus aliquam
+          enim tristique. Molestie vestibulum malesuada.
+        </p>,
+      );
+    } else if (id === 'skills-seeker') {
+      setTitle(<span>Skills Seeker</span>);
+      setVideolink();
+      setDescription(
+        <p className="whyvideo--text text-center py-3 mx-auto">
+          Consequat eget nisl tellus, sed turpis.
+          Nulla et lectus vel mauris. Cursus nulla viverra interdum et
+          interdum egestas ornare neque. Vulputate sapien, sed cursus
+          tortor ante purus ultrices. At viverra gravida integer malesuada
+          diam non elit. Sed luctus fringilla in mattis quis risus aliquam
+          enim tristique. Molestie vestibulum malesuada.
+        </p>,
+      );
+    }
+  }, []);
+
   return (
     <div className="whyvideo py-5">
       {/* COMMUNITY SIGN UP FORM STARTS */}
@@ -12,8 +62,9 @@ function WhyVideo() {
             </div>
             <div className="modal-body px-md-5 benefits__content pt-0 pb-4">
               <h4 className="modal-title" id="exampleModalLabel">
-                Sign up for the
-                Founder’s Community.
+                Sign up for
+                {' '}
+                {title}
               </h4>
               <form action="" className="benefits__form">
                 <div className="row py-2">
@@ -30,7 +81,9 @@ function WhyVideo() {
                 </div>
                 <div className="py-3 py-lg-4 ">
                   <button type="submit" className=" link btn fw-bold py-3 px-5 me-0 benefits__form--button">
-                    Join Trybe Community
+                    Join
+                    {' '}
+                    {title}
                   </button>
                 </div>
               </form>
@@ -42,22 +95,15 @@ function WhyVideo() {
       <div className="container py-lg-5 mt-5">
         <div className="whyvideo__content mx-auto pt-5">
           <h4 className="whyvideo--header text-center pb-3 pb-lg-4">
-            Founders’ Community
+            {title}
           </h4>
           <video width="100%" height="550" controls className="py-3">
             <track kind="captions" />
-            <source src="movie.mp4" type="video/mp4" />
+            <source src={videolink} type="video/mp4" />
             <source src="movie.ogg" type="video/ogg" />
             Your browser does not support the video tag.
           </video>
-          <p className="whyvideo--text text-center py-3 mx-auto">
-            Consequat eget nisl tellus, sed turpis.
-            Nulla et lectus vel mauris. Cursus nulla viverra interdum et
-            interdum egestas ornare neque. Vulputate sapien, sed cursus
-            tortor ante purus ultrices. At viverra gravida integer malesuada
-            diam non elit. Sed luctus fringilla in mattis quis risus aliquam
-            enim tristique. Molestie vestibulum malesuada.
-          </p>
+          {description}
           <div className="whyvideo__cta--btn pt-4 text-center">
             <button type="button" className="whyvideo__cta--btn link btn fw-bold py-3 px-5" data-bs-toggle="modal" data-bs-target="#exampleModal">
               Sign Up
@@ -70,4 +116,15 @@ function WhyVideo() {
   );
 }
 
+// WhyVideo.propTypes = {
+//   title: PropTypes.string,
+//   videoLink: PropTypes.string,
+//   description: PropTypes.string,
+// };
+
+// WhyVideo.defaultProps = {
+//   title: '',
+//   videoLink: '',
+//   description: '',
+// };
 export default WhyVideo;

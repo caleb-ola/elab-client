@@ -50,7 +50,7 @@ function BlogDetailsHero() {
   //   title: 'data?.title',
   // };
   useEffect(() => {
-    axios.get(`https://elab-api.herokuapp.com/api/v1/posts/${params.slug}`).then((response) => {
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/v1/posts/${params.slug}`).then((response) => {
       // console.log(response);
       setLoading(false);
       setSkeleton();

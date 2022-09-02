@@ -23,7 +23,7 @@ function MyVerticallyCenteredModal({ onHide, show, modal }) {
     // Implementation for whatever you want to do with reference and after success call.
     // console.log(reference);
     axios
-      .post('https://elab-api.herokuapp.com/api/v1/payments/verify-workspace-payment', {
+      .post(`${process.env.REACT_APP_BASE_URL}/api/v1/payments/verify-workspace-payment`, {
         email: modal.email,
         reference: reference.reference,
         amount: modal.amount * +100,
@@ -240,7 +240,7 @@ function InnovationContent() {
   });
 
   useEffect(() => {
-    axios.get('https://elab-api.herokuapp.com/api/v1/users/current-user', {
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/v1/users/current-user`, {
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${localStorage.getItem('elUsrT') ? localStorage.getItem('elUsrT') : localStorage.getItem('elAdmT')}`,
@@ -249,7 +249,7 @@ function InnovationContent() {
       // console.log(response);
       setCurrentUserEmail(response.data.data.email);
     });
-    axios.get(`https://elab-api.herokuapp.com/api/v1/workspaces/${params.slug}`).then(
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/v1/workspaces/${params.slug}`).then(
       (response) => {
         // console.log(response);
         setLoading(false);
@@ -289,7 +289,7 @@ function InnovationContent() {
   const Submit = (e) => {
     e.preventDefault();
     setBtnLoading(true);
-    axios.post('https://elab-api.herokuapp.com/api/v1/bookings/book-space', {
+    axios.post(`${process.env.REACT_APP_BASE_URL}/api/v1/bookings/book-space`, {
       plan: params.slug,
       occurence,
       frequency,

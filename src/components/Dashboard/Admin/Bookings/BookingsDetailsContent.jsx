@@ -89,7 +89,7 @@ function BookingsDetailsContent() {
   );
   const params = useParams();
   useEffect(() => {
-    axios.get(`https://elab-api.herokuapp.com/api/v1/bookings/${params.id}`, {
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/v1/bookings/${params.id}`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('elAdmT')}`,
       },

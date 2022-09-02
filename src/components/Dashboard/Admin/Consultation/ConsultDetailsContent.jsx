@@ -92,7 +92,7 @@ function ConsultDetailsContent() {
   const params = useParams();
   useEffect(() => {
     setLoading(false);
-    axios.get(`https://elab-api.herokuapp.com/api/v1/consultations/${params.id}`).then((response) => {
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/v1/consultations/${params.id}`).then((response) => {
       // console.log(response);
       const { data } = response.data;
       setSkeleton();

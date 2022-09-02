@@ -33,7 +33,7 @@ function PaymentsContent() {
     }));
   };
   useEffect(() => {
-    axios.get('https://elab-api.herokuapp.com/api/v1/payments').then(
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/v1/payments`).then(
       (response) => {
         // console.log(response);
         setLoading(false);

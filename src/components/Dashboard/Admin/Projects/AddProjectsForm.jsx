@@ -60,7 +60,7 @@ function AddProjectsForm() {
 
     axios({
       method: 'post',
-      url: 'https://elab-api.herokuapp.com/api/v1/projects',
+      url: `${process.env.REACT_APP_BASE_URL}/api/v1/projects`,
       data: formData,
       headers: {
         'Content-Type': 'multipart/form-data',

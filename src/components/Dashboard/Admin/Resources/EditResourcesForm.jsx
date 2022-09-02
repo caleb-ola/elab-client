@@ -49,7 +49,7 @@ function EditResourcesForm() {
   });
 
   useEffect(() => {
-    axios.get(`https://elab-api.herokuapp.com/api/v1/resources/${params.slug}`).then(
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/v1/resources/${params.slug}`).then(
       (response) => {
         // console.log(response);
         const { data } = response.data;
@@ -108,7 +108,7 @@ function EditResourcesForm() {
 
     axios({
       method: 'patch',
-      url: `https://elab-api.herokuapp.com/api/v1/resources/${params.slug}`,
+      url: `${process.env.REACT_APP_BASE_URL}/api/v1/resources/${params.slug}`,
       data: formData,
       headers: {
         'Content-Type': 'multipart/form-data',

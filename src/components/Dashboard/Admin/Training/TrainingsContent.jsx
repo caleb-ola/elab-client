@@ -88,7 +88,7 @@ function TrainingsContent() {
 
   const RenderData = async () => {
     setLoading(true);
-    await axios.get('https://elab-api.herokuapp.com/api/v1/trainings', {
+    await axios.get(`${process.env.REACT_APP_BASE_URL}/api/v1/trainings`, {
       Authorization: `Bearer ${localStorage.getItem('elAdmT')}`,
     }).then(
       (response) => {
@@ -245,7 +245,7 @@ function TrainingsContent() {
   };
 
   const DeleteTraining = (id) => {
-    axios.delete(`https://elab-api.herokuapp.com/api/v1/trainings/${id}`, {
+    axios.delete(`${process.env.REACT_APP_BASE_URL}/api/v1/trainings/${id}`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('elAdmT')}`,
       },

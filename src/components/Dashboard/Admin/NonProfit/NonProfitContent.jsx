@@ -92,7 +92,7 @@ function NonProfitContent() {
     // console.log(paginate);
   };
   const RenderData = () => {
-    axios.get('https://elab-api.herokuapp.com/api/v1/non-profits').then((response) => {
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/v1/non-profits`).then((response) => {
       // console.log(response);
       setLoading(false);
       setSkeleton();
@@ -250,7 +250,7 @@ function NonProfitContent() {
     });
   };
   const deleteNonProfit = (id) => {
-    axios.delete(`https://elab-api.herokuapp.com/api/v1/non-profits/${id}`, {
+    axios.delete(`${process.env.REACT_APP_BASE_URL}/api/v1/non-profits/${id}`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('elAdmT')}`,
       },

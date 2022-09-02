@@ -18,7 +18,7 @@ function Hero({
       }}
     >
 
-      <div className="overlay">
+      <div className="">
         <div className="container">
           <div className="hero hero__text text-center mx-auto">
             <div className="hero__container w-100 text-center">

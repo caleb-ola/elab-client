@@ -7,7 +7,7 @@ import CircleBg from './circleBg';
 
 function HeroTwo({
   image, title, title1, button,
-  text, circleTitle, overlay, price,
+  text, circleTitle, price,
   modal, date, link, linkText, button2, path2,
 }) {
   return (
@@ -56,7 +56,7 @@ function HeroTwo({
       </div>
 
       {/* REGISTER FORM ENDS */}
-      <div className={overlay}>
+      <div className="">
         <div className="container">
           <div className=" heroTwo__text text-start  ">
             <div className="heroTwo__container w-100 text-start">
@@ -123,7 +123,7 @@ HeroTwo.propTypes = {
   button: PropTypes.string,
   text: PropTypes.string,
   circleTitle: PropTypes.string,
-  overlay: PropTypes.string,
+  // overlay: PropTypes.string,
   price: PropTypes.string,
   modal: PropTypes.string,
   date: PropTypes.string,
@@ -140,7 +140,7 @@ HeroTwo.defaultProps = {
   button: '',
   text: '',
   circleTitle: '',
-  overlay: '',
+  // overlay: '',
   price: '',
   modal: '',
   date: '',

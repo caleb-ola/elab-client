@@ -11,7 +11,7 @@ function AllWhy() {
               image="url('/images/why/why1.png')"
               title="Founders’ Community"
               button="Learn more"
-              path="/find-your-y/community"
+              path="/find-your-y/founders-community"
             />
           </div>
           <div className="col-md-6 col-lg-4 my-3 px-3">
@@ -19,7 +19,7 @@ function AllWhy() {
               image="url('/images/why/why2.png')"
               title="Technical Co-founder"
               button="Learn more"
-              path="/find-your-y/community"
+              path="/find-your-y/technical-cofounder"
             />
           </div>
           <div className="col-md-6 col-lg-4 my-3 px-3">
@@ -27,7 +27,7 @@ function AllWhy() {
               image="url('/images/why/why3.png')"
               title="Skills Seeker"
               button="Learn more"
-              path="/find-your-y/community"
+              path="/find-your-y/skills-seeker"
 
             />
           </div>

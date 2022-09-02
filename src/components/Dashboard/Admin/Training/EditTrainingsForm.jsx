@@ -21,7 +21,7 @@ function EditTrainingsForm() {
   // console.log(params);
 
   useEffect(() => {
-    axios.get(`https://elab-api.herokuapp.com/api/v1/trainings/${params.slug}`, {
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/v1/trainings/${params.slug}`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('elAdmT')}`,
       },
@@ -53,7 +53,7 @@ function EditTrainingsForm() {
 
     axios({
       method: 'patch',
-      url: `https://elab-api.herokuapp.com/api/v1/trainings/${params.slug}`,
+      url: `${process.env.REACT_APP_BASE_URL}/api/v1/trainings/${params.slug}`,
       data: formData,
       headers: {
         'Content-Type': 'multipart/form-data',

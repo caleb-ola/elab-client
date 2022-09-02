@@ -21,7 +21,7 @@ function SignupCard() {
     if (password === confirmPassword) {
       setErrors('');
       setLoading(true);
-      axios.post('https://elab-api.herokuapp.com/api/v1/auth/register', {
+      axios.post(`${process.env.REACT_APP_BASE_URL}/api/v1/auth/register`, {
         name,
         email,
         password,

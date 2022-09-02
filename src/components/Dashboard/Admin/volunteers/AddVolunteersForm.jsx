@@ -18,7 +18,7 @@ function AddVolunteerForm() {
   const Submit = (e) => {
     e.preventDefault();
     setLoading(true);
-    axios.post('https://elab-api.herokuapp.com/api/v1/volunteers', {
+    axios.post(`${process.env.REACT_APP_BASE_URL}/api/v1/volunteers`, {
       name,
       email,
       project,

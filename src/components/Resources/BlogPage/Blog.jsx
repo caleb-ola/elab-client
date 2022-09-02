@@ -41,7 +41,7 @@ function Blog() {
   );
 
   useEffect(() => {
-    axios.get('https://elab-api.herokuapp.com/api/v1/posts').then((response) => {
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/v1/posts`).then((response) => {
       // console.log(response.data.data[0]);
       const data = response.data.data[0];
       setLoading(false);

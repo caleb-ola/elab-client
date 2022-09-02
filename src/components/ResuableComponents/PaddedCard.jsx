@@ -24,7 +24,7 @@ function PaddedCard({
     // Implementation for whatever you want to do with reference and after success call.
     // console.log(reference);
     axios
-      .post('https://elab-api.herokuapp.com/api/v1/payments/verify-resource-payment', {
+      .post(`${process.env.REACT_APP_BASE_URL}/api/v1/payments/verify-resource-payment`, {
         email: user,
         reference: reference.reference,
         amount: price * +100,

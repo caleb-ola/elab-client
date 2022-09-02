@@ -32,7 +32,7 @@ function EditStartupForm() {
 
   let descConvert;
   useEffect(() => {
-    axios.get(`https://elab-api.herokuapp.com/api/v1/startups/${params.slug}`).then((response) => {
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/v1/startups/${params.slug}`).then((response) => {
       // console.log(response);
       const { data } = response.data;
       setName(data.name);
@@ -91,7 +91,7 @@ function EditStartupForm() {
 
     axios({
       method: 'patch',
-      url: `https://elab-api.herokuapp.com/api/v1/startups/${params.slug}`,
+      url: `${process.env.REACT_APP_BASE_URL}/api/v1/startups/${params.slug}`,
       data: formData,
       headers: {
         'Content-Type': 'multipart/form-data',

@@ -14,7 +14,7 @@ function RelatedBlogs() {
   );
 
   useEffect(() => {
-    axios.get('https://elab-api.herokuapp.com/api/v1/posts?limit=3').then((response) => {
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/v1/posts?limit=3`).then((response) => {
       // console.log(response);
       setLoading(false);
       setSkeleton();

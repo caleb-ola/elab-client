@@ -82,7 +82,7 @@ function ServicesContent() {
     }));
   };
   const RenderData = () => {
-    axios.get('https://elab-api.herokuapp.com/api/v1/services').then(
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/v1/services`).then(
       (response) => {
         // console.log(response);
         setLoading(false);
@@ -243,7 +243,7 @@ function ServicesContent() {
   };
 
   const DeleteService = (slug) => {
-    axios.delete(`https://elab-api.herokuapp.com/api/v1/services/${slug}`, {
+    axios.delete(`${process.env.REACT_APP_BASE_URL}/api/v1/services/${slug}`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('elAdmT')}`,
       },

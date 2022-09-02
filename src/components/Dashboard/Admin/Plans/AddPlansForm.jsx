@@ -70,7 +70,7 @@ function AddPlansForm() {
 
     axios({
       method: 'post',
-      url: 'https://elab-api.herokuapp.com/api/v1/workspaces',
+      url: `${process.env.REACT_APP_BASE_URL}/api/v1/workspaces`,
       data: formData,
       headers: {
         'Content-Type': 'multipart/form-data',

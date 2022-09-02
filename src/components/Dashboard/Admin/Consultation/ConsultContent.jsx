@@ -90,7 +90,7 @@ function ConsultContent() {
   };
 
   const RenderData = () => {
-    axios.get('https://elab-api.herokuapp.com/api/v1/consultations').then((response) => {
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/v1/consultations`).then((response) => {
       // console.log(response);
       setLoading(false);
       setSkeleton();
@@ -255,7 +255,7 @@ function ConsultContent() {
   };
 
   const DeleteConsult = (id) => {
-    axios.delete(`https://elab-api.herokuapp.com/api/v1/consultations/${id}`, {
+    axios.delete(`${process.env.REACT_APP_BASE_URL}/api/v1/consultations/${id}`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('elAdmT')}`,
       },

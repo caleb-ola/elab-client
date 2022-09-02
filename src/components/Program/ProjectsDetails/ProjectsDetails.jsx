@@ -13,7 +13,7 @@ function ProjectsDetails() {
   const params = useParams();
 
   useEffect(() => {
-    axios.get(`https://elab-api.herokuapp.com/api/v1/projects/${params.slug}`).then((response) => {
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/v1/projects/${params.slug}`).then((response) => {
       // console.log(response);
       const { data } = response.data;
       setBody(

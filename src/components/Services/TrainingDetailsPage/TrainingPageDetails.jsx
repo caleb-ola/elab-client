@@ -12,7 +12,7 @@ function TrainingPageDetails() {
   const params = useParams();
   // console.log(params);
   useEffect(() => {
-    axios.get(`https://elab-api.herokuapp.com/api/v1/trainings/${params.id}`).then((response) => {
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/v1/trainings/${params.id}`).then((response) => {
       // console.log(response);
       const item = response.data.data;
 

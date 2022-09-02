@@ -11,7 +11,7 @@ function Benefits() {
   const Submit = (e) => {
     e.preventDefault();
     setLoading(true);
-    axios.post('https://elab-api.herokuapp.com/api/v1/subscribers/subscribe-to-trybe-community', {
+    axios.post(`${process.env.REACT_APP_BASE_URL}/api/v1/subscribers/subscribe-to-trybe-community`, {
       name, email,
     }).then((response) => {
       // console.log(response);

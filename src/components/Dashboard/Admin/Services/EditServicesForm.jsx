@@ -46,7 +46,7 @@ function EditServicesForm() {
   });
 
   useEffect(() => {
-    axios.get(`https://elab-api.herokuapp.com/api/v1/services/${params.slug}`).then((response) => {
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/v1/services/${params.slug}`).then((response) => {
       // console.log(response);
       const { data } = response.data;
       setTitle(data.title);
@@ -97,7 +97,7 @@ function EditServicesForm() {
 
     axios({
       method: 'patch',
-      url: `https://elab-api.herokuapp.com/api/v1/services/${params.slug}`,
+      url: `${process.env.REACT_APP_BASE_URL}/api/v1/services/${params.slug}`,
       data: formData,
       headers: {
         'Content-Type': 'multipart/form-data',

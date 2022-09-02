@@ -84,7 +84,7 @@ function VolunteerContent() {
   };
 
   const RenderData = () => {
-    axios.get('https://elab-api.herokuapp.com/api/v1/volunteers').then(
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/v1/volunteers`).then(
       (response) => {
         // console.log(response);
         setLoading(false);
@@ -241,7 +241,7 @@ function VolunteerContent() {
   };
 
   const DeleteContent = (id) => {
-    axios.delete(`https://elab-api.herokuapp.com/api/v1/volunteers/${id}`, {
+    axios.delete(`${process.env.REACT_APP_BASE_URL}/api/v1/volunteers/${id}`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('elAdmT')}`,
       },

@@ -14,7 +14,7 @@ function EditMediaForm() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get(`https://elab-api.herokuapp.com/api/v1/mentions/${params.id}`).then((response) => {
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/v1/mentions/${params.id}`).then((response) => {
       // console.log(response);
       const { data } = response.data;
       setTitle(data.title);
@@ -49,7 +49,7 @@ function EditMediaForm() {
   const Submit = (e) => {
     e.preventDefault();
     setLoading(true);
-    axios.patch(`https://elab-api.herokuapp.com/api/v1/mentions/${params.id}`, {
+    axios.patch(`${process.env.REACT_APP_BASE_URL}/api/v1/mentions/${params.id}`, {
       title, link, date, image,
     }, {
       headers: {

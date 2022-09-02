@@ -88,7 +88,7 @@ function PlansContent() {
   };
 
   const RenderData = () => {
-    axios.get('https://elab-api.herokuapp.com/api/v1/workspaces').then((response) => {
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/v1/workspaces`).then((response) => {
       setLoading(false);
       setSkeleton();
       if (response.data.data.length === 0) {
@@ -269,7 +269,7 @@ function PlansContent() {
   };
 
   const DeleteEvent = (slug) => {
-    axios.delete(`https://elab-api.herokuapp.com/api/v1/workspaces/${slug}`, {
+    axios.delete(`${process.env.REACT_APP_BASE_URL}/api/v1/workspaces/${slug}`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('elAdmT')}`,
       },

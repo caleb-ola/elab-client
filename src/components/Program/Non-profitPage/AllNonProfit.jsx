@@ -11,7 +11,7 @@ function AllNonProfit() {
     <SkeletonPaddedRow />,
   );
   useEffect(() => {
-    axios.get('https://elab-api.herokuapp.com/api/v1/non-profits').then(
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/v1/non-profits`).then(
       (response) => {
         // console.log(response);
         setLoading(false);

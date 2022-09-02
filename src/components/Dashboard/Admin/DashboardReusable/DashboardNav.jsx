@@ -8,7 +8,7 @@ function DashboardNav() {
   const navigate = useNavigate();
 
   const Logout = async () => {
-    await axios.post('https://elab-api.herokuapp.com/api/v1/auth/logout').then((response) => {
+    await axios.post(`${process.env.REACT_APP_BASE_URL}/api/v1/auth/logout`).then((response) => {
       // console.log(response);
       if (response) {
         localStorage.removeItem('elAdmT');
