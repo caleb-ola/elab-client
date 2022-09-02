@@ -30,6 +30,7 @@ function About() {
       <Hero
         title="Innovation and enterprise thinking is richly engrained in who we are and in our history."
         image="url('/images/about/hero1.jpg')"
+        typingText={false}
       />
       <Timeline />
       <Vision />
