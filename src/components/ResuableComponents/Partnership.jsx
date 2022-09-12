@@ -31,9 +31,8 @@ function Partnership() {
           <div
             className="col-lg-6 h-100 p-0"
           >
-            <img src="/images/program/partnership.png" alt="" className="img-fluid partnership--image" />
+            <img src="/images/program/partnership.png" alt="" className="img-fluid partnership--image w-100" />
             {' '}
-
           </div>
         </div>
 

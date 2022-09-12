@@ -68,7 +68,7 @@ function Musings() {
         <div
           className="musings__card position-relative p-4 p-lg-5"
           style={{
-            backgroundImage: "url('images/home/musing.png')",
+            backgroundImage: "url('images/home/musing.jpg')",
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
             // height: '303px',

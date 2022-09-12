@@ -1,7 +1,7 @@
 import React from 'react';
 
 // REACT SLICK CSS
-import Slider from 'react-slick';
+// import Slider from 'react-slick';
 
 // REACT SLCIK CSS
 import 'slick-carousel/slick/slick.css';
@@ -59,11 +59,12 @@ function Testimonial() {
         {' '}
       </div>
       <div className="testimonial__carousel py-3">
-        <Slider
+        {/* <Slider
           {...{
+            // height: '100%',
             arrows: false,
             infinite: true,
-            slidesToShow: 4,
+            slidesToShow: 3,
             slidesToScroll: 1,
             autoplay: true,
             speed: 4000,
@@ -96,159 +97,136 @@ function Testimonial() {
               },
             ],
           }}
-        >
+        > */}
+        <div className="row row-cols-1 row-cols-md-3 g-4">
+          <div className="col-12 col-md-6 col-xl-4 py-3 px-3 py-lg-5 ">
+            <div
+              className="card testimonial__Card p-3 p-lg-5 border-0 h-100"
+              style={{
+                boxShadow: '0px 2px 12px rgba(51, 51, 51, 0.1)',
+                borderRadius: '5px',
+                // height: '550px',
+              }}
+            >
+              <div className="card-body p-0">
+                <p>
+                  ‘Trybe by eLab Community is a community I am proud to be a part of.
+                  I have benefitted a lot from this community, this includes connection with
+                  resourceful minds, several employment opportunities like the Grade-plus Africa
+                  (A subsidiary of Ennovate Lab) internship application. I remember I also learnt
+                  that, ‘a particular sea has a pink color’ and what really is of utmost delight
+                  to me is the community town hall meeting. It&apos;s so unique,
+                  thought-provoking and eye-opening.’
 
-          <div className="py-3 px-3 py-lg-5 ">
-            <div
-              className="testimonial__Card p-3 p-lg-4 h-100"
-              style={{
-                boxShadow: '0px 2px 12px rgba(51, 51, 51, 0.1)',
-                borderRadius: '5px',
-              }}
-            >
-              <p>
-                Nisl amet, tincidunt lacus, egestas sed. Sed donec viverra odio massa
-                sed a, id fames. Sollicitudin ac condimentum pellentesque duis
-                feugiat. Pellentesque.
-              </p>
-              <div className="row align-items-center">
+                </p>
+              </div>
+              <div className="row align-items-center card-footer testimonial__card--footer p-0 ">
                 <div className="col-2">
                   <img src="/images/program/round.png" alt="..." className="img-fluid" />
                 </div>
                 <div className="col-10">
-                  <p className="fw-bold m-0">Name of Tryber</p>
+                  <p className="fw-bold m-0">Glo-Mary</p>
                   {' '}
                 </div>
               </div>
             </div>
           </div>
           {' '}
-          <div className="py-3 px-3 py-lg-5 ">
+          <div className=" col-12 col-md-6 col-xl-4 py-3 px-3 py-lg-5 ">
             <div
-              className="testimonial__Card p-3 p-lg-4 h-100"
+              className="card testimonial__Card p-3 p-lg-5 border-0 h-100"
               style={{
                 boxShadow: '0px 2px 12px rgba(51, 51, 51, 0.1)',
                 borderRadius: '5px',
+                // height: '550px',
               }}
             >
-              <p>
-                Nisl amet, tincidunt lacus, egestas sed. Sed donec viverra odio massa
-                sed a, id fames. Sollicitudin ac condimentum pellentesque duis
-                feugiat. Pellentesque.
-              </p>
-              <div className="row align-items-center">
-                <div className="col-2">
-                  <img src="/images/program/round.png" alt="..." className="img-fluid" />
-                </div>
-                <div className="col-10">
-                  <p className="fw-bold m-0">Name of Tryber</p>
-                  {' '}
-                </div>
-              </div>
-            </div>
-          </div>
-          {' '}
-          <div className="py-3 px-3 py-lg-5 ">
-            <div
-              className="testimonial__Card p-3 p-lg-4 h-100"
-              style={{
-                boxShadow: '0px 2px 12px rgba(51, 51, 51, 0.1)',
-                borderRadius: '5px',
-              }}
-            >
-              <p>
-                Nisl amet, tincidunt lacus, egestas sed. Sed donec viverra odio massa
-                sed a, id fames. Sollicitudin ac condimentum pellentesque duis
-                feugiat. Pellentesque.
-              </p>
-              <div className="row align-items-center">
-                <div className="col-2">
-                  <img src="/images/program/round.png" alt="..." className="img-fluid" />
-                </div>
-                <div className="col-10">
-                  <p className="fw-bold m-0">Name of Tryber</p>
-                  {' '}
-                </div>
-              </div>
-            </div>
-          </div>
-          {' '}
-          <div className="py-3 px-3 py-lg-5 ">
-            <div
-              className="testimonial__Card p-3 p-lg-4 h-100"
-              style={{
-                boxShadow: '0px 2px 12px rgba(51, 51, 51, 0.1)',
-                borderRadius: '5px',
-              }}
-            >
-              <p>
-                Nisl amet, tincidunt lacus, egestas sed. Sed donec viverra odio massa
-                sed a, id fames. Sollicitudin ac condimentum pellentesque duis
-                feugiat. Pellentesque.
-              </p>
-              <div className="row align-items-center">
-                <div className="col-2">
-                  <img src="/images/program/round.png" alt="..." className="img-fluid" />
-                </div>
-                <div className="col-10">
-                  <p className="fw-bold m-0">Name of Tryber</p>
-                  {' '}
-                </div>
-              </div>
-            </div>
-          </div>
-          {' '}
-          <div className="py-3 px-3 py-lg-5 ">
-            <div
-              className="testimonial__Card p-3 p-lg-4 h-100"
-              style={{
-                boxShadow: '0px 2px 12px rgba(51, 51, 51, 0.1)',
-                borderRadius: '5px',
-              }}
-            >
-              <p>
-                Nisl amet, tincidunt lacus, egestas sed. Sed donec viverra odio massa
-                sed a, id fames. Sollicitudin ac condimentum pellentesque duis
-                feugiat. Pellentesque.
-              </p>
-              <div className="row align-items-center">
-                <div className="col-2">
-                  <img src="/images/program/round.png" alt="..." className="img-fluid" />
-                </div>
-                <div className="col-10">
-                  <p className="fw-bold m-0">Name of Tryber</p>
-                  {' '}
-                </div>
-              </div>
-            </div>
-          </div>
-          {' '}
-          <div className="py-3 px-3 py-lg-5 ">
-            <div
-              className="testimonial__Card p-3 p-lg-4 h-100"
-              style={{
-                boxShadow: '0px 2px 12px rgba(51, 51, 51, 0.1)',
-                borderRadius: '5px',
-              }}
-            >
-              <p>
-                Nisl amet, tincidunt lacus, egestas sed. Sed donec viverra odio massa
-                sed a, id fames. Sollicitudin ac condimentum pellentesque duis
-                feugiat. Pellentesque.
-              </p>
-              <div className="row align-items-center">
-                <div className="col-2">
-                  <img src="/images/program/round.png" alt="..." className="img-fluid" />
-                </div>
-                <div className="col-10">
-                  <p className="fw-bold m-0">Name of Tryber</p>
-                  {' '}
-                </div>
-              </div>
-            </div>
-          </div>
+              <div className="card-body p-0">
+                <p>
+                  One of the best decisions I&apos;ve made in my undergraduate years is joining
+                  the Trybe Community by Ennovate Lab. With life transforming sessions, sharing
+                  of opportunities(both global and local), and interacting with great and like
+                  minds, this is one of the bestcommunitiesy you can find around.
+                </p>
+                <p>
+                  My testimony has been of tremendous growth and exploits.
+                  Thank you Trybe Community by Ennovate Lab.
 
-        </Slider>
+                </p>
+              </div>
+              <div className="row align-items-center card-footer testimonial__card--footer p-0 ">
+                <div className="col-2">
+                  <img src="/images/program/round.png" alt="..." className="img-fluid" />
+                </div>
+                <div className="col-10">
+                  <p className="fw-bold m-0">Peter Abegunde “Cephas”</p>
+                  {' '}
+                </div>
+              </div>
+            </div>
+          </div>
+          {' '}
+          <div className="col-12 col-md-6 col-xl-4 py-3 px-3 py-lg-5 ">
+            <div
+              className="card testimonial__Card p-3 p-lg-5 border-0 h-100"
+              style={{
+                boxShadow: '0px 2px 12px rgba(51, 51, 51, 0.1)',
+                borderRadius: '5px',
+                // height: '550px',
+              }}
+            >
+              <div className="card-body p-0">
+                <p>
+                  The most fascinating asset Trybe by eLab has earned me is ACCESS.
+                  Access to influential and notable entrepreneurs who have built a
+                  sustainable brand or business. I have been exposed to game-changing
+                  and strategic information which I have tested and proven, and
+                  these have had multiplying effects on my business.
+
+                </p>
+
+              </div>
+              <div className="row align-items-center card-footer testimonial__card--footer p-0 ">
+                <div className="col-2">
+                  <img src="/images/program/round.png" alt="..." className="img-fluid" />
+                </div>
+                <div className="col-10">
+                  <p className="fw-bold m-0">EyinjuOluwa</p>
+                  {' '}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {' '}
+
+        {' '}
+        {/* <div className="py-3 px-3 py-lg-5 ">
+            <div
+              className="testimonial__Card p-3 p-lg-4 h-100 border-0"
+              style={{
+                boxShadow: '0px 2px 12px rgba(51, 51, 51, 0.1)',
+                borderRadius: '5px',
+              }}
+            >
+              <p>
+                Nisl amet, tincidunt lacus, egestas sed. Sed donec viverra odio massa
+                sed a, id fames. Sollicitudin ac condimentum pellentesque duis
+                feugiat. Pellentesque.
+              </p>
+              <div className="row align-items-center">
+                <div className="col-2">
+                  <img src="/images/program/round.png" alt="..." className="img-fluid" />
+                </div>
+                <div className="col-10">
+                  <p className="fw-bold m-0">Name of Tryber</p>
+                  {' '}
+                </div>
+              </div>
+            </div>
+          </div> */}
+
+        {/* </Slider> */}
         {' '}
 
       </div>

@@ -123,11 +123,63 @@ function PaddedCard({
   return (
     path
       ? (
-        <a href={path} className="text-decoration-none paddedcard__link">
-          <div className="paddedcard p-4 px-lg-5 py-lg-4 pb-lg-4 pb-2 h-100">
+        <a href={path} className="text-decoration-none paddedcard__link h-100">
+          <div className="card border-0 paddedcard p-4 px-lg-5 py-lg-5 pb-lg-4 pb-2 h-100">
+            <div className="card-header bg-white border-0 m-0 p-0 h-100">
+              <h6 className="paddedcard__title fw-bold pb-3">
+                {title.replace(/(^\w|\s\w)/g, (m) => m.toUpperCase())}
+              </h6>
+            </div>
+            <div className="card-body m-0 p-0 h-100">
+              <div
+                className="div"
+                style={{
+                  background: `url(${image})`,
+                  backgroundRepeat: 'no-repeat',
+                  backgroundSize: 'cover',
+                  height: '340px',
+                  borderRadius: '10px',
+                }}
+              />
+            </div>
+            <div className="card-footer bg-white border-0 p-0">
+              {button ? (
+                <div className="mt-4">
+                  <Link to="/" className="link py-2 px-3 text-decoration-none fw-bold">
+                    {button}
+                  </Link>
+                </div>
+
+              )
+                : (
+                  <div className="row mt-4">
+                    <div className=" text-center text-md-start">
+                      {' '}
+                      <i className="fa-solid fa-user blog--icon pe-2" />
+                      {name}
+                    </div>
+                    {/* <div className="col-md-6 text-center text-md-end">
+                    {' '}
+                    <i className="fa-solid fa-calendar blog--icon pe-2" />
+                    <Moment format="Do MMMM, YYYY">
+                      {date}
+                    </Moment>
+                  </div> */}
+                  </div>
+                )}
+            </div>
+          </div>
+        </a>
+      )
+      : (
+        <div className="card border-0 paddedcard p-4 px-lg-5 py-lg-5 pb-lg-4 pb-2  h-100">
+          <ToastContainer />
+          <div className="card-header bg-white border-0 m-0 p-0 h-100">
             <h6 className="paddedcard__title fw-bold pb-3">
               {title.replace(/(^\w|\s\w)/g, (m) => m.toUpperCase())}
             </h6>
+          </div>
+          <div className="card-body m-0 p-0 h-100">
             <div
               className="div"
               style={{
@@ -138,83 +190,43 @@ function PaddedCard({
                 borderRadius: '10px',
               }}
             />
+          </div>
+          <div className="card-footer bg-white border-0 p-0">
             {button ? (
-              <div className="mt-4">
-                <Link to="/" className="link py-2 px-3 text-decoration-none fw-bold">
-                  {button}
-                </Link>
+              <div className="row my-4 align-items-center">
+                <div className="col-7">
+                  {button !== 'Make payment'
+                    ? (
+                      <a type="button" href={brochure} className="link py-2 px-3 text-decoration-none fw-bold" download>
+                        {button}
+                      </a>
+                    )
+                    : (
+                      <UserPay />
+                    )}
+                </div>
+                <div className="col-5 text-end">
+                  {price !== 0 && price ? (
+                    <>
+                      {/* <span className="fw-bold text-start pe-2">{discount}</span> */}
+                      <span className="text-end ps-2 m-0 fw-bold">
+                        &#x20A6;
+                        {price.toString()
+                          .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                      </span>
+                    </>
+                  )
+                    : <span className="fw-bold text-start pe-2">Free</span>}
+                </div>
               </div>
-
             )
               : (
                 <div className="row mt-4">
-                  <div className=" text-center text-md-start">
-                    {' '}
-                    <i className="fa-solid fa-user blog--icon pe-2" />
-                    {name}
-                  </div>
-                  {/* <div className="col-md-6 text-center text-md-end">
-                    {' '}
-                    <i className="fa-solid fa-calendar blog--icon pe-2" />
-                    <Moment format="Do MMMM, YYYY">
-                      {date}
-                    </Moment>
-                  </div> */}
+                  <div className="col-6 col-md-12 text-center text-start">{name}</div>
+                  <div className="col-6 col-md-12 text-center text-end">{date}</div>
                 </div>
               )}
           </div>
-        </a>
-      )
-      : (
-        <div className="paddedcard p-4 px-lg-5 py-lg-5 pb-lg-4 pb-2  h-100">
-          <ToastContainer />
-          <h6 className="paddedcard__title fw-bold pb-3">
-            {title.replace(/(^\w|\s\w)/g, (m) => m.toUpperCase())}
-          </h6>
-          <div
-            className="div"
-            style={{
-              background: `url(${image})`,
-              backgroundRepeat: 'no-repeat',
-              backgroundSize: 'cover',
-              height: '320px',
-              borderRadius: '10px',
-            }}
-          />
-          {button ? (
-            <div className="row my-4 align-items-center">
-              <div className="col-7">
-                {button !== 'Make payment'
-                  ? (
-                    <a type="button" href={brochure} className="link py-2 px-3 text-decoration-none fw-bold" download>
-                      {button}
-                    </a>
-                  )
-                  : (
-                    <UserPay />
-                  )}
-              </div>
-              <div className="col-5 text-end">
-                {price !== 0 && price ? (
-                  <>
-                    {/* <span className="fw-bold text-start pe-2">{discount}</span> */}
-                    <span className="text-end ps-2 m-0 fw-bold">
-                      &#x20A6;
-                      {price.toString()
-                        .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-                    </span>
-                  </>
-                )
-                  : <span className="fw-bold text-start pe-2">Free</span>}
-              </div>
-            </div>
-          )
-            : (
-              <div className="row mt-4">
-                <div className="col-6 col-md-12 text-center text-start">{name}</div>
-                <div className="col-6 col-md-12 text-center text-end">{date}</div>
-              </div>
-            )}
         </div>
       )
   );

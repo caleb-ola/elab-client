@@ -40,7 +40,7 @@ function AllPlaybook() {
     }));
   };
   const [user, setUser] = useState();
-
+  // let use;
   const getCurrentUser = async () => {
     await axios
       .get(
@@ -53,16 +53,17 @@ function AllPlaybook() {
       )
       .then((response) => {
         setUser(response.data.data);
-        // console.log(user);
       });
   };
 
   useEffect(() => {
-    // eslint-disable-next-line no-use-before-define
-    getCurrentUser();
+    if (!user) {
+      // eslint-disable-next-line no-use-before-define
+      getCurrentUser();
+    }
     // eslint-disable-next-line no-use-before-define
     all();
-  }, [paginate]);
+  }, [paginate, user]);
 
   const all = () => (
     axios.get(`${process.env.REACT_APP_BASE_URL}/api/v1/resources`).then((response) => {
@@ -70,10 +71,8 @@ function AllPlaybook() {
       setActive('All');
       setSkeleton(
         <SkeletonPaddedRow />,
-      ); // setActive(type.toLowerCase());
-      // console.log(user?.email);
-      // const types = response.data.data.filter((item) => item.category === type);
-      // console.log(types);
+      );
+      // setBody(response);
       if (response.data.data.length === 0) {
         setBody(
           <Empty header="No Whitepaper" />,
@@ -92,6 +91,7 @@ function AllPlaybook() {
                   id={item.id}
                   button="Make payment"
                 />
+                {/* {console.log(user)} */}
               </div>
             )
           )),
@@ -205,133 +205,6 @@ function AllPlaybook() {
       }
     })
   );
-  // const Whitepaper = () => {
-  //   setActive({
-  //     whitepaper: true,
-  //     industry: false,
-  //     open: false,
-  //   });
-  //   setBlogs(
-  //     <>
-  //       <div className="col-md-6 col-lg-4 my-3 my-lg-4 px-3 px-lg-4">
-  //         <PaddedCard
-  //           title="Whitepaper title goes here"
-  //           image="/images/Resources/blog1.png"
-  //           button="Download"
-  //           path="/resources/blog/blog-post"
-  //         />
-  //       </div>
-  //       {' '}
-  //       <div className="col-md-6 col-lg-4 my-3 my-lg-4 px-3 px-lg-4">
-  //         <PaddedCard
-  //           title="Whitepaper title goes here"
-  //           image="/images/Resources/blog2.png"
-  //           button="Download"
-  //           path="/resources/blog/blog-post"
-  //         />
-  //       </div>
-  //       {' '}
-  //       <div className="col-md-6 col-lg-4 my-3 my-lg-4 px-3 px-lg-4">
-  //         <PaddedCard
-  //           title="Whitepaper title goes here"
-  //           image="/images/Resources/blog3.png"
-  //           button="Download"
-  //           path="/resources/blog/blog-post"
-  //         />
-  //       </div>
-  //       {' '}
-  //       <div className="col-md-6 col-lg-4 my-3 my-lg-4 px-3 px-lg-4">
-  //         <PaddedCard
-  //           title="Whitepaper title goes here"
-  //           image="/images/Resources/blog3.png"
-  //           button="Download"
-  //           path="/resources/blog/blog-post"
-  //         />
-  //       </div>
-  //       {' '}
-  //       <div className="col-md-6 col-lg-4 my-3 my-lg-4 px-3 px-lg-4">
-  //         <PaddedCard
-  //           title="Whitepaper title goes here"
-  //           image="/images/Resources/blog4.png"
-  //           button="Download"
-  //           path="/resources/blog/blog-post"
-  //         />
-  //       </div>
-  //       <div className="col-md-6 col-lg-4 my-3 my-lg-4 px-3 px-lg-4">
-  //         <PaddedCard
-  //           title="Whitepaper title goes here"
-  //           image="/images/Resources/blog5.png"
-  //           button="Download"
-  //           path="/resources/blog/blog-post"
-  //         />
-  //       </div>
-  //     </>,
-  //   );
-  // };
-
-  // const Industry = () => {
-  //   setActive({
-  //     whitepaper: false,
-  //     industry: true,
-  //     open: false,
-  //   });
-  //   setBlogs(
-  //     <>
-  //       <div className="col-md-6 col-lg-4 my-3 my-lg-4 px-3 px-lg-4">
-  //         <PaddedCard
-  //           title="Whitepaper title goes here"
-  //           image="/images/Resources/blog3.png"
-  //           button="Download"
-  //           path="/resources/blog/blog-post"
-  //         />
-  //       </div>
-  //       {' '}
-  //       <div className="col-md-6 col-lg-4 my-3 my-lg-4 px-3 px-lg-4">
-  //         <PaddedCard
-  //           title="Whitepaper title goes here"
-  //           image="/images/Resources/blog4.png"
-  //           button="Download"
-  //           path="/resources/blog/blog-post"
-  //         />
-  //       </div>
-  //       <div className="col-md-6 col-lg-4 my-3 my-lg-4 px-3 px-lg-4">
-  //         <PaddedCard
-  //           title="Whitepaper title goes here"
-  //           image="/images/Resources/blog5.png"
-  //           button="Download"
-  //           path="/resources/blog/blog-post"
-  //         />
-  //       </div>
-  //     </>,
-  //   );
-  // };
-  // const Open = () => {
-  //   setActive({
-  //     whitepaper: false,
-  //     industry: false,
-  //     open: true,
-  //   });
-  //   setBlogs(
-  //     <>
-  //       <div className="col-md-6 col-lg-4 my-3 my-lg-4 px-3 px-lg-4">
-  //         <PaddedCard
-  //           title="Whitepaper title goes here"
-  //           image="/images/Resources/blog3.png"
-  //           button="Download"
-  //           path="/resources/blog/blog-post"
-  //         />
-  //       </div>
-  //       <div className="col-md-6 col-lg-4 my-3 my-lg-4 px-3 px-lg-4">
-  //         <PaddedCard
-  //           title="Whitepaper title goes here"
-  //           image="/images/Resources/blog5.png"
-  //           button="Download"
-  //           path="/resources/blog/blog-post"
-  //         />
-  //       </div>
-  //     </>,
-  //   );
-  // };
 
   return (
     <div className="playbook">
@@ -365,7 +238,7 @@ function AllPlaybook() {
         <div className="row pb-5">
           {loading ? skeleton : body}
         </div>
-        <div className="row">
+        {/* <div className="row">
           {body?.data?.data?.length > 9
               && (
               <div className="pt-4 px-5">
@@ -378,7 +251,7 @@ function AllPlaybook() {
                 />
               </div>
               )}
-        </div>
+        </div> */}
       </div>
     </div>
   );

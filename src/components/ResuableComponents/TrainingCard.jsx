@@ -24,7 +24,11 @@ function TrainingCard({
           <h6 className="training__card--title">
             {title.replace(/(^\w|\s\w)/g, (m) => m.toUpperCase())}
           </h6>
-          <p className="training__card--text mb-4">{text}</p>
+          <p className="training__card--text mb-4">
+            {text.substring(0, 70)}
+            {' '}
+            ...
+          </p>
           <div className=" text-start text-md-end me-3 ">
             <a href={path} className="link training__card--link fw-bold text-decoration-none px-3 py-2">Register</a>
             {/* <Cta text="Register" /> */}

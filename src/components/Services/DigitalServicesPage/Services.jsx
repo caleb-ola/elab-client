@@ -15,8 +15,9 @@ function Services() {
         </title>
         <meta
           name="description"
-          content="We strive to create technological solutions that will help advance our
-          client's business and solve real-life problems using strategic and high-level technology to drive and power business growth."
+          content="With a unique team of creatives and tech experts, we strive to create
+          technological solutions that will help advance our client's business and solve
+          real-life problems using strategic and high-level technology to drive and power business growth."
         />
         {/* <meta name="keywords" content="" /> */}
       </Helmet>
@@ -24,9 +25,11 @@ function Services() {
       <Hero
         image="url('/images/services/hero-services.jpg')"
         title="Digital Services"
-        text="We strive to create technological solutions that will help advance our client's
-        business and solve real-life problems using strategic and high-level technology to drive and power business growth."
+        text="With a unique team of creatives and tech experts, we strive to create
+        technological solutions that will help advance our client's business and solve
+        real-life problems using strategic and high-level technology to drive and power business growth."
         button="Learn More"
+        typingText={false}
       />
       <AllServices />
       <Footer />

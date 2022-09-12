@@ -103,33 +103,35 @@ function NavBar() {
               <ul className="dropdown-menu navi__dropdown" aria-labelledby="navbarDropdown2">
                 <div className="row p-3 ">
                   <div className="col-md-6">
-                    <a href="/program/community" className="p-2 px-3 btn text-start  navi__dropdown--option my-2 text-decoration-none w-100" role="button">
+                    <a href="/program/community" className="p-2 pb-3 px-3 btn text-start  navi__dropdown--option my-2 text-decoration-none w-100" role="button">
                       <p className="fw-bold m-0 navi__dropdown--subhead">Community</p>
-                      <p className="navi__dropdown--subtext m-0">A short description stays here</p>
+                      <p className="navi__dropdown--subtext m-0 lh-sm lh-sm">
+                        Safe space for founders and entrepreneurs
+                      </p>
                     </a>
                   </div>
                   <div className="col-md-6">
-                    <a href="/program/projects" className=" p-2 px-3 btn text-start navi__dropdown--option my-2 text-decoration-none w-100" role="button">
+                    <a href="/program/projects" className=" p-2 pb-3 px-3 btn text-start navi__dropdown--option my-2 text-decoration-none w-100" role="button">
                       <p className="fw-bold m-0 navi__dropdown--subhead">Projects</p>
-                      <p className="navi__dropdown--subtext m-0">A short description stays here</p>
+                      <p className="navi__dropdown--subtext m-0 lh-sm">Transforming our community one project at a time</p>
                     </a>
                   </div>
                   <div className="col-md-6">
-                    <a href="/program/innovation-hub" className=" p-2 px-3 btn text-start navi__dropdown--option my-2 text-decoration-none w-100" role="button">
+                    <a href="/program/innovation-hub" className=" p-2 pb-3 px-3 btn text-start navi__dropdown--option my-2 text-decoration-none w-100" role="button">
                       <p className="fw-bold m-0 navi__dropdown--subhead">Innovation  Hub</p>
-                      <p className="navi__dropdown--subtext m-0">A short description stays here</p>
+                      <p className="navi__dropdown--subtext m-0 lh-sm">A convergence point for startups</p>
                     </a>
                   </div>
                   <div className="col-md-6">
-                    <a href="/program/non-profit" className=" p-2 px-3 btn text-start navi__dropdown--option my-2 text-decoration-none w-100" role="button">
+                    <a href="/program/non-profit" className=" p-2 pb-3 px-3 btn text-start navi__dropdown--option my-2 text-decoration-none w-100" role="button">
                       <p className="fw-bold m-0 navi__dropdown--subhead">Non-profits</p>
-                      <p className="navi__dropdown--subtext m-0">A short description stays here</p>
+                      <p className="navi__dropdown--subtext m-0 lh-sm">Ennovate Lab’s not-for-profit social enterprises</p>
                     </a>
                   </div>
                   <div className="col-md-6">
-                    <a href="/program/foundry" className=" p-2 px-3 btn text-start navi__dropdown--option my-2 text-decoration-none w-100" role="button">
+                    <a href="/program/foundry" className=" p-2 pb-3 px-3 btn text-start navi__dropdown--option my-2 text-decoration-none w-100" role="button">
                       <p className="fw-bold m-0 navi__dropdown--subhead">Startup Foundry</p>
-                      <p className="navi__dropdown--subtext m-0">A short description stays here</p>
+                      <p className="navi__dropdown--subtext m-0 lh-sm">Building global and transgenerational startups </p>
                     </a>
 
                   </div>
@@ -144,21 +146,21 @@ function NavBar() {
               <ul className="dropdown-menu navi__dropdown" aria-labelledby="navbarDropdown">
                 <div className="row p-3 ">
                   <div className="col-md-6">
-                    <a href="/services/digital-services" className="p-2 px-3 btn text-start  navi__dropdown--option my-2 text-decoration-none w-100" role="button">
+                    <a href="/services/digital-services" className="p-2 pb-3 px-3 btn text-start  navi__dropdown--option my-2 text-decoration-none w-100" role="button">
                       <p className="fw-bold m-0 navi__dropdown--subhead">Digital Services</p>
-                      <p className="navi__dropdown--subtext m-0">A short description stays here</p>
+                      <p className="navi__dropdown--subtext m-0 lh-sm">A full-service creative digital agency</p>
                     </a>
                   </div>
                   <div className="col-md-6">
-                    <a href="/services/training" className=" p-2 px-3 btn text-start navi__dropdown--option my-2 text-decoration-none w-100" role="button">
+                    <a href="/services/training" className=" p-2 pb-3 px-3 btn text-start navi__dropdown--option my-2 text-decoration-none w-100" role="button">
                       <p className="fw-bold m-0 navi__dropdown--subhead">Training</p>
-                      <p className="navi__dropdown--subtext m-0">A short description stays here</p>
+                      <p className="navi__dropdown--subtext m-0 lh-sm">Equipping grassroot talents with high-order tech skills</p>
                     </a>
                   </div>
                   <div className="col-md-6">
-                    <a href="/services/consultation" className=" p-2 px-3 btn text-start navi__dropdown--option my-2 text-decoration-none w-100" role="button">
+                    <a href="/services/consultation" className=" p-2 pb-3 px-3 btn text-start navi__dropdown--option my-2 text-decoration-none w-100" role="button">
                       <p className="fw-bold m-0 navi__dropdown--subhead">Consulting</p>
-                      <p className="navi__dropdown--subtext m-0">A short description stays here</p>
+                      <p className="navi__dropdown--subtext m-0 lh-sm">How we help businesses</p>
                     </a>
                   </div>
                 </div>
@@ -172,21 +174,21 @@ function NavBar() {
               <ul className="dropdown-menu navi__dropdown" aria-labelledby="navbarDropdown2">
                 <div className="row p-3 ">
                   <div className="col-md-6">
-                    <a href="/resources/blog" className="p-2 px-3 btn text-start  navi__dropdown--option my-2 text-decoration-none w-100" role="button">
+                    <a href="/resources/blog" className="p-2 pb-3 px-3 btn text-start  navi__dropdown--option my-2 text-decoration-none w-100" role="button">
                       <p className="fw-bold m-0 navi__dropdown--subhead">Blog</p>
-                      <p className="navi__dropdown--subtext m-0">A short description stays here</p>
+                      <p className="navi__dropdown--subtext m-0 lh-sm">Our personal journal of ideas</p>
                     </a>
                   </div>
                   <div className="col-md-6">
-                    <a href="/resources/playbook" className=" p-2 px-3 btn text-start navi__dropdown--option my-2 text-decoration-none w-100" role="button">
+                    <a href="/resources/playbook" className=" p-2 pb-3 px-3 btn text-start navi__dropdown--option my-2 text-decoration-none w-100" role="button">
                       <p className="fw-bold m-0 navi__dropdown--subhead">Playbook</p>
-                      <p className="navi__dropdown--subtext m-0">A short description stays here</p>
+                      <p className="navi__dropdown--subtext m-0 lh-sm">Access some of our carefully curated resources</p>
                     </a>
                   </div>
                   <div className="col-md-6">
-                    <a href="/resources/faq" className=" p-2 px-3 btn text-start navi__dropdown--option my-2 text-decoration-none w-100" role="button">
+                    <a href="/resources/faq" className=" p-2 pb-3 px-3 btn text-start navi__dropdown--option my-2 text-decoration-none w-100" role="button">
                       <p className="fw-bold m-0 navi__dropdown--subhead">FAQs</p>
-                      <p className="navi__dropdown--subtext m-0">A short description stays here</p>
+                      <p className="navi__dropdown--subtext m-0 lh-sm">Frequently Asked Questions</p>
                     </a>
                   </div>
                 </div>

@@ -19,7 +19,7 @@ function HeaderBookSession() {
             </div>
           </div>
           <div className="col-md-6 px-md-5 my-2 order-1 order-md-2">
-            <img src="/images/services/services5.png" alt="" className="img-fluid" />
+            <img src="/images/services/service5.jpg" alt="" className="img-fluid" />
           </div>
         </div>
       </div>

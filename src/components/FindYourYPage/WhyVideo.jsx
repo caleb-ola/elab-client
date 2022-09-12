@@ -5,26 +5,34 @@ import { useParams } from 'react-router-dom';
 function WhyVideo() {
   const { id } = useParams();
   const [title, setTitle] = useState();
-  const [videolink, setVideolink] = useState();
+  // const [videolink, setVideolink] = useState();
   const [description, setDescription] = useState();
 
   useEffect(() => {
     if (id === 'founders-community') {
       setTitle(<span>Founder’s Community</span>);
-      setVideolink();
+      // setVideolink();
       setDescription(
         <p className="whyvideo--text text-center py-3 mx-auto">
-          Consequat eget nisl tellus, sed turpis.
-          Nulla et lectus vel mauris. Cursus nulla viverra interdum et
-          interdum egestas ornare neque. Vulputate sapien, sed cursus
-          tortor ante purus ultrices. At viverra gravida integer malesuada
-          diam non elit. Sed luctus fringilla in mattis quis risus aliquam
-          enim tristique. Molestie vestibulum malesuada.
+          The Founders&apos; Community is a platform initiated by Ennovate Lab
+          to provide a support system for founders and aspiring founders
+          in the Ogbomoso tech ecosystem. The aim of the community is to
+          provide founders with actionable knowledge and opportunities to
+          aid their business growth and development. Since the Founders
+          Community was established in 2022, the community has welcomed
+          over 30 founders, innovators, and entrepreneurs. The members
+          are given access to capacity-building programs and mentorship
+          through the community. In June 2022, Ennovate Lab, in partnership
+          with Butterfly Works Studio, facilitated a hybrid training program
+          on Design Thinking, Understanding Your Customer and Developing Agile
+          Solutions. Other capacity-building sessions held independently covered
+          topics like brand storytelling and more.
+
         </p>,
       );
     } else if (id === 'technical-cofounder') {
       setTitle(<span>Technical Co-founder</span>);
-      setVideolink();
+      // setVideolink();
       setDescription(
         <p className="whyvideo--text text-center py-3 mx-auto">
           Consequat eget nisl tellus, sed turpis.
@@ -37,7 +45,7 @@ function WhyVideo() {
       );
     } else if (id === 'skills-seeker') {
       setTitle(<span>Skills Seeker</span>);
-      setVideolink();
+      // setVideolink();
       setDescription(
         <p className="whyvideo--text text-center py-3 mx-auto">
           Consequat eget nisl tellus, sed turpis.
@@ -97,12 +105,12 @@ function WhyVideo() {
           <h4 className="whyvideo--header text-center pb-3 pb-lg-4">
             {title}
           </h4>
-          <video width="100%" height="550" controls className="py-3">
+          {/* <video width="100%" height="550" controls className="py-3">
             <track kind="captions" />
             <source src={videolink} type="video/mp4" />
             <source src="movie.ogg" type="video/ogg" />
             Your browser does not support the video tag.
-          </video>
+          </video> */}
           {description}
           <div className="whyvideo__cta--btn pt-4 text-center">
             <button type="button" className="whyvideo__cta--btn link btn fw-bold py-3 px-5" data-bs-toggle="modal" data-bs-target="#exampleModal">

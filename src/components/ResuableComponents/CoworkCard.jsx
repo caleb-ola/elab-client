@@ -69,15 +69,16 @@ function CoworkCard({
           {payment ? 'Paid' : 'Unpaid'}
         </p>
         )}
-        <div className="my-2">
-          {
+      </div>
+      <div className=" card-footer  bg-white border-0 px-4 pb-4 mb-3">
+        {
           button
         && <a href={path} className=" link text-decoration-none px-3 py-2 fw-bold">{button}</a>
         }
 
-        </div>
       </div>
     </div>
+
   );
 }
 

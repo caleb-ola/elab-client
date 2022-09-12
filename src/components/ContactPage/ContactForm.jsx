@@ -112,7 +112,9 @@ function ContactForm() {
             <p className="fw-bold m-0 contact__details--header">Email Address</p>
             <p>hello@ennovatelab.com</p>
             <p className="fw-bold m-0 contact__details--header">Phone Number</p>
-            <p>+234 905 642 2768</p>
+            <p>
+              +234 805 176 2471
+            </p>
             <ul className="p-0 w-100 ml-0  text-start text-lg-start my-2 my-lg-3">
               <a href="https://web.facebook.com/Ennovatelab" target="_blank" rel="noreferrer">
                 <span className="fa-stack fa-1x custom ">

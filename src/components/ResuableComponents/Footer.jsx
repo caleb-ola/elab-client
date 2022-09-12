@@ -35,7 +35,7 @@ function Footer() {
             </p>
             <p className="footer__upper--text" href="/"> hello@ennovatelab.com</p>
             <p className="footer__upper--text" href="/">
-              +234 905 642 2768
+              +234 805 176 2471
             </p>
 
           </div>

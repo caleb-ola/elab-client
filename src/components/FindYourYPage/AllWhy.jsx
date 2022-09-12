@@ -8,7 +8,7 @@ function AllWhy() {
         <div className="row">
           <div className="col-md-6 col-lg-4 my-3 px-3">
             <ProjectCard
-              image="url('/images/why/why1.png')"
+              image="url('/images/why/why1.jpg')"
               title="Founders’ Community"
               button="Learn more"
               path="/find-your-y/founders-community"
@@ -16,7 +16,7 @@ function AllWhy() {
           </div>
           <div className="col-md-6 col-lg-4 my-3 px-3">
             <ProjectCard
-              image="url('/images/why/why2.png')"
+              image="url('/images/why/why2.jpg')"
               title="Technical Co-founder"
               button="Learn more"
               path="/find-your-y/technical-cofounder"
@@ -24,7 +24,7 @@ function AllWhy() {
           </div>
           <div className="col-md-6 col-lg-4 my-3 px-3">
             <ProjectCard
-              image="url('/images/why/why3.png')"
+              image="url('/images/why/why3.jpg')"
               title="Skills Seeker"
               button="Learn more"
               path="/find-your-y/skills-seeker"

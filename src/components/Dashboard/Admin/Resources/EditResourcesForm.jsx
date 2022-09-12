@@ -226,7 +226,7 @@ function EditResourcesForm() {
               </label>
               <br />
               <select id="resource" name="volunteer__project" className="p-3 my-2 form-select shadow-none content__form--inputr w-100" onChange={(e) => setCategory(e.target.value)} required>
-                {/* <option value="playbook">Playbook</option> */}
+                <option value="" disabled selected hidden>Select category...</option>
                 <option value="Whitepaper">Whitepaper</option>
                 <option value="Digital">Digital</option>
                 <option value="Industry insights">Industry insights</option>

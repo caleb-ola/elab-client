@@ -48,7 +48,7 @@ function Details() {
             </title>
           </Helmet>
           {/* HEADER CARD STARTS */}
-          <div className="row align-items-center mb-3 mb-lg-5 mt-5 ">
+          <div className="row align-items-center mb-3 mt-lg-5 mt-5 ">
             <div className="col-md-2 my-2 text-start ps-lg-0 p-5">
               <div
                 className="training__card--image mx-auto"
@@ -65,7 +65,7 @@ function Details() {
                 {' '}
                 {data.name}
               </h4>
-              <div className="details__header--text">
+              <div className="details__header--text px-1">
                 <p className="m-0 mx-0 mx-md-3">
                   Founded in year
                   <span className="fw-bold py-2">
@@ -91,7 +91,7 @@ function Details() {
             </div>
           </div>
           {/* HEADER CARD ENDS */}
-          <h6 className="">About the Startup</h6>
+          <h6 className="pb-2">About the Startup</h6>
 
           {/* eslint-disable-next-line */}
           <div className="markup" dangerouslySetInnerHTML={createMarkup()} />
@@ -115,8 +115,13 @@ function Details() {
             Currently open for Investment. Reach out to us.
           </p> */}
           <div className="py-3 py-lg-4 px-0">
-            <a href={data.brochure} type="button" className=" link btn fw-bold py-3 px-5 me-0" download>
+            {/* <a href={data.brochure} type="button" className="
+            link btn fw-bold py-3 px-5 me-0" download>
               Download Brochure
+            </a>
+            {' '} */}
+            <a href={data?.link} type="button" className=" link btn fw-bold py-3 px-5 me-0" download>
+              Learn more
             </a>
           </div>
         </>,

@@ -1,11 +1,11 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import Hero from '../../HomePage/hero';
-import Testimonial from '../../Program/CommunityPage/Testimonial';
 import Footer from '../../ResuableComponents/Footer';
 import NavBar from '../../ResuableComponents/NavBar';
 
 import Brands from './Brands';
+import ConsultTestimonial from './ConsultTestimonial';
 import HeaderBookSession from './HeaderBookSession';
 
 function Consultation() {
@@ -28,10 +28,11 @@ function Consultation() {
         text="Building a clear path to help our clients deliver organizational success."
         button="Book a Session"
         path="/services/consultation/book-a-session"
+        typingText={false}
       />
       <HeaderBookSession />
       <Brands />
-      <Testimonial />
+      <ConsultTestimonial />
       <Footer />
     </div>
   );

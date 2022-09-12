@@ -9,6 +9,7 @@ import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import { EditorState, convertToRaw } from 'draft-js';
 import draftToHtml from 'draftjs-to-html';
 // import TagsInput from '../../../ResuableComponents/TagsInput';
+// import TagsInput from '../../../ResuableComponents/TagsInput';
 
 function AddEventForm() {
   const [title, setTitle] = useState('');
@@ -39,6 +40,8 @@ function AddEventForm() {
       reject();
     }
   });
+
+  // const selectedTags = (tags) => setTag(tags);
 
   const Submit = (e) => {
     e.preventDefault();

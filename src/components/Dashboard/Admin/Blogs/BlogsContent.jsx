@@ -115,15 +115,15 @@ function BlogsContent() {
                         <td className="col-1">
                           <img src={item.image} alt="" className="img-fluid w-50" />
                         </td>
-                        <td>{item.title}</td>
-                        <td>{item.author}</td>
+                        <td className="col-4">{item.title}</td>
+                        <td className="col-2">{item.author}</td>
                         {/* <td>
                           <span className={item.status === 'saved' ? 'content--published
                           px-4 py-1' : 'content--saved px-3 py-1'}>
                             {item.status}
                           </span>
                         </td> */}
-                        <td>
+                        <td className="col-2">
                           <Moment format="Do MMMM, YYYY">
                             {item.createddAt}
                           </Moment>

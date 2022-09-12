@@ -11,6 +11,13 @@
         line-height: 1.2rem !important;
         font-size: 0.8rem;
       }
+      & p{
+        margin: 0 !important;
+      }
+      &--footer {
+        background-color: #fff;
+        border-top: 0px;
+      }
     }
 }
 

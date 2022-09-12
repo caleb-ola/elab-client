@@ -31,7 +31,7 @@ function ProjectsDetails() {
           /> */}
           </Helmet>
           <Hero
-            image="url('/images/program/project-details-hero.png')"
+            image="url('/images/program/project-details-hero.jpg')"
             title={data.title}
           // text={data.description}
             download={data.brochure}

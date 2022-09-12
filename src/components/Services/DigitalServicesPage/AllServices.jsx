@@ -61,11 +61,11 @@ function AllServices() {
           <h4 className="partner--title ">
             Services Provided
           </h4>
-          <p className="pt-3">
+          <p className="pt-2">
             We are ready to serve you. Take a deep dive now
           </p>
         </div>
-        <div className="row py-5">
+        <div className="row py-4">
           {loading ? skeleton : body}
           {/* <div className="col-md-6 col-lg-4 my-3 my-lg-4 px-3 px-lg-4">
             <ServicesCard

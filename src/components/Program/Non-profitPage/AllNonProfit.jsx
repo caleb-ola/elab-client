@@ -1,7 +1,8 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
-import PaddedCard from '../../ResuableComponents/PaddedCard';
+// import PaddedCard from '../../ResuableComponents/PaddedCard';
+import PaddedCardTwo from '../../ResuableComponents/PaddedCardTwo';
 import SkeletonPaddedRow from '../../ResuableComponents/SkeletonLoaders/SkeletonPaddedRow';
 
 function AllNonProfit() {
@@ -19,11 +20,13 @@ function AllNonProfit() {
         setBody(
           response.data.data.map((item) => (
             <div className="col-md-6 col-lg-4 px-3 px-lg-4 py-3 py-lg-4" key={item.id}>
-              <PaddedCard
+              <PaddedCardTwo
                 image={item.image}
                 title={item.title}
+                path={item.link}
                 brochure={item.brochure}
-                button="Download"
+                button="Learn more"
+                button2="Brochure"
               />
             </div>
           )),

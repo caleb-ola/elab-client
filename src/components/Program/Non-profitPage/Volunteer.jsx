@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 // import TagsInput from '../../ResuableComponents/TagsInput';
 
@@ -12,11 +13,11 @@ function Volunteer() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    axios.get(`${process.env.REACT_APP_BASE_URL}/api/v1/projects/current-projects`).then(
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/v1/projects`).then(
       (response) => {
         // console.log(response);
         const { data } = response.data;
-        setOptions([...options, data]);
+        setOptions(data);
       },
       (error) => {
         // console.log(error);
@@ -44,38 +45,38 @@ function Volunteer() {
         }
       },
     );
-    axios.get(`${process.env.REACT_APP_BASE_URL}/api/v1/projects/future-projects`).then(
-      (response) => {
-        // console.log(response);
-        const { data } = response.data;
-        setOptions([...options, data]);
-      },
-      (error) => {
-        // console.log(error);
-        setLoading(false);
-        if (error.response) {
-          error.response.data.errors.map((err) => toast.error(`${err.message}`, {
-            position: 'top-right',
-            autoClose: 15000,
-            hideProgressBar: true,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-          }));
-        } else {
-          toast.error('Ops, something went wrong, please try again', {
-            position: 'top-right',
-            autoClose: 8000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-          });
-        }
-      },
-    );
+    // axios.get(`${process.env.REACT_APP_BASE_URL}/api/v1/projects`).then(
+    //   (response) => {
+    //     // console.log(response);
+    //     const { data } = response.data;
+    //     setOptions(data);
+    //   },
+    //   (error) => {
+    //     // console.log(error);
+    //     setLoading(false);
+    //     if (error.response) {
+    //       error.response.data.errors.map((err) => toast.error(`${err.message}`, {
+    //         position: 'top-right',
+    //         autoClose: 15000,
+    //         hideProgressBar: true,
+    //         closeOnClick: true,
+    //         pauseOnHover: true,
+    //         draggable: true,
+    //         progress: undefined,
+    //       }));
+    //     } else {
+    //       toast.error('Ops, something went wrong, please try again', {
+    //         position: 'top-right',
+    //         autoClose: 8000,
+    //         hideProgressBar: false,
+    //         closeOnClick: true,
+    //         pauseOnHover: true,
+    //         draggable: true,
+    //         progress: undefined,
+    //       });
+    //     }
+    //   },
+    // );
   }, []);
 
   const Submit = (e) => {
@@ -125,7 +126,7 @@ function Volunteer() {
       }
     });
   };
-  // console.log(skills);
+  // console.log(options);
   return (
     <>
       {/* JOIN TRYBE FORM STARTS */}
@@ -175,12 +176,12 @@ function Volunteer() {
                   </label>
                   <br />
                   <select id="volunteer__skills" name="volunteer__project" className="p-3 my-2 form-select benefits__form--input shadow-none" onChange={(e) => setSkills([e.target.value])} required>
-                    <option className="benefits__form--option" value="Design">Design</option>
-                    <option className="benefits__form--option" value="Software Development">Software Development</option>
-                    <option className="benefits__form--option" value="Marketing">Marketing</option>
-                    <option className="benefits__form--option" value="Publicity">Publicity</option>
-                    <option className="benefits__form--option" value="Marketing">Marketing</option>
-                    <option className="benefits__form--option" value="Support staff">Support staff</option>
+                    <option className="benefits__form--option" key="1" value="Design">Design</option>
+                    <option className="benefits__form--option" key="2" value="Software Development">Software Development</option>
+                    <option className="benefits__form--option" key="3" value="Marketing">Marketing</option>
+                    <option className="benefits__form--option" key="4" value="Publicity">Publicity</option>
+                    <option className="benefits__form--option" key="5" value="Marketing">Marketing</option>
+                    <option className="benefits__form--option" key="6" value="Support staff">Support staff</option>
                   </select>
                 </div>
 
@@ -207,11 +208,50 @@ function Volunteer() {
         </div>
       </div>
       {/* JOIN TRYBE FORM ENDS */}
-      <div className="volunteer__hero--btn text-center pb-5 pb-lg-5 mb-lg-5">
-        <button type="button" className=" link btn fw-bold py-3 px-5 me-0" data-bs-toggle="modal" data-bs-target="#volunteerModal">
-          Volunteer
-          {' '}
-        </button>
+      <div className="container">
+        <div className="row">
+
+          <div className=" volunteer__hero--btnTwo text-center  pt-lg-5  col-md-6 d-flex flex-column mx-auto">
+            <p className="mb-5 mb-md-0">
+              To us causes are projects and projects are causes because our hearts are
+              fully involved in all that we do. Join our growing list of volunteers.
+            </p>
+            <button type="button" className=" link btn fw-bold py-3 px-5 me-0 mt-auto w-100 d-block d-md-none mb-5 " data-bs-toggle="modal" data-bs-target="#volunteerModal">
+              Volunteer
+              {' '}
+            </button>
+          </div>
+          <div className="volunteer__hero--btnTwo text-center  pt-lg-5    col-md-6 d-flex flex-column mx-auto">
+            <p>
+              <em>
+                “Never doubt that a small group of thoughtful committed citizens can change the
+                world: indeed, it’s the only thing that ever has.”
+              </em>
+              {' '}
+              -
+              {' '}
+              <strong>Margaret Mead</strong>
+              {' '}
+              <br />
+              Want to contribute to any of our causes?
+
+            </p>
+          </div>
+        </div>
+        <div className="row mb-5 pb-lg-5">
+          <div className="col-md-6 my-2">
+            <button type="button" className=" link btn fw-bold py-3 px-5 me-0 mt-auto w-100 d-none d-md-block" data-bs-toggle="modal" data-bs-target="#volunteerModal">
+              Volunteer
+              {' '}
+            </button>
+          </div>
+          <div className="col-md-6 my-2">
+            <Link to="/" type="button" className="link btn fw-bold py-3 px-5 me-0 w-100">
+              Donate here
+              {' '}
+            </Link>
+          </div>
+        </div>
       </div>
     </>
   );

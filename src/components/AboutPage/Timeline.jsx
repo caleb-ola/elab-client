@@ -29,7 +29,7 @@ function Timeline() {
     setContent(exactDate.map((item) => (
       item.brands.map((brand) => (
         <div className="timeline__content--details mb-3 mb-lg-4" key={brand.id}>
-          <img src={brand.logo} alt="" className="img-fluid timeline--logo" />
+          <img src={brand.logo} alt={brand.title} className="img-fluid timeline--logo" />
           <p>
             {brand.content}
           </p>

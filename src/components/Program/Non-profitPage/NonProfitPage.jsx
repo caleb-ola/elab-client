@@ -29,6 +29,7 @@ function NonProfitPage() {
         text=" We seek to transform our community one project at a time."
         button="Volunteer"
         button2="Donate"
+        // DONATE BUTTON LINK GOES IN HERE.....
         path2=""
         modal="#volunteerModal"
         overlay="overlay__two"

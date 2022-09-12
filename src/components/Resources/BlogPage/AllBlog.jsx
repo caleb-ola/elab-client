@@ -328,7 +328,7 @@ function AllBlogs() {
         </div> */}
       </div>
       <div className="container">
-        <div className="row mt-3 mt-lg-4">
+        <div className="row mt-3 mt-lg-4 row-cols-1 row-cols-md-3 g-4">
           {loading ? skeleton : blog}
         </div>
       </div>
