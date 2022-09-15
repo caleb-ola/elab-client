@@ -8,7 +8,7 @@ function CoworkHome() {
         <div className="row align-items-center">
           <div className="col-md-6 order-2 order-md-1 my-2">
             {/* <div className=""> */}
-            <h4 className="cowork--title py-2">The perfect Workspace for you</h4>
+            <h4 className="cowork--title py-2">The Perfect Workspace For You</h4>
             <p className="cowork--para py-2 m-0">
               Whether you&apos;re an individual or a team, we have an affordable
               and flexible space just for you.

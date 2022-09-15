@@ -39,7 +39,7 @@ function Story() {
               {' '}
               <p>
                 We support grassroots talents who are working on tech-enabled businesses with
-                advisory services, mentorship, funding, tech support and networking.
+                advisory services, mentorship, funding, tech support, and networking.
               </p>
               <div className="mt-5 mb-3">
                 <a href="/about-us" className="link fw-bold py-3 px-5 text-decoration-none">

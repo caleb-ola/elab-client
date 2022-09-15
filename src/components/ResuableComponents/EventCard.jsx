@@ -15,7 +15,6 @@ function EventCard({
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'cover',
             height: '250px',
-            // borderRadius: '10px',
           }}
         />
         <div className="card-body p-4 ">

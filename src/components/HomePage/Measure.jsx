@@ -122,7 +122,7 @@ function Measure() {
                   some kinds of impact we have made. For instance, how does one
                   measure the hope, love, laughter, fulfillment our presence in our
                   community has brought? While those are difficult to measure, there
-                  are some much easier to
+                  are some much easier to.
                 </p>
               </div>
               <div className="row mt-lg-5 measure__stats">

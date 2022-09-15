@@ -56,7 +56,7 @@ function Training() {
           </h4>
           <p className="pt-2">
             The beautiful thing about learning is that nobody can take it away from you.
-            And that’s why we can’t stop delivering exceptional training for all our stakeholders...
+            And that’s why we can’t stop delivering exceptional training for all our stakeholders.
           </p>
         </div>
         {loading ? skeleton : body}

@@ -21,17 +21,18 @@ const TimelineData = [
     id: 2,
     year: 2021,
     brands: [
-      {
-        id: 1,
-        title: 'CADEMY',
-        logo: '/images/about/cademy.png',
-        content: 'Cademy We launched Cademy to provide access to quality education for children in underserved communities as well as those involved in homeschooling.',
-      },
+      // {
+      //   id: 1,
+      //   title: 'CADEMY',
+      //   logo: '/images/about/cademy.png',
+      //   content: 'Cademy We launched Cademy to provide access to quality education
+      // for children in underserved communities as well as those involved in homeschooling.',
+      // },
       {
         id: 2,
         title: 'TRIFOLD',
         logo: '/images/about/trifold.png',
-        content: 'We launched the MVP for Trifold',
+        content: 'We launched the MVP for Trifold.',
       },
       {
         id: 3,
@@ -78,7 +79,7 @@ const TimelineData = [
       {
         id: 3,
         title: 'GREENGIRLY',
-        logo: '/images/about/.png',
+        logo: false,
         content: 'GreenGirly is a block-chain powered women-in-recycling programme designed to empower women with relevant educational and trading resources.',
       },
       {
@@ -121,7 +122,7 @@ const TimelineData = [
         id: 1,
         title: 'CTCTW',
         logo: '/images/about/ctctw.png',
-        content: 'Set to revolutionalize the minds of the young children in our community, we launched CTCTWs Radio Broadcast, a weekly radio broadcast aired to educate the children of Ogbomoso and its environs with some of the 21st century skills such as Creative and Critical thinking skills',
+        content: 'Set to revolutionalize the minds of the young children in our community, we launched CTCTWs Radio Broadcast, a weekly radio broadcast aired to educate the children of Ogbomoso and its environs with some of the 21st century skills such as Creative and Critical thinking skills.',
       },
       {
         id: 2,
@@ -145,13 +146,13 @@ const TimelineData = [
         id: 5,
         title: 'LIC',
         logo: '/images/about/oic.png',
-        content: 'To encourage entrepreneurship and innovation among university students, we organized the first-of-its-kind Innovation Challenge among undergraduate students, which became the motivation for the school to set up an in-house Committee on Innovation, which morphed into',
+        content: 'To encourage entrepreneurship and innovation among university students, we organized the first-of-its-kind Innovation Challenge among undergraduate students, which became the motivation for the school to set up an in-house Committee on Innovation, which morphed into Summer of Code.',
       },
       {
         id: 6,
         title: 'LAUCRID',
         logo: '/images/about/oic.png',
-        content: 'Summer of Code Summer of Code was set up to piggyback on Hour of Code to engage and train Secondary School students with basic skills in web programming during the summer break.',
+        content: 'Summer of Code was set up to piggyback on Hour of Code to engage and train Secondary School students with basic skills in web programming during the summer break.',
       },
     ],
   },

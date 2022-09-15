@@ -131,13 +131,12 @@ function PaddedCard({
               </h6>
             </div>
             <div className="card-body m-0 p-0 h-100">
-              <div
-                className="div"
+              <img
+                src={image}
+                alt=""
+                className="img-fluid w-100 "
                 style={{
-                  background: `url(${image})`,
-                  backgroundRepeat: 'no-repeat',
-                  backgroundSize: 'cover',
-                  height: '340px',
+
                   borderRadius: '10px',
                 }}
               />
@@ -179,7 +178,8 @@ function PaddedCard({
               {title.replace(/(^\w|\s\w)/g, (m) => m.toUpperCase())}
             </h6>
           </div>
-          <div className="card-body m-0 p-0 h-100">
+          <img src={image} alt="" className="img-fluid" />
+          {/* <div className="card-body m-0 p-0 h-100">
             <div
               className="div"
               style={{
@@ -190,7 +190,7 @@ function PaddedCard({
                 borderRadius: '10px',
               }}
             />
-          </div>
+          </div> */}
           <div className="card-footer bg-white border-0 p-0">
             {button ? (
               <div className="row my-4 align-items-center">

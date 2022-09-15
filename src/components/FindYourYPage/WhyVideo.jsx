@@ -5,12 +5,19 @@ import { useParams } from 'react-router-dom';
 function WhyVideo() {
   const { id } = useParams();
   const [title, setTitle] = useState();
+  const [btn, setBtn] = useState();
   // const [videolink, setVideolink] = useState();
   const [description, setDescription] = useState();
 
   useEffect(() => {
     if (id === 'founders-community') {
-      setTitle(<span>Founder’s Community</span>);
+      setTitle(
+        <span>
+          Sign up for
+          Founder’s Community
+        </span>,
+      );
+      setBtn('Sign up');
       // setVideolink();
       setDescription(
         <p className="whyvideo--text text-center py-3 mx-auto">
@@ -31,30 +38,18 @@ function WhyVideo() {
         </p>,
       );
     } else if (id === 'technical-cofounder') {
-      setTitle(<span>Technical Co-founder</span>);
+      setTitle(<span>Join the waiting list for Technical Co-founder</span>);
       // setVideolink();
+      setBtn('Join the waiting list');
       setDescription(
-        <p className="whyvideo--text text-center py-3 mx-auto">
-          Consequat eget nisl tellus, sed turpis.
-          Nulla et lectus vel mauris. Cursus nulla viverra interdum et
-          interdum egestas ornare neque. Vulputate sapien, sed cursus
-          tortor ante purus ultrices. At viverra gravida integer malesuada
-          diam non elit. Sed luctus fringilla in mattis quis risus aliquam
-          enim tristique. Molestie vestibulum malesuada.
-        </p>,
+        <p className="whyvideo--text text-center py-3 mx-auto" />,
       );
     } else if (id === 'skills-seeker') {
-      setTitle(<span>Skills Seeker</span>);
+      setTitle(<span>Join the waiting list for Skills Seeker</span>);
       // setVideolink();
+      setBtn('Join the waiting list');
       setDescription(
-        <p className="whyvideo--text text-center py-3 mx-auto">
-          Consequat eget nisl tellus, sed turpis.
-          Nulla et lectus vel mauris. Cursus nulla viverra interdum et
-          interdum egestas ornare neque. Vulputate sapien, sed cursus
-          tortor ante purus ultrices. At viverra gravida integer malesuada
-          diam non elit. Sed luctus fringilla in mattis quis risus aliquam
-          enim tristique. Molestie vestibulum malesuada.
-        </p>,
+        <p className="whyvideo--text text-center py-3 mx-auto" />,
       );
     }
   }, []);
@@ -70,8 +65,6 @@ function WhyVideo() {
             </div>
             <div className="modal-body px-md-5 benefits__content pt-0 pb-4">
               <h4 className="modal-title" id="exampleModalLabel">
-                Sign up for
-                {' '}
                 {title}
               </h4>
               <form action="" className="benefits__form">
@@ -89,9 +82,7 @@ function WhyVideo() {
                 </div>
                 <div className="py-3 py-lg-4 ">
                   <button type="submit" className=" link btn fw-bold py-3 px-5 me-0 benefits__form--button">
-                    Join
-                    {' '}
-                    {title}
+                    {btn}
                   </button>
                 </div>
               </form>
@@ -114,7 +105,7 @@ function WhyVideo() {
           {description}
           <div className="whyvideo__cta--btn pt-4 text-center">
             <button type="button" className="whyvideo__cta--btn link btn fw-bold py-3 px-5" data-bs-toggle="modal" data-bs-target="#exampleModal">
-              Sign Up
+              {btn}
             </button>
           </div>
         </div>
