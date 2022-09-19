@@ -136,17 +136,20 @@ const TimelineData = [
         logo: '/images/about/mybizboxx.png',
         content: 'We launched MyBizBoxx as the enterprise arm of Ennovate Lab to provide digital services to SMEs in the community.',
       },
-      {
-        id: 4,
-        title: 'OIC',
-        logo: '/images/about/oic.png',
-        content: 'In June, powered by a grant from Harpur Fellows, we organized the first Innovation Challenge, bringing Secondary School students from both public and private schools together in Ogbomoso.',
-      },
+      // {
+      //   id: 4,
+      //   title: 'OIC',
+      //   logo: '/images/about/oic.png',
+      //   content: 'In June, powered by a grant from Harpur Fellows, we organized the
+      // first Innovation Challenge,
+      // bringing Secondary School students from both public and private schools
+      // together in Ogbomoso.',
+      // },
       {
         id: 5,
         title: 'LIC',
         logo: '/images/about/oic.png',
-        content: 'To encourage entrepreneurship and innovation among university students, we organized the first-of-its-kind Innovation Challenge among undergraduate students, which became the motivation for the school to set up an in-house Committee on Innovation, which morphed into Summer of Code.',
+        content: 'To encourage entrepreneurship and innovation among university students, we organized the first-of-its-kind Innovation Challenge among undergraduate students, which became the motivation for the school to set up an in-house Committee on Innovation, which morphed into Summer of Code. In June, powered by a grant from Harpur Fellows, we organized the first Innovation Challenge, bringing Secondary School students from both public and private schools together in Ogbomoso.',
       },
       {
         id: 6,

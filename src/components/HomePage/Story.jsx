@@ -1,7 +1,7 @@
 import React from 'react';
+import { Slide } from 'react-awesome-reveal';
 
 function Story() {
-  // const [gridImages, setGridImages] = useState();
   return (
     <section
       className="story my-5"
@@ -21,8 +21,14 @@ function Story() {
               <h4 className="py-2">Our Story</h4>
               <p className="fw-bold">Building resilient innovation ecosystems in underserved university communities.</p>
               <div className="image__stack d-md-none  px-1 py-4">
-                <div className="image__stack--item image__stack--top ">
-                  <img src="/images/home/story3.png" alt="" className="img-fluid" />
+                <div
+                  className="image__stack--item image__stack--top "
+                >
+                  <img
+                    src="/images/home/story3.png"
+                    alt=""
+                    className="img-fluid"
+                  />
                 </div>
                 <div className="image__stack--item image__stack--middle">
                   <img src="/images/home/story2.png" alt="" className="img-fluid" />
@@ -50,13 +56,19 @@ function Story() {
             <div className="col-md-6 order-1 order-md-2">
               <div className="image__stack d-none d-md-grid">
                 <div className="image__stack--item image__stack--top ">
-                  <img src="/images/home/story3.png" alt="" className="img-fluid" />
+                  <Slide direction="up">
+                    <img src="/images/home/story3.png" alt="" className="img-fluid" />
+                  </Slide>
                 </div>
                 <div className="image__stack--item image__stack--middle">
-                  <img src="/images/home/story2.png" alt="" className="img-fluid" />
+                  <Slide direction="down">
+                    <img src="/images/home/story2.png" alt="" className="img-fluid" />
+                  </Slide>
                 </div>
                 <div className="image__stack--item image__stack--bottom">
-                  <img src="/images/home/story1.png" alt="" className="img-fluid" />
+                  <Slide direction="right">
+                    <img src="/images/home/story1.png" alt="" className="img-fluid" />
+                  </Slide>
                 </div>
               </div>
             </div>

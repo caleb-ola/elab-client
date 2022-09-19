@@ -216,7 +216,7 @@ function Volunteer() {
               To us causes are projects and projects are causes because our hearts are
               fully involved in all that we do. Join our growing list of volunteers.
             </p>
-            <button type="button" className=" link btn fw-bold py-3 px-5 me-0 mt-auto w-100 d-block d-md-none mb-5 " data-bs-toggle="modal" data-bs-target="#volunteerModal">
+            <button type="button" className=" link btn fw-bold py-3 px-5 me-0 mt-auto  d-block d-md-none mb-5 text-center" data-bs-toggle="modal" data-bs-target="#volunteerModal">
               Volunteer
               {' '}
             </button>
@@ -238,15 +238,15 @@ function Volunteer() {
             </p>
           </div>
         </div>
-        <div className="row mb-5 pb-lg-5">
-          <div className="col-md-6 my-2">
-            <button type="button" className=" link btn fw-bold py-3 px-5 me-0 mt-auto w-100 d-none d-md-block" data-bs-toggle="modal" data-bs-target="#volunteerModal">
+        <div className="row mb-5 pb-lg-5 text-center">
+          <div className="col-md-6 my-2 text-center">
+            <button type="button" className=" link btn fw-bold py-3 px-5 me-0 mt-auto d-none d-md-inline-block" data-bs-toggle="modal" data-bs-target="#volunteerModal">
               Volunteer
               {' '}
             </button>
           </div>
           <div className="col-md-6 my-2">
-            <Link to="/" type="button" className="link btn fw-bold py-3 px-5 me-0 w-100">
+            <Link to="/" type="button" className="link btn fw-bold py-3 px-5 me-0 ">
               Donate here
               {' '}
             </Link>

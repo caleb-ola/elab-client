@@ -151,7 +151,7 @@
     &__text {
         margin: 0;
         position: absolute;
-        top: 55%;
+        top: 58.5%;
         // left: 50%;
         -ms-transform: translate(0%, -50%);
         transform: translate(0%, -50%);
@@ -160,8 +160,8 @@
                 90%,
                 (
                   $md: 90%,
-                  $lg: 80%,
-                  $xl: 70%,
+                  $lg: 75%,
+                  $xl: 60%,
                   $xxl: 50%,
                 )
               );

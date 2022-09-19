@@ -120,7 +120,7 @@ function Details() {
               Download Brochure
             </a>
             {' '} */}
-            <a href={data?.link} type="button" className=" link btn fw-bold py-3 px-5 me-0" download>
+            <a href={data?.link} type="button" className=" link btn fw-bold py-3 px-5 me-0" role="button" target="_blank" rel="noreferrer" download>
               Learn more
             </a>
           </div>

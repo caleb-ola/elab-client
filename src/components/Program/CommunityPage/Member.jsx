@@ -10,7 +10,7 @@ function Member() {
               <h4>
                 Become a part of an exclusive community for entrepreneurs and tech-enthusiasts.
               </h4>
-              <div className="py-3 py-lg-5 px-0">
+              <div className="py-3 pt-lg-4 pb-lg-5 px-0">
                 <button type="button" className=" link btn fw-bold py-3 px-5 me-0" data-bs-toggle="modal" data-bs-target="#trybeModal">
                   Be a Member, Today!
                 </button>

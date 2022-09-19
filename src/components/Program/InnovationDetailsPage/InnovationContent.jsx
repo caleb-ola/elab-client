@@ -351,7 +351,7 @@ function InnovationContent() {
     });
   };
   const [body, setBody] = useState(
-    <div className="col-md-6">
+    <div className="col-md-4">
       <p className="m-0">No. of hours</p>
       <select id="innovation__input" name="innovation__input" className="px-3 py-2 my-1 innovation__input form-select shadow-none" onChange={(e) => setFrequency(e.target.value)} required>
         <option className="innovation__input--option" value="1">1 Hour</option>
@@ -375,7 +375,7 @@ function InnovationContent() {
     });
     setOccurence('days');
     setBody(
-      <div className="col-md-6">
+      <div className="col-md-4">
         <p className="m-0">No. of days</p>
         <select id="innovation__input" name="innovation__input" className="px-3 py-2 my-1 innovation__input form-select shadow-none" onChange={(e) => setFrequency(e.target.value)} required>
           <option className="innovation__input--option" value="1">1 Day</option>
@@ -396,7 +396,7 @@ function InnovationContent() {
     });
     setOccurence('hours');
     setBody(
-      <div className="col-md-6">
+      <div className="col-md-4">
         <p className="m-0">No. of hours</p>
         <select id="innovation__input" name="innovation__input" className="px-3 py-2 my-1 innovation__input form-select shadow-none" onChange={(e) => setFrequency(e.target.value)} required>
           <option className="innovation__input--option" value="1">1 Hour</option>
@@ -421,7 +421,7 @@ function InnovationContent() {
     });
     setOccurence('weeks');
     setBody(
-      <div className="col-md-6">
+      <div className="col-md-4">
         <p className="m-0">No. of weeks</p>
         <select id="innovation__input" name="innovation__input" className="px-3 py-2 my-1 innovation__input form-select shadow-none" onChange={(e) => setFrequency(e.target.value)} required>
           <option className="innovation__input--option" value="1">1 Week </option>
@@ -441,7 +441,7 @@ function InnovationContent() {
     });
     setOccurence('months');
     setBody(
-      <div className="col-md-6">
+      <div className="col-md-4">
         <p className="m-0">No. of months</p>
         <select id="innovation__input" name="innovation__input" className="px-3 py-2 my-1 innovation__input form-select shadow-none" onChange={(e) => setFrequency(e.target.value)} required>
           <option className="innovation__input--option" value="1">1 Month </option>
@@ -504,9 +504,13 @@ function InnovationContent() {
               </nav>
             </div>
             <form onSubmit={Submit}>
-              <div className="row">
+              <div className="row ">
+                <div className=" col-md-4">
+                  <p className="m-0">Start date:</p>
+                  <input type="date" className="px-3 py-2 my-1 w-100 innovation__input" value={startDate} onChange={(e) => setStartDate(e.target.value)} required />
+                </div>
                 {body}
-                <div className="col-md-6">
+                <div className="col-md-4">
                   <p className="m-0">No. of persons</p>
                   <select id="innovation__input" name="innovation__input" className="px-3 py-2 my-1 innovation__input form-select shadow-none" onChange={(e) => setNoOfPersons(e.target.value)} required>
                     <option value="1">1 Person</option>
@@ -517,10 +521,11 @@ function InnovationContent() {
                 </div>
               </div>
               <div className="row">
-                <div className="py-2 col-md-12">
+                {/* <div className="py-2 col-md-4">
                   <p className="m-0">Start date:</p>
-                  <input type="date" className="px-3 py-2 my-1 w-100 innovation__input" value={startDate} onChange={(e) => setStartDate(e.target.value)} required />
-                </div>
+                  <input type="date" className="px-3 py-2 my-1 w-100 innovation__input"
+                  value={startDate} onChange={(e) => setStartDate(e.target.value)} required />
+                </div> */}
                 {/* <div className="py-2 col-md-6">
                   <p className="m-0">End date:</p>
                   <input type="date" className="px-3 py-2 my-1 w-100 innovation__input"

@@ -17,7 +17,6 @@ function Hero({
         backgroundPosition: 'center',
       }}
     >
-
       <div className="">
         <div className="container">
           <div className="hero hero__text text-center mx-auto">

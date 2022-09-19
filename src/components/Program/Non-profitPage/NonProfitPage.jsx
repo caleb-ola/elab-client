@@ -16,7 +16,7 @@ function NonProfitPage() {
         </title>
         <meta
           name="description"
-          content="We seek to transform our community one project at a time."
+          content="“Never doubt that a small group of thoughtful committed citizens can change the world: indeed, it’s the only thing that ever has.” - Margaret Mead"
           keywords="Non-Profit"
         />
         <meta name="keywords" content="non-profit volunteer" />
@@ -26,7 +26,7 @@ function NonProfitPage() {
         image="url('/images/program/non-profit-hero.jpg')"
         title="eLab"
         title1="Non-Profit"
-        text=" We seek to transform our community one project at a time."
+        text=" “Never doubt that a small group of thoughtful committed citizens can change the world: indeed, it’s the only thing that ever has.” - Margaret Mead"
         button="Volunteer"
         button2="Donate"
         // DONATE BUTTON LINK GOES IN HERE.....
