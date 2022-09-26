@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 // import { PropTypes } from 'prop-types';
 import { useParams } from 'react-router-dom';
+import WhyEmpty from '../ResuableComponents/whyEmpty';
 
 function WhyVideo() {
   const { id } = useParams();
@@ -42,14 +43,14 @@ function WhyVideo() {
       // setVideolink();
       setBtn('Join the waiting list');
       setDescription(
-        <p className="whyvideo--text text-center py-3 mx-auto" />,
+        <WhyEmpty />,
       );
     } else if (id === 'skills-seeker') {
       setTitle(<span>Join the waiting list for Skills Seeker</span>);
       // setVideolink();
       setBtn('Join the waiting list');
       setDescription(
-        <p className="whyvideo--text text-center py-3 mx-auto" />,
+        <WhyEmpty />,
       );
     }
   }, []);

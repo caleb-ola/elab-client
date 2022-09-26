@@ -14,9 +14,9 @@ function PaddedCardTwo({
     (
       <div className="card border-0 paddedcard p-4 px-lg-5 py-5 py-lg-5 h-100">
         <div className="card-header bg-white border-0 m-0 p-0 h-100">
-          <h6 className="paddedcard__title fw-bold pb-3">
+          <p className="paddedcard__title fw-bold lh-sm">
             {title.replace(/(^\w|\s\w)/g, (m) => m.toUpperCase())}
-          </h6>
+          </p>
         </div>
         <div className="card-body m-0 p-0 h-100">
           <div

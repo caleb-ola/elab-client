@@ -360,6 +360,9 @@
       color: #4F4F4F;
       border-radius: 5px;
       font-size: 0.8rem;
+      &::first-letter {
+        text-transform: uppercase !important;
+      }
     }
     &--cta {
       &:hover {

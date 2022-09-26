@@ -23,7 +23,11 @@ function StartupFoundry() {
         <meta name="keywords" content="Startup Foundry" />
       </Helmet>
       <NavBar />
-      <HeroThree title="Our Startup" highlight="Directory" text="Startups in our foundry" />
+      <HeroThree
+        title="Our Startup"
+        highlight="Directory"
+        // text="Startups in our foundry"
+      />
       <AllStartups />
       {/* <Pagination /> */}
       <Partnership />

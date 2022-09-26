@@ -85,7 +85,7 @@ function BlogDetailsHero() {
                 // eslint-disable-next-line
                 <div key={index}>
                   <span className="col topblog--tags mx-2 events__body--label fw-bold py-2 px-3 my-2 text-center">
-                    {item}
+                    {item.charAt(0).toUpperCase() + item.slice(1).toLowerCase()}
                   </span>
                 </div>
                 )

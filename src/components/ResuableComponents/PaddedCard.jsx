@@ -124,11 +124,11 @@ function PaddedCard({
     path
       ? (
         <a href={path} className="text-decoration-none paddedcard__link h-100">
-          <div className="card border-0 paddedcard p-4 px-lg-5 py-lg-5 pb-lg-4 pb-2 h-100">
+          <div className="card border-0 paddedcard p-4 px-lg-5 py-lg-5 pb-lg-5 pb-2 h-100">
             <div className="card-header bg-white border-0 m-0 p-0 h-100">
-              <h6 className="paddedcard__title fw-bold pb-3">
+              <p className="paddedcard__title fw-bold lh-sm">
                 {title.replace(/(^\w|\s\w)/g, (m) => m.toUpperCase())}
-              </h6>
+              </p>
             </div>
             <div className="card-body m-0 p-0 h-100">
               <img
@@ -151,9 +151,8 @@ function PaddedCard({
 
               )
                 : (
-                  <div className="row mt-4">
+                  <div className="row mt-3">
                     <div className=" text-center text-md-start">
-                      {' '}
                       <i className="fa-solid fa-user blog--icon pe-2" />
                       {name}
                     </div>
@@ -171,12 +170,12 @@ function PaddedCard({
         </a>
       )
       : (
-        <div className="card border-0 paddedcard p-4 px-lg-5 py-lg-5 pb-lg-4 pb-2  h-100">
+        <div className="card border-0 paddedcard p-4 px-lg-5 py-lg-5 pb-lg-5 pb-2  h-100">
           <ToastContainer />
           <div className="card-header bg-white border-0 m-0 p-0 h-100">
-            <h6 className="paddedcard__title fw-bold pb-3">
+            <p className="paddedcard__title fw-bold lh-sm">
               {title.replace(/(^\w|\s\w)/g, (m) => m.toUpperCase())}
-            </h6>
+            </p>
           </div>
           <img src={image} alt="" className="img-fluid" />
           {/* <div className="card-body m-0 p-0 h-100">
@@ -193,7 +192,7 @@ function PaddedCard({
           </div> */}
           <div className="card-footer bg-white border-0 p-0">
             {button ? (
-              <div className="row my-4 align-items-center">
+              <div className="row mt-4 align-items-center">
                 <div className="col-7">
                   {button !== 'Make payment'
                     ? (

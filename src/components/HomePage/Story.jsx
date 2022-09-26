@@ -56,17 +56,17 @@ function Story() {
             <div className="col-md-6 order-1 order-md-2">
               <div className="image__stack d-none d-md-grid">
                 <div className="image__stack--item image__stack--top ">
-                  <Slide direction="up">
+                  <Slide direction="down">
                     <img src="/images/home/story3.png" alt="" className="img-fluid" />
                   </Slide>
                 </div>
                 <div className="image__stack--item image__stack--middle">
-                  <Slide direction="down">
+                  <Slide direction="right">
                     <img src="/images/home/story2.png" alt="" className="img-fluid" />
                   </Slide>
                 </div>
                 <div className="image__stack--item image__stack--bottom">
-                  <Slide direction="right">
+                  <Slide direction="up">
                     <img src="/images/home/story1.png" alt="" className="img-fluid" />
                   </Slide>
                 </div>

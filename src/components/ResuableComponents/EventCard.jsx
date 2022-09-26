@@ -18,7 +18,7 @@ function EventCard({
           }}
         />
         <div className="card-body p-4 ">
-          <span className="events__body--label fw-bold py-2 px-3 text-center">{label}</span>
+          <span className="events__body--label fw-bold py-2 px-3 text-center">{label.charAt(0).toUpperCase() + label.slice(1).toLowerCase()}</span>
           <h5 className="card-title py-2 pt-lg-4 pb-lg-2">{title.replace(/(^\w|\s\w)/g, (m) => m.toUpperCase())}</h5>
           {' '}
         </div>

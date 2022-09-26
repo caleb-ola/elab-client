@@ -25,7 +25,7 @@ function AllProjects() {
       setSkeleton();
       setProj(
         response.data.data.map((item) => (
-          <div className="col-md-6 col-lg-4 my-3 my-lg-4 px-3 px-lg-4" key={item.id}>
+          <div className="col-md-6 col-lg-4 my-3 my-lg-4 px-3 px-lg-5" key={item.id}>
             <div
               className="projects__card position-relative"
               style={{
@@ -93,7 +93,7 @@ function AllProjects() {
       } else {
         setProj(
           response.data.data.map((item) => (
-            <div className="col-md-6 col-lg-4 my-3 my-lg-4 px-3 px-lg-4" key={item.id}>
+            <div className="col-md-6 col-lg-4 my-3 my-lg-4 px-3 px-lg-5" key={item.id}>
               <div
                 className="projects__card position-relative"
                 style={{
@@ -161,7 +161,7 @@ function AllProjects() {
       } else {
         setProj(
           response.data.data.map((item) => (
-            <div className="col-md-6 col-lg-4 my-3 my-lg-4 px-3 px-lg-4" key={item.id}>
+            <div className="col-md-6 col-lg-4 my-3 my-lg-4 px-3 px-lg-5" key={item.id}>
               <div
                 className="projects__card position-relative"
                 style={{
@@ -229,7 +229,7 @@ function AllProjects() {
       } else {
         setProj(
           response.data.data.map((item) => (
-            <div className="col-md-6 col-lg-4 my-3 my-lg-4 px-3 px-lg-4" key={item.id}>
+            <div className="col-md-6 col-lg-4 my-3 my-lg-4 px-3 px-lg-5" key={item.id}>
               <div
                 className="projects__card position-relative"
                 style={{

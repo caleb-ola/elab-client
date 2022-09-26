@@ -406,7 +406,6 @@ function InnovationContent() {
           <option className="innovation__input--option" value="1">5 Hours</option>
           <option className="innovation__input--option" value="2">6 Hours</option>
           <option className="innovation__input--option" value="3">7 Hours</option>
-          <option className="innovation__input--option" value="4">8 Hours</option>
         </select>
       </div>,
     );
@@ -447,11 +446,6 @@ function InnovationContent() {
           <option className="innovation__input--option" value="1">1 Month </option>
           <option className="innovation__input--option" value="2">2 Months</option>
           <option className="innovation__input--option" value="3">3 Months</option>
-          <option className="innovation__input--option" value="1">4 Months </option>
-          <option className="innovation__input--option" value="2">5 Months</option>
-          <option className="innovation__input--option" value="3">6 Months</option>
-          <option className="innovation__input--option" value="1">7 Months </option>
-          <option className="innovation__input--option" value="2">8 Months</option>
         </select>
       </div>,
     );
@@ -474,7 +468,7 @@ function InnovationContent() {
             <img src={res?.image} alt="" className="img-fluid rounded-3 innovation__content--image w-100" />
           </div>
           <div className="col-lg-6 my-3 px-lg-5">
-            <h4 className="py-2">
+            <h4 className="py-2 ">
               {res?.title}
             </h4>
             <div className="py-0">
@@ -494,7 +488,7 @@ function InnovationContent() {
               </h6>
             </div>
 
-            <div className="">
+            <div className="py-2">
               <p className="m-0">Duration</p>
               <nav className="nav innovation__nav pb-2">
                 <button type="button" className={category.hourly ? 'px-3 py-1 btn innovation__content--btn my-1 me-2 active' : 'px-3 py-1 btn innovation__content--btn my-1 me-2'} onClick={Hourly}>Hourly</button>
@@ -504,7 +498,7 @@ function InnovationContent() {
               </nav>
             </div>
             <form onSubmit={Submit}>
-              <div className="row ">
+              <div className="row py-2 ">
                 <div className=" col-md-4">
                   <p className="m-0">Start date:</p>
                   <input type="date" className="px-3 py-2 my-1 w-100 innovation__input" value={startDate} onChange={(e) => setStartDate(e.target.value)} required />
@@ -532,7 +526,7 @@ function InnovationContent() {
                   value={endDate} onChange={(e) => setStartDate(e.target.value)} required />
                 </div> */}
               </div>
-              <div className="row">
+              <div className="row py-2">
                 <div className="py-2 col-6">
                   <p className="m-0">Internet:</p>
                   <div className="form-check form-switch">
@@ -546,7 +540,7 @@ function InnovationContent() {
                   </div>
                 </div>
               </div>
-              <div className="my-2">
+              <div className="my-2 my-md-3">
                 {
               btnLoading
                 ? (

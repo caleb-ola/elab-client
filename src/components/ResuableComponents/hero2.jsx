@@ -1,14 +1,14 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
 import Moment from 'react-moment';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 // import Cta from './Cta';
 import CircleBg from './circleBg';
 
 function HeroTwo({
   image, title, title1, button,
   text, circleTitle, price,
-  modal, date, link, linkText, button2, path2,
+  modal, date, link, linkText, button2,
 }) {
   return (
     <section
@@ -89,16 +89,16 @@ function HeroTwo({
                 </Moment>
               </p>
               )}
-              <div className="mt-4 hero__button d-inline-flex flex-wrap align-items-center ">
+              <div className="mt-4 hero__button">
                 <div className="my-3 mx-1">
                   { button && (
                   <button className="link fw-bold py-3 px-5 text-decoration-none volunteer__hero--btn" type="button" data-bs-target={modal} data-bs-toggle="modal">
                     {button}
                   </button>
                   )}
-                </div>
-                <div className="my-2 mx-1">
-                  { button2 && <Link className="link fw-bold py-3 px-5 text-decoration-none volunteer__hero--btn " type="button" to={path2}>{button2}</Link>}
+                  <div className="my-2">
+                    { button2 && <a href="https://paystack.com/pay/elab-donations" target="_blank" rel="noreferrer" className="link fw-bold py-3 px-5 text-decoration-none volunteer__hero--btn" type="button">{button2}</a>}
+                  </div>
                 </div>
               </div>
               <div className="my-5 hero__button">
@@ -130,7 +130,7 @@ HeroTwo.propTypes = {
   link: PropTypes.string,
   linkText: PropTypes.string,
   button2: PropTypes.string,
-  path2: PropTypes.string,
+  // path2: PropTypes.string,
 };
 
 HeroTwo.defaultProps = {
@@ -147,7 +147,7 @@ HeroTwo.defaultProps = {
   link: '',
   linkText: '',
   button2: '',
-  path2: '',
+  // path2: '',
 };
 
 export default HeroTwo;

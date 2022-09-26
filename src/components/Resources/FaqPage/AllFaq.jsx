@@ -2,7 +2,7 @@ import React from 'react';
 
 function AllFaq() {
   return (
-    <div className="faq py-5">
+    <div className="faq pb-5 pt-2">
       <div className="container pb-5">
         <div className="faq__card p-4 p-lg-5">
           <div className="accordion" id="accordionExample">

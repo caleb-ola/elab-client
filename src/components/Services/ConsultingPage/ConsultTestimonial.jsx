@@ -22,17 +22,17 @@ function ConsultTestimonial() {
           >
             <div className="card-body p-0">
               <p>
-                Enovate Lab testimonial on Epe Impact Project 2021.
+                Ennovate Lab testimonial on Epe Impact Project 2021.
                 Just like a friend, who journeys with you from one phase of life to
                 another, that was
-                how Enovate Lab bonded with us at Threefold Social Impact Foundation,
+                how Ennovate Lab bonded with us at Threefold Social Impact Foundation,
                 from the project
                 initiating phase to the execution phase.
                 We walked the street of Epe together from one school to another. it‘s
                 a wonderful time
                 of professionalism and a good gesture of heart that produces the excellent and
                 beautiful outcome of Epe Impact Product.
-                Thank you, Enovate Lab team.
+                Thank you, Ennovate Lab team.
               </p>
             </div>
             <div className="row align-items-center card-footer testimonial__card--footer p-0 ">

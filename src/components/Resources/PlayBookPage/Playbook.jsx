@@ -16,13 +16,13 @@ function Playbook() {
         </title>
         <meta
           name="description"
-          content="Digital resources for entrepreneurs and business owners changing the status quo"
+          content="Digital resources for entrepreneurs and business owners changing the status quo."
         />
       </Helmet>
       <NavBar />
       <HeroLight
         highlight2="Playbook"
-        text="Digital resources for entrepreneurs and business owners changing the status quo"
+        text="Digital resources for entrepreneurs and business owners changing the status quo."
       />
       <AllPlaybook />
       <Footer />

@@ -64,7 +64,7 @@ import UserCoworkDetails from './components/Dashboard/User/UserCoworkDetails/Use
 import UserResources from './components/Dashboard/User/UserResources/UserResources';
 import InnovationPage from './components/Program/InnovationPage/Innovation';
 import InnovationDetails from './components/Program/InnovationDetailsPage/InnovationDetails';
-import Summary from './components/Program/SummaryPage/Summary';
+// import Summary from './components/Program/SummaryPage/Summary';
 import Login from './components/Authentication/Login';
 import Forgot from './components/Authentication/Forgot';
 import Reset from './components/Authentication/Reset';
@@ -104,9 +104,9 @@ function App() {
           <Route path="/program/projects" element={<Projects />} />
           <Route path="/program/projects/:slug" element={<ProjectsDetails />} />
           <Route path="/program/non-profit" element={<NonProfitPage />} />
-          <Route path="/program/innovation-hub" element={<InnovationPage />} />
-          <Route path="/program/innovation-hub/:slug" element={<InnovationDetails />} />
-          <Route path="/program/innovation-hub/:id/summary" element={<Summary />} />
+          <Route path="/services/workspace" element={<InnovationPage />} />
+          <Route path="/services/workspace/:slug" element={<InnovationDetails />} />
+          {/* <Route path="/workspace/:id/summary" element={<Summary />} /> */}
           <Route path="/services/digital-services" element={<Services />} />
           <Route path="/services/consultation" element={<Consultation />} />
           <Route path="/services/consultation/book-a-session" element={<BookSession />} />

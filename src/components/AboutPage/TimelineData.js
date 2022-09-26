@@ -79,7 +79,7 @@ const TimelineData = [
       {
         id: 3,
         title: 'GREENGIRLY',
-        logo: false,
+        logo: '/images/about/GreenGirly.png',
         content: 'GreenGirly is a block-chain powered women-in-recycling programme designed to empower women with relevant educational and trading resources.',
       },
       {
@@ -154,7 +154,7 @@ const TimelineData = [
       {
         id: 6,
         title: 'LAUCRID',
-        logo: '/images/about/oic.png',
+        logo: '/images/about/SOC.png',
         content: 'Summer of Code was set up to piggyback on Hour of Code to engage and train Secondary School students with basic skills in web programming during the summer break.',
       },
     ],

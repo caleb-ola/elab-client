@@ -335,12 +335,17 @@
         width,
         100%,
         (
-          $md: 100%,
-          $lg: 100%,
-          $xl: 100%,
-          $xxl: 100%,
+          $md: auto,
+          $lg: auto,
+          $xl: auto,
+          $xxl: auto,
         )
       );
+    }
+    &--text {
+      color: $elab-black;
+      font-size: 1.1rem;
+      // font-weight: 500;
     }
     // &--btnTwo{
     //   @include rwd(

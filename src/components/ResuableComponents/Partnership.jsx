@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Partnership() {
   return (
@@ -19,10 +20,10 @@ function Partnership() {
                 Interested in partnering with us or want to invest?
                 {' '}
                 <div className="py-3 py-lg-5 px-0">
-                  <button type="button" className=" link-two btn fw-bold py-3 px-5 me-0">
+                  <Link to="/contact-us" type="button" className=" link-two btn fw-bold py-3 px-5 me-0">
                     Partner with us
                     {' '}
-                  </button>
+                  </Link>
                 </div>
               </h4>
 

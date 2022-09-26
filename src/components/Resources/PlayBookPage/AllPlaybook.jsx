@@ -208,8 +208,8 @@ function AllPlaybook() {
 
   return (
     <div className="playbook">
-      <div className="container">
-        <div className="d-flex flex-wrap  justify-content-center pb-3 pb-lg-5 playbook__nav">
+      <div className="container pb-5">
+        <div className="d-flex flex-wrap  justify-content-center pb-3 pb-lg-4 playbook__nav">
           <span
             role="button"
             tabIndex={0}

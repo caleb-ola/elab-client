@@ -14,10 +14,10 @@ function Blog() {
   const [loading, setLoading] = useState(true);
   const [skeleton, setSkeleton] = useState(
     <div className="container py-5 my-lg-5">
-      <div className="topblog p-3 p-md-5 mt-5">
+      <div className="topblog p-3 p-md-5 mt-5 mx-auto">
         <div className="row">
           <div className="col-md-5 col-lg-5 px-lg-3 order-sm-3 order-md-1">
-            <Skeleton height={350} width="100%" />
+            <Skeleton height={320} width="80%" />
           </div>
           <div className="col-md-1 col-lg-1 px-3 order-2 order-md-2" />
           <div className="col-md-6 col-lg-6 p-3 p-md-0 order-1 order-md-3 d-flex flex-column">

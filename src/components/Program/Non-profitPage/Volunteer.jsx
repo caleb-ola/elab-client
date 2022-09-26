@@ -1,6 +1,5 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 // import TagsInput from '../../ResuableComponents/TagsInput';
 
@@ -9,10 +8,44 @@ function Volunteer() {
   const [name, setName] = useState('');
   const [skills, setSkills] = useState();
   const [options, setOptions] = useState([]);
+  const [optionsTwo, setOptionsTwo] = useState([]);
   const [project, setProject] = useState('');
+  const [nonProfit, setNonProfit] = useState('');
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/v1/non-profits`).then(
+      (response) => {
+        // console.log(response);
+        const { data } = response.data;
+        setOptionsTwo(data);
+      },
+      (error) => {
+        // console.log(error);
+        setLoading(false);
+        if (error.response) {
+          error.response.data.errors.map((err) => toast.error(`${err.message}`, {
+            position: 'top-right',
+            autoClose: 15000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          }));
+        } else {
+          toast.error('Ops, something went wrong, please try again', {
+            position: 'top-right',
+            autoClose: 8000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+        }
+      },
+    );
     axios.get(`${process.env.REACT_APP_BASE_URL}/api/v1/projects`).then(
       (response) => {
         // console.log(response);
@@ -83,12 +116,14 @@ function Volunteer() {
     e.preventDefault();
     setLoading(true);
     axios.post(`${process.env.REACT_APP_BASE_URL}/api/v1/volunteers`, {
-      name, email, project, skills,
+      name, email, project, skills, nonProfit,
     }).then((response) => {
       // console.log(response);
       setLoading(false);
       setEmail('');
       setName('');
+      setProject('');
+      setNonProfit('');
       if (response) {
         toast.success('You have successfully joined our volunteering team.', {
           position: 'top-right',
@@ -157,13 +192,29 @@ function Volunteer() {
                   </label>
                   <input type="email" className="email p-3 my-2 benefits__form--input " id="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
                 </div>
+
                 <div className="row py-2">
                   <label className="" htmlFor="volunteer__project">
                     Select Name of project
                   </label>
-                  <select id="volunteer__project" name="volunteer__project" className="p-3 my-2 form-select benefits__form--input shadow-none" onChange={(e) => setProject(e.target.value)} required>
+                  <select id="volunteer__project" name="volunteer__project" className="p-3 my-2 form-select benefits__form--input shadow-none" defaultValue="DEFAULT" onChange={(e) => setProject(e.target.value)} required>
+                    <option value="DEFAULT" disabled>--Pick a Project--</option>
                     {options
                       && options?.map((item) => (
+                        <option className="benefits__form--option" value={item.title} key={item.id}>
+                          {item.title}
+                        </option>
+                      ))}
+                  </select>
+                </div>
+                <div className="row py-2">
+                  <label className="" htmlFor="volunteer__project">
+                    Select Non-profit
+                  </label>
+                  <select id="volunteer__project" name="volunteer__project" className="p-3 my-2 form-select benefits__form--input shadow-none" defaultValue="DEFAULT" onChange={(e) => setNonProfit(e.target.value)} required>
+                    <option value="DEFAULT" disabled>--Pick a Non-profit--</option>
+                    {optionsTwo
+                      && optionsTwo?.map((item) => (
                         <option className="benefits__form--option" value={item.title} key={item.id}>
                           {item.title}
                         </option>
@@ -209,47 +260,18 @@ function Volunteer() {
       </div>
       {/* JOIN TRYBE FORM ENDS */}
       <div className="container">
-        <div className="row">
-
-          <div className=" volunteer__hero--btnTwo text-center  pt-lg-5  col-md-6 d-flex flex-column mx-auto">
-            <p className="mb-5 mb-md-0">
+        <div className=" volunteer__hero--btnTwo text-center  py-lg-5  col-md-6 d-flex flex-column mx-auto mb-5">
+          <p className="mb-3 volunteer__hero--text ">
+            <strong>
               To us causes are projects and projects are causes because our hearts are
               fully involved in all that we do. Join our growing list of volunteers.
-            </p>
-            <button type="button" className=" link btn fw-bold py-3 px-5 me-0 mt-auto  d-block d-md-none mb-5 text-center" data-bs-toggle="modal" data-bs-target="#volunteerModal">
+            </strong>
+          </p>
+          <div className=" my-2 text-center">
+            <button type="button" className=" link btn fw-bold py-3 px-5 me-0 mt-auto" data-bs-toggle="modal" data-bs-target="#volunteerModal">
               Volunteer
               {' '}
             </button>
-          </div>
-          <div className="volunteer__hero--btnTwo text-center  pt-lg-5    col-md-6 d-flex flex-column mx-auto">
-            <p>
-              <em>
-                “Never doubt that a small group of thoughtful committed citizens can change the
-                world: indeed, it’s the only thing that ever has.”
-              </em>
-              {' '}
-              -
-              {' '}
-              <strong>Margaret Mead</strong>
-              {' '}
-              <br />
-              Want to contribute to any of our causes?
-
-            </p>
-          </div>
-        </div>
-        <div className="row mb-5 pb-lg-5 text-center">
-          <div className="col-md-6 my-2 text-center">
-            <button type="button" className=" link btn fw-bold py-3 px-5 me-0 mt-auto d-none d-md-inline-block" data-bs-toggle="modal" data-bs-target="#volunteerModal">
-              Volunteer
-              {' '}
-            </button>
-          </div>
-          <div className="col-md-6 my-2">
-            <Link to="/" type="button" className="link btn fw-bold py-3 px-5 me-0 ">
-              Donate here
-              {' '}
-            </Link>
           </div>
         </div>
       </div>

@@ -16,14 +16,14 @@ function Contact() {
         </title>
         <meta
           name="description"
-          content="we’d love to hear from you - here’s how...."
+          content="We’d love to hear from you - here’s how...."
         />
         <meta name="keywords" content="contact" />
       </Helmet>
       <NavBar />
       <HeroLight
         title="Get in Touch"
-        text="we’d love to hear from you - here’s how..."
+        text="We’d love to hear from you - here’s how..."
       />
       <ContactForm />
       <Map />

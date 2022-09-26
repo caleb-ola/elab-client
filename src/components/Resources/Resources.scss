@@ -5,6 +5,16 @@
     border-radius: 5px;
     color: $elab-black !important;
     transition: ease-in-out 0.5s;
+    @include rwd(
+        width,
+        95%,
+        (
+          $md: 95%,
+          $lg: 85%,
+          $xl: 80%,
+          $xxl: 80%,
+        )
+      );
     &--header{
         color: $elab-black;
     }
@@ -25,6 +35,11 @@
         //     )
         //   );
 
+    }
+    &--tags {
+        ::first-letter {
+            text-transform: uppercase;
+          }
     }
         &:hover {
             box-shadow: 0px 15px 50px 0px #4d4d4d26;

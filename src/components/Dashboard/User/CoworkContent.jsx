@@ -48,7 +48,7 @@ function CoworkContent() {
               header="No Bookings Yet"
               subtext="You haven't made any bookings yet, proceed to see our available workspace plans."
               button="Book a workspace"
-              path="/program/innovation-hub"
+              path="/services/workspace"
             />,
           );
         } else {
@@ -57,18 +57,19 @@ function CoworkContent() {
               {
             res.data.data.bookings.slice(paginate.start, paginate.end).map((item) => (
               <div className="col-md-6 col-lg-4 p-2 p-md-3 p-lg-4" key={item.id}>
-                <CoworkCard
-                  title={item.plan}
-                  people={`${item.noOfPersons}`}
-                  startDate={item.startDate}
-                  expDate={item.expDate}
-                  amount={item.amount}
-                  payment={item.paymentStatus}
-                  // date={`${item.startDate} --- ${item.expDate}`}
-                  // button="See Details"
-                  // image="/images/cowork/cowork1.png"
-                  // path="/dashboard/user/cowork/:slug"
-                />
+                {
+                  item.paymentStatus === true
+                   && (
+                   <CoworkCard
+                     title={item.plan}
+                     people={`${item.noOfPersons}`}
+                     startDate={item.startDate}
+                     expDate={item.expDate}
+                     amount={item.amount}
+                     payment={item.paymentStatus}
+                   />
+                   )
+                }
               </div>
             ))
             }
