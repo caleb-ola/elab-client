@@ -105,7 +105,7 @@ function NavBar() {
               <button type="button" className={window.location.pathname.includes('/program') ? 'nav-link  links px-0 py-1 my-1 my-lg-0 py-lg-4 active' : 'nav-link  links px-0 py-1 my-1 my-lg-0 py-lg-4'} id="navbarDropdown2" data-bs-toggle="dropdown2" aria-expanded="false">
                 Programs
               </button>
-              <ul className="dropdown-menu navi__dropdown" aria-labelledby="navbarDropdown2">
+              <ul className="dropdown-menu programs navi__dropdown" aria-labelledby="navbarDropdown2">
                 <div className="row p-3 ">
                   <div className="col-md-6">
                     <a href="/program/community" className="p-2 pb-3 px-3 btn text-start  navi__dropdown--option my-2 text-decoration-none w-100" role="button">
@@ -142,7 +142,7 @@ function NavBar() {
               <button type="button" className={window.location.pathname.includes('/services') ? 'nav-link  links px-0 py-1 my-1 my-lg-0 py-lg-4 active' : 'nav-link  links px-0 py-1 my-1 my-lg-0 py-lg-4'} id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                 Services
               </button>
-              <ul className="dropdown-menu navi__dropdown" aria-labelledby="navbarDropdown">
+              <ul className="dropdown-menu services navi__dropdown" aria-labelledby="navbarDropdown">
                 <div className="row p-3 ">
                   <div className="col-md-6">
                     <a href="/services/digital-services" className="p-2 pb-3 px-3 btn text-start  navi__dropdown--option my-2 text-decoration-none w-100" role="button">
@@ -184,7 +184,7 @@ function NavBar() {
               <button type="button" href="/" className={window.location.pathname.includes('/resources') && window.location.pathname.indexOf('user') === -1 ? 'nav-link links px-0 py-1 my-1 my-lg-0 py-lg-4 active' : 'nav-link  links px-0 py-1 my-1 my-lg-0 py-lg-4'} id="navbarDropdown2" data-bs-toggle="dropdown2" aria-expanded="false">
                 Resources
               </button>
-              <ul className="dropdown-menu navi__dropdown" aria-labelledby="navbarDropdown2">
+              <ul className="dropdown-menu resources navi__dropdown" aria-labelledby="navbarDropdown2">
                 <div className="row p-3 ">
                   <div className="col-md-6">
                     <a href="/resources/blog" className="p-2 pb-3 px-3 btn text-start  navi__dropdown--option my-2 text-decoration-none w-100" role="button">

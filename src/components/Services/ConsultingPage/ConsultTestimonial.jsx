@@ -37,14 +37,16 @@ function ConsultTestimonial() {
             </div>
             <div className="row align-items-center card-footer testimonial__card--footer p-0 ">
               <div className="col-2">
-                <img src="/images/program/round.png" alt="..." className="img-fluid" />
+                <img src="/images/program/olufadejimi.jpg" alt="..." className="img-fluid rounded-circle" />
               </div>
-              <div className="col-10">
+              <div className="col-10 p-0">
                 <p className="fw-bold m-0">
                   Olufadejimi
                 </p>
-                <p className="m-0">
-                  Project Coordinator- Threefold Social Impact Foundation.
+                <p className="m-0 lh-sm">
+                  <small>
+                    Project Coordinator- Threefold Social Impact Foundation.
+                  </small>
                 </p>
                 {' '}
               </div>

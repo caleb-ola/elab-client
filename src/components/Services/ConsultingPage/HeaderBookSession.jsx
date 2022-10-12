@@ -6,7 +6,7 @@ function HeaderBookSession() {
       <div className="container py-lg-5">
         <div className="row align-items-center">
           <div className="col-md-6 my-2 order-2 order-md-1">
-            <h4 className="py-2">Header text about consultation stays here</h4>
+            <h4 className="py-2">Deep insights to help transform your business </h4>
             <p className="py-md-2">
               We integrate consulting and advisory services with solution-rich
               insights and strategically aligned, contextually responsive practices customized
@@ -19,7 +19,7 @@ function HeaderBookSession() {
             </div>
           </div>
           <div className="col-md-6 px-md-5 my-2 order-1 order-md-2">
-            <img src="/images/services/services5.jpg" alt="" className="img-fluid" />
+            <img src="/images/services/services.jpg" alt="" className="img-fluid" />
           </div>
         </div>
       </div>

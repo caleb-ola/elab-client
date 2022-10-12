@@ -4,10 +4,9 @@ function Brands() {
   return (
     <div className="brands py-5">
       <div className="container pt-lg-5 text-center">
-        <h4 className="py-2">Brands we have consulted for</h4>
+        <h4 className="py-2">Brands We Have Consulted For</h4>
         <p className="py-2">
-          Urna volutpat, ullamcorper egestas et. Amet risus ut.
-          Urna volutpat, ullamcorper egestas et. Amet risus ut.
+          Brands we have consulted for and counting
         </p>
 
         <div className="row align-items-center text-center justify-content-center">

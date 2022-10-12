@@ -122,9 +122,9 @@ function Testimonial() {
               </div>
               <div className="row align-items-center card-footer testimonial__card--footer p-0 ">
                 <div className="col-2">
-                  <img src="/images/program/round.png" alt="..." className="img-fluid" />
+                  <img src="/images/program/glo-mary.jpg" alt="..." className="img-fluid rounded-circle" />
                 </div>
-                <div className="col-10">
+                <div className="col-10 p-0">
                   <p className="fw-bold m-0">Glo-Mary</p>
                   {' '}
                 </div>
@@ -156,9 +156,9 @@ function Testimonial() {
               </div>
               <div className="row align-items-center card-footer testimonial__card--footer p-0 ">
                 <div className="col-2">
-                  <img src="/images/program/round.png" alt="..." className="img-fluid" />
+                  <img src="/images/program/cephas.jpg" alt="..." className="img-fluid rounded-circle" />
                 </div>
-                <div className="col-10">
+                <div className="col-10 p-0">
                   <p className="fw-bold m-0">Peter Abegunde “Cephas”</p>
                   {' '}
                 </div>
@@ -188,9 +188,9 @@ function Testimonial() {
               </div>
               <div className="row align-items-center card-footer testimonial__card--footer p-0 ">
                 <div className="col-2">
-                  <img src="/images/program/round.png" alt="..." className="img-fluid" />
+                  <img src="/images/program/eyinju.jpg" alt="..." className="img-fluid rounded-circle" />
                 </div>
-                <div className="col-10">
+                <div className="col-10 p-0">
                   <p className="fw-bold m-0">EyinjuOluwa</p>
                   {' '}
                 </div>

@@ -78,7 +78,53 @@ nav {
       display: block;
       border: 0;
       padding: 10px;
-      margin-left: -20px;
+      // margin-left: -250px;
+      @include rwd(
+        margin-left,
+        0px, 
+        (
+          $md: 0px,
+          $lg: -250px,
+          $xl: -250px,
+          $xxl: -250px,
+        )
+      );
+      &.programs{
+        @include rwd(
+          margin-left,
+          0px, 
+          (
+            $md: 0px,
+            $lg: -20px,
+            $xl: -20px,
+            $xxl: -20px,
+          )
+        );
+      }
+      &.services{
+        @include rwd(
+          margin-left,
+          0px, 
+          (
+            $md: 0px,
+            $lg: -130px,
+            $xl: -130px,
+            $xxl: -130px,
+          )
+        );
+      }
+      &.resources{
+        @include rwd(
+          margin-left,
+          0px, 
+          (
+            $md: 0px,
+            $lg: -230px,
+            $xl: -230px,
+            $xxl: -230px,
+          )
+        );
+      }
       @include rwd(
         min-width,
         10rem, 
