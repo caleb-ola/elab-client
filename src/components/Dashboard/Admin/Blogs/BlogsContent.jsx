@@ -67,6 +67,7 @@ function BlogsContent() {
       </div>
     </div>,
   );
+
   useEffect(() => {
     // eslint-disable-next-line no-use-before-define
     RenderData();
